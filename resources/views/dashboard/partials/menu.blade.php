@@ -35,7 +35,7 @@
         </li>
         <!-- blog -->
         <li class="c-sidebar-nav-item">
-            <a href="" class="c-sidebar-nav-link">
+            <a href="{{ route("admin.blog_content.index") }}" class="c-sidebar-nav-link">
                 <i class="c-sidebar-nav-icon fas fa-fw fa fa-edit">
 
                 </i>

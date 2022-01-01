@@ -11,6 +11,7 @@ use App\Http\Controllers\Admin\ContentCategoryController;
 use App\Http\Controllers\Admin\ContentTagController;
 use App\Http\Controllers\Admin\ContentPageController;
 use App\Http\Controllers\Auth\ChangePasswordController;
+use App\Http\Controllers\Admin\BlogPageController;
 
 //Website Controller
 use App\Http\Controllers\Website\WebSiteController;
@@ -23,7 +24,7 @@ Route::get('/clear-cache', function () {
 	dd('Cache cleared');
 	// return what you want
 });
-Route::view('/blogg', '/website/pages/blog');
+// Route::view('/blog', '/website/pages/blog');
 
 Route::get('/config-cache', function () {
 	$exitCode = Artisan::call('config:cache');
@@ -36,7 +37,7 @@ Route::get('/', [WebSiteController::class, 'index'])->name('home');
 Route::get('/about', [WebSiteController::class, 'about'])->name('about');
 Route::get('/contact', [WebSiteController::class, 'contact'])->name('contact');
 Route::get('/price', [WebSiteController::class, 'price'])->name('price');
-Route::get('/blogg', [WebSiteController::class, 'blog'])->name('blogg');
+Route::get('/blog', [WebSiteController::class, 'blog'])->name('blog');
 Route::get('/privacy-policy', [WebSiteController::class, 'privacyPolicy'])->name('privacy-policy');
 
 
@@ -50,7 +51,8 @@ Route::get('/home', function () {
 
 Route::group(['prefix' => 'admin', 'as' => 'admin.', 'middleware' => ['auth']], function () {
     Route::get('/', [HomeController::class, 'index'])->name('home');
-
+    // Blog
+    Route::resource('blog_content', BlogPageController::class);
     // Home Pages
     Route::delete('homepage/destroy', [HomepageController::class, 'massDestroy'])->name('homepage.massDestroy');
     Route::resource('homepage', HomepageController::class);
@@ -90,6 +92,7 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.', 'middleware' => ['auth']], 
     // Content Category
     Route::delete('content-categories/destroy',[ContentCategoryController::class, 'massDestroy'])->name('content-categories.massDestroy');
     Route::resource('content-categories', ContentCategoryController::class);
+
 
     // Content Tag
     Route::delete('content-tags/destroy', [ContentTagController::class, 'massDestroy'])->name('content-tags.massDestroy');

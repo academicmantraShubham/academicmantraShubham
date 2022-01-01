@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Models\Menu;
 use App\Models\Homepage;
 use App\Models\ContentPage;
+use App\Models\BlogPage;
 use Cache;
 
 class WebSiteController extends Controller
@@ -90,15 +91,9 @@ class WebSiteController extends Controller
         abort(404, "page not found");
     }
     public function blog(Request $request)
-    {
-        // $data = $this->common();
-        // $menu = Menu::whereSlug('price')->first();
-        // if ($menu) {
-        //     $data['post'] = ContentPage::whereMenuId($menu->id)->first();
-        //     $data['bestoffers'] = Homepage::wherePage('best offers')->with('subHomepages')->get();
-        return view('website.pages.blog');
-        //}
-        abort(404, "page not found");
+    {        
+        $blogs = BlogPage::all();
+        return view('website.pages.blog', $blogs);
     }
 
     public function privacyPolicy(Request $request)
