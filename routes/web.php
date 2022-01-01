@@ -33,11 +33,12 @@ Route::get('/config-cache', function () {
 });
 
 Auth::routes(['register' => false]);
+Route::get('/blog', [WebSiteController::class, 'blog'])->name('blog');
+
 Route::get('/', [WebSiteController::class, 'index'])->name('home');
 Route::get('/about', [WebSiteController::class, 'about'])->name('about');
 Route::get('/contact', [WebSiteController::class, 'contact'])->name('contact');
 Route::get('/price', [WebSiteController::class, 'price'])->name('price');
-Route::get('/blog', [WebSiteController::class, 'blog'])->name('blog');
 Route::get('/privacy-policy', [WebSiteController::class, 'privacyPolicy'])->name('privacy-policy');
 
 

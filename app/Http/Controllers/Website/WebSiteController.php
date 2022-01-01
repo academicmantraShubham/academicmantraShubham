@@ -93,7 +93,7 @@ class WebSiteController extends Controller
     public function blog(Request $request)
     {        
         $blogs = BlogPage::all();
-        return view('website.pages.blog', $blogs);
+        return view('website.pages.blog',compact('blogs'));
     }
 
     public function privacyPolicy(Request $request)

@@ -15,8 +15,8 @@ class BlogPageController extends Controller
      */
     public function index()
     {
-       $blogContent = BlogPage::all();
-        return view('dashboard.admin.Blog.index', compact('blogContent'));   
+       $blogContents = BlogPage::all();
+        return view('dashboard.admin.Blog.index', compact('blogContents'));   
     }
 
     /**
@@ -48,7 +48,7 @@ class BlogPageController extends Controller
      */
     public function show($id)
     {
-        //
+        
     }
 
     /**
@@ -82,6 +82,31 @@ class BlogPageController extends Controller
      */
     public function destroy($id)
     {
-        //
+        
+    }
+    public function massDestroy(MassDestroyContentPageRequest $request)
+    {
+        BlogPage::whereIn('id', request('ids'))->delete();
+        //Set Observer to change menu content 0
+        // Menu::whereIn('id', request('ids'))->update(['content' =>  0]);
+        return response(null, Response::HTTP_NO_CONTENT);
+    }
+
+    public function storeCKEditorImages(Request $request)
+    {
+        abort_if(Gate::denies('content_page_create') && Gate::denies('content_page_edit'), Response::HTTP_FORBIDDEN, '403 Forbidden');
+        $request->validate([
+            'upload' => 'image',
+        ]);
+        
+        if($request->hasFile('upload')) {
+            $originName = $request->file('upload')->getClientOriginalName();
+            $fileName = pathinfo($originName, PATHINFO_FILENAME);
+            $extension = $request->file('upload')->getClientOriginalExtension();
+            $fileName = $fileName.'_'.time().'.'.$extension;
+            $request->file('upload')->move(public_path('images'), $fileName);
+            $url = asset('images/'.$fileName); 
+            return response()->json(['id' => 1, 'url' =>  $url], Response::HTTP_CREATED);
+        }
     }
 }
