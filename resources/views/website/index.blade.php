@@ -87,17 +87,18 @@
     <section class="services d-flex align-items-center py-5" id="services">
         <div class="container text-light">
             <div class="text-center pb-4" >
-            <h2 class="py-2">{!! @$expectus[0]->title !!}</h2>
-            <p class="para-light">{!! @$expectus[0]->content !!}</p>
+                <h2 class="py-2">{!! @$expectus[0]->title !!}</h2>
+                <p class="para-light">{!! @$expectus[0]->content !!}</p>
             </div>
+            <div class="row gy-4 py-2" data-aos="zoom-in">
             @foreach ($expectus[0]->subHomepages as $key => $subHomepage)
-                <div class="col-lg-3">
+                <div class="col-lg-4 col-md-4">
                    <a href=""> 
                        <div class="card bg-transparent">                    
-                        <h4 class="py-2">{{ strip_tags($subHomepage->title) }}</h4>
-                        <p class="para-light">{!! substr($subHomepage->content, 0, 100) !!}</p>
-                    </div>
-                </a>
+                            <h4 class="py-2">{{ strip_tags($subHomepage->title) }}</h4>
+                            <p class="para-light">{!! substr($subHomepage->content, 0, 100) !!}</p>
+                        </div>
+                    </a>
                 </div>
             @endforeach
             </div> <!-- end of row -->
@@ -123,14 +124,14 @@
             </div>
             <div class="row gy-4" data-aos="zoom-in">
             @foreach ($bestoffers[0]->subHomepages as $key => $item)
-                <div class="col-lg-4 @if(++$key % 2 == 0)featured @endif">
+                <div class="col-lg-4 col-md-4 @if(++$key % 2 == 0)featured @endif">
                     <div class="card bg-transparent px-4">
                         {!! @$item->title !!}
                         {!! @$item->content !!}
                         
                         <!-- <h4 class="py-3">$24/Month</h4> -->
                         <div class="my-3">
-                            <a class="btn" href="#your-link" >View Plans</a>
+                            <a class="btn" href="price" >View Plans</a>
                         </div>
                     </div>  
                 </div>
@@ -273,40 +274,7 @@
                                 </div> <!-- end of swiper-slide -->
                                 <!-- end of slide -->
                                 @endforeach
-                                <!-- Slide -->
-                                <div class="swiper-slide">
-                                    <div class="testimonial-card p-4">
-                                        <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Laboriosam commodi officia laborum qui iste quidem!</p>
-                                        <div class="d-flex pt-4">
-                                            <div>
-                                                <img class="avatar" src="./assets/images/testimonial-3.jpg" alt="testimonial">
-                                            </div>
-                                            <div class="ms-3 pt-2">
-                                                <h6>Stella Virtuoso</h6>
-                                                <p>Design Chief - Upscale</p>
-                                            </div>
-                                        </div>
-                                    </div>      
-                                </div> <!-- end of swiper-slide -->
-                                <!-- end of slide -->
-        
-                                <!-- Slide -->
-                                <div class="swiper-slide">
-                                    <div class="testimonial-card p-4">
-                                        <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Laboriosam commodi officia laborum qui iste quidem!</p>
-                                        <div class="d-flex pt-4">
-                                            <div>
-                                                <img class="avatar" src="./assets/images/testimonial-4.jpg" alt="testimonial">
-                                            </div>
-                                            <div class="ms-3 pt-2">
-                                                <p>Mike tim</p>
-                                                <p>Investor - TechGroww</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div> <!-- end of swiper-slide -->
-                                <!-- end of slide -->
-
+                                
                             </div> <!-- end of swiper-wrapper -->
         
                             <!-- Add Arrows -->

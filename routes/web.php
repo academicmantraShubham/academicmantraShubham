@@ -31,9 +31,9 @@ Route::get('/config-cache', function () {
 	dd('Cache cleared');
 	// return what you want
 });
+Route::get('/blog', [WebSiteController::class, 'blog'])->name('blog');
 
 Auth::routes(['register' => false]);
-Route::get('/blog', [WebSiteController::class, 'blog'])->name('blog');
 
 Route::get('/', [WebSiteController::class, 'index'])->name('home');
 Route::get('/about', [WebSiteController::class, 'about'])->name('about');

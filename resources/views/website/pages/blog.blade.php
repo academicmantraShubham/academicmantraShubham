@@ -6,7 +6,6 @@
 @endsection
 
 @section('content')
-<script>alert('hello');</script>
 <main id="">
    <!-- ======= Breadcrumbs ======= -->
    <section id="breadcrumbs" class="breadcrumbs">
@@ -23,13 +22,13 @@
       <div class="container" data-aos="fade-up">
          <div class="row">
             <div class="col-lg-8 entries">
-            @foreach ($blogs as $blog)
+            @foreach($blogs as $blog)
                <article class="entry">
                   <div class="entry-img">
                      <img src="assets/img/blog/blog-1.jpg" alt="" class="img-fluid">
                   </div>
                   <h2 class="entry-title">
-                     <a href="blog-single.html">{!! $blog->title !!}</a>
+                     <a href="#">{!! $blog->title !!}</a>
                   </h2>
                   <div class="entry-meta">
                      <ul>
@@ -40,7 +39,7 @@
                   <div class="entry-content">
                      {!! Str::limit($blog->page_text, 0, 100) !!}
                      <div class="read-more">
-                        <!-- <a href="{{ route('website.pages.show',$blog) }}">Read More</a> -->
+                        <a href="{{ route('website.pages.show',$blog) }}">Read More</a>
                      </div>
                   </div>
                </article>
