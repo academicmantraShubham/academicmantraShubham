@@ -31,7 +31,7 @@ Route::get('/config-cache', function () {
 	dd('Cache cleared');
 	// return what you want
 });
-Route::get('/blog', [WebSiteController::class, 'blog'])->name('blog');
+Route::get('/blog', [WebSiteController::class, 'blog']);
 
 Auth::routes(['register' => false]);
 
@@ -66,7 +66,7 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.', 'middleware' => ['auth']], 
 
     // Menus
     Route::delete('menu/destroy', [MenuController::class, 'massDestroy'])->name('menu.massDestroy');
-    Route::resource('menu', MenuController::class);
+    Route::resource('menu', MenuController::class); 
 
     //Sub Menus
     Route::get('menu/{id}/sub', [MenuController::class, 'subIndex'])->name('menu.sub');

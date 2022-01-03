@@ -93,6 +93,7 @@ class WebSiteController extends Controller
     public function blog(Request $request)
     {        
         $blogs = BlogPage::all();
+        // dd($blogs);
         return view('website.pages.blog',compact('blogs'));
     }
 

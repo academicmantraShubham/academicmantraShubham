@@ -23,7 +23,7 @@
          <div class="row">
             <div class="col-lg-8 entries">
             @foreach($blogs as $blog)
-               <article class="entry">
+               <article class="entry"> 
                   <div class="entry-img">
                      <img src="assets/img/blog/blog-1.jpg" alt="" class="img-fluid">
                   </div>
