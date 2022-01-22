@@ -4,12 +4,12 @@
     <div style="margin-bottom: 10px;" class="row">
         <div class="col-lg-12">
             <a class="btn btn-success" href="{{ route('admin.content-pages.create') }}">
-                {{ trans('global.add') }} {{ trans('cruds.contentPage.title_singular') }}
+                Add Blog
             </a>
         </div>
     </div>
 @endcan
-<div class="card">
+<div class="card"> 
     <div class="card-header">
         {{ trans('cruds.contentPage.title_singular') }} {{ trans('global.list') }}
     </div>
@@ -67,8 +67,8 @@
                                     <span class="badge badge-info">{{ $item->name }}</span>
                                 @endforeach
                             </td>
-                            <td>
-                                {{ $contentPage->excerpt ?? '' }}
+                            <td> 
+                                {{ $contentPage->excerpt ?? '' }} 
                             </td>
                             <td>
                                 @if($contentPage->featured_image)

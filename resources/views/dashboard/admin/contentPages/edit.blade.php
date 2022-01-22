@@ -3,7 +3,7 @@
 
 <div class="card">
     <div class="card-header">
-        {{ trans('global.edit') }} {{ trans('cruds.contentPage.title_singular') }}
+        {{ trans('global.edit') }} {{ trans('cruds.contentPage.title_singular') }} 
     </div>
 
     <div class="card-body">
@@ -24,23 +24,6 @@
                   </div>
               </div>
 
-              <div class="col-md-6">
-                  <div class="form-group">
-                      <label class="" for="title">{{ trans('Menu') }}</label>
-                      <select class="form-control select2 {{ $errors->has('menu_id') ? 'is-invalid' : '' }}" name="menu_id" id="menu" required>
-                          <option selected disabled>Select Menu</option>
-                          @foreach($menus as $id => $menu)
-                              <option value="{{ $menu->id }}" {{  old('menu_id', $contentPage->menu_id) ? 'selected' : '' }}>{{ $menu->title }}</option>
-                          @endforeach
-                      </select>
-      
-                      @if($errors->has('menu_id'))
-                          <div class="invalid-feedback">
-                              {{ $errors->first('menu_id') }}
-                          </div>
-                      @endif
-                  </div>
-              </div>
           </div>
           <div class="row">
               <div class="col-md-6">
@@ -55,7 +38,7 @@
                       <span class="help-block">{{ trans('cruds.contentPage.fields.title_helper') }}</span>
                   </div>
               </div>
-
+              <input type="hidden" name="type" id="type" value="blog">
               <div class="col-md-6">
                   <div class="form-group">
                       <label class="" for="meta_keywords">{{ trans('Meta Keywords') }}</label>

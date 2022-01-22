@@ -40,17 +40,15 @@ class WebSiteController extends Controller
     {
         $data = $this->common();
         $data['metadata'] = Homepage::wherePage('meta data')->first();
-        $data['thesisNdissertation'] = Homepage::wherePage('thesis n dissertation')->first();
+        $data['thesisNdissertation'] = Homepage::wherePage('thesisNdissertation')->first();
         $data['bestthesis'] = Homepage::wherePage('best thesis')->first();
-        $data['expectus'] = Homepage::wherePage('expect from us')->with('subHomepages')->get();
+        // $data['expectus'] = Homepage::wherePage('expectfromus')->with('subHomepages')->get();
         $data['whatYouneed'] = Homepage::wherePage('whatYouneed')->with('subHomepages')->get();
         $data['clientsSays'] = Homepage::wherePage('clientsSays')->with('subHomepages')->get();
         $data['sendyourquery'] = Homepage::wherePage('sendyourquery')->with('subHomepages')->get();
         $data['explorePossibilities'] = Homepage::wherePage('explorePossibilities')->with('subHomepages')->get();
 
         $data['hireus'] = Homepage::wherePage('hire us')->with('subHomepages')->get();
-        $data['callus'] = Homepage::wherePage('call us')->first();
-        $data['bestoffers'] = Homepage::wherePage('best offers')->with('subHomepages')->get();
         $data['askedquestions'] = Homepage::wherePage('asked questions')->with('subHomepages')->get();
         $data['fillrequirements'] = Homepage::wherePage('fill requirements')->first();
         return view('website.index', $data);
@@ -92,10 +90,14 @@ class WebSiteController extends Controller
     }
     public function blog(Request $request)
     {        
-        $blogs = BlogPage::all();
-        // dd($blogs);
-        return view('website.pages.blog',compact('blogs'));
-    }
+        $data = $this->common();
+        $menu = Menu::whereSlug('blog')->first();
+        if ($menu) {
+            $data['blogs'] = ContentPage::whereType('blog')->paginate(9);
+            return view('website.pages.blog', $data);
+        }
+        abort(404, "page not found");
+    } 
 
     public function privacyPolicy(Request $request)
     {
@@ -105,6 +107,15 @@ class WebSiteController extends Controller
             $data['post'] = ContentPage::whereMenuId($menu->id)->first();
         }
         return view('website.pages.privacy-policy', $data);
+        abort(404, "page not found");
+    }
+
+    public function detail($id)
+    {   
+        $data = $this->common();
+        $data['bolgDetails'] = ContentPage::whereId($id)->first();
+        // dd($data);
+        return view('website.pages.detail', $data);
         abort(404, "page not found");
     }
 

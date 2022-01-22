@@ -12,7 +12,7 @@
   <header class="ex-header">
         <div class="container">
             <div class="row">
-                <div class="col-xl-10 offset-xl-1">
+                <div class="col-xl-10 offset-xl-1">  
                     <h2 style="color:white">About Us</h2>
                 </div> <!-- end of col -->
             </div> <!-- end of row -->

@@ -47,7 +47,7 @@ class ContentCategoryController extends Controller
     {
         $contentCategory->update($request->all());
 
-        return redirect()->route('admin.content-categories.index');
+        return redirect()->route('admin.content-categories.index'); 
     }
 
     public function show(ContentCategory $contentCategory)

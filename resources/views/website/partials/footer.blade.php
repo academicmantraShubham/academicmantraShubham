@@ -32,7 +32,7 @@
                 </div> 
                 <div class="col-lg-3 py-4 py-md-5">
                     <div>
-                    {!! $footerdata->content !!}
+                    {!! $footerdata->content !!} 
                     </div>
                 </div> <!-- end of col -->
                 <!-- end of col -->

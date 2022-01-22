@@ -15,10 +15,11 @@ use App\Http\Controllers\Admin\BlogPageController;
 
 //Website Controller
 use App\Http\Controllers\Website\WebSiteController;
+use App\Http\Controllers\AjaxController;
+
 
 
 //Website Routes
-
 Route::get('/clear-cache', function () {
 	$exitCode = Artisan::call('cache:clear');
 	dd('Cache cleared');
@@ -31,7 +32,12 @@ Route::get('/config-cache', function () {
 	dd('Cache cleared');
 	// return what you want
 });
+
+Route::get('ajaxRequest', [AjaxController::class, 'ajaxRequest']);
+Route::post('ajaxRequest', [AjaxController::class, 'ajaxRequestPost'])->name('ajaxRequest.post');
+
 Route::get('/blog', [WebSiteController::class, 'blog']);
+Route::get('detail/{id}/', [WebSiteController::class, 'detail'])->name('website.pages.detail');
 
 Auth::routes(['register' => false]);
 
@@ -42,11 +48,11 @@ Route::get('/price', [WebSiteController::class, 'price'])->name('price');
 Route::get('/privacy-policy', [WebSiteController::class, 'privacyPolicy'])->name('privacy-policy');
 
 
-Route::get('/home', function () {
+Route::get('/home', function () { 
     if (session('status')) {
         return redirect()->route('admin.home')->with('status', session('status'));
     }
-    return redirect()->route('admin.home');
+    return redirect()->route('admin.home'); 
 });
 
 
@@ -116,4 +122,4 @@ Route::group(['prefix' => 'profile', 'as' => 'profile.', 'middleware' => ['auth'
     }
 });
 
-Route::get('/{slug}', [WebSiteController::class, 'post'])->name('post');
+Route::get('/{slug}', [WebSiteController::class, 'post'])->name('post'); 

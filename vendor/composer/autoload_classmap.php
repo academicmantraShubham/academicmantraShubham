@@ -8,6 +8,7 @@ $baseDir = dirname($vendorDir);
 return array(
     'App\\Console\\Kernel' => $baseDir . '/app/Console/Kernel.php',
     'App\\Exceptions\\Handler' => $baseDir . '/app/Exceptions/Handler.php',
+    'App\\Http\\Controllers\\Admin\\BlogPageController' => $baseDir . '/app/Http/Controllers/Admin/BlogPageController.php',
     'App\\Http\\Controllers\\Admin\\ContentCategoryController' => $baseDir . '/app/Http/Controllers/Admin/ContentCategoryController.php',
     'App\\Http\\Controllers\\Admin\\ContentPageController' => $baseDir . '/app/Http/Controllers/Admin/ContentPageController.php',
     'App\\Http\\Controllers\\Admin\\ContentTagController' => $baseDir . '/app/Http/Controllers/Admin/ContentTagController.php',
@@ -60,6 +61,7 @@ return array(
     'App\\Http\\Requests\\UpdateRoleRequest' => $baseDir . '/app/Http/Requests/UpdateRoleRequest.php',
     'App\\Http\\Requests\\UpdateUserRequest' => $baseDir . '/app/Http/Requests/UpdateUserRequest.php',
     'App\\Models\\BlogPage' => $baseDir . '/app/Models/BlogPage.php',
+    'App\\Models\\Calculator' => $baseDir . '/app/Models/Calculator.php',
     'App\\Models\\ContentCategory' => $baseDir . '/app/Models/ContentCategory.php',
     'App\\Models\\ContentPage' => $baseDir . '/app/Models/ContentPage.php',
     'App\\Models\\ContentTag' => $baseDir . '/app/Models/ContentTag.php',

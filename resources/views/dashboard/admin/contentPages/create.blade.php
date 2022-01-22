@@ -2,7 +2,7 @@
 @section('content')
 <div class="card">
     <div class="card-header">
-        {{ trans('global.create') }} {{ trans('cruds.contentPage.title_singular') }}
+        {{ trans('global.create') }} {{ trans('cruds.contentPage.title_singular') }} 
     </div>
 
     <div class="card-body">
@@ -22,7 +22,7 @@
                     </div>
                 </div>
 
-                <div class="col-md-6">
+                <!-- <div class="col-md-6">
                     <div class="form-group">
                         <label class="" for="title">{{ trans('Menu') }}</label>
                         <select class="form-control select2 {{ $errors->has('menu_id') ? 'is-invalid' : '' }}" name="menu_id" id="menu" required>
@@ -37,8 +37,8 @@
                                 {{ $errors->first('menu_id') }}
                             </div>
                         @endif
-                    </div>
-                </div>
+                    </div> 
+                </div> -->
             </div>
             <div class="row">
                 <div class="col-md-6">
@@ -119,8 +119,9 @@
             <div class="form-group">
                 <label for="page_text">{{ trans('cruds.contentPage.fields.page_text') }}</label>
                 <textarea class="form-control ckeditor {{ $errors->has('page_text') ? 'is-invalid' : '' }}" name="page_text" id="page_text">{!! old('page_text') !!}</textarea>
+                <input type="hidden" name="type" id="type" value="blog">
                 @if($errors->has('page_text'))
-                    <div class="invalid-feedback">
+                    <div class="invalid-feedback"> 
                         {{ $errors->first('page_text') }}
                     </div>
                 @endif

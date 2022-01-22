@@ -33,15 +33,6 @@
                 {{ trans('Writers') }}
             </a>
         </li>
-        <!-- blog -->
-        <li class="c-sidebar-nav-item">
-            <a href="{{ route("admin.blog_content.index") }}" class="c-sidebar-nav-link">
-                <i class="c-sidebar-nav-icon fas fa-fw fa fa-edit">
-
-                </i>
-                {{ trans("Blog") }}
-            </a>
-        </li>
 
         <li class="c-sidebar-nav-item">
             <a href="{{ route("admin.faqs") }}" class="c-sidebar-nav-link">
@@ -86,7 +77,7 @@
                                 <i class="fa-fw fas fa-briefcase c-sidebar-nav-icon">
 
                                 </i>
-                                {{ trans('cruds.role.title') }}
+                                {{ trans('cruds.role.title') }} 
                             </a>
                         </li>
                     @endcan
@@ -110,14 +101,13 @@
                     <i class="fa-fw fas fa-book c-sidebar-nav-icon">
 
                     </i>
-                    {{ trans('cruds.contentManagement.title') }}
+                    Blog Management
                 </a>
                 <ul class="c-sidebar-nav-dropdown-items">
                     @can('content_category_access')
                         <li class="c-sidebar-nav-item">
                             <a href="{{ route("admin.content-categories.index") }}" class="c-sidebar-nav-link {{ request()->is("admin/content-categories") || request()->is("admin/content-categories/*") ? "c-active" : "" }}">
                                 <i class="fa-fw fas fa-folder c-sidebar-nav-icon">
-
                                 </i>
                                 {{ trans('cruds.contentCategory.title') }}
                             </a>
@@ -127,7 +117,6 @@
                         <li class="c-sidebar-nav-item">
                             <a href="{{ route("admin.content-tags.index") }}" class="c-sidebar-nav-link {{ request()->is("admin/content-tags") || request()->is("admin/content-tags/*") ? "c-active" : "" }}">
                                 <i class="fa-fw fas fa-tags c-sidebar-nav-icon">
-
                                 </i>
                                 {{ trans('cruds.contentTag.title') }}
                             </a>
@@ -139,14 +128,14 @@
                                 <i class="fa-fw fas fa-file c-sidebar-nav-icon">
 
                                 </i>
-                                {{ trans('cruds.contentPage.title') }}
+                                Add Blog
                             </a>
                         </li>
                     @endcan
                 </ul>
             </li>
         @endcan
-    
+
         @if(file_exists(app_path('Http/Controllers/Auth/ChangePasswordController.php')))
             @can('profile_password_edit')
                 <li class="c-sidebar-nav-item">
@@ -158,7 +147,7 @@
                 </li>
             @endcan
         @endif
-        
+
         <li class="c-sidebar-nav-item">
             <a href="#" class="c-sidebar-nav-link" onclick="event.preventDefault(); document.getElementById('logoutform').submit();">
                 <i class="c-sidebar-nav-icon fas fa-fw fa-sign-out-alt">

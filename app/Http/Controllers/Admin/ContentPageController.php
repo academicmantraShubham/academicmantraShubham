@@ -20,11 +20,11 @@ class ContentPageController extends Controller
 {
     use MediaUploadingTrait;
 
-    public function index()
+    public function index() 
     {
         abort_if(Gate::denies('content_page_access'), Response::HTTP_FORBIDDEN, '403 Forbidden');
 
-        $contentPages = ContentPage::with(['categories', 'tags', 'media'])->get();
+        $contentPages = ContentPage::where('type', 'blog')->with(['categories', 'tags', 'media'])->get();
 
         return view('dashboard.admin.contentPages.index', compact('contentPages'));
     }
@@ -35,7 +35,7 @@ class ContentPageController extends Controller
 
         $categories = ContentCategory::pluck('name', 'id');
         $menus = Menu::where('content', 0)->get();
-        $tags = ContentTag::pluck('name', 'id');
+        $tags = ContentTag::pluck('name', 'id'); 
 
         return view('dashboard.admin.contentPages.create', compact('categories', 'tags', 'menus'));
     }

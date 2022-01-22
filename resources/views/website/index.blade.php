@@ -4,7 +4,8 @@
  <title>{{ $metadata->title ?? 'Plagiarism Free Writing by PHD Experts – Thesis N Dissertation	' }}</title>
  <meta name="description" content="{{ $metadata->content ?? 'Save up your time and outsource your thesis, dissertations and more  to PHD qualified writing professionals. Guaranteed on-time delivery with high quality material at affordable prices.' }}">
  <meta name="keywords" content="{{ $metadata->alt ?? 'Best essay writing in Australia, online assignment help, Academic writing services, thesis writing and dissertation writing services, online writing services' }}" >
-    <!-- shcema -->
+ <meta charset="utf-8">   
+ <!-- shcema -->
     <script type="application/ld+json">
         {
             "@context": "https://schema.org/",
@@ -16,9 +17,22 @@
                 "ratingValue": "4.8",
                 "ratingCount": "2034"
             }
-        }
+        } 
     </script>
-  <!-- OG Meta Tags to improve the way the post looks when you share the page on Facebook, Twitter, LinkedIn -->
+    <style>
+  /* Make the image fully responsive */
+  .carousel-inner img {
+    width: 100%;
+    height: 100%;
+  }
+  .dropdown-item:focus, .dropdown-item:hover {
+    background-color: #1c262f !important;
+}
+  </style>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script>
+  <!--OG Meta Tags to improve the way the post looks when you share the page on Facebook, Twitter, LinkedIn -->
 	<meta property="og:site_name" content="" /> <!-- website name -->
 	<meta property="og:site" content="" /> <!-- website link -->
 	<meta property="og:title" content=""/> <!-- title shown in the actual shared post -->
@@ -30,6 +44,42 @@
 @endsection
 
 @section('content')
+
+<div class="container-fluid">
+<div class="row">
+<div id="demo" class="carousel slide" data-ride="carousel">
+
+  <!-- Indicators -->
+  <ul class="carousel-indicators">
+    <li data-target="#demo" data-slide-to="0" class="active"></li>
+    <li data-target="#demo" data-slide-to="1"></li>
+    <li data-target="#demo" data-slide-to="2"></li>
+  </ul>
+  
+  <!-- The slideshow -->
+  <div class="carousel-inner">
+    <div class="carousel-item active">
+      <img src="https://www.w3schools.com/bootstrap/ny.jpg" alt="Los Angeles" width="1100" height="500">
+    </div>
+    <div class="carousel-item">
+      <img src="https://www.w3schools.com/bootstrap/chicago.jpg" alt="Chicago" width="1100" height="500">
+    </div>
+    <div class="carousel-item">
+      <img src="https://www.w3schools.com/bootstrap/la.jpg" alt="New York" width="1100" height="500">
+    </div>
+  </div>
+  
+  <!-- Left and right controls -->
+  <a class="carousel-control-prev" href="#demo" data-slide="prev">
+    <span class="carousel-control-prev-icon"></span>
+  </a>
+  <a class="carousel-control-next" href="#demo" data-slide="next">
+    <span class="carousel-control-next-icon"></span>
+  </a>
+</div>
+</div>
+</div>
+
 
 <!-- Home -->
 <section class="home py-5 d-flex align-items-center" id="header">
@@ -44,18 +94,20 @@
 
 <!-- Information -->
 <section class="information">
-        <div class="container-fluid">  
-            <div class="row text-light">
-            @foreach ($whatYouneed[0]->subHomepages as $key => $whatYouneed)
-                <div class="col-lg-4 text-center p-5" data-aos="zoom-in">
-                    {!! $whatYouneed->alt !!}
-                    <h4 class="py-3">{!! strip_tags($whatYouneed->title) !!}</h4>
-                    <p class="para-light">{!! strip_tags($whatYouneed->content) !!}</p>
-                </div>
-            @endforeach
+    <div class="container-fluid">  
+        <div class="row text-light">
+        @foreach ($whatYouneed[0]->subHomepages as $key => $whatYouneed)
+            <div class="col-lg-4 text-center p-5" data-aos="zoom-in">
+                {!! $whatYouneed->alt !!}
+                <h4 class="py-3">{!! strip_tags($whatYouneed->title) !!}</h4>
+                <p class="para-light">{!! strip_tags($whatYouneed->content) !!}</p>
             </div>
-        </div> <!-- end of container -->
-    </section> <!-- end of information -->
+        @endforeach
+        </div>
+    </div> 
+    <!-- end of container -->
+</section> 
+<!-- end of information -->
     
 
     <!-- About -->
@@ -76,34 +128,9 @@
         </div> <!-- end of container -->
     </section> <!-- end of about -->
 
- <section style="background-color: #3570a3;" class="services d-flex align-items-center py-5" id="services">
-        <div class="container text-light">
-            <div class="text-center pb-4" >
-                <h2 class="py-2"> {!! @$callus->title !!}</h2>
-                <p class="para-light">{!! @$callus->content !!}</p>
-            </div>
-        </div></section>
+ 
     <!-- Services -->
-    <section class="services d-flex align-items-center py-5" id="services">
-        <div class="container text-light">
-            <div class="text-center pb-4" >
-                <h2 class="py-2">{!! @$expectus[0]->title !!}</h2>
-                <p class="para-light">{!! @$expectus[0]->content !!}</p>
-            </div>
-            <div class="row gy-4 py-2" data-aos="zoom-in">
-            @foreach ($expectus[0]->subHomepages as $key => $subHomepage)
-                <div class="col-lg-4 col-md-4">
-                   <a href=""> 
-                       <div class="card bg-transparent">                    
-                            <h4 class="py-2">{{ strip_tags($subHomepage->title) }}</h4>
-                            <p class="para-light">{!! substr($subHomepage->content, 0, 100) !!}</p>
-                        </div>
-                    </a>
-                </div>
-            @endforeach
-            </div> <!-- end of row -->
-        </div> <!-- end of container -->
-    </section> <!-- end of services -->
+   
 
     <style>
       section .container .card ul li::before {
@@ -115,84 +142,6 @@
         padding-top: 10px;
       }
     </style>
-    <!-- Plans -->
-    <section class="plans d-flex align-items-center py-5" id="plans">
-        <div class="container text-light" >
-            <div class="text-center pb-4">
-                <h2 class="py-2">{!! @$bestoffers[0]->title !!}</h2>
-                <p class="para-light">{!! @$bestoffers[0]->content !!}</p>
-            </div>
-            <div class="row gy-4" data-aos="zoom-in">
-            @foreach ($bestoffers[0]->subHomepages as $key => $item)
-                <div class="col-lg-4 col-md-4 @if(++$key % 2 == 0)featured @endif">
-                    <div class="card bg-transparent px-4">
-                        {!! @$item->title !!}
-                        {!! @$item->content !!}
-                        
-                        <!-- <h4 class="py-3">$24/Month</h4> -->
-                        <div class="my-3">
-                            <a class="btn" href="price" >View Plans</a>
-                        </div>
-                    </div>  
-                </div>
-            @endforeach
-                <!-- <div class="col-lg-4">
-                    <div class="card bg-transparent px-4">
-                        <h4 class="py-2">BUSINESS BUNDLE</h4>
-                        <p class="py-3">Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
-                        <div class="block d-flex align-items-center">
-                            <p class="pe-2"><i class="far fa-check-circle fa-1x"></i></p>
-                            <p>Lorem ipsum dolor sit amet.</p>
-                        </div>
-                        <div class="block d-flex align-items-center">
-                            <p class="pe-2"><i class="far fa-check-circle fa-1x"></i></p>
-                            <p>Lorem ipsum dolor sit amet.</p>
-                        </div>
-                        <div class="block d-flex align-items-center">
-                            <p class="pe-2"><i class="far fa-check-circle fa-1x"></i></p>
-                            <p>Lorem ipsum dolor sit amet.</p>
-                        </div>
-                        <div class="block d-flex align-items-center">
-                            <p class="pe-2"><i class="far fa-check-circle fa-1x"></i></p>
-                            <p>Lorem ipsum dolor sit amet.</p>
-                        </div>
-                        <h4 class="py-3">$99/Month</h4>
-                        <div class="my-3">
-                            <a class="btn" href="#your-link" >View Plans</a>
-                        </div>
-                    </div>  
-                </div> -->
-
-                <!-- <div class="col-lg-4">
-                    <div class="card bg-transparent px-4" >
-                        <h4 class="py-2">PREMIUM BUNDLE</h4>
-                        <p class="py-3">Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
-                        <div class="block d-flex align-items-center">
-                            <p class="pe-2"><i class="far fa-check-circle fa-1x"></i></p>
-                            <p>Lorem ipsum dolor sit amet.</p>
-                        </div>
-                        <div class="block d-flex align-items-center">
-                            <p class="pe-2"><i class="far fa-check-circle fa-1x"></i></p>
-                            <p>Lorem ipsum dolor sit amet.</p>
-                        </div>
-                        <div class="block d-flex align-items-center">
-                            <p class="pe-2"><i class="far fa-check-circle fa-1x"></i></p>
-                            <p>Lorem ipsum dolor sit amet.</p>
-                        </div>
-                        <div class="block d-flex align-items-center">
-                            <p class="pe-2"><i class="far fa-check-circle fa-1x"></i></p>
-                            <p>Lorem ipsum dolor sit amet.</p>
-                        </div>
-                        <h4 class="py-3">$199/Month</h4>
-                        <div class="my-3">
-                            <a class="btn" href="#your-link" >View Plans</a>                    
-                        </div>
-                    </div>  
-                </div> -->
-            </div> <!-- end of row -->
-        </div> <!-- end of container -->
-    </section> <!-- end of plans -->
-
 
     <!-- Work -->
     <section class="work d-flex align-items-center py-5" >
@@ -368,10 +317,4 @@
             </div> <!-- end of row -->
         </div> <!-- end of container -->
     </section> <!-- end of location -->
-
-
-
-
-
- 
 @endsection

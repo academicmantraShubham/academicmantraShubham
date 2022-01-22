@@ -657,6 +657,7 @@ class ComposerStaticInita0a52bc9aac7824e9fef09e9adebaa1c
     public static $classMap = array (
         'App\\Console\\Kernel' => __DIR__ . '/../..' . '/app/Console/Kernel.php',
         'App\\Exceptions\\Handler' => __DIR__ . '/../..' . '/app/Exceptions/Handler.php',
+        'App\\Http\\Controllers\\Admin\\BlogPageController' => __DIR__ . '/../..' . '/app/Http/Controllers/Admin/BlogPageController.php',
         'App\\Http\\Controllers\\Admin\\ContentCategoryController' => __DIR__ . '/../..' . '/app/Http/Controllers/Admin/ContentCategoryController.php',
         'App\\Http\\Controllers\\Admin\\ContentPageController' => __DIR__ . '/../..' . '/app/Http/Controllers/Admin/ContentPageController.php',
         'App\\Http\\Controllers\\Admin\\ContentTagController' => __DIR__ . '/../..' . '/app/Http/Controllers/Admin/ContentTagController.php',
@@ -709,6 +710,7 @@ class ComposerStaticInita0a52bc9aac7824e9fef09e9adebaa1c
         'App\\Http\\Requests\\UpdateRoleRequest' => __DIR__ . '/../..' . '/app/Http/Requests/UpdateRoleRequest.php',
         'App\\Http\\Requests\\UpdateUserRequest' => __DIR__ . '/../..' . '/app/Http/Requests/UpdateUserRequest.php',
         'App\\Models\\BlogPage' => __DIR__ . '/../..' . '/app/Models/BlogPage.php',
+        'App\\Models\\Calculator' => __DIR__ . '/../..' . '/app/Models/Calculator.php',
         'App\\Models\\ContentCategory' => __DIR__ . '/../..' . '/app/Models/ContentCategory.php',
         'App\\Models\\ContentPage' => __DIR__ . '/../..' . '/app/Models/ContentPage.php',
         'App\\Models\\ContentTag' => __DIR__ . '/../..' . '/app/Models/ContentTag.php',
