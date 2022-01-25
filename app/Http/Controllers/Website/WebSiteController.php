@@ -8,6 +8,7 @@ use App\Models\Menu;
 use App\Models\Homepage;
 use App\Models\ContentPage;
 use App\Models\BlogPage;
+use App\Models\Calculator;
 use Cache;
 
 class WebSiteController extends Controller
@@ -47,6 +48,8 @@ class WebSiteController extends Controller
         $data['clientsSays'] = Homepage::wherePage('clientsSays')->with('subHomepages')->get();
         $data['sendyourquery'] = Homepage::wherePage('sendyourquery')->with('subHomepages')->get();
         $data['explorePossibilities'] = Homepage::wherePage('explorePossibilities')->with('subHomepages')->get();
+        $data['calculators'] = Calculator::whereNotNull('place')->get();
+        $data['faqs'] = Homepage::wherePage('faqs')->get();
 
         $data['hireus'] = Homepage::wherePage('hire us')->with('subHomepages')->get();
         $data['askedquestions'] = Homepage::wherePage('asked questions')->with('subHomepages')->get();
@@ -72,7 +75,7 @@ class WebSiteController extends Controller
         if ($menu) {
             $data['post'] = ContentPage::whereMenuId($menu->id)->first();
             $data['sendyourquery'] = Homepage::wherePage('sendyourquery')->with('subHomepages')->get();
-            return view('website.pages.contact', $data);
+            view('website.pages.contact', $data);
         }
         abort(404, "page not found");
     }

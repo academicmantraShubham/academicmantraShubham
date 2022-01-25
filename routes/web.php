@@ -33,8 +33,8 @@ Route::get('/config-cache', function () {
 	// return what you want
 });
 
-Route::get('ajaxRequest', [AjaxController::class, 'ajaxRequest']);
-Route::post('ajaxRequest', [AjaxController::class, 'ajaxRequestPost'])->name('ajaxRequest.post');
+// Route::get('ajaxRequest', [AjaxController::class, 'ajaxRequest']);
+Route::get('ajaxRequest', [AjaxController::class, 'ajaxRequestPost'])->name('ajaxRequest.post');
 
 Route::get('/blog', [WebSiteController::class, 'blog']);
 Route::get('detail/{id}/', [WebSiteController::class, 'detail'])->name('website.pages.detail');
@@ -101,7 +101,7 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.', 'middleware' => ['auth']], 
     Route::resource('content-categories', ContentCategoryController::class);
 
 
-    // Content Tag
+    // Content Tag 
     Route::delete('content-tags/destroy', [ContentTagController::class, 'massDestroy'])->name('content-tags.massDestroy');
     Route::resource('content-tags', ContentTagController::class);
 

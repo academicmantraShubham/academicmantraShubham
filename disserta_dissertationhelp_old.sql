@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Jan 25, 2022 at 05:41 PM
+-- Generation Time: Jan 03, 2022 at 04:46 PM
 -- Server version: 10.4.22-MariaDB
 -- PHP Version: 7.4.26
 
@@ -20,28 +20,6 @@ SET time_zone = "+00:00";
 --
 -- Database: `disserta_dissertationhelp`
 --
-
--- --------------------------------------------------------
-
---
--- Table structure for table `blog_categories`
---
-
-CREATE TABLE `blog_categories` (
-  `id` bigint(20) UNSIGNED NOT NULL,
-  `name` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `slug` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `created_at` timestamp NULL DEFAULT NULL,
-  `updated_at` timestamp NULL DEFAULT NULL,
-  `deleted_at` timestamp NULL DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
---
--- Dumping data for table `blog_categories`
---
-
-INSERT INTO `blog_categories` (`id`, `name`, `slug`, `created_at`, `updated_at`, `deleted_at`) VALUES
-(1, 'blog-test', 'testblog', '2022-01-05 09:06:18', '2022-01-05 09:06:18', NULL);
 
 -- --------------------------------------------------------
 
@@ -75,76 +53,12 @@ INSERT INTO `blog_pages` (`id`, `menu_id`, `user_id`, `title`, `meta_title`, `me
 (4, 2, 1, 'About', 'About Us | Best Assignment Writer IN Australia 24/7', 'Best essay writing in Australia, online assignment help, Academic writing services, thesis writing and dissertation writing services, online writing', 'Best essay writing services in Australia. We provide assignment, academic content, dissertation and thesis writing with zero plagiarism.', '<h2>We Are Best In Essay Writing</h2><p>&nbsp;</p><p>Consulted he eagerness unfeeling deficient existence of. Calling nothing end fertile for venture way boy. Esteem spirit temper too say adieus who direct esteem. It esteems luckily mr or picture placing drawing no. Apartments frequently or motionless on reasonable projecting expression. Last sentence of words thus better.</p><p>Ye on properly handsome returned throwing am no whatever. In without wishing he of picture no exposed talking minutes. Curiosity continual belonging offending so explained it exquisite. Do remember to followed yourself material mr recurred carriage. Way mrs end gave fat skin brown yesterday tall walk fact bed.</p><p>&nbsp;</p><h2>Advantages of working with this package</h2><p>&nbsp;</p><p>High drew west we no or at john. About or given on witty event. Or sociable up material bachelor bringing landlord confined. Busy so many in hung easy find well up. So of exquisite my an explained remainder. Dashwood denoting securing be on perceive my laughing so. Ye on properly handsome returned throwing am no whatever.</p><p>Sociable on as carriage my position weddings raillery consider. Peculiar trifling absolute and wandered vicinity property yet. The and collecting motionless difficulty son. His hearing staying ten colonel met. Word drew six easy four dear cold deny. Fulfilled direction use continual set him propriety continued. Saw met applauded favourite deficient.</p><p>&nbsp;</p>', NULL, '2021-11-13 12:47:29', '2021-12-26 11:22:29', NULL),
 (5, 13, 1, 'Price Title', 'Price', NULL, '<p>Get the best offers from TNDS</p>', '<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Non sed accusantium aut dolores inventore architecto modi cupiditate eligendi corporis, illum illo culpa. Reiciendis, molestias. Illum voluptatum quisquam ad veritatis dolorem.</p><p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Non sed accusantium aut dolores inventore architecto modi cupiditate eligendi corporis, illum illo culpa. Reiciendis, molestias. Illum voluptatum quisquam ad veritatis dolorem.</p>', '<p>Get the best offers from TNDS</p>', '2021-11-15 19:49:35', '2021-12-29 11:20:06', NULL),
 (6, 15, 1, 'Blog', 'Blog', 'blog', '<h1>blog</h1>', '<p>blog</p>', '<p>blog</p><figure class=\"image\"><img src=\"https://thesisndissertationhelp.com/images/Screenshot_2021-11-16-19-09-34-39_1637070945.jpg\" alt=\"assignment help\"></figure>', '2021-11-16 20:56:43', '2021-11-16 21:32:09', NULL),
-(7, 14, 1, 'Contact', 'contact', 'contact', '<h1>contact</h1>', '<h2><strong>We Are Best In Essay Writing</strong></h2><p>&nbsp;</p><p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Non sed accusantium aut dolores inventore architecto modi cupiditate eligendi corporis, illum illo culpa. Reiciendis, molestias. Illum voluptatum quisquam ad veritatis dolorem.</p><p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Non sed accusantium aut dolores inventore architecto modi cupiditate eligendi corporis, illum illo culpa. Reiciendis, molestias. Illum voluptatum quisquam ad veritatis dolorem.</p>', 'Send your query\nLorem ipsum dolor sit amet consectetur, adipisicing elit. Dignissimos dicta mollitia totam explicabo obcaecati quia laudantium repudiandae.', '2021-11-16 21:00:26', '2021-12-30 11:39:41', NULL),
+(7, 14, 1, 'Contact', 'contact', 'contact', '<h1>contact</h1>', '<h2><strong>We Are Best In Essay Writing</strong></h2><p>&nbsp;</p><p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Non sed accusantium aut dolores inventore architecto modi cupiditate eligendi corporis, illum illo culpa. Reiciendis, molestias. Illum voluptatum quisquam ad veritatis dolorem.</p><p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Non sed accusantium aut dolores inventore architecto modi cupiditate eligendi corporis, illum illo culpa. Reiciendis, molestias. Illum voluptatum quisquam ad veritatis dolorem.</p>', 'Send your query\r\nLorem ipsum dolor sit amet consectetur, adipisicing elit. Dignissimos dicta mollitia totam explicabo obcaecati quia laudantium repudiandae.', '2021-11-16 21:00:26', '2021-12-30 11:39:41', NULL),
 (8, 10, 1, 'Australia', 'Australia assignment help', 'Australia assignment help', 'Australia assignment help', '<p>Australia assignment help</p>', NULL, '2021-11-19 14:56:08', '2021-11-19 14:56:08', NULL),
 (9, 100, 1, 'Other', 'all assignment help services World wide', NULL, 'all assignment help services World wide', '<h1>all assignment help services World wide&nbsp;</h1><p>all assignment help services World wide all assignment help services World wide&nbsp;</p>', '<h2>all subjects Expert at tnd&nbsp;</h2><p>all assignment help services World wide all assignment help services World wide&nbsp;</p><figure class=\"image\"><img src=\"https://thesisndissertationhelp.com/images/feature-image_1637324590.png\" alt=\"assignment\"></figure>', '2021-11-19 19:23:30', '2021-11-19 19:23:30', NULL),
 (10, 106, 1, 'Quantitative Dissertation Help', 'Quantitative Dissertation Help', 'quantitative-dissertation-help', 'quantitative-dissertation-help', '<h1>What IS Quantitative Dissertation Help</h1><p>quantitative-dissertation-help quantitative-dissertation-help quantitative-dissertation-help quantitative-dissertation-help quantitative-dissertation-help quantitative-dissertation-help quantitative-dissertation-help quantitative-dissertation-help</p>', '<h2>Quantitative Dissertation Guidelines&nbsp;</h2><p>quantitative-dissertation-helpquantitative-dissertation-helpquantitative-dissertation-helpv</p><h3>Thesis vs. Dissertation&nbsp;</h3><p>quantitative-dissertation-helpquantitative-dissertation-helpquantitative-dissertation-helpv quantitative-dissertation-helpquantitative-dissertation-helpquantitative-dissertation-help</p><p>quantitative-dissertation-helpquantitative-dissertation-helpquantitative-dissertation-help&nbsp;</p><h3>PDF Dissertation Writing Services By PhD Experts</h3><p>&nbsp;</p><p>quantitative-dissertation-helpquantitative-dissertation-helpquantitative-dissertation-helpv quantitative-dissertation-helpquantitative-dissertation-helpquantitative-dissertation-help</p><p>quantitative-dissertation-helpquantitative-dissertation-helpquantitative-dissertation-help&nbsp;</p>', '2021-11-25 17:07:17', '2021-11-25 19:16:17', NULL),
 (11, 107, 1, 'Qualitative', 'Qualitative', 'Qualitative', 'Qualitative', '<h1>Best Qualitative dissertation writing services&nbsp;</h1><p>Qualitative Qualitative Qualitative Qualitative Qualitative Qualitative Qualitative Qualitative Qualitative Qualitative Qualitative Qualitative Qualitative Qualitative Qualitative Qualitative Qualitative Qualitative Qualitative Qualitative</p>', '<h2>Write your Qualitative dissertation from our PHD level expert</h2><p>Write your Qualitative dissertation from our PHD level expert Write your Qualitative dissertation from our PHD level expert Write your Qualitative dissertation from our PHD level expert Write your Qualitative dissertation from our PHD level expert</p><h3>Best Ideas for Dissertation Topics</h3><p>Write your Qualitative dissertation from our PHD level expert Write your Qualitative dissertation from our PHD level expert Write your Qualitative dissertation from our PHD level expert Write your Qualitative dissertation from our PHD level expert</p><h3>Dissertation topics for academic year 2020_2021</h3><p>quantitative-dissertation-helpquantitative-dissertation-helpquantitative-dissertation-helpv quantitative-dissertation-helpquantitative-dissertation-helpquantitative-dissertation-help</p><p>quantitative-dissertation-helpquantitative-dissertation-helpquantitative-dissertation-help&nbsp;</p><figure class=\"image\"><img src=\"https://thesisndissertationhelp.com/images/book-appointment_1637841114.webp\" alt=\"aa\"></figure><p>&nbsp;</p>', '2021-11-25 18:52:14', '2021-11-25 19:20:45', NULL),
 (12, 109, 1, 'Research', 'research report writing', 'research report writing', 'research report writing', '<h1>Research Report Writing Format</h1><p>research report writing research report writing research report writing research report writing research report writing research report writing research report writing research report writing research report writing research report writing</p>', '<h2>How to Write an Effective Research REport</h2><p>research report writing research report writing research report writing research report writing research report writing research report writing research report writing research report writing research report writing research report writing</p>', '2021-11-25 19:25:34', '2021-11-25 19:25:34', NULL);
-
--- --------------------------------------------------------
-
---
--- Table structure for table `blog_tags`
---
-
-CREATE TABLE `blog_tags` (
-  `id` bigint(20) UNSIGNED NOT NULL,
-  `name` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `slug` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `created_at` timestamp NULL DEFAULT NULL,
-  `updated_at` timestamp NULL DEFAULT NULL,
-  `deleted_at` timestamp NULL DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
---
--- Dumping data for table `blog_tags`
---
-
-INSERT INTO `blog_tags` (`id`, `name`, `slug`, `created_at`, `updated_at`, `deleted_at`) VALUES
-(1, 'blogtag-test', 'tagofblog', '2022-01-05 09:06:48', '2022-01-05 09:06:48', NULL),
-(2, 'blogtag-test', 'tagofblog', '2022-01-05 09:14:16', '2022-01-05 09:14:31', '2022-01-05 09:14:31');
-
--- --------------------------------------------------------
-
---
--- Table structure for table `calculators`
---
-
-CREATE TABLE `calculators` (
-  `id` int(11) NOT NULL,
-  `category` varchar(255) NOT NULL,
-  `price` bigint(20) NOT NULL,
-  `place` int(11) NOT NULL,
-  `created_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
-  `updated_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00'
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Dumping data for table `calculators`
---
-
-INSERT INTO `calculators` (`id`, `category`, `price`, `place`, `created_at`, `updated_at`) VALUES
-(1, 'Writing', 10, 1, '2022-01-22 15:50:57', '0000-00-00 00:00:00'),
-(2, 'Essay', 11, 2, '2022-01-22 16:10:44', '0000-00-00 00:00:00'),
-(4, 'Rewriting', 12, 1, '2022-01-22 15:50:57', '0000-00-00 00:00:00'),
-(5, 'Editing', 14, 1, '2022-01-22 15:50:57', '0000-00-00 00:00:00'),
-(6, 'Admission Essay', 12, 2, '2022-01-22 16:10:44', '0000-00-00 00:00:00'),
-(7, 'PowerPoint Presentation with speaker notes', 12, 2, '2022-01-22 16:10:44', '0000-00-00 00:00:00'),
-(8, 'Annotated Bibliography', 15, 2, '2022-01-22 16:10:44', '0000-00-00 00:00:00'),
-(9, 'College', 5, 3, '2022-01-22 16:10:44', '0000-00-00 00:00:00'),
-(10, 'University', 7, 3, '2022-01-22 16:10:44', '0000-00-00 00:00:00'),
-(11, 'Master\'s', 8, 3, '2022-01-22 16:10:44', '0000-00-00 00:00:00'),
-(12, 'Doctorate', 9, 3, '2022-01-22 16:10:44', '0000-00-00 00:00:00'),
-(13, '6 Hours', 2, 4, '2022-01-22 16:10:44', '0000-00-00 00:00:00'),
-(14, '12 Hours', 3, 4, '2022-01-22 16:10:44', '0000-00-00 00:00:00'),
-(15, '1 Day', 4, 4, '2022-01-22 16:10:44', '0000-00-00 00:00:00'),
-(16, '2 Days', 5, 4, '2022-01-22 16:10:44', '0000-00-00 00:00:00'),
-(17, '3 Days', 6, 4, '2022-01-22 16:10:44', '0000-00-00 00:00:00'),
-(18, '5 Days', 7, 4, '2022-01-22 16:10:44', '0000-00-00 00:00:00'),
-(19, '1 Page/ 275 words', 7, 5, '2022-01-22 16:10:44', '0000-00-00 00:00:00'),
-(20, '2 Page/ 500 words', 7, 5, '2022-01-22 16:10:44', '0000-00-00 00:00:00'),
-(21, '3 Page/ 825 words', 7, 5, '2022-01-22 16:10:44', '0000-00-00 00:00:00');
 
 -- --------------------------------------------------------
 
@@ -161,14 +75,6 @@ CREATE TABLE `content_categories` (
   `deleted_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
---
--- Dumping data for table `content_categories`
---
-
-INSERT INTO `content_categories` (`id`, `name`, `slug`, `created_at`, `updated_at`, `deleted_at`) VALUES
-(1, 'blog-test', 'testblog', '2022-01-05 09:06:18', '2022-01-05 09:06:18', NULL),
-(2, 'Shubham Parashar', 'tagofblog', '2022-01-06 10:54:50', '2022-01-06 10:54:50', NULL);
-
 -- --------------------------------------------------------
 
 --
@@ -180,16 +86,6 @@ CREATE TABLE `content_category_content_page` (
   `content_category_id` bigint(20) UNSIGNED NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
---
--- Dumping data for table `content_category_content_page`
---
-
-INSERT INTO `content_category_content_page` (`content_page_id`, `content_category_id`) VALUES
-(13, 1),
-(14, 1),
-(15, 1),
-(22, 2);
-
 -- --------------------------------------------------------
 
 --
@@ -198,7 +94,7 @@ INSERT INTO `content_category_content_page` (`content_page_id`, `content_categor
 
 CREATE TABLE `content_pages` (
   `id` bigint(20) UNSIGNED NOT NULL,
-  `menu_id` bigint(20) UNSIGNED DEFAULT NULL,
+  `menu_id` bigint(20) UNSIGNED NOT NULL,
   `user_id` bigint(20) UNSIGNED NOT NULL,
   `title` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `meta_title` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
@@ -206,7 +102,6 @@ CREATE TABLE `content_pages` (
   `meta_description` longtext COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `page_text` longtext COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `excerpt` longtext COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `type` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
   `deleted_at` timestamp NULL DEFAULT NULL
@@ -216,28 +111,19 @@ CREATE TABLE `content_pages` (
 -- Dumping data for table `content_pages`
 --
 
-INSERT INTO `content_pages` (`id`, `menu_id`, `user_id`, `title`, `meta_title`, `meta_keyword`, `meta_description`, `page_text`, `excerpt`, `type`, `created_at`, `updated_at`, `deleted_at`) VALUES
-(1, 11, 1, 'Australia', 'Australia', 'Testingu', 'testing', '<h1>Australia Assignment Help</h1><p>Australia Assignment Help Australia Assignment Help Australia Assignment Help Australia Assignment Help Australia Assignment Help Australia Assignment Help Australia Assignment Help Australia Assignment Help Australia Assignment Help Australia Assignment Help Australia Assignment Help Australia Assignment Help Australia Assignment Help Australia Assignment Help Australia Assignment Help Australia Assignment Help Australia Assignment Help Australia Assignment Help Australia Assignment Help Australia Assignment Help Australia Assignment Help Australia Assignment Help Australia Assignment Help Australia Assignment Help Australia Assignment Help Australia Assignment Help Australia Assignment Help Australia Assignment Help Australia Assignment Help Australia Assignment Help Australia Assignment Help Australia Assignment Help Australia Assignment Help Australia Assignment Help Australia Assignment Help Australia Assignment Help Australia Assignment Help Australia Assignment Help Australia Assignment Help Australia Assignment Help</p>', '<h2>Best assignment help in Australia</h2><p>Australia Assignment Help Australia Assignment Help Australia Assignment Help Australia Assignment Help Australia Assignment Help Australia Assignment Help Australia Assignment Help Australia Assignment Help Australia Assignment Help Australia Assignment Help Australia Assignment Help Australia Assignment Help Australia Assignment Help Australia Assignment Help Australia Assignment Help Australia Assignment Help Australia Assignment Help Australia Assignment Help Australia Assignment Help Australia Assignment Help Australia Assignment Help Australia Assignment Help Australia Assignment Help Australia Assignment Help Australia Assignment Help Australia Assignment Help Australia Assignment Help Australia Assignment Help Australia Assignment Help Australia Assignment Help Australia Assignment Help Australia Assignment Help Australia Assignment Help Australia Assignment Help Australia Assignment Help Australia Assignment Help Australia Assignment Help Australia Assignment Help Australia Assignment Help Australia Assignment Help</p><figure class=\"image image-style-side\"><img src=\"https://thesisndissertationhelp.com/images/call-bg_1637308999.jpg\" alt=\"call bg\"></figure><h3>College and diploma assignment help in Australia</h3>', NULL, '2021-11-11 01:26:29', '2021-11-19 15:05:11', NULL),
-(2, 12, 1, 'Sydney', 'Sydney', 'Sydney', 'Sydney', '<h1>Assignment help In Sydney</h1><p>Sydney assignment help Sydney assignment help Sydney assignment help Sydney assignment help Sydney assignment help Sydney assignment help&nbsp;</p>', '<h2>All assignment help services in Sydney</h2><p>Sydney assignment help Sydney assignment help Sydney assignment help Sydney assignment help Sydney assignment help Sydney assignment help</p><p>Sydney assignment help Sydney assignment help Sydney assignment help Sydney assignment help Sydney assignment help Sydney assignment help&nbsp;</p><p>Sydney assignment help Sydney assignment help Sydney assignment help Sydney assignment help Sydney assignment help Sydney assignment help</p><figure class=\"image\"><img src=\"https://thesisndissertationhelp.com/images/feature-image_1637324112.png\" alt=\"seo\"></figure>', NULL, '2021-11-11 11:46:39', '2021-11-19 19:19:14', NULL),
-(3, 19, 1, 'Master', 'Master', 'master', 'master', '<h1>master</h1>', '<p>master</p>', NULL, '2021-11-11 11:48:54', '2021-11-16 21:01:47', NULL),
-(4, 2, 1, 'about', 'About Us | Best Assignment Writer IN Australia 24/7', 'homewor help, assignment help, essay writing services, academic services', 'Homework help online and assignment help services', '<h1>HOME WORK HELP</h1>\r\n<h2>We are leading all homework help online services like assignment, academic, content writing help with unique price.</h2>', NULL, 'NULL', '2021-11-13 12:47:29', '2022-01-07 10:31:01', NULL),
-(5, 13, 1, 'Price Title', 'Price', NULL, '<p>Get the best offers from TNDS</p>', '<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Non sed accusantium aut dolores inventore architecto modi cupiditate eligendi corporis, illum illo culpa. Reiciendis, molestias. Illum voluptatum quisquam ad veritatis dolorem.</p><p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Non sed accusantium aut dolores inventore architecto modi cupiditate eligendi corporis, illum illo culpa. Reiciendis, molestias. Illum voluptatum quisquam ad veritatis dolorem.</p>', '<p>Get the best offers from TNDS</p>', NULL, '2021-11-15 19:49:35', '2021-12-29 11:20:06', NULL),
-(7, 14, 1, 'Contact', 'contact', 'contact', 'Contact Us Page', '<h2><strong>HOME WORK HELP ONLINE</strong></h2><h2>find online assignment assistace at best price</h2><p>&nbsp;</p><h2>&nbsp;</h2>', '<center><h2>CONTACT</center></h2>\r\n<center><p>Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit sint consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias ea. Quia fugiat sit in iste officiis commodi quidem hic quas.</center></p>', '', '2021-11-16 21:00:26', '2022-01-10 09:31:38', NULL),
-(8, 10, 1, 'Australia', 'Australia assignment help', 'Australia assignment help', 'Australia assignment help', '<p>Australia assignment help</p>', NULL, NULL, '2021-11-19 14:56:08', '2021-11-19 14:56:08', NULL),
-(9, 100, 1, 'Other', 'all assignment help services World wide', NULL, 'all assignment help services World wide', '<h1>all assignment help services World wide&nbsp;</h1><p>all assignment help services World wide all assignment help services World wide&nbsp;</p>', '<h2>all subjects Expert at tnd&nbsp;</h2><p>all assignment help services World wide all assignment help services World wide&nbsp;</p><figure class=\"image\"><img src=\"https://thesisndissertationhelp.com/images/feature-image_1637324590.png\" alt=\"assignment\"></figure>', NULL, '2021-11-19 19:23:30', '2021-11-19 19:23:30', NULL),
-(10, 106, 1, 'Quantitative Dissertation Help', 'Quantitative Dissertation Help', 'quantitative-dissertation-help', 'quantitative-dissertation-help', '<h1>What IS Quantitative Dissertation Help</h1><p>quantitative-dissertation-help quantitative-dissertation-help quantitative-dissertation-help quantitative-dissertation-help quantitative-dissertation-help quantitative-dissertation-help quantitative-dissertation-help quantitative-dissertation-help</p>', '<h2>Quantitative Dissertation Guidelines&nbsp;</h2><p>quantitative-dissertation-helpquantitative-dissertation-helpquantitative-dissertation-helpv</p><h3>Thesis vs. Dissertation&nbsp;</h3><p>quantitative-dissertation-helpquantitative-dissertation-helpquantitative-dissertation-helpv quantitative-dissertation-helpquantitative-dissertation-helpquantitative-dissertation-help</p><p>quantitative-dissertation-helpquantitative-dissertation-helpquantitative-dissertation-help&nbsp;</p><h3>PDF Dissertation Writing Services By PhD Experts</h3><p>&nbsp;</p><p>quantitative-dissertation-helpquantitative-dissertation-helpquantitative-dissertation-helpv quantitative-dissertation-helpquantitative-dissertation-helpquantitative-dissertation-help</p><p>quantitative-dissertation-helpquantitative-dissertation-helpquantitative-dissertation-help&nbsp;</p>', NULL, '2021-11-25 17:07:17', '2021-11-25 19:16:17', NULL),
-(11, 107, 1, 'Qualitative', 'Qualitative', 'Qualitative', 'Qualitative', '<h1>Best Qualitative dissertation writing services&nbsp;</h1><p>Qualitative Qualitative Qualitative Qualitative Qualitative Qualitative Qualitative Qualitative Qualitative Qualitative Qualitative Qualitative Qualitative Qualitative Qualitative Qualitative Qualitative Qualitative Qualitative Qualitative</p>', '<h2>Write your Qualitative dissertation from our PHD level expert</h2><p>Write your Qualitative dissertation from our PHD level expert Write your Qualitative dissertation from our PHD level expert Write your Qualitative dissertation from our PHD level expert Write your Qualitative dissertation from our PHD level expert</p><h3>Best Ideas for Dissertation Topics</h3><p>Write your Qualitative dissertation from our PHD level expert Write your Qualitative dissertation from our PHD level expert Write your Qualitative dissertation from our PHD level expert Write your Qualitative dissertation from our PHD level expert</p><h3>Dissertation topics for academic year 2020_2021</h3><p>quantitative-dissertation-helpquantitative-dissertation-helpquantitative-dissertation-helpv quantitative-dissertation-helpquantitative-dissertation-helpquantitative-dissertation-help</p><p>quantitative-dissertation-helpquantitative-dissertation-helpquantitative-dissertation-help&nbsp;</p><figure class=\"image\"><img src=\"https://thesisndissertationhelp.com/images/book-appointment_1637841114.webp\" alt=\"aa\"></figure><p>&nbsp;</p>', NULL, '2021-11-25 18:52:14', '2021-11-25 19:20:45', NULL),
-(12, 109, 1, 'Research', 'research report writing', 'research report writing', 'research report writing', '<h1>Research Report Writing Format</h1><p>research report writing research report writing research report writing research report writing research report writing research report writing research report writing research report writing research report writing research report writing</p>', '<h2>How to Write an Effective Research REport</h2><p>research report writing research report writing research report writing research report writing research report writing research report writing research report writing research report writing research report writing research report writing</p>', NULL, '2021-11-25 19:25:34', '2021-11-25 19:25:34', NULL),
-(13, NULL, 1, 'test', 'test', NULL, 'test', '<p>test</p>', 'test', NULL, '2022-01-06 09:02:41', '2022-01-06 09:25:58', '2022-01-06 09:25:58'),
-(14, NULL, 1, 'test', 'test', NULL, 'test', '<p>test</p>', 'test', NULL, '2022-01-06 09:02:55', '2022-01-06 09:54:01', '2022-01-06 09:54:01'),
-(15, NULL, 1, 'test BLOG', 'test', 'TEST BLOG', 'test', '<p>test BLOG</p>', 'test BLOG', NULL, '2022-01-06 09:25:34', '2022-01-06 10:10:14', NULL),
-(17, NULL, 1, 'Test blog type', 'Test blog type', NULL, 'Test blog type', '<p>Test blog type</p>', 'Test blog type', NULL, '2022-01-06 11:04:40', '2022-01-06 11:04:40', NULL),
-(18, NULL, 1, 'tsettagd', 'tsettagdtsettagd', NULL, 'tsettagd', '<p>tsettagd</p>', 'tsettagd', NULL, '2022-01-06 11:07:37', '2022-01-06 11:07:37', NULL),
-(19, NULL, 1, 'tsettagd', 'tsettagdtsettagd', NULL, 'tsettagd', '<p>tsettagd</p>', 'tsettagd', NULL, '2022-01-06 11:08:05', '2022-01-06 11:08:05', NULL),
-(20, NULL, 1, 'model test', 'model test', NULL, 'model test', '<p>model test</p>', 'model test', NULL, '2022-01-06 11:09:55', '2022-01-06 11:09:55', NULL),
-(21, NULL, 1, 'model test', 'model test', NULL, 'model test', '<p>model test</p>', 'model test', NULL, '2022-01-06 11:10:53', '2022-01-06 11:10:53', NULL),
-(22, NULL, 1, 'model test test', 'model test', 'test', 'model test test', '<h2>4. We may share this type of statistical number</h2><p>Bringing so sociable felicity supplied mr. September suspicion far him two acuteness perfectly. Covered as an examine so regular of. Ye astonished friendship remarkably no. Window admire matter praise you bed whence. Delivered ye sportsmen zealously arranging frankness estimable as. Nay any article enabled musical shyness yet sixteen</p><h3>Among the features you will find details lightbox</h3><p>l two bed way pleasure confined followed. Shew up ye away no eyes life or were this. Perfectly did suspicion daughters but his intention. Started on society an brought it explain. Position two saw greatest stronger old. Pianoforte if at simplicity do estim elicity supplied mr. September suspicion far him two acuteness perfectly. Covered as an examine so regular of. Ye astonished friendsh</p>', 'model test test', 'blog', '2022-01-06 11:13:02', '2022-01-15 12:09:02', NULL),
-(23, 114, 1, 'Blog', 'Blog', 'Blog', 'Blog Des', '<p>Blog text</p>', '<p>Blog excerpt</p>', 'blog', '2022-01-13 11:34:26', '2022-01-13 11:34:26', NULL);
+INSERT INTO `content_pages` (`id`, `menu_id`, `user_id`, `title`, `meta_title`, `meta_keyword`, `meta_description`, `page_text`, `excerpt`, `created_at`, `updated_at`, `deleted_at`) VALUES
+(1, 11, 1, 'Australia', 'Australia', 'Testingu', 'testing', '<h1>Australia Assignment Help</h1><p>Australia Assignment Help Australia Assignment Help Australia Assignment Help Australia Assignment Help Australia Assignment Help Australia Assignment Help Australia Assignment Help Australia Assignment Help Australia Assignment Help Australia Assignment Help Australia Assignment Help Australia Assignment Help Australia Assignment Help Australia Assignment Help Australia Assignment Help Australia Assignment Help Australia Assignment Help Australia Assignment Help Australia Assignment Help Australia Assignment Help Australia Assignment Help Australia Assignment Help Australia Assignment Help Australia Assignment Help Australia Assignment Help Australia Assignment Help Australia Assignment Help Australia Assignment Help Australia Assignment Help Australia Assignment Help Australia Assignment Help Australia Assignment Help Australia Assignment Help Australia Assignment Help Australia Assignment Help Australia Assignment Help Australia Assignment Help Australia Assignment Help Australia Assignment Help Australia Assignment Help</p>', '<h2>Best assignment help in Australia</h2><p>Australia Assignment Help Australia Assignment Help Australia Assignment Help Australia Assignment Help Australia Assignment Help Australia Assignment Help Australia Assignment Help Australia Assignment Help Australia Assignment Help Australia Assignment Help Australia Assignment Help Australia Assignment Help Australia Assignment Help Australia Assignment Help Australia Assignment Help Australia Assignment Help Australia Assignment Help Australia Assignment Help Australia Assignment Help Australia Assignment Help Australia Assignment Help Australia Assignment Help Australia Assignment Help Australia Assignment Help Australia Assignment Help Australia Assignment Help Australia Assignment Help Australia Assignment Help Australia Assignment Help Australia Assignment Help Australia Assignment Help Australia Assignment Help Australia Assignment Help Australia Assignment Help Australia Assignment Help Australia Assignment Help Australia Assignment Help Australia Assignment Help Australia Assignment Help Australia Assignment Help</p><figure class=\"image image-style-side\"><img src=\"https://thesisndissertationhelp.com/images/call-bg_1637308999.jpg\" alt=\"call bg\"></figure><h3>College and diploma assignment help in Australia</h3>', '2021-11-11 01:26:29', '2021-11-19 15:05:11', NULL),
+(2, 12, 1, 'Sydney', 'Sydney', 'Sydney', 'Sydney', '<h1>Assignment help In Sydney</h1><p>Sydney assignment help Sydney assignment help Sydney assignment help Sydney assignment help Sydney assignment help Sydney assignment help&nbsp;</p>', '<h2>All assignment help services in Sydney</h2><p>Sydney assignment help Sydney assignment help Sydney assignment help Sydney assignment help Sydney assignment help Sydney assignment help</p><p>Sydney assignment help Sydney assignment help Sydney assignment help Sydney assignment help Sydney assignment help Sydney assignment help&nbsp;</p><p>Sydney assignment help Sydney assignment help Sydney assignment help Sydney assignment help Sydney assignment help Sydney assignment help</p><figure class=\"image\"><img src=\"https://thesisndissertationhelp.com/images/feature-image_1637324112.png\" alt=\"seo\"></figure>', '2021-11-11 11:46:39', '2021-11-19 19:19:14', NULL),
+(3, 19, 1, 'Master', 'Master', 'master', 'master', '<h1>master</h1>', '<p>master</p>', '2021-11-11 11:48:54', '2021-11-16 21:01:47', NULL),
+(4, 2, 1, 'About', 'About Us | Best Assignment Writer IN Australia 24/7', 'Best essay writing in Australia, online assignment help, Academic writing services, thesis writing and dissertation writing services, online writing', 'Best essay writing services in Australia. We provide assignment, academic content, dissertation and thesis writing with zero plagiarism.', '<h2>We Are Best In Essay Writing</h2><p>&nbsp;</p><p>Consulted he eagerness unfeeling deficient existence of. Calling nothing end fertile for venture way boy. Esteem spirit temper too say adieus who direct esteem. It esteems luckily mr or picture placing drawing no. Apartments frequently or motionless on reasonable projecting expression. Last sentence of words thus better.</p><p>Ye on properly handsome returned throwing am no whatever. In without wishing he of picture no exposed talking minutes. Curiosity continual belonging offending so explained it exquisite. Do remember to followed yourself material mr recurred carriage. Way mrs end gave fat skin brown yesterday tall walk fact bed.</p><p>&nbsp;</p><h2>Advantages of working with this package</h2><p>&nbsp;</p><p>High drew west we no or at john. About or given on witty event. Or sociable up material bachelor bringing landlord confined. Busy so many in hung easy find well up. So of exquisite my an explained remainder. Dashwood denoting securing be on perceive my laughing so. Ye on properly handsome returned throwing am no whatever.</p><p>Sociable on as carriage my position weddings raillery consider. Peculiar trifling absolute and wandered vicinity property yet. The and collecting motionless difficulty son. His hearing staying ten colonel met. Word drew six easy four dear cold deny. Fulfilled direction use continual set him propriety continued. Saw met applauded favourite deficient.</p><p>&nbsp;</p>', NULL, '2021-11-13 12:47:29', '2021-12-26 11:22:29', NULL),
+(5, 13, 1, 'Price Title', 'Price', NULL, '<p>Get the best offers from TNDS</p>', '<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Non sed accusantium aut dolores inventore architecto modi cupiditate eligendi corporis, illum illo culpa. Reiciendis, molestias. Illum voluptatum quisquam ad veritatis dolorem.</p><p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Non sed accusantium aut dolores inventore architecto modi cupiditate eligendi corporis, illum illo culpa. Reiciendis, molestias. Illum voluptatum quisquam ad veritatis dolorem.</p>', '<p>Get the best offers from TNDS</p>', '2021-11-15 19:49:35', '2021-12-29 11:20:06', NULL),
+(6, 15, 1, 'Blog', 'Blog', 'blog', '<h1>blog</h1>', '<p>blog</p>', '<p>blog</p><figure class=\"image\"><img src=\"https://thesisndissertationhelp.com/images/Screenshot_2021-11-16-19-09-34-39_1637070945.jpg\" alt=\"assignment help\"></figure>', '2021-11-16 20:56:43', '2021-11-16 21:32:09', NULL),
+(7, 14, 1, 'Contact', 'contact', 'contact', '<h1>contact</h1>', '<h2><strong>We Are Best In Essay Writing</strong></h2><p>&nbsp;</p><p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Non sed accusantium aut dolores inventore architecto modi cupiditate eligendi corporis, illum illo culpa. Reiciendis, molestias. Illum voluptatum quisquam ad veritatis dolorem.</p><p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Non sed accusantium aut dolores inventore architecto modi cupiditate eligendi corporis, illum illo culpa. Reiciendis, molestias. Illum voluptatum quisquam ad veritatis dolorem.</p>', 'Send your query\r\nLorem ipsum dolor sit amet consectetur, adipisicing elit. Dignissimos dicta mollitia totam explicabo obcaecati quia laudantium repudiandae.', '2021-11-16 21:00:26', '2021-12-30 11:39:41', NULL),
+(8, 10, 1, 'Australia', 'Australia assignment help', 'Australia assignment help', 'Australia assignment help', '<p>Australia assignment help</p>', NULL, '2021-11-19 14:56:08', '2021-11-19 14:56:08', NULL),
+(9, 100, 1, 'Other', 'all assignment help services World wide', NULL, 'all assignment help services World wide', '<h1>all assignment help services World wide&nbsp;</h1><p>all assignment help services World wide all assignment help services World wide&nbsp;</p>', '<h2>all subjects Expert at tnd&nbsp;</h2><p>all assignment help services World wide all assignment help services World wide&nbsp;</p><figure class=\"image\"><img src=\"https://thesisndissertationhelp.com/images/feature-image_1637324590.png\" alt=\"assignment\"></figure>', '2021-11-19 19:23:30', '2021-11-19 19:23:30', NULL),
+(10, 106, 1, 'Quantitative Dissertation Help', 'Quantitative Dissertation Help', 'quantitative-dissertation-help', 'quantitative-dissertation-help', '<h1>What IS Quantitative Dissertation Help</h1><p>quantitative-dissertation-help quantitative-dissertation-help quantitative-dissertation-help quantitative-dissertation-help quantitative-dissertation-help quantitative-dissertation-help quantitative-dissertation-help quantitative-dissertation-help</p>', '<h2>Quantitative Dissertation Guidelines&nbsp;</h2><p>quantitative-dissertation-helpquantitative-dissertation-helpquantitative-dissertation-helpv</p><h3>Thesis vs. Dissertation&nbsp;</h3><p>quantitative-dissertation-helpquantitative-dissertation-helpquantitative-dissertation-helpv quantitative-dissertation-helpquantitative-dissertation-helpquantitative-dissertation-help</p><p>quantitative-dissertation-helpquantitative-dissertation-helpquantitative-dissertation-help&nbsp;</p><h3>PDF Dissertation Writing Services By PhD Experts</h3><p>&nbsp;</p><p>quantitative-dissertation-helpquantitative-dissertation-helpquantitative-dissertation-helpv quantitative-dissertation-helpquantitative-dissertation-helpquantitative-dissertation-help</p><p>quantitative-dissertation-helpquantitative-dissertation-helpquantitative-dissertation-help&nbsp;</p>', '2021-11-25 17:07:17', '2021-11-25 19:16:17', NULL),
+(11, 107, 1, 'Qualitative', 'Qualitative', 'Qualitative', 'Qualitative', '<h1>Best Qualitative dissertation writing services&nbsp;</h1><p>Qualitative Qualitative Qualitative Qualitative Qualitative Qualitative Qualitative Qualitative Qualitative Qualitative Qualitative Qualitative Qualitative Qualitative Qualitative Qualitative Qualitative Qualitative Qualitative Qualitative</p>', '<h2>Write your Qualitative dissertation from our PHD level expert</h2><p>Write your Qualitative dissertation from our PHD level expert Write your Qualitative dissertation from our PHD level expert Write your Qualitative dissertation from our PHD level expert Write your Qualitative dissertation from our PHD level expert</p><h3>Best Ideas for Dissertation Topics</h3><p>Write your Qualitative dissertation from our PHD level expert Write your Qualitative dissertation from our PHD level expert Write your Qualitative dissertation from our PHD level expert Write your Qualitative dissertation from our PHD level expert</p><h3>Dissertation topics for academic year 2020_2021</h3><p>quantitative-dissertation-helpquantitative-dissertation-helpquantitative-dissertation-helpv quantitative-dissertation-helpquantitative-dissertation-helpquantitative-dissertation-help</p><p>quantitative-dissertation-helpquantitative-dissertation-helpquantitative-dissertation-help&nbsp;</p><figure class=\"image\"><img src=\"https://thesisndissertationhelp.com/images/book-appointment_1637841114.webp\" alt=\"aa\"></figure><p>&nbsp;</p>', '2021-11-25 18:52:14', '2021-11-25 19:20:45', NULL),
+(12, 109, 1, 'Research', 'research report writing', 'research report writing', 'research report writing', '<h1>Research Report Writing Format</h1><p>research report writing research report writing research report writing research report writing research report writing research report writing research report writing research report writing research report writing research report writing</p>', '<h2>How to Write an Effective Research REport</h2><p>research report writing research report writing research report writing research report writing research report writing research report writing research report writing research report writing research report writing research report writing</p>', '2021-11-25 19:25:34', '2021-11-25 19:25:34', NULL);
 
 -- --------------------------------------------------------
 
@@ -249,16 +135,6 @@ CREATE TABLE `content_page_content_tag` (
   `content_page_id` bigint(20) UNSIGNED NOT NULL,
   `content_tag_id` bigint(20) UNSIGNED NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
---
--- Dumping data for table `content_page_content_tag`
---
-
-INSERT INTO `content_page_content_tag` (`content_page_id`, `content_tag_id`) VALUES
-(13, 1),
-(14, 1),
-(15, 1),
-(22, 1);
 
 -- --------------------------------------------------------
 
@@ -274,14 +150,6 @@ CREATE TABLE `content_tags` (
   `updated_at` timestamp NULL DEFAULT NULL,
   `deleted_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
---
--- Dumping data for table `content_tags`
---
-
-INSERT INTO `content_tags` (`id`, `name`, `slug`, `created_at`, `updated_at`, `deleted_at`) VALUES
-(1, 'blogtag-test', 'tagofblog', '2022-01-05 09:06:48', '2022-01-05 09:06:48', NULL),
-(2, 'blogtag-test', 'tagofblog', '2022-01-05 09:14:16', '2022-01-05 09:14:31', '2022-01-05 09:14:31');
 
 -- --------------------------------------------------------
 
@@ -329,49 +197,48 @@ CREATE TABLE `homepages` (
 --
 
 INSERT INTO `homepages` (`id`, `parent_id`, `page`, `title`, `content`, `alt`, `image`, `bg_color`, `bg_image`, `bg_alt`, `status`, `sub_content`, `section_position`, `created_at`, `updated_at`, `deleted_at`) VALUES
-(1, 0, 'thesis n dissertation', '<h1><strong>Thesis N Dissertation</strong></h1>', '<p>We provide you with an entire army of immensely talented and Ph.D. qualified writers, available to assist you round the clock. With our decade-long experience and quality-driven approach, we are glad to offer you unique, plagiarism-free writing services at affordable prices. The services offered include writing of thesis, essays, assignments, dissertations,s and academic writing with professional insights specific to your requirements.</p><p>For further assistance, you can contact us at the following link</p>', 'thesis n dissertation', '/images/homepage/1635712723.webp', '#0a1a36', NULL, NULL, 1, 0, 1, '2021-10-31 09:20:48', '2021-11-10 20:41:42', NULL),
-(2, 0, 'best thesis', '<h2><strong>BEST THESIS AND DISSERTATION WRITING SERVICES IN AUSTRALIA</strong></h2>', '<p>Having worked in many renowned countries, we are now physically present in James cook drive Truganina, Australia to be at your disposal with our services.</p><p>To make your thesis and dissertation stand out, it is imperative that you approach an organization that understands the importance of your projects. We, at thesisndissertationhelp.com, curate write-ups that are aligned with the specifications and instructions provided by you.</p><p>Even for a last minute write-up, we assure you of its quality and timely delivery as our team comprises a range of highly qualified PHD writers who have expertise in each field. We offer round the clock services with instant reply portals to help you to connect with us anytime with your queries.</p>', 'BEST THESIS AND DISSERTATION WRITING SERVICES IN AUSTRALIA', '/images/homepage/1640791360.jpg', '#000000', NULL, NULL, 1, 0, 2, '2021-10-31 09:47:06', '2021-12-29 04:22:40', NULL),
-(3, 0, 'expect from us', '<h3>What do you expect from us</h3>', '<p>Our goal at thesisndissertationhelp.com is to focus on quality driven results and satisfied customers. With our experience of more than a decade and our team of experts, we have provided close to +61-413228507 write ups with amazing quality and satisfied customers. We offer a variety of services like:</p>', 'expect from us', '/images/homepage/1635713458.webp', NULL, NULL, NULL, 1, 0, 3, '2021-10-31 09:50:58', '2021-10-31 09:50:58', NULL),
-(4, 0, 'hire us', '<h2><strong>WHY SHOULD YOU HIRE US</strong></h2>', '<p>In the hectic day and age of today, sometimes it becomes difficult to manage everything in the best way. Balancing your work and life, preparing for lectures, examinations or any other event of importance can take up a lot of your time. You can save up your time by outsourcing your writing tasks to us.</p><p>We have a decade long experience in the writing business and our PHD qualified writers make sure that the content of the write-up is according to your qualification, needs, specifications and instructions. Our past record emphasises the fact that all our customers have been satisfied by our services. Some of our key benefits are :</p>', NULL, NULL, NULL, NULL, NULL, 1, 0, 4, '2021-10-31 09:55:03', '2021-10-31 09:55:03', NULL),
-(5, 0, 'team', '<h2><strong>TEAM</strong></h2>', '<p>Our over the top squad are focused and passionate about the services that they provide. With an experience of over a decade, our esteemed PHD qualified writers have the experience to help you write a write-up that would exceed your expectations and get you the desired result.</p><p>We have a team of highly professional writers that prioritise quality and have delivered on time quality results. We believe that our task is completed only when our customer is happy and satisfied with the end result. We provide multiple revisions to the write-up till we donâ€™t get a thumbs-up from our customer.</p>', NULL, NULL, NULL, NULL, NULL, 1, 0, 5, '2021-10-31 09:55:27', '2021-10-31 09:55:27', NULL),
-(6, 0, 'call us', '<h3><strong>Feel to free call us</strong></h3>', '<p>To outsource your write-ups or in case of any query or confusion, you can contact us anytime at your convenience, we are available at your service 24*7. You can contact us through various platforms like:- Facebok, Instagram and Linkedin the details of which are given below:</p>', 'call us', '/images/homepage/1635764086.webp', '#000000', '/images/homepage/1637148188.jpg', 'contact background', 1, 0, 6, '2021-10-31 09:55:54', '2021-11-17 12:53:08', NULL),
-(7, 0, 'best offers', '<h2><strong>OUR BEST OFFERS</strong></h2>', '<p>We offer affordable prices to our customers. Attractive discounts and coupons are offered to our customers opting for the bulk option (outsource write-ups for the whole semester and pay only once).</p><p>We are the pioneers to provide easy paying schedules by the use of EMIs as we understand the value of hard earned money.</p>', 'h', '/images/homepage/1635755349.jpg', NULL, NULL, NULL, 1, 0, 7, '2021-10-31 09:56:17', '2021-11-01 09:59:09', NULL),
-(8, 0, 'asked questions', '<h2><strong>RECENTLY ASKED QUESTIONS</strong></h2>', '<p>Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit sint consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias ea. Quia fugiat sit in iste officiis commodi quidem hic quas.<br>&nbsp;</p>', NULL, NULL, NULL, NULL, NULL, 1, 0, 8, '2021-10-31 09:56:44', '2021-10-31 09:56:44', NULL),
-(9, 0, 'fill requirements', '<h2><strong>FILL YOUR REQUIREMENTS</strong></h2>', '<p>The dream of shining out in the world with your write-ups can be fulfilled here and now. It would take less than 5 minutes to fill out your details and outsource your writing requirement to us. A professional writer with expertise in your field would contact you shortly. You can follow up on your write-up anytime that you wish.</p><p>With our expertise and experience, we assure you that you can trust on us to provide you with the best write-ups as can be seen by our reviews and past record. So become hassle-free and ORDER NOW!</p>', NULL, NULL, '#ffffff', '', NULL, 1, 0, 9, '2021-10-31 09:57:18', '2021-11-12 06:07:49', NULL),
-(10, 0, 'subscribe us', '<h4><strong>Subscribe Us For Getting Exclusive Offers</strong></h4>', '<p>To get updates about latest offers and discounts, milestones achieved by the organization, achievements of our faculty and any exciting new event and information, subscribe to our newsletter NOW!</p>', NULL, NULL, NULL, NULL, NULL, 1, 0, 10, '2021-10-31 09:57:42', '2021-10-31 09:57:42', NULL),
-(11, 3, NULL, '<p>Academic writing</p>', '<p>Academic writing is specific and subject related, therefore, our writing experts would make certain that your instructions about the subject are followed and the specifications that you require are all included in your project. The content created will be curated individually for every different customer guaranteeing zero plagiarism.</p><p>With the experience that our faculty has gained over the years, the content created would be formal and relevant. It would showcase technical knowledge, finesse and quality. Our PHD qualified writers have the expertise and experience to provide you with on time delivery and round the clock services.</p>', NULL, NULL, NULL, NULL, NULL, 1, 0, NULL, '2021-10-31 10:36:57', '2021-10-31 10:36:57', NULL),
-(12, 3, NULL, '<p>Assignment writing</p>', '<p>Assignments are tasks to test our knowledge on a particular topic. Sometimes, it is difficult to formulate your thoughts and pen them down. To help you evade such difficulties and to make your life easier, we offer you with our services of assignment writing. These services are spread over a wide range of topics which would be written by our PHD qualified writers.</p><p>We understand the importance of assignments and know that they play a huge role in deciding what your grade will turn out to be. Our experts make sure that the assignment written for you is technical and has the nuances to fetch you the highest grade.</p>', NULL, NULL, NULL, NULL, NULL, 1, 0, NULL, '2021-10-31 10:41:12', '2021-10-31 10:45:23', NULL),
-(13, 3, NULL, '<p>Thesis writing</p>', '<p>Thesis writing can be required at any phase of life. Formulating an articulate thesis to help you accomplish a qualification or to publish a paper is always important. Even after gathering a lot of knowledge, it can become strenuous to write down your thoughts in a comprehensive manner.</p><p>We, at thesisndissertationhelp.com, understand this hurdle that you are facing and want to help you walk past it. We offer to provide you with our thesis writing services where our experts brainstorm together to achieve the best thesis for you. We provide you with various levels of thesis based on your requirement --- Master thesis, Custom thesis, Medical thesis or Bachelorâ€™s thesis.</p>', NULL, NULL, NULL, NULL, NULL, 1, 0, NULL, '2021-10-31 10:45:55', '2021-10-31 10:46:36', NULL),
-(14, 3, NULL, '<p>Dissertation writing</p>', '<p>Dissertations mainly focuses on the original research. Even though it talks about research, it is the quality and the presentation of that research that would be tested. To widen the horizons of your research, sometimes, it becomes critical to gather another point of view for your paper.</p><p>To help you garner that different approach and to help you write your dissertation with professional insights and expertise, we offer you our service of dissertation writing. We guarantee that our PHD qualified experts with their decade long experience would mould your dissertation based on your inputs, specifications and instructions and well within the deadline provided.</p>', NULL, NULL, NULL, NULL, NULL, 1, 0, NULL, '2021-10-31 10:46:24', '2021-10-31 10:46:24', NULL),
-(15, 4, NULL, '<h4>Instant replay</h4>', '<p>We offer round the clock assistance with our instant reply portal. Whatever be your query, we are present to help you. You can even give us your tasks anytime at your convenience. Our writers are eager to help you at any time and make sure that you are satisfied by our services.</p>', NULL, NULL, NULL, NULL, NULL, 1, 0, NULL, '2021-10-31 10:49:07', '2021-10-31 10:49:07', NULL),
-(16, 4, NULL, '<h4>Affordable price</h4>', '<p>We, at thesisndissertationhelp.com, understand the inflation and the importance of money. Therefore, we offer affordable prices that can be paid over a period of time with the help of EMIs. We also offer bulk prices where instead of an individual task, you can pay up for the entire semester.</p>', NULL, NULL, NULL, NULL, NULL, 1, 0, NULL, '2021-10-31 10:49:20', '2021-10-31 10:49:20', NULL),
-(17, 4, NULL, '<h4>Zero plagarisim</h4>', '<p>Our PHD qualified writers develop each article with a lot of thought and research. Each write-up is written specifically for an individual according to their specification, qualification and instructions ensuring zero plagiarism. The write-up goes through a lot of revisions and lastly, it is checked on a plagiarism platform that catches even 100 year old plagiarism.</p><p><br>&nbsp;</p>', NULL, NULL, NULL, NULL, NULL, 1, 0, NULL, '2021-10-31 10:49:32', '2021-10-31 10:49:32', NULL),
-(18, 4, NULL, '<h4>On-time delivery</h4>', '<p>Who wouldnâ€™t want quality in last-minute write-ups? That is what we are proud to provide. Even if you forget to outsource your write-up till the last minute, we have that experience to finish up on your deadline and provide quality as well. Our past record shows the timely delivery of all our articles since the past decade.</p>', NULL, NULL, NULL, NULL, NULL, 1, 0, NULL, '2021-10-31 10:49:48', '2021-10-31 10:49:48', NULL),
-(19, 5, NULL, '<h4><strong>Walter White</strong></h4>', '<p>Chief Executive Officer</p><p>Explicabo voluptatem mollitia et repellat qui dolorum quasi</p>', NULL, '/images/homepage/1635717111.webp', NULL, NULL, NULL, 1, 0, NULL, '2021-10-31 10:50:38', '2021-10-31 10:51:51', NULL),
-(20, 5, NULL, '<h4><strong>Sarah Jhonson</strong></h4>', '<p>Product Manager</p><p>Aut maiores voluptates amet et quis praesentium qui senda para</p>', 'Sarah Jhonson', '/images/homepage/1635717081.webp', NULL, NULL, NULL, 1, 0, NULL, '2021-10-31 10:51:21', '2021-10-31 10:51:21', NULL),
-(21, 5, NULL, '<h4><strong>William Anderson</strong></h4>', '<p>CTO</p><p>Quisquam facilis cum velit laborum corrupti fuga rerum quia</p>', 'William Anderson', '/images/homepage/1635717134.webp', NULL, NULL, NULL, 1, 0, NULL, '2021-10-31 10:52:14', '2021-10-31 10:52:14', NULL),
-(22, 5, NULL, '<h4><strong>Amanda Jepson</strong></h4>', '<p>Accountant</p><p>Dolorum tempora officiis odit laborum officiis et et accusamus</p>', 'Amanda Jepson', '/images/homepage/1635717160.webp', NULL, NULL, NULL, 1, 0, NULL, '2021-10-31 10:52:40', '2021-11-01 00:09:52', NULL),
-(23, 8, NULL, '<p>What is assignment help?</p>', '<p>Feugiat pretium nibh ipsum consequat. Tempus iaculis urna id volutpat lacus laoreet non curabitur gravida. Venenatis lectus magna fringilla urna porttitor rhoncus dolor purus non.</p>', NULL, NULL, NULL, NULL, NULL, 1, 0, NULL, '2021-10-31 10:53:23', '2021-11-01 11:30:53', NULL),
-(24, 8, NULL, '<p>How can I connect with thesis writer?</p>', '<p>Dolor sit amet consectetur adipiscing elit pellentesque habitant morbi. Id interdum velit laoreet id donec ultrices. Fringilla phasellus faucibus scelerisque eleifend donec pretium. Est pellentesque elit ullamcorper dignissim. Mauris ultrices eros in cursus turpis massa tincidunt dui.</p>', NULL, NULL, NULL, NULL, NULL, 1, 0, NULL, '2021-10-31 10:53:41', '2021-11-01 11:31:56', NULL),
-(25, 7, NULL, '<h3>1st order offer</h3>', '<h4>10% off</h4><ul><li>Plagiarism check free</li><li>Re auditing free</li><li>On time delivery</li><li>24/7hr team support</li></ul>', NULL, NULL, NULL, NULL, NULL, 1, 0, NULL, '2021-11-01 11:32:24', '2021-11-01 12:02:30', NULL),
-(26, 8, NULL, '<p>Can some help me at cheap price?</p>', '<p>aaaaaaaaaaaaaaaaa</p>', NULL, NULL, NULL, NULL, NULL, 1, 0, NULL, '2021-11-01 11:32:32', '2021-11-01 11:32:32', NULL),
-(27, 7, NULL, '<h3>Per page offer</h3>', '<h4>20% off</h4><ul><li>Quam adipiscing vitae proin</li><li>Nec feugiat nisl pretium</li><li>Nulla at volutpat diam uteera</li><li>Pharetra massa massa ultricies</li></ul>', NULL, NULL, NULL, NULL, NULL, 1, 0, NULL, '2021-11-01 11:32:44', '2021-11-01 12:05:09', NULL),
-(28, 7, NULL, '<h3>Bulk Order offer</h3>', '<h4>50% off</h4><ul><li>Quam adipiscing vitae proin</li><li>Nec feugiat nisl pretium</li><li>Nulla at volutpat diam uteera</li><li>Pharetra massa massa ultricies</li><li>Massa ultricies mi quis hendrerit</li></ul>', NULL, NULL, NULL, NULL, NULL, 1, 0, NULL, '2021-11-01 11:33:08', '2021-11-01 11:57:04', NULL),
+(1, 0, 'thesis n dissertation', '<h1><strong>Thesis N Dissertation</strong></h1>', '<p>We provide you with an entire army of immensely talented and Ph.D. qualified writers, available to assist you round the clock. With our decade-long experience and quality-driven approach, we are glad to offer you unique, plagiarism-free writing services at affordable prices. The services offered include writing of thesis, essays, assignments, dissertations,s and academic writing with professional insights specific to your requirements.</p><p>For further assistance, you can contact us at the following link</p>', 'thesis n dissertation', '/images/homepage/1635712723.webp', '#0a1a36', NULL, NULL, 1, 0, 1, '2021-10-31 14:50:48', '2021-11-11 02:11:42', NULL),
+(2, 0, 'best thesis', '<h2><strong>BEST THESIS AND DISSERTATION WRITING SERVICES IN AUSTRALIA</strong></h2>', '<p>Having worked in many renowned countries, we are now physically present in James cook drive Truganina, Australia to be at your disposal with our services.</p><p>To make your thesis and dissertation stand out, it is imperative that you approach an organization that understands the importance of your projects. We, at thesisndissertationhelp.com, curate write-ups that are aligned with the specifications and instructions provided by you.</p><p>Even for a last minute write-up, we assure you of its quality and timely delivery as our team comprises a range of highly qualified PHD writers who have expertise in each field. We offer round the clock services with instant reply portals to help you to connect with us anytime with your queries.</p>', 'BEST THESIS AND DISSERTATION WRITING SERVICES IN AUSTRALIA', '/images/homepage/1640791360.jpg', '#000000', NULL, NULL, 1, 0, 2, '2021-10-31 15:17:06', '2021-12-29 09:52:40', NULL),
+(3, 0, 'expect from us', '<h3>What do you expect from us</h3>', '<p>Our goal at thesisndissertationhelp.com is to focus on quality driven results and satisfied customers. With our experience of more than a decade and our team of experts, we have provided close to +61-413228507 write ups with amazing quality and satisfied customers. We offer a variety of services like:</p>', 'expect from us', '/images/homepage/1635713458.webp', NULL, NULL, NULL, 1, 0, 3, '2021-10-31 15:20:58', '2021-10-31 15:20:58', NULL),
+(4, 0, 'hire us', '<h2><strong>WHY SHOULD YOU HIRE US</strong></h2>', '<p>In the hectic day and age of today, sometimes it becomes difficult to manage everything in the best way. Balancing your work and life, preparing for lectures, examinations or any other event of importance can take up a lot of your time. You can save up your time by outsourcing your writing tasks to us.</p><p>We have a decade long experience in the writing business and our PHD qualified writers make sure that the content of the write-up is according to your qualification, needs, specifications and instructions. Our past record emphasises the fact that all our customers have been satisfied by our services. Some of our key benefits are :</p>', NULL, NULL, NULL, NULL, NULL, 1, 0, 4, '2021-10-31 15:25:03', '2021-10-31 15:25:03', NULL),
+(5, 0, 'team', '<h2><strong>TEAM</strong></h2>', '<p>Our over the top squad are focused and passionate about the services that they provide. With an experience of over a decade, our esteemed PHD qualified writers have the experience to help you write a write-up that would exceed your expectations and get you the desired result.</p><p>We have a team of highly professional writers that prioritise quality and have delivered on time quality results. We believe that our task is completed only when our customer is happy and satisfied with the end result. We provide multiple revisions to the write-up till we donâ€™t get a thumbs-up from our customer.</p>', NULL, NULL, NULL, NULL, NULL, 1, 0, 5, '2021-10-31 15:25:27', '2021-10-31 15:25:27', NULL),
+(6, 0, 'call us', '<h3><strong>Feel to free call us</strong></h3>', '<p>To outsource your write-ups or in case of any query or confusion, you can contact us anytime at your convenience, we are available at your service 24*7. You can contact us through various platforms like:- Facebok, Instagram and Linkedin the details of which are given below:</p>', 'call us', '/images/homepage/1635764086.webp', '#000000', '/images/homepage/1637148188.jpg', 'contact background', 1, 0, 6, '2021-10-31 15:25:54', '2021-11-17 18:23:08', NULL),
+(7, 0, 'best offers', '<h2><strong>OUR BEST OFFERS</strong></h2>', '<p>We offer affordable prices to our customers. Attractive discounts and coupons are offered to our customers opting for the bulk option (outsource write-ups for the whole semester and pay only once).</p><p>We are the pioneers to provide easy paying schedules by the use of EMIs as we understand the value of hard earned money.</p>', 'h', '/images/homepage/1635755349.jpg', NULL, NULL, NULL, 1, 0, 7, '2021-10-31 15:26:17', '2021-11-01 15:29:09', NULL),
+(8, 0, 'asked questions', '<h2><strong>RECENTLY ASKED QUESTIONS</strong></h2>', '<p>Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit sint consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias ea. Quia fugiat sit in iste officiis commodi quidem hic quas.<br>&nbsp;</p>', NULL, NULL, NULL, NULL, NULL, 1, 0, 8, '2021-10-31 15:26:44', '2021-10-31 15:26:44', NULL),
+(9, 0, 'fill requirements', '<h2><strong>FILL YOUR REQUIREMENTS</strong></h2>', '<p>The dream of shining out in the world with your write-ups can be fulfilled here and now. It would take less than 5 minutes to fill out your details and outsource your writing requirement to us. A professional writer with expertise in your field would contact you shortly. You can follow up on your write-up anytime that you wish.</p><p>With our expertise and experience, we assure you that you can trust on us to provide you with the best write-ups as can be seen by our reviews and past record. So become hassle-free and ORDER NOW!</p>', NULL, NULL, '#ffffff', '', NULL, 1, 0, 9, '2021-10-31 15:27:18', '2021-11-12 11:37:49', NULL),
+(10, 0, 'subscribe us', '<h4><strong>Subscribe Us For Getting Exclusive Offers</strong></h4>', '<p>To get updates about latest offers and discounts, milestones achieved by the organization, achievements of our faculty and any exciting new event and information, subscribe to our newsletter NOW!</p>', NULL, NULL, NULL, NULL, NULL, 1, 0, 10, '2021-10-31 15:27:42', '2021-10-31 15:27:42', NULL),
+(11, 3, NULL, '<p>Academic writing</p>', '<p>Academic writing is specific and subject related, therefore, our writing experts would make certain that your instructions about the subject are followed and the specifications that you require are all included in your project. The content created will be curated individually for every different customer guaranteeing zero plagiarism.</p><p>With the experience that our faculty has gained over the years, the content created would be formal and relevant. It would showcase technical knowledge, finesse and quality. Our PHD qualified writers have the expertise and experience to provide you with on time delivery and round the clock services.</p>', NULL, NULL, NULL, NULL, NULL, 1, 0, NULL, '2021-10-31 16:06:57', '2021-10-31 16:06:57', NULL),
+(12, 3, NULL, '<p>Assignment writing</p>', '<p>Assignments are tasks to test our knowledge on a particular topic. Sometimes, it is difficult to formulate your thoughts and pen them down. To help you evade such difficulties and to make your life easier, we offer you with our services of assignment writing. These services are spread over a wide range of topics which would be written by our PHD qualified writers.</p><p>We understand the importance of assignments and know that they play a huge role in deciding what your grade will turn out to be. Our experts make sure that the assignment written for you is technical and has the nuances to fetch you the highest grade.</p>', NULL, NULL, NULL, NULL, NULL, 1, 0, NULL, '2021-10-31 16:11:12', '2021-10-31 16:15:23', NULL),
+(13, 3, NULL, '<p>Thesis writing</p>', '<p>Thesis writing can be required at any phase of life. Formulating an articulate thesis to help you accomplish a qualification or to publish a paper is always important. Even after gathering a lot of knowledge, it can become strenuous to write down your thoughts in a comprehensive manner.</p><p>We, at thesisndissertationhelp.com, understand this hurdle that you are facing and want to help you walk past it. We offer to provide you with our thesis writing services where our experts brainstorm together to achieve the best thesis for you. We provide you with various levels of thesis based on your requirement --- Master thesis, Custom thesis, Medical thesis or Bachelorâ€™s thesis.</p>', NULL, NULL, NULL, NULL, NULL, 1, 0, NULL, '2021-10-31 16:15:55', '2021-10-31 16:16:36', NULL),
+(14, 3, NULL, '<p>Dissertation writing</p>', '<p>Dissertations mainly focuses on the original research. Even though it talks about research, it is the quality and the presentation of that research that would be tested. To widen the horizons of your research, sometimes, it becomes critical to gather another point of view for your paper.</p><p>To help you garner that different approach and to help you write your dissertation with professional insights and expertise, we offer you our service of dissertation writing. We guarantee that our PHD qualified experts with their decade long experience would mould your dissertation based on your inputs, specifications and instructions and well within the deadline provided.</p>', NULL, NULL, NULL, NULL, NULL, 1, 0, NULL, '2021-10-31 16:16:24', '2021-10-31 16:16:24', NULL),
+(15, 4, NULL, '<h4>Instant replay</h4>', '<p>We offer round the clock assistance with our instant reply portal. Whatever be your query, we are present to help you. You can even give us your tasks anytime at your convenience. Our writers are eager to help you at any time and make sure that you are satisfied by our services.</p>', NULL, NULL, NULL, NULL, NULL, 1, 0, NULL, '2021-10-31 16:19:07', '2021-10-31 16:19:07', NULL),
+(16, 4, NULL, '<h4>Affordable price</h4>', '<p>We, at thesisndissertationhelp.com, understand the inflation and the importance of money. Therefore, we offer affordable prices that can be paid over a period of time with the help of EMIs. We also offer bulk prices where instead of an individual task, you can pay up for the entire semester.</p>', NULL, NULL, NULL, NULL, NULL, 1, 0, NULL, '2021-10-31 16:19:20', '2021-10-31 16:19:20', NULL),
+(17, 4, NULL, '<h4>Zero plagarisim</h4>', '<p>Our PHD qualified writers develop each article with a lot of thought and research. Each write-up is written specifically for an individual according to their specification, qualification and instructions ensuring zero plagiarism. The write-up goes through a lot of revisions and lastly, it is checked on a plagiarism platform that catches even 100 year old plagiarism.</p><p><br>&nbsp;</p>', NULL, NULL, NULL, NULL, NULL, 1, 0, NULL, '2021-10-31 16:19:32', '2021-10-31 16:19:32', NULL),
+(18, 4, NULL, '<h4>On-time delivery</h4>', '<p>Who wouldnâ€™t want quality in last-minute write-ups? That is what we are proud to provide. Even if you forget to outsource your write-up till the last minute, we have that experience to finish up on your deadline and provide quality as well. Our past record shows the timely delivery of all our articles since the past decade.</p>', NULL, NULL, NULL, NULL, NULL, 1, 0, NULL, '2021-10-31 16:19:48', '2021-10-31 16:19:48', NULL),
+(19, 5, NULL, '<h4><strong>Walter White</strong></h4>', '<p>Chief Executive Officer</p><p>Explicabo voluptatem mollitia et repellat qui dolorum quasi</p>', NULL, '/images/homepage/1635717111.webp', NULL, NULL, NULL, 1, 0, NULL, '2021-10-31 16:20:38', '2021-10-31 16:21:51', NULL),
+(20, 5, NULL, '<h4><strong>Sarah Jhonson</strong></h4>', '<p>Product Manager</p><p>Aut maiores voluptates amet et quis praesentium qui senda para</p>', 'Sarah Jhonson', '/images/homepage/1635717081.webp', NULL, NULL, NULL, 1, 0, NULL, '2021-10-31 16:21:21', '2021-10-31 16:21:21', NULL),
+(21, 5, NULL, '<h4><strong>William Anderson</strong></h4>', '<p>CTO</p><p>Quisquam facilis cum velit laborum corrupti fuga rerum quia</p>', 'William Anderson', '/images/homepage/1635717134.webp', NULL, NULL, NULL, 1, 0, NULL, '2021-10-31 16:22:14', '2021-10-31 16:22:14', NULL),
+(22, 5, NULL, '<h4><strong>Amanda Jepson</strong></h4>', '<p>Accountant</p><p>Dolorum tempora officiis odit laborum officiis et et accusamus</p>', 'Amanda Jepson', '/images/homepage/1635717160.webp', NULL, NULL, NULL, 1, 0, NULL, '2021-10-31 16:22:40', '2021-11-01 05:39:52', NULL),
+(23, 8, NULL, '<p>What is assignment help?</p>', '<p>Feugiat pretium nibh ipsum consequat. Tempus iaculis urna id volutpat lacus laoreet non curabitur gravida. Venenatis lectus magna fringilla urna porttitor rhoncus dolor purus non.</p>', NULL, NULL, NULL, NULL, NULL, 1, 0, NULL, '2021-10-31 16:23:23', '2021-11-01 17:00:53', NULL),
+(24, 8, NULL, '<p>How can I connect with thesis writer?</p>', '<p>Dolor sit amet consectetur adipiscing elit pellentesque habitant morbi. Id interdum velit laoreet id donec ultrices. Fringilla phasellus faucibus scelerisque eleifend donec pretium. Est pellentesque elit ullamcorper dignissim. Mauris ultrices eros in cursus turpis massa tincidunt dui.</p>', NULL, NULL, NULL, NULL, NULL, 1, 0, NULL, '2021-10-31 16:23:41', '2021-11-01 17:01:56', NULL),
+(25, 7, NULL, '<h3>1st order offer</h3>', '<h4>10% off</h4><ul><li>Plagiarism check free</li><li>Re auditing free</li><li>On time delivery</li><li>24/7hr team support</li></ul>', NULL, NULL, NULL, NULL, NULL, 1, 0, NULL, '2021-11-01 17:02:24', '2021-11-01 17:32:30', NULL),
+(26, 8, NULL, '<p>Can some help me at cheap price?</p>', '<p>aaaaaaaaaaaaaaaaa</p>', NULL, NULL, NULL, NULL, NULL, 1, 0, NULL, '2021-11-01 17:02:32', '2021-11-01 17:02:32', NULL),
+(27, 7, NULL, '<h3>Per page offer</h3>', '<h4>20% off</h4><ul><li>Quam adipiscing vitae proin</li><li>Nec feugiat nisl pretium</li><li>Nulla at volutpat diam uteera</li><li>Pharetra massa massa ultricies</li></ul>', NULL, NULL, NULL, NULL, NULL, 1, 0, NULL, '2021-11-01 17:02:44', '2021-11-01 17:35:09', NULL),
+(28, 7, NULL, '<h3>Bulk Order offer</h3>', '<h4>50% off</h4><ul><li>Quam adipiscing vitae proin</li><li>Nec feugiat nisl pretium</li><li>Nulla at volutpat diam uteera</li><li>Pharetra massa massa ultricies</li><li>Massa ultricies mi quis hendrerit</li></ul>', NULL, NULL, NULL, NULL, NULL, 1, 0, NULL, '2021-11-01 17:03:08', '2021-11-01 17:27:04', NULL),
 (29, 0, 'meta data', 'Plagiarism Free Writing by Ph.D. Experts â€“ Thesis N Dissertation', 'Save up your time and outsource your thesis, dissertations and more  to PHD qualified writing professionals. Guaranteed on-time delivery with high quality material at affordable prices.', 'Best essay writing in Australia, online assignment help, Academic writing services, thesis writing and dissertation writing services, online writing services', NULL, NULL, NULL, NULL, 0, 0, NULL, NULL, NULL, NULL),
-(30, 0, 'footer data', '<h3><strong>ADDRESS</strong></h3><p>James cook drive Truganina, Victoria Australia zip-code 3029<br><strong>Phone:</strong> +61-413228507<br><strong>Email:</strong> thesisndissertation@gmail.com</p>', '<h4><strong>Country</strong></h4><ul><li><a href=\"/au\">Australia</a></li><li><a href=\"/in\">India</a></li><li><a href=\"/uk\">U.K</a></li><li><a href=\"/us\">U.S.A</a></li></ul>', '<h4><strong>Our Services</strong></h4><ul><li><a href=\"/assignment-help\">Assignment help</a></li><li><a href=\"/thesis-writing\">Thesis writing</a></li><li><a href=\"/dissertation-writing\">Dissertation writing</a></li><li><a href=\"/academic-writing\">Academic writing</a></li></ul>', '<h4><strong>Our Social Networks</strong></h4><p>Cras fermentum odio eu feugiat lide par naso tierra videa magna derita valies <a href=\"/privacy-policy\">Our privacy Policy</a></p>', NULL, NULL, NULL, 0, 0, NULL, NULL, '2021-11-09 10:33:49', NULL),
-(31, 0, 'logo', 'www', 'sss', 'thesis n dissertation logo', '/images/homepage/1637841779.png', NULL, NULL, NULL, 0, 0, NULL, NULL, '2021-11-25 13:32:59', NULL),
-(32, 11, 'writers', '<h4>Sandeep Kumar</h4>', '<p>Finance and accounting</p><p>gggggggggggg</p>', 'sandeep kumar', '/images/homepage/1637063926.webp', NULL, NULL, '4.5', 1, 0, NULL, '2021-11-16 13:28:46', '2021-11-19 09:19:25', NULL),
-(33, 11, 'faqs', '<h3>what is research&nbsp;</h3>', '<p>research&nbsp;research&nbsp;research&nbsp;research&nbsp;research&nbsp;research&nbsp;research</p>', NULL, NULL, NULL, NULL, NULL, 1, 0, NULL, '2021-11-19 07:20:19', '2021-11-19 07:22:30', NULL),
-(34, 0, 'whatYouneed', '<p>What You Need</p>', '<p>test content</p>', 'test', '/images/homepage/1640452663.jpg', '#000000', '/images/homepage/1640452663.jpg', NULL, 1, 0, NULL, '2021-12-25 06:17:43', '2021-12-25 06:17:43', NULL),
-(35, 34, NULL, '<h3><strong>What You Need</strong></h3>', '<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Magnam odit consequatur doloribus natus in suscipit!</p>', '<i class=\"fas fa-question fa-3x p-2\"></i>', NULL, '#000000', NULL, NULL, 1, 0, NULL, '2021-12-28 06:07:49', '2021-12-28 06:07:49', NULL),
-(36, 34, NULL, '<h4><strong>Pay For Assignment</strong></h4>', '<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Magnam odit consequatur doloribus natus in suscipit!</p>', '<i class=\"fas fa-shopping-cart fa-3x p-2\"></i>', NULL, '#000000', NULL, NULL, 1, 0, NULL, '2021-12-28 06:09:37', '2021-12-28 06:09:37', NULL),
-(37, 34, NULL, '<h4><strong>Get Completed Solutions</strong></h4>', '<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Magnam odit consequatur doloribus natus in suscipit!</p>', '<i class=\"fas fa-poll-h fa-3x p-2\"></i>', NULL, '#000000', NULL, NULL, 1, 0, NULL, '2021-12-28 06:11:15', '2021-12-28 06:11:15', NULL),
-(38, 0, 'clientsSays', '<h2><strong>What Our Clients Says</strong></h2>', '<p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Adipisci esse facilis vel, neque ipsa mollitia impedit, commodi ab illo dignissimos, voluptatum quae amet sed tenetur dolores reprehenderit laudantium quo sint.</p>', NULL, NULL, '#000000', NULL, NULL, 1, 0, NULL, '2021-12-28 06:44:46', '2021-12-28 06:44:46', NULL),
-(39, 38, NULL, '<h6>Marlene Visconte</h6><p>General Manager - Scouter</p>', '<p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Laboriosam commodi officia laborum qui iste quidem!</p>', NULL, '/images/homepage/1640713712.jpg', '#000000', NULL, NULL, 1, 0, NULL, '2021-12-28 06:48:32', '2021-12-28 06:48:32', NULL),
-(40, 38, NULL, '<p>Marlene Visconte</p><p>General Manager - Scouter</p>', '<p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Laboriosam commodi officia laborum qui iste quidem!</p>', NULL, '/images/homepage/1640713767.jpg', '#000000', NULL, NULL, 1, 0, NULL, '2021-12-28 06:49:27', '2021-12-28 06:49:27', NULL),
-(41, 0, 'sendyourquery', '<h2>Send your query</h2>', '<p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Dignissimos dicta mollitia totam explicabo obcaecati quia laudantium repudiandae.</p>', 'Send your query', '/images/homepage/1640788539.jpg', '#000000', NULL, NULL, 1, 0, NULL, '2021-12-29 03:35:39', '2021-12-29 03:35:39', NULL),
-(42, 0, 'explorePossibilities', '<h2>Explore unlimited possibilities</h2>', '<p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Dignissimos dicta mollitia totam explicabo obcaecati quia laudantium repudiandae.</p>', 'Explore unlimited possibilities', '/images/homepage/1640789470.jpg', '#000000', NULL, NULL, 1, 0, NULL, '2021-12-29 03:51:10', '2021-12-29 03:51:10', NULL),
-(50, 109, 'faqs', '<p>FAQ</p>', '<p>FAQ Des</p>', NULL, NULL, NULL, NULL, NULL, 1, 0, NULL, '2022-01-25 09:00:03', '2022-01-25 09:00:03', NULL);
+(30, 0, 'footer data', '<h3><strong>ADDRESS</strong></h3><p>James cook drive Truganina, Victoria Australia zip-code 3029<br><strong>Phone:</strong> +61-413228507<br><strong>Email:</strong> thesisndissertation@gmail.com</p>', '<h4><strong>Country</strong></h4><ul><li><a href=\"/au\">Australia</a></li><li><a href=\"/in\">India</a></li><li><a href=\"/uk\">U.K</a></li><li><a href=\"/us\">U.S.A</a></li></ul>', '<h4><strong>Our Services</strong></h4><ul><li><a href=\"/assignment-help\">Assignment help</a></li><li><a href=\"/thesis-writing\">Thesis writing</a></li><li><a href=\"/dissertation-writing\">Dissertation writing</a></li><li><a href=\"/academic-writing\">Academic writing</a></li></ul>', '<h4><strong>Our Social Networks</strong></h4><p>Cras fermentum odio eu feugiat lide par naso tierra videa magna derita valies <a href=\"/privacy-policy\">Our privacy Policy</a></p>', NULL, NULL, NULL, 0, 0, NULL, NULL, '2021-11-09 16:03:49', NULL),
+(31, 0, 'logo', 'www', 'sss', 'thesis n dissertation logo', '/images/homepage/1637841779.png', NULL, NULL, NULL, 0, 0, NULL, NULL, '2021-11-25 19:02:59', NULL),
+(32, 11, 'writers', '<h4>Sandeep Kumar</h4>', '<p>Finance and accounting</p><p>gggggggggggg</p>', 'sandeep kumar', '/images/homepage/1637063926.webp', NULL, NULL, '4.5', 1, 0, NULL, '2021-11-16 18:58:46', '2021-11-19 14:49:25', NULL),
+(33, 11, 'faqs', '<h3>what is research&nbsp;</h3>', '<p>research&nbsp;research&nbsp;research&nbsp;research&nbsp;research&nbsp;research&nbsp;research</p>', NULL, NULL, NULL, NULL, NULL, 1, 0, NULL, '2021-11-19 12:50:19', '2021-11-19 12:52:30', NULL),
+(34, 0, 'whatYouneed', '<p>What You Need</p>', '<p>test content</p>', 'test', '/images/homepage/1640452663.jpg', '#000000', '/images/homepage/1640452663.jpg', NULL, 1, 0, NULL, '2021-12-25 11:47:43', '2021-12-25 11:47:43', NULL),
+(35, 34, NULL, '<h3><strong>What You Need</strong></h3>', '<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Magnam odit consequatur doloribus natus in suscipit!</p>', '<i class=\"fas fa-question fa-3x p-2\"></i>', NULL, '#000000', NULL, NULL, 1, 0, NULL, '2021-12-28 11:37:49', '2021-12-28 11:37:49', NULL),
+(36, 34, NULL, '<h4><strong>Pay For Assignment</strong></h4>', '<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Magnam odit consequatur doloribus natus in suscipit!</p>', '<i class=\"fas fa-shopping-cart fa-3x p-2\"></i>', NULL, '#000000', NULL, NULL, 1, 0, NULL, '2021-12-28 11:39:37', '2021-12-28 11:39:37', NULL),
+(37, 34, NULL, '<h4><strong>Get Completed Solutions</strong></h4>', '<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Magnam odit consequatur doloribus natus in suscipit!</p>', '<i class=\"fas fa-poll-h fa-3x p-2\"></i>', NULL, '#000000', NULL, NULL, 1, 0, NULL, '2021-12-28 11:41:15', '2021-12-28 11:41:15', NULL),
+(38, 0, 'clientsSays', '<h2><strong>What Our Clients Says</strong></h2>', '<p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Adipisci esse facilis vel, neque ipsa mollitia impedit, commodi ab illo dignissimos, voluptatum quae amet sed tenetur dolores reprehenderit laudantium quo sint.</p>', NULL, NULL, '#000000', NULL, NULL, 1, 0, NULL, '2021-12-28 12:14:46', '2021-12-28 12:14:46', NULL),
+(39, 38, NULL, '<h6>Marlene Visconte</h6><p>General Manager - Scouter</p>', '<p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Laboriosam commodi officia laborum qui iste quidem!</p>', NULL, '/images/homepage/1640713712.jpg', '#000000', NULL, NULL, 1, 0, NULL, '2021-12-28 12:18:32', '2021-12-28 12:18:32', NULL),
+(40, 38, NULL, '<p>Marlene Visconte</p><p>General Manager - Scouter</p>', '<p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Laboriosam commodi officia laborum qui iste quidem!</p>', NULL, '/images/homepage/1640713767.jpg', '#000000', NULL, NULL, 1, 0, NULL, '2021-12-28 12:19:27', '2021-12-28 12:19:27', NULL),
+(41, 0, 'sendyourquery', '<h2>Send your query</h2>', '<p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Dignissimos dicta mollitia totam explicabo obcaecati quia laudantium repudiandae.</p>', 'Send your query', '/images/homepage/1640788539.jpg', '#000000', NULL, NULL, 1, 0, NULL, '2021-12-29 09:05:39', '2021-12-29 09:05:39', NULL),
+(42, 0, 'explorePossibilities', '<h2>Explore unlimited possibilities</h2>', '<p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Dignissimos dicta mollitia totam explicabo obcaecati quia laudantium repudiandae.</p>', 'Explore unlimited possibilities', '/images/homepage/1640789470.jpg', '#000000', NULL, NULL, 1, 0, NULL, '2021-12-29 09:21:10', '2021-12-29 09:21:10', NULL);
 
 -- --------------------------------------------------------
 
@@ -415,17 +282,7 @@ INSERT INTO `media` (`id`, `model_type`, `model_id`, `uuid`, `collection_name`, 
 (23, 'App\\Models\\ContentPage', 10, '015e76e9-36a5-4a44-9c2d-86a80f069508', 'featured_image', '619f607df2d60_blog-recent-1', '619f607df2d60_blog-recent-1.jpg', 'image/jpeg', 'public', 'public', 83411, '[]', '[]', '[]', 18, '2021-11-25 17:08:16', '2021-11-25 17:08:16'),
 (25, 'App\\Models\\ContentPage', 11, 'b3851503-feba-40bb-85e3-85987cb4c932', 'featured_image', '619f793b37edf_master-thesis', '619f793b37edf_master-thesis.jpg', 'image/jpeg', 'public', 'public', 29051, '[]', '[]', '[]', 19, '2021-11-25 18:53:33', '2021-11-25 18:53:33'),
 (26, 'App\\Models\\ContentPage', 12, '3cd9007b-5bcc-4c54-949f-4d800d3a3094', 'featured_image', '619f804a3b708_blog-1', '619f804a3b708_blog-1.jpg', 'image/jpeg', 'public', 'public', 83878, '[]', '[]', '[]', 20, '2021-11-25 19:25:34', '2021-11-25 19:25:34'),
-(29, 'App\\Models\\ContentPage', 13, '3ee55ca6-49fb-4b34-8b13-3708933a01ec', 'featured_image', '61d6fcaa0f8cb_counts-bg', '61d6fcaa0f8cb_counts-bg.jpg', 'image/jpeg', 'public', 'public', 202117, '[]', '[]', '[]', 22, '2022-01-06 09:02:41', '2022-01-06 09:02:41'),
-(30, 'App\\Models\\ContentPage', 14, '1f36c023-29d7-47a3-9312-01f5ad768f66', 'featured_image', '61d6fd954f6e3_team-1', '61d6fd954f6e3_team-1.jpg', 'image/jpeg', 'public', 'public', 40201, '[]', '[]', '[]', 23, '2022-01-06 09:02:56', '2022-01-06 09:02:56'),
-(31, 'App\\Models\\ContentPage', 15, '3e399823-5c3a-4a8c-9efe-eaa5e4e79454', 'featured_image', '61d6fd954f6e3_team-1', '61d6fd954f6e3_team-1.jpg', 'image/jpeg', 'public', 'public', 40201, '[]', '[]', '[]', 24, '2022-01-06 09:25:34', '2022-01-06 09:25:34'),
-(32, 'App\\Models\\ContentPage', 16, 'b380bac4-21a2-4518-b775-dd016e4e0270', 'featured_image', '61d714f9604f6_team-4', '61d714f9604f6_team-4.jpg', 'image/jpeg', 'public', 'public', 27423, '[]', '[]', '[]', 25, '2022-01-06 10:42:43', '2022-01-06 10:42:43'),
-(33, 'App\\Models\\ContentPage', 17, 'ab8a4535-0049-4a0d-a65f-2d2abe88054d', 'featured_image', '61d71a1c3c735_team-1', '61d71a1c3c735_team-1.jpg', 'image/jpeg', 'public', 'public', 40201, '[]', '[]', '[]', 26, '2022-01-06 11:04:40', '2022-01-06 11:04:40'),
-(34, 'App\\Models\\ContentPage', 18, 'e8620acd-316c-46b8-a9d5-96fd3b09f18d', 'featured_image', '61d71ad0542ab_team-1', '61d71ad0542ab_team-1.jpg', 'image/jpeg', 'public', 'public', 40201, '[]', '[]', '[]', 27, '2022-01-06 11:07:38', '2022-01-06 11:07:38'),
-(35, 'App\\Models\\ContentPage', 20, 'ce4023ea-82cd-459a-aed9-df22389e6418', 'featured_image', '61d71b59293ee_team-3', '61d71b59293ee_team-3.jpg', 'image/jpeg', 'public', 'public', 36680, '[]', '[]', '[]', 28, '2022-01-06 11:09:55', '2022-01-06 11:09:55'),
-(36, 'App\\Models\\ContentPage', 22, 'f57ecd03-f952-4423-971e-ddc12ddc218c', 'featured_image', '61d71e54d71e7_team-1', '61d71e54d71e7_team-1.jpg', 'image/jpeg', 'public', 'public', 40201, '[]', '[]', '[]', 29, '2022-01-06 11:22:39', '2022-01-06 11:22:39'),
-(39, 'App\\Models\\ContentPage', 4, 'c0d5ba79-8c17-489e-aeb1-3e257557e8ed', 'featured_image', '61d86fdf3ee6b_hero-imgg', '61d86fdf3ee6b_hero-imgg.png', 'image/png', 'public', 'public', 34759, '[]', '{\"generated_conversions\":{\"thumb\":true,\"preview\":true}}', '[]', 30, '2022-01-07 11:22:48', '2022-01-07 11:22:48'),
-(40, 'App\\Models\\ContentPage', 7, '5be28acf-5ce1-4bfa-a5e1-ab7c824b2767', 'featured_image', '61dc42db27296_hero-img (1)', '61dc42db27296_hero-img-(1).png', 'image/png', 'public', 'public', 34759, '[]', '{\"generated_conversions\":{\"thumb\":true,\"preview\":true}}', '[]', 31, '2022-01-10 09:00:14', '2022-01-10 09:00:16'),
-(41, 'App\\Models\\ContentPage', 23, '7d726e2f-61b0-464d-9465-ffc2acd1e569', 'featured_image', '61e05b98c39fa_hero-img (1)', '61e05b98c39fa_hero-img-(1).png', 'image/png', 'public', 'public', 34759, '[]', '{\"generated_conversions\":{\"thumb\":true,\"preview\":true}}', '[]', 32, '2022-01-13 11:34:26', '2022-01-13 11:34:26');
+(28, 'App\\Models\\ContentPage', 4, '64aaf0df-d234-4ef4-b09b-58861f36ca6d', 'featured_image', '61c89803864a3_pexels-björn-austmar-þórsson-7267852', '61c89803864a3_pexels-björn-austmar-þórsson-7267852.jpg', 'image/jpeg', 'public', 'public', 725697, '[]', '[]', '[]', 21, '2021-12-26 10:57:50', '2021-12-26 10:57:50');
 
 -- --------------------------------------------------------
 
@@ -464,6 +321,7 @@ INSERT INTO `menus` (`id`, `parent_id`, `title`, `slug`, `content`, `status`, `s
 (12, 10, 'Sydney', 'au-sydney', 1, 1, 0, '2021-10-24 13:27:55', '2021-11-11 11:46:39', NULL),
 (13, 0, 'Price', 'price', 1, 1, 0, '2021-10-25 13:25:00', '2021-11-15 19:49:35', NULL),
 (14, 0, 'Contact', 'contact', 1, 1, 0, '2021-10-25 13:25:35', '2021-11-16 21:00:26', NULL),
+(15, 0, 'Blog', 'blog', 1, 1, 0, '2021-10-25 13:27:31', '2021-11-16 20:56:43', NULL),
 (16, 4, 'Thesis writing', 'thesis-writing', 0, 1, 0, '2021-10-29 23:10:24', '2021-11-18 19:33:47', '2021-11-18 19:33:47'),
 (18, 10, 'Melbourne', 'au-melbourne', 0, 1, 0, '2021-10-30 12:00:56', '2021-10-30 12:00:56', NULL),
 (19, 4, 'Master', 'master-thesis', 1, 1, 0, '2021-10-30 13:53:21', '2021-11-18 19:33:50', '2021-11-18 19:33:50'),
@@ -482,6 +340,7 @@ INSERT INTO `menus` (`id`, `parent_id`, `title`, `slug`, `content`, `status`, `s
 (32, 6, 'Dissertation', 'dissertation-writing', 0, 1, 0, '2021-10-30 14:16:19', '2021-11-18 19:30:53', '2021-11-18 19:30:53'),
 (33, 7, 'Academic Writing', 'academic-writing', 0, 1, 0, '2021-10-30 14:17:13', '2021-10-30 21:19:35', NULL),
 (34, 7, 'SEO', 'seo-writing', 0, 1, 0, '2021-10-30 14:17:37', '2021-11-18 19:25:49', '2021-11-18 19:25:49'),
+(35, 7, 'Blog', 'blog-writing', 0, 1, 0, '2021-10-30 14:17:55', '2021-11-18 19:25:56', '2021-11-18 19:25:56'),
 (36, 7, 'Guest Post', 'guest-post-writing', 0, 1, 0, '2021-10-30 14:18:23', '2021-11-18 19:26:02', '2021-11-18 19:26:02'),
 (37, 7, 'Web Content Writing', 'website-content-writing', 0, 1, 0, '2021-10-30 14:19:04', '2021-11-18 19:26:13', '2021-11-18 19:26:13'),
 (38, 10, 'Adelaide', 'au-adelaide', 0, 1, 0, '2021-10-30 14:21:12', '2021-10-30 14:21:12', NULL),
@@ -558,8 +417,7 @@ INSERT INTO `menus` (`id`, `parent_id`, `title`, `slug`, `content`, `status`, `s
 (109, 4, 'Research', 'research-report-writing', 1, 1, 0, '2021-11-18 19:35:13', '2021-11-25 19:25:34', NULL),
 (110, 4, 'Artistic', 'artistic-thesis-writing', 0, 1, 0, '2021-11-18 19:37:30', '2021-11-18 19:37:30', NULL),
 (111, 4, 'Project', 'project-thesis-writing', 0, 1, 0, '2021-11-18 19:38:16', '2021-11-18 19:38:16', NULL),
-(112, 4, 'Essay', 'essay-thesis-writing', 0, 1, 0, '2021-11-18 19:38:49', '2021-11-18 19:38:49', NULL),
-(114, 0, 'Blog', 'blog', 1, 1, 0, '2022-01-13 11:34:26', '2022-01-13 11:34:26', NULL);
+(112, 4, 'Essay', 'essay-thesis-writing', 0, 1, 0, '2021-11-18 19:38:49', '2021-11-18 19:38:49', NULL);
 
 -- --------------------------------------------------------
 
@@ -801,17 +659,11 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `name`, `email`, `email_verified_at`, `password`, `remember_token`, `created_at`, `updated_at`, `deleted_at`) VALUES
-(1, 'Admin', 'admin@admin.com', NULL, '$2y$10$B76JwyMKbduTWOk5Tt1HcuhG8YwS4P3nectLISOk7AxtlfzBNelRq', 'aTJfRr0C0o82X6WcZcxBSwy1JPvwgap8SsvQSaGNeIC0F224qK4vA92Lat6w', NULL, NULL, NULL);
+(1, 'Admin', 'admin@admin.com', NULL, '$2y$10$B76JwyMKbduTWOk5Tt1HcuhG8YwS4P3nectLISOk7AxtlfzBNelRq', 'Sbcl2e1FEwPmE3iXZbKXyLDbIqmvA3bxqyOPAA6z9lGt5ca9ML0vlcivNNQH', NULL, NULL, NULL);
 
 --
 -- Indexes for dumped tables
 --
-
---
--- Indexes for table `blog_categories`
---
-ALTER TABLE `blog_categories`
-  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `blog_pages`
@@ -820,18 +672,6 @@ ALTER TABLE `blog_pages`
   ADD PRIMARY KEY (`id`),
   ADD KEY `content_pages_menu_id_foreign` (`menu_id`),
   ADD KEY `content_pages_user_id_foreign` (`user_id`);
-
---
--- Indexes for table `blog_tags`
---
-ALTER TABLE `blog_tags`
-  ADD PRIMARY KEY (`id`);
-
---
--- Indexes for table `calculators`
---
-ALTER TABLE `calculators`
-  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `content_categories`
@@ -951,46 +791,28 @@ ALTER TABLE `users`
 --
 
 --
--- AUTO_INCREMENT for table `blog_categories`
---
-ALTER TABLE `blog_categories`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
-
---
 -- AUTO_INCREMENT for table `blog_pages`
 --
 ALTER TABLE `blog_pages`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
--- AUTO_INCREMENT for table `blog_tags`
---
-ALTER TABLE `blog_tags`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
-
---
--- AUTO_INCREMENT for table `calculators`
---
-ALTER TABLE `calculators`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
-
---
 -- AUTO_INCREMENT for table `content_categories`
 --
 ALTER TABLE `content_categories`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `content_pages`
 --
 ALTER TABLE `content_pages`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- AUTO_INCREMENT for table `content_tags`
 --
 ALTER TABLE `content_tags`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `failed_jobs`
@@ -1002,19 +824,19 @@ ALTER TABLE `failed_jobs`
 -- AUTO_INCREMENT for table `homepages`
 --
 ALTER TABLE `homepages`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=51;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=43;
 
 --
 -- AUTO_INCREMENT for table `media`
 --
 ALTER TABLE `media`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=42;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=29;
 
 --
 -- AUTO_INCREMENT for table `menus`
 --
 ALTER TABLE `menus`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=115;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=113;
 
 --
 -- AUTO_INCREMENT for table `migrations`

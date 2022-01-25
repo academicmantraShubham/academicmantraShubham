@@ -9,7 +9,9 @@
 
  <!-- Template Main CSS File -->
  <!-- <link href="{{ asset('assets/css/style.css?v=3') }}" rel="stylesheet"> -->
-
+ <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script>
  <!-- Styles -->
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700&display=swap" rel="stylesheet">
 <link href="{{ asset('website/css/bootstrap.min.css') }}" rel="stylesheet">
