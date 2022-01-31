@@ -232,6 +232,20 @@ li {
 	font-size: 1.25rem;
 }
 
+/* nav sub menu */
+.dropdown-submenu {
+	position:relative;
+ }
+ .dropdown-submenu>.dropdown-menu {
+	top:0;
+	left:-10rem; /* 10rem is the min-width of dropdown-menu */
+	margin-top:-6px;
+ }
+ /* rotate caret on hover */
+ .dropdown-menu > li > a:hover:after {
+	text-decoration: underline;
+	transform: rotate(-90deg);
+ } 
 
 /****************/
 /*     Home     */
@@ -292,7 +306,7 @@ li {
 .btn-secondary {
 	color: black;
 	border-width: 2px;
-	padding: 10px 30px;
+	padding: 5px 30px;
 	border-image-slice: 1;
 	background-image: none;
 	background: transparent;
@@ -301,7 +315,7 @@ li {
 
 .btn-secondary:hover {
 	color: black;
-	padding: 10px 30px;
+	padding: 5px 30px;
 	background-image: var(--gradient);
 }
 

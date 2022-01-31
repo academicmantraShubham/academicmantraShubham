@@ -20,9 +20,8 @@
        }
    } 
 </script>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 
-<style>
+<!-- <style>
    /* Make the image fully responsive */
    .carousel-inner img {
    width: 100%;
@@ -31,7 +30,7 @@
    .dropdown-item:focus, .dropdown-item:hover {
    background-color: #1c262f !important;
    }
-</style>
+</style> -->
 <!--OG Meta Tags to improve the way the post looks when you share the page on Facebook, Twitter, LinkedIn -->
 <meta property="og:site_name" content="" />
 <!-- website name -->
@@ -48,6 +47,12 @@
 <meta name="twitter:card" content="summary_large_image">
 <!-- to have large image post format in Twitter -->
 @endsection
+
+<!-- swipper css -->
+@push('css')
+<link href="{{ asset('website/css/swiper.css') }}" rel="stylesheet">
+@endpush
+
 @section('content')
 <!-- Home -->
 <section class="home py-5 d-flex align-items-center" id="header">
@@ -416,50 +421,21 @@
    <!-- end of container -->
 </section>
 <!-- end of location -->
-<!-- 
-<script type="text/javascript">
-   
-    $.ajaxSetup({
-        headers: {
-            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-        }
-    });
-   
-    $(".btn-submit").click(function(e){
-  
-        e.preventDefault();
-   
-        var name = $("input[name=name]").val();
-        var password = $("input[name=password]").val();
-        var email = $("input[name=email]").val();
-   
-        $.ajax({
-           type:'POST',
-           url:"{{ route('ajaxRequest.post') }}",
-           data:{name:name, password:password, email:email},
-           success:function(data){
-              alert(data.success);
-           }
-        });
-  
-    });
-    
-</script> -->
-
+@push('js')
 <script>
 	$(document).ready(function(){
+      
       $.ajaxSetup({
         headers: {
             'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
         }
       });
+
 		$("#customer-list").change(function(){
-            alert('hello');
 				$("#loader").show();
 				var getUserID = $(this).val();
 				if(getUserID != '0')
 				{
-               
 					$.ajax({
 						type: 'GET',
 						url: '{{ route('ajaxRequest.post') }}',
@@ -478,5 +454,6 @@
 		});
 	});
 </script>
+@endpush
 
 @endsection

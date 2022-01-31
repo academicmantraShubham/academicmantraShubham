@@ -32,6 +32,19 @@ document.querySelector(".navbar-toggler").addEventListener("click", () => {
   document.querySelector(".offcanvas-collapse").classList.toggle("open");
 });
 
+//NAV DROP DOWN MENU
+$('.dropdown-menu a.dropdown-toggle').on('click', function(e) {
+    var $subMenu = $(this).next(".dropdown-menu");
+    $subMenu.toggleClass('show');
+    if (!$(this).next().hasClass('show')) {
+       $(this).parents('.dropdown-menu').first().find('.show').removeClass("show");
+    }
+    $(this).parents('li.nav-item.dropdown.show').on('hidden.bs.dropdown', function(e) {
+       $('.dropdown-submenu .show').removeClass("show");
+    });
+    return false;
+ });
+ 
 // HOVER ON DESKTOP
 function toggleDropdown(e) {
     const _d = e.target.closest(".dropdown");
@@ -74,32 +87,6 @@ if (dropdownCheck !== null) {
     });
 }
 
-/* CARD SLIDER - SWIPER */
-var cardSlider = new Swiper(".card-slider", {
-    autoplay: {
-        delay: 4000,
-        disableOnInteraction: false,
-    },
-    loop: true,
-    navigation: {
-        nextEl: ".swiper-button-next",
-        prevEl: ".swiper-button-prev",
-    },
-    slidesPerView: 3,
-    spaceBetween: 70,
-    breakpoints: {
-        // when window is <= 767px
-        767: {
-        slidesPerView: 1,
-        },
-        // when window is <= 991px
-        991: {
-        slidesPerView: 2,
-        spaceBetween: 40,
-        },
-    },
-});
-
 /* BACK TO TOP BUTTON */
 // GET THE BUTTON
 myButton = document.getElementById("myBtn");
@@ -124,4 +111,30 @@ AOS.init({
     duration: 1000,
     easing: "ease",
     once: true, // whether animation should happen only once - while scrolling down
+});
+
+/* CARD SLIDER - SWIPER */
+var cardSlider = new Swiper(".card-slider", {
+    autoplay: {
+        delay: 4000,
+        disableOnInteraction: false,
+    },
+    loop: true,
+    navigation: {
+        nextEl: ".swiper-button-next",
+        prevEl: ".swiper-button-prev",
+    },
+    slidesPerView: 3,
+    spaceBetween: 70,
+    breakpoints: {
+        // when window is <= 767px
+        767: {
+        slidesPerView: 1,
+        },
+        // when window is <= 991px
+        991: {
+        slidesPerView: 2,
+        spaceBetween: 40,
+        },
+    },
 });

@@ -64,33 +64,4 @@
    <!-- end of container -->
 </nav>
 <!-- end of navbar -->
-
 <!-- end of navigation -->
-<style>
-   .dropdown-submenu {
-   position:relative;
-   }
-   .dropdown-submenu>.dropdown-menu {
-   top:0;
-   left:-10rem; /* 10rem is the min-width of dropdown-menu */
-   margin-top:-6px;
-   }
-   /* rotate caret on hover */
-   .dropdown-menu > li > a:hover:after {
-   text-decoration: underline;
-   transform: rotate(-90deg);
-   } 
-</style>
-<script>
-   $('.dropdown-menu a.dropdown-toggle').on('click', function(e) {
-   if (!$(this).next().hasClass('show')) {
-       $(this).parents('.dropdown-menu').first().find('.show').removeClass("show");
-   }
-   var $subMenu = $(this).next(".dropdown-menu");
-   $subMenu.toggleClass('show');
-   $(this).parents('li.nav-item.dropdown.show').on('hidden.bs.dropdown', function(e) {
-       $('.dropdown-submenu .show').removeClass("show");
-   });
-   return false;
-   });
-</script>
