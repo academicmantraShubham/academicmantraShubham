@@ -24,9 +24,6 @@ class AjaxController extends Controller
     public function ajaxRequestPost(Request $request)
     {
         $input = $request->all();
-          
-        Log::info($input);
-     
         return response()->json(['success'=>'Got Simple Ajax Request.']);
     }
 }

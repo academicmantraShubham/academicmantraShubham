@@ -32,18 +32,39 @@ document.querySelector(".navbar-toggler").addEventListener("click", () => {
   document.querySelector(".offcanvas-collapse").classList.toggle("open");
 });
 
-//NAV DROP DOWN MENU
-$('.dropdown-menu a.dropdown-toggle').on('click', function(e) {
-    var $subMenu = $(this).next(".dropdown-menu");
-    $subMenu.toggleClass('show');
-    if (!$(this).next().hasClass('show')) {
-       $(this).parents('.dropdown-menu').first().find('.show').removeClass("show");
+//NAV DROP DOWN MENU HOVER
+// $('.dropdown-menu a.dropdown-toggle').on('click', function(e) {
+//     $('.dropdown-submenu .dropdown-menu.show').removeClass("show");
+//     var $subMenu = $(this).next(".dropdown-menu");
+//     $subMenu.toggleClass('show');
+//     return false;
+//  });
+document.querySelectorAll('.dropdown-menu a.dropdown-toggle').forEach(
+    elem => {
+        //SUBMENU HOVER
+        if (window.innerWidth > 991) {
+            elem.addEventListener("mouseover",
+            (e) => {
+                    if (document.querySelector('.dropdown-submenu .dropdown-menu.show')?.classList.contains('show')) {
+                        document.querySelector('.dropdown-submenu .dropdown-menu.show').classList.remove("show");
+                    }
+                    var $subMenu = e.target.nextElementSibling;
+                    $subMenu.classList.toggle('show');
+                }
+            )
+        }else{
+            elem.addEventListener("click",
+            (e) => {
+                    if (document.querySelector('.dropdown-submenu .dropdown-menu.show')?.classList.contains('show')) {
+                        document.querySelector('.dropdown-submenu .dropdown-menu.show').classList.remove("show");
+                    }
+                    var $subMenu = e.target.nextElementSibling;
+                    $subMenu.classList.toggle('show');
+                }
+            )  
+        }
     }
-    $(this).parents('li.nav-item.dropdown.show').on('hidden.bs.dropdown', function(e) {
-       $('.dropdown-submenu .show').removeClass("show");
-    });
-    return false;
- });
+);
  
 // HOVER ON DESKTOP
 function toggleDropdown(e) {

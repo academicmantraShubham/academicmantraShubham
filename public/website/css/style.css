@@ -583,6 +583,26 @@ li {
 	margin-bottom: 0.5rem;
 }
 
+section .container .card ul li::before {
+	content: "✓";
+	padding-right: 10px;
+	color: rgb(71, 178, 228);
+}
+
+section .container .card ul li{
+	padding-top: 10px;
+}
+
+.footer ul li{
+	padding-top: 0.5rem!important;
+    padding-bottom: 0.5rem!important;
+}
+
+.footer ul li::before{
+    content: "▶";
+	color: white;
+	padding-right: 4px;
+}
 
 /*************************/
 /*     Media Queries     */

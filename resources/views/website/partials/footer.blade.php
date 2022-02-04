@@ -6,7 +6,7 @@
                     <div class="d-flex align-items-center">
                         <h4 class="">BESW</h4> 
                     </div>
-                    {!! $footerdata->title !!}
+                        {!! $footerdata->title !!}
                     <div class="d-flex">
                         <div class="me-3">
                             <a href="#your-link">
@@ -30,12 +30,14 @@
                         </div>
                     </div>
                 </div> 
+                <!-- end of col -->
+                
                 <div class="col-lg-3 py-4 py-md-5">
                     <div>
-                    {!! $footerdata->content !!} 
+                        {!! $footerdata->content !!} 
                     </div>
                 </div> <!-- end of col -->
-                <!-- end of col -->
+
                 <div class="col-lg-3 py-4 py-md-5">
                     {!! $footerdata->alt !!}
                 </div> <!-- end of col -->

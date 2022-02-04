@@ -24,7 +24,7 @@ class Menu extends Model
     ];
 
     public function subMenus() {
-        return $this->hasMany('App\Models\Menu','parent_id','id') ;
+        return $this->hasMany('App\Models\Menu', 'parent_id', 'id') ;
     }
     
     public function post()

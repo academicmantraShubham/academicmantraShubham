@@ -17,8 +17,9 @@ class WebSiteController extends Controller
 
     public function __construct(){
         $this->website['menus'] = Cache::remember('menus', 60, function() {
-            return Menu::withCount('subMenus')->get(['id', 'title', 'slug']); 
+            return Menu::with('subMenus.subMenus')->whereParentId(0)->get(['id', 'title', 'slug']);  
         });   
+        // $this->website['menus'] =  Menu::with('subMenus.subMenus')->whereParentId(0)->get(['id', 'title', 'slug']);  
 
         $this->website['subscribeus'] = Cache::remember('subscribeus', 60, function() {
             return Homepage::wherePage('subscribe us')->first();
@@ -40,20 +41,22 @@ class WebSiteController extends Controller
     public function index()
     {
         $data = $this->common();
+        // $data['homepage'] = Homepage::with('subHomepages')->get();
         $data['metadata'] = Homepage::wherePage('meta data')->first();
         $data['thesisNdissertation'] = Homepage::wherePage('thesisNdissertation')->first();
         $data['bestthesis'] = Homepage::wherePage('best thesis')->first();
-        // $data['expectus'] = Homepage::wherePage('expectfromus')->with('subHomepages')->get();
-        $data['whatYouneed'] = Homepage::wherePage('whatYouneed')->with('subHomepages')->get();
-        $data['clientsSays'] = Homepage::wherePage('clientsSays')->with('subHomepages')->get();
-        $data['sendyourquery'] = Homepage::wherePage('sendyourquery')->with('subHomepages')->get();
-        $data['explorePossibilities'] = Homepage::wherePage('explorePossibilities')->with('subHomepages')->get();
+        $data['expectus'] = Homepage::wherePage('expect from us')->with('subHomepages')->first();
+        $data['whatYouneed'] = Homepage::wherePage('whatYouneed')->with('subHomepages')->first();
+        $data['clientsSays'] = Homepage::wherePage('clientsSays')->with('subHomepages')->first();
+        $data['callus'] = Homepage::wherePage('call us')->first();
+        $data['sendyourquery'] = Homepage::wherePage('sendyourquery')->first();
+        $data['explorePossibilities'] = Homepage::wherePage('explorePossibilities')->first();
         $data['calculators'] = Calculator::whereNotNull('place')->get();
         $data['faqs'] = Homepage::wherePage('faqs')->get();
-
-        $data['hireus'] = Homepage::wherePage('hire us')->with('subHomepages')->get();
-        $data['askedquestions'] = Homepage::wherePage('asked questions')->with('subHomepages')->get();
+        $data['hireus'] = Homepage::wherePage('hire us')->with('subHomepages')->first();
+        $data['askedquestions'] = Homepage::wherePage('asked questions')->with('subHomepages')->first();
         $data['fillrequirements'] = Homepage::wherePage('fill requirements')->first();
+        $data['bestoffers'] = Homepage::wherePage('best offers')->with('subHomepages')->first();
         return view('website.index', $data);
     }
 
@@ -108,8 +111,8 @@ class WebSiteController extends Controller
         $menu = Menu::whereSlug('privacy-policy')->first();
         if ($menu) {
             $data['post'] = ContentPage::whereMenuId($menu->id)->first();
+            return view('website.pages.privacy-policy', $data);
         }
-        return view('website.pages.privacy-policy', $data);
         abort(404, "page not found");
     }
 
@@ -117,7 +120,6 @@ class WebSiteController extends Controller
     {   
         $data = $this->common();
         $data['bolgDetails'] = ContentPage::whereId($id)->first();
-        // dd($data);
         return view('website.pages.detail', $data);
         abort(404, "page not found");
     }

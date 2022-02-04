@@ -21,16 +21,6 @@
    } 
 </script>
 
-<!-- <style>
-   /* Make the image fully responsive */
-   .carousel-inner img {
-   width: 100%;
-   height: 100%;
-   }
-   .dropdown-item:focus, .dropdown-item:hover {
-   background-color: #1c262f !important;
-   }
-</style> -->
 <!--OG Meta Tags to improve the way the post looks when you share the page on Facebook, Twitter, LinkedIn -->
 <meta property="og:site_name" content="" />
 <!-- website name -->
@@ -57,7 +47,7 @@
 <!-- Home -->
 <section class="home py-5 d-flex align-items-center" id="header">
    <div class="container text-light py-5"  data-aos="fade-right">
-      <h1 class="headline">{!! @$thesisNdissertation->title !!}</h1>
+      <h1 class="headline">{{  strip_tags(@$thesisNdissertation->title)  }}</h1>
       <p class="para py-3">{!! @$thesisNdissertation->content !!}</p>
       <div class="my-3">
          <a class="btn" href="contact">Contact Us</a>
@@ -66,11 +56,12 @@
    <!-- end of container -->
 </section>
 <!-- end of home --> 
+
 <!-- Information -->
 <section class="information">
    <div class="container-fluid">
       <div class="row text-light">
-         @foreach ($whatYouneed[0]->subHomepages as $key => $whatYouneed)
+         @foreach ($whatYouneed->subHomepages as $key => $whatYouneed)
          <div class="col-lg-4 text-center p-5" data-aos="zoom-in">
             {!! $whatYouneed->alt !!}
             <h4 class="py-3">{!! strip_tags($whatYouneed->title) !!}</h4>
@@ -82,6 +73,7 @@
    <!-- end of container -->
 </section>
 <!-- end of information -->
+
 <!-- About -->
 <section class="about d-flex align-items-center text-light py-5" id="about">
    <div class="container" >
@@ -102,116 +94,127 @@
    <!-- end of container -->
 </section>
 <!-- end of about -->
-<!-- Example -->
+
+<!-- Calculator -->
 <section class="about d-flex align-items-center text-light py-5">
    <div class="container" >
       <div class="row d-flex">
          <!-- Part - 1  -->
          <div class="col-lg-8" data-aos="fade-right">
-         <div class="container">
-            <div id="accordion">
-            @foreach($faqs as $faq)
-               <div class="card mt-1">
-                  <div class="card-header" data-toggle="collapse" href="#collapse_{{ $faq->id }}">
-                     <a class="card-link text-secondary">
-                        {!! $faq->title !!}
-                     </a>
-                  </div>
-                  <div id="collapse_{{ $faq->id }}" class="collapse " data-parent="#accordion">
-                     <div class="card-body text-secondary">
-                        {!! $faq->content !!}
+            <div class="container">
+               <div class="accordion accordion-flush" id="accordionExample">
+                  @foreach($faqs as $faq)
+                     <div class="accordion-item">
+                        <h2 class="accordion-header" id="heading_{{ $faq->id }}">
+                           <button class="accordion-button {{ $loop->first ?  '' : 'collapsed'}}" type="button" data-bs-toggle="collapse" data-bs-target="#collapse_{{ $faq->id }}" aria-expanded="true" aria-controls="collapse_{{ $faq->id }}">
+                              {!! $faq->title !!}
+                           </button>
+                        </h2>
+
+                        <div id="collapse_{{ $faq->id }}" class="accordion-collapse collapse {{$loop->first ?  'show' : ''}}" aria-labelledby="heading_{{ $faq->id }}" data-bs-parent="#accordionExample">
+                           <div class="accordion-body">
+                              {!! $faq->content !!}
+                           </div>
+                        </div>
                      </div>
-                  </div>
+                  @endforeach
                </div>
-            @endforeach
             </div>
-         </div>
          </div>
          <!-- Part - 2  -->
          <div class="col-lg-4 py-4 py-sm-0 ">
             <div class="border border-light rounded p-3">
-               <p class="font-weight-bold" style="font-size:28px">Calculate the price</p>
-               <br>
-               <div class="form-row">
-                  <div class="col">
-                     <select id="customer-list" class="form-control">
-                        <option selected>Choose...</option>
+               <p class="font-weight-bold text-center" style="font-size:28px">Calculate the price</p>
+               <div class="row">
+                  <div class="col-6">
+                     <select id="service-type" class="form-control" onChange="calculatePrice()">
+                        <!-- <option selected>Choose Service Type</option> -->
                         @foreach($calculators as $calculator)
-                           @if($calculator->place==1)
-                           <option value="{{ $calculator->price }}">{{ $calculator->category }}</option>
+                           @if($calculator->place == 1)
+                              <option value="{{ $calculator->price }}">{{ $calculator->category }}</option>
                            @endif
                         @endforeach
                      </select>
                   </div>
-                  <div class="col">
-                     <select id="inputState" class="form-control"> 
-                        <option selected>Choose...</option>
+                  <div class="col-6">
+                     <select id="service" class="form-control" onChange="calculatePrice()"> 
+                        <!-- <option selected>Choose Service</option> -->
                         @foreach($calculators as $calculator)
-                           @if($calculator->place==2)
-                           <option value="{{ $calculator->price }}">{{ $calculator->category }}</option>
-                           @endif
-                        @endforeach
-                     </select>
-                  </div>
-               </div>
-               <div class="form-row mt-3">
-                  <div class="col">
-                     <select id="inputState" class="form-control">
-                        <option selected>Choose...</option>
-                        @foreach($calculators as $calculator)
-                           @if($calculator->place==3)
-                           <option value="{{ $calculator->price }}">{{ $calculator->category }}</option>
-                           @endif
-                        @endforeach
-                     </select>
-                  </div>
-                  <div class="col">
-                     <select id="inputState" class="form-control">
-                        <option selected>Choose...</option>
-                        @foreach($calculators as $calculator)
-                           @if($calculator->place==4)
-                           <option value="{{ $calculator->price }}">{{ $calculator->category }}</option>
+                           @if($calculator->place == 2)
+                              <option value="{{ $calculator->price }}">{{ $calculator->category }}</option>
                            @endif
                         @endforeach
                      </select>
                   </div>
                </div>
-               <div class="form-row mt-3">
-                  <div class="col">
-                     <select id="inputState" class="form-control">
-                        <option selected>Choose...</option>
+               <div class="row mt-3">
+                  <div class="col-6">
+                     <select id="service-college" class="form-control" onChange="calculatePrice()">
+                        <!-- <option selected>Select College</option> -->
                         @foreach($calculators as $calculator)
-                           @if($calculator->place==5)
-                           <option value="{{ $calculator->price }}">{{ $calculator->category }}</option>
+                           @if($calculator->place == 3)
+                              <option value="{{ $calculator->price }}">{{ $calculator->category }}</option>
+                           @endif
+                        @endforeach
+                     </select>
+                  </div>
+                  <div class="col-6">
+                     <select id="service-day" class="form-control" onChange="calculatePrice()">
+                        <!-- <option selected>Select Days</option> -->
+                        @foreach($calculators as $calculator)
+                           @if($calculator->place == 4)
+                              <option value="{{ $calculator->price }}">{{ $calculator->category }}</option>
                            @endif
                         @endforeach
                      </select>
                   </div>
                </div>
-               <div class="form-row mt-3">
+               <div class="row mt-3">
                   <div class="col">
+                     <select id="service-page" class="form-control" onChange="calculatePrice()">
+                        <!-- <option selected>Select Page</option> -->
+                        @foreach($calculators as $calculator)
+                           @if($calculator->place == 5)
+                              <option value="{{ $calculator->price }}">{{ $calculator->category }}</option>
+                           @endif
+                        @endforeach
+                     </select>
+                  </div>
+               </div>
+               <div class="row mt-3">
+                  <div class="col-6">
                      <div class="form-check-inline">
                         <label class="form-check-label">
-                        <input type="radio" class="form-check-input" name="optradio" value="10">Double spaces
+                           <input type="radio" class="form-check-input" id="service-double"  name="service-space" onChange="calculatePrice()" value="2" checked>Double spaces
                         </label>
                      </div>
                   </div>
-                  <div class="col">
+                  <div class="col-6">
                      <div class="form-check-inline">
                         <label class="form-check-label">
-                        <input type="radio" class="form-check-input" name="optradio" value="1">Single Space
+                           <input type="radio" class="form-check-input" id="service-single"  name="service-space" onChange="calculatePrice()" value="1">Single Space
                         </label>
                      </div>
                   </div>
                </div>
-               <div class="form-row mt-3">
-                  <div class="col">
+
+               <div class="row mt-3">
+                  <div class="col-4">
+                     <p  style="padding: 0 5px;border-radius: 4px;background-color: #20ba68; color: #fff;">
+                       <s id="customer-data-higer"></s> 25% off
+                     </p>
                   </div>
-                  <div class="col">
-                     <!-- <h5 class="font-weight-bold">$10</h5> -->
-                     <img src="img/ajax-loader.gif" id="loader">
-	                  <div id="customer-data"></div>
+                  <div class="col-4 text-center">
+                     <div class="spinner-border text-info" role="status" id="loader">
+                        <span class="sr-only">Loading...</span>
+                     </div>
                   </div>
+                  <div class="col-4">
+                     <h5 class="font-weight-bold"><span id="customer-data"></span><i class="fa fa-fire text-warning mx-2" aria-hidden="true"></i></h5>
+                  </div>
+               </div>
+               <div class="row mt-2 p-3">
+                  <button class="btn"> Write My Paper</button>
                </div>
 
             </div>
@@ -221,32 +224,80 @@
    <!-- end of row -->
    </div>
 </section>
-<!-- Example -->
+<!-- End Calculator -->
+
+<!-- Call To Action -->
+<section style="background-color: #3570a3;" class="services d-flex align-items-center py-5" id="services">
+   <div class="container text-light">
+      <div class="text-center pb-4" >
+            <h2 class="py-2"> {!! @$callus->title !!}</h2>
+            <p class="para-light">{!! @$callus->content !!}</p>
+      </div>
+   </div>
+</section>
+<!-- End Call To Action -->
+
 <!-- Services -->
-<style>
-   section .container .card ul li::before {
-   content: "✓";
-   padding-right: 10px;
-   color: rgb(71, 178, 228);
-   }
-   section .container .card ul li{
-   padding-top: 10px;
-   }
-</style>
+<section class="services d-flex align-items-center py-5" id="services">
+   <div class="container text-light">
+      <div class="text-center pb-4" >
+         <h2 class="py-2">{!! @$expectus->title !!}</h2>
+         <p class="para-light">{!! @$expectus->content !!}</p>
+      </div>
+      <div class="row gy-4 py-2" data-aos="zoom-in">
+         @foreach ($expectus->subHomepages as $key => $subHomepage)
+            <div class="col-lg-4">
+               <!-- <a href="">  -->
+                  <div class="card bg-transparent">                    
+                     <h4 class="py-2 fas">{{ strip_tags($subHomepage->title) }}</h4>
+                     <p class="para-light">{!! substr($subHomepage->content, 0, 100) !!}</p>
+                  </div>
+               <!-- </a> -->
+            </div>
+         @endforeach
+      </div> <!-- end of row -->
+   </div> <!-- end of container -->
+</section> <!-- end of services -->
+
+<!-- Plans -->
+<section class="plans d-flex align-items-center py-5" id="plans">
+   <div class="container text-light" >
+      <div class="text-center pb-4">
+            <h2 class="py-2">{!! @$bestoffers->title !!}</h2>
+            <p class="para-light">{!! @$bestoffers->content !!}</p>
+      </div>
+      <div class="row gy-4" data-aos="zoom-in">
+         @foreach($bestoffers->subHomepages as $key => $item)
+            <div class="col-lg-4 @if(++$key % 2 == 0)featured @endif">
+               <div class="card bg-transparent px-4">
+                  {!! @$item->title !!}
+                  {!! @$item->content !!}
+                  
+                  <!-- <h4 class="py-3">$24/Month</h4> -->
+                  <div class="my-3">
+                        <a class="btn" href="#your-link" >View Plans</a>
+                  </div>
+               </div>  
+            </div>
+         @endforeach
+      </div> <!-- end of row -->
+   </div> <!-- end of container -->
+</section> <!-- end of plans -->
+
 <!-- Work -->
 <section class="work d-flex align-items-center py-5" >
    <div class="container-fluid text-light">
       <div class="row">
          <div class="col-lg-6 d-flex align-items-center" data-aos="fade-right">
-            <img class="img-fluid" src="{!! @$explorePossibilities[0]->image !!}" alt="{!! @$explorePossibilities[0]->alt !!}">        
+            <img class="img-fluid" src="{!! @$explorePossibilities->image !!}" alt="{!! @$explorePossibilities->alt !!}">        
          </div>
          <div class="col-lg-5 d-flex align-items-center px-4 py-3" data-aos="">
             <div class="row">
                <div class="text-center text-lg-start py-4 pt-lg-0">
-                  <h2 class="py-2">{!! @$explorePossibilities[0]->title !!}</h2>
-                  <p class="para-light">{!! @$explorePossibilities[0]->content !!}</p>
+                  <h2 class="py-2">{!! @$explorePossibilities->title !!}</h2>
+                  <p class="para-light">{!! @$explorePossibilities->content !!}</p>
                </div>
-               <div class="container" data-aos="fade-up">
+               <div class="container" data-aos="fade-explorePossibilities">
                   <div class="row g-5">
                      <div class="col-6 text-start" >
                         <i class="fas fa-briefcase fa-2x text-start"></i>
@@ -281,13 +332,14 @@
    <!-- end of container -->
 </section>
 <!-- end of work -->
+
 <!-- Testimonials -->
 <div class="slider-1 testimonial text-light d-flex align-items-center">
    <div class="container">
       <div class="row">
          <div class="text-center w-lg-75 m-auto pb-4">
-            <h2 class="py-2">{!! @$clientsSays[0]->title !!}</h2>
-            <p class="para-light">{!! @$clientsSays[0]->content !!}</p>
+            <h2 class="py-2">{!! @$clientsSays->title !!}</h2>
+            <p class="para-light">{!! @$clientsSays->content !!}</p>
          </div>
       </div>
       <!-- end of row -->
@@ -299,7 +351,7 @@
                   <div class="swiper-wrapper">
                      <!-- Slide -->                                
                      <!-- end of slide -->
-                     @foreach ($clientsSays[0]->subHomepages as $key => $clientsSays)
+                     @foreach ($clientsSays->subHomepages as $key => $clientsSays)
                      <!-- Slide -->
                      <div class="swiper-slide">
                         <div class="testimonial-card p-4">
@@ -336,15 +388,17 @@
    <!-- end of container -->
 </div>
 <!-- end of testimonials -->
+
 <!-- Contact -->
+{{-- 
 <section class="contact d-flex align-items-center py-5" id="contact">
    <div class="container-fluid text-light">
       <div class="row">
          <div class="col-lg-6 d-flex justify-content-center justify-content-lg-end align-items-center px-lg-5" data-aos="fade-right">
             <div style="width:90%">
                <div class="text-center text-lg-start py-4 pt-lg-0">
-                  <h2 class="py-2">{!! @$sendyourquery[0]->title !!}</h2>
-                  <p class="para-light">{!! @$sendyourquery[0]->content !!}</p>
+                  <h2 class="py-2">{!! @$sendyourquery->title !!}</h2>
+                  <p class="para-light">{!! @$sendyourquery->content !!}</p>
                </div>
                <div>
                   <div class="row" >
@@ -374,15 +428,37 @@
          </div>
          <!-- end of col -->
          <div class="col-lg-6 d-flex align-items-center" data-aos="fade-down">
-            <img class="img-fluid d-none d-lg-block" src="{{ @$sendyourquery[0]->image }}" alt="contact">        
+            <img class="img-fluid d-none d-lg-block" src="{{ @$sendyourquery->image }}" alt="contact">        
          </div>
          <!-- end of col -->
       </div>
       <!-- end of row -->
    </div>
    <!-- end of container -->
-</section>
+</section> --}}
 <!-- end of contact -->
+
+<!-- About -->
+<section class="about d-flex align-items-center text-light py-5" id="about">
+   <div class="container" >
+      <div class="row d-flex align-items-center">
+         <div class="col-lg-5 text-center py-4 py-sm-0" data-aos="fade-down"> 
+            <img class="img-fluid" src="{!! @$bestthesis->image !!}" alt="{!! @$bestthesis->alt !!}" >
+         </div>
+         <div class="col-lg-7" data-aos="fade-right">
+            <h2>{!! @$bestthesis->title !!}</h2>
+            {!! @$bestthesis->content !!}
+            <div class="my-3">
+               <a class="btn" href="">Offers</a>
+            </div>
+         </div>
+      </div>
+      <!-- end of row -->
+   </div>
+   <!-- end of container -->
+</section>
+<!-- end of about -->
+
 <!-- Location -->
 <section class="location text-light py-5">
    <div class="container" data-aos="zoom-in">
@@ -421,38 +497,39 @@
    <!-- end of container -->
 </section>
 <!-- end of location -->
+
 @push('js')
 <script>
-	$(document).ready(function(){
-      
-      $.ajaxSetup({
-        headers: {
-            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-        }
-      });
+   function calculatePrice(){
 
-		$("#customer-list").change(function(){
-				$("#loader").show();
-				var getUserID = $(this).val();
-				if(getUserID != '0')
-				{
-					$.ajax({
-						type: 'GET',
-						url: '{{ route('ajaxRequest.post') }}',
-						data: {customer_id:getUserID},
-						success: function(data){
-							$("#loader").hide();
-							$("#customer-data").html(data);
-						}
-					});
-				}
-				else
-				{
-					$("#customer-data").html('');
-					$("#loader").hide();
-				}
-		});
-	});
+      let loader =  document.getElementById('loader');
+      let service = document.getElementById('service').value;
+      let serviceDay = document.getElementById('service-day').value;
+      let serviceType = document.getElementById('service-type').value;
+      let servicePage = document.getElementById('service-page').value;
+      let serviceCollege = document.getElementById('service-college').value;
+
+      loader.style.display = "inline-block";
+
+      if (document.getElementById('service-double').checked) {
+         var multi = document.getElementById('service-double').value;
+      }
+
+      if (document.getElementById('service-single').checked) {
+         var multi = document.getElementById('service-single').value;
+      }
+
+      data = parseInt(service) + parseInt(serviceDay) + parseInt(serviceType) + parseInt(servicePage) + parseInt(serviceCollege);
+      multi = data * multi;
+
+      setTimeout(() => {
+         document.getElementById('customer-data').innerText ="$" + multi;
+         multi = parseInt(multi) * 1.25;
+         document.getElementById('customer-data-higer').innerText = "$" + multi;
+         loader.style.display = "none";
+      }, 1500);
+   }
+   calculatePrice();
 </script>
 @endpush
 
