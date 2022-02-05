@@ -25,7 +25,6 @@ Route::get('/clear-cache', function () {
 	dd('Cache cleared');
 	// return what you want
 });
-// Route::view('/blog', '/website/pages/blog');
 
 Route::get('/config-cache', function () {
 	$exitCode = Artisan::call('config:cache');
@@ -33,10 +32,6 @@ Route::get('/config-cache', function () {
 	// return what you want
 });
 
-// Route::get('ajaxRequest', [AjaxController::class, 'ajaxRequest']);
-Route::get('ajaxRequest', [AjaxController::class, 'ajaxRequestPost'])->name('ajaxRequest.post');
-
-Route::get('/blog', [WebSiteController::class, 'blog']);
 Route::get('detail/{id}/', [WebSiteController::class, 'detail'])->name('website.pages.detail');
 
 Auth::routes(['register' => false]);
@@ -46,7 +41,7 @@ Route::get('/about', [WebSiteController::class, 'about'])->name('about');
 Route::get('/contact', [WebSiteController::class, 'contact'])->name('contact');
 Route::get('/price', [WebSiteController::class, 'price'])->name('price');
 Route::get('/privacy-policy', [WebSiteController::class, 'privacyPolicy'])->name('privacy-policy');
-
+Route::get('/blogs', [WebSiteController::class, 'blog'])->name('blogs');
 
 Route::get('/home', function () { 
     if (session('status')) {
@@ -58,8 +53,10 @@ Route::get('/home', function () {
 
 Route::group(['prefix' => 'admin', 'as' => 'admin.', 'middleware' => ['auth']], function () {
     Route::get('/', [HomeController::class, 'index'])->name('home');
+
     // Blog
     Route::resource('blog_content', BlogPageController::class);
+
     // Home Pages
     Route::delete('homepage/destroy', [HomepageController::class, 'massDestroy'])->name('homepage.massDestroy');
     Route::resource('homepage', HomepageController::class);

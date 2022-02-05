@@ -102,8 +102,9 @@
          <!-- Part - 1  -->
          <div class="col-lg-8" data-aos="fade-right">
             <div class="container">
+               {!! $faqs->title   !!}
                <div class="accordion accordion-flush" id="accordionExample">
-                  @foreach($faqs as $faq)
+                  @foreach($faqs->subHomepages as $faq)
                      <div class="accordion-item">
                         <h2 class="accordion-header" id="heading_{{ $faq->id }}">
                            <button class="accordion-button {{ $loop->first ?  '' : 'collapsed'}}" type="button" data-bs-toggle="collapse" data-bs-target="#collapse_{{ $faq->id }}" aria-expanded="true" aria-controls="collapse_{{ $faq->id }}">
@@ -112,7 +113,7 @@
                         </h2>
 
                         <div id="collapse_{{ $faq->id }}" class="accordion-collapse collapse {{$loop->first ?  'show' : ''}}" aria-labelledby="heading_{{ $faq->id }}" data-bs-parent="#accordionExample">
-                           <div class="accordion-body">
+                           <div class="accordion-body text-secondary">
                               {!! $faq->content !!}
                            </div>
                         </div>
@@ -124,7 +125,7 @@
          <!-- Part - 2  -->
          <div class="col-lg-4 py-4 py-sm-0 ">
             <div class="border border-light rounded p-3">
-               <p class="font-weight-bold text-center" style="font-size:28px">Calculate the price</p>
+               <p class="font-weight-bold text-center" style="font-size:28px">Get The Price Quote</p>
                <div class="row">
                   <div class="col-6">
                      <select id="service-type" class="form-control" onChange="calculatePrice()">
@@ -458,6 +459,40 @@
    <!-- end of container -->
 </section>
 <!-- end of about -->
+
+<!-- ======= Blog Section ======= -->
+<section class="testimonial d-flex align-items-center text-light pb-2" id="about">
+   <div class="container" >
+      <div class="row">
+         <div class="text-center w-lg-75 m-auto pb-4">
+            <h2 class="py-2">Our Latest Blogs</h2>
+            <!-- <p class="para-light">{!! @$clientsSays->content !!}</p> -->
+         </div>
+      </div>
+
+      <div class="row d-flex align-items-center">
+         @foreach ($blogs as $key => $blog)
+         <div class="col-lg-4 col-md-4 col-sm-6 col-sm-12" data-aos="fade-up">
+            <div class="testimonial-card mt-4 p-2" data-aos="fade-right">
+               <div class="row">
+                  <div class="col-lg-12 text-center mb-4" data-aos="fade-down"> 
+                     <img class="img-fluid" src="{{ $blog->featured_image->getUrl() }}" alt="bestessaywritingservices" >
+                  </div>
+                  <div class="col-lg-12 mb-4">
+                     <h3 class="mt-2">{{$blog->title }}</h3>
+                     {!! substr(strip_tags($blog->page_text), 0, 100) !!}
+                  </div>
+               </div>
+               <a class="btn mb-4" href="{{ route('website.pages.detail',$blog->id) }}">Read More</a>
+            </div>
+         </div>
+         @endforeach
+      </div> <!-- end of row -->
+   </div>
+   <!-- end of container -->
+</section>
+<!-- End Blog Section -->
+
 
 <!-- Location -->
 <section class="location text-light py-5">

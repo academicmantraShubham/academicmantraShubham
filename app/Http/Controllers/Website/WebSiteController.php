@@ -52,11 +52,12 @@ class WebSiteController extends Controller
         $data['sendyourquery'] = Homepage::wherePage('sendyourquery')->first();
         $data['explorePossibilities'] = Homepage::wherePage('explorePossibilities')->first();
         $data['calculators'] = Calculator::whereNotNull('place')->get();
-        $data['faqs'] = Homepage::wherePage('faqs')->get();
+        $data['faqs'] = Homepage::wherePage('asked questions')->with('subHomepages')->first();
         $data['hireus'] = Homepage::wherePage('hire us')->with('subHomepages')->first();
         $data['askedquestions'] = Homepage::wherePage('asked questions')->with('subHomepages')->first();
         $data['fillrequirements'] = Homepage::wherePage('fill requirements')->first();
         $data['bestoffers'] = Homepage::wherePage('best offers')->with('subHomepages')->first();
+        $data['blogs'] = ContentPage::whereType('blog')->take(4)->get();
         return view('website.index', $data);
     }
 
@@ -94,12 +95,13 @@ class WebSiteController extends Controller
         }
         abort(404, "page not found");
     }
+    
     public function blog(Request $request)
     {        
         $data = $this->common();
-        $menu = Menu::whereSlug('blog')->first();
+        $menu = Menu::whereSlug('blogs')->first();
         if ($menu) {
-            $data['blogs'] = ContentPage::whereType('blog')->paginate(9);
+            $data['blogs'] = ContentPage::whereType('blog')->paginate(6);
             return view('website.pages.blog', $data);
         }
         abort(404, "page not found");
