@@ -36,4 +36,19 @@ class Role extends Model
     {
         return $date->format('Y-m-d H:i:s');
     }
+    
+    protected static function booted()
+    {
+        static::deleted(function () {
+            Cache::forget('permissions');
+        });
+
+        static::created(function () {
+            Cache::forget('permissions');
+        });
+
+        static::updated(function () {
+            Cache::forget('permissions');
+        });
+    }
 }

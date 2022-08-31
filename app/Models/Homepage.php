@@ -30,7 +30,7 @@ class Homepage extends Model
 
     public function subHomepages()
     {
-        return $this->hasMany('App\Models\Homepage','parent_id','id') ;
+        return $this->hasMany('App\Models\Homepage','parent_id','id')->wherePage(null);
     }
 
     public function Menu()

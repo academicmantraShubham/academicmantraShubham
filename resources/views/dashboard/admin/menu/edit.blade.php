@@ -98,7 +98,7 @@
                     <div class="col-md-12">
                         <div class="form-group">
                             <label for="meta_description">{{ trans('Meta Description') }}</label>
-                            <textarea class="form-control ckeditor{{ $errors->has('meta_description') ? 'is-invalid' : '' }}" name="meta_description" id="meta_description">{{ old('meta_description',  @$menu->post->meta_description) }}</textarea>
+                            <textarea class="form-control {{ $errors->has('meta_description') ? 'is-invalid' : '' }}" name="meta_description" id="meta_description">{{ old('meta_description',  @$menu->post->meta_description) }}</textarea>
                             @if($errors->has('meta_description'))
                                 <div class="invalid-feedback">
                                     {{ $errors->first('meta_description') }}

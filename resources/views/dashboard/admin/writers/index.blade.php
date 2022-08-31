@@ -66,11 +66,9 @@
                                 {{ @$homepage->Menu->title }}
                             </td>
                             <td>
-                                @if ( $homepage->image)
-                                    <a href="{{ $homepage->image }}" target="_blank" style="display: inline-block">
-                                        <img loading="lazy" style="width: 55px; height:55px; border-radius:50%;" src="{{ $homepage->image }}">
-                                    </a>
-                                @endif
+                                <a href="{{ $homepage->image ?? '/images/homepage/1660655334.jpg' }}" target="_blank" style="display: inline-block">
+                                    <img loading="lazy" style="width: 55px; height:55px; border-radius:50%;" src="{{ $homepage->image ?? '/images/homepage/1660655334.jpg'}}">
+                                </a>
                             </td>
                             <td>
 
@@ -92,7 +90,7 @@
                         </tr>
                             <!-- Update -->
                         <div class="modal fade" id="add_page{{ $homepage->id }}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                            <div class="modal-dialog" role="document" style="max-width:60%">
+                            <div class="modal-dialog" role="document">
                                 <div class="modal-content">
                                     <div class="modal-header">
                                         <h5 class="modal-title" id="exampleModalLabel">&emsp;Edit Content</h5>
@@ -160,9 +158,7 @@
                             </div>
                         </div>
                     @endforeach
-
                 </tbody>
-          
                 
                 <!-- Modal -->
                 <div class="modal fade" id="add_page" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -215,7 +211,7 @@
                                 <div class="row">
                                     <div class="form-group col-12 mt-2">
                                         <label for="title">Image</label>
-                                        <input  class="form-control" type="file" name="img" required>
+                                        <input  class="form-control" type="file" name="img" >
                                     </div>
 
                                     <div class="form-group col-12 mt-2">
@@ -235,6 +231,7 @@
                     </div>
                 </div>
             </table>
+         {{$writers->links()}}
         </div>
     </div>
 </div>

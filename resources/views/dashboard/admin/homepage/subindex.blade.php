@@ -1,5 +1,29 @@
 @extends('dashboard.layouts.admin')
 @section('content')
+<style>
+    .c-header.c-header-fixed{
+        z-index:100 !important;
+    }
+    .modal-open .modal{
+        z-index:103 !important;
+    }
+    .modal-backdrop.show{
+         z-index:102 !important;
+    }
+    #sortable tr {
+        cursor: move; /* fallback if grab cursor is unsupported */
+        cursor: grab;
+        cursor: -moz-grab;
+        cursor: -webkit-grab;
+    }
+    
+     /* (Optional) Apply a "closed-hand" cursor during drag operation. */
+    #sortable tr:active{
+        cursor: grabbing;
+        cursor: -moz-grabbing;
+        cursor: -webkit-grabbing;
+    }
+</style>
 @can('permission_create')
     <div style="margin-bottom: 10px;" class="row">
         <div class="col-lg-12">
@@ -85,7 +109,7 @@
                             </td>
                         </tr>
                             <!-- Update -->
-                        <div class="modal fade" id="add_page{{ $homepage->id }}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                        <div class="modal fade" id="add_page{{ $homepage->id }}" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                             <div class="modal-dialog" role="document" style="max-width:60%">
                                 <div class="modal-content">
                                     <div class="modal-header">

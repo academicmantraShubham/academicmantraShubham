@@ -23,12 +23,18 @@ h1 {
 button {
 	font-family: sans-serif;
 }
-
 p,
 ul,
 h4 {
-	margin: 0;
-	padding: 0;
+	padding: .2rem;
+	margin-bottom:.5rem;
+	text-align: justify;
+}
+.para-light{
+    text-align: center;
+}
+ul{
+    margin:0 8px;
 }
 
 a {
@@ -37,9 +43,13 @@ a {
 }
 
 li {
+    margin-bottom:.5rem;
   	list-style-type: none;
 }
 
+#excerpt li, #services li{
+    list-style-type:circle;
+}
 /* Section Background */
 .home,
 .about,
@@ -72,7 +82,7 @@ li {
 
 /* Gradient Border And Background On Icons */
 .home_text,
-.home .fas,
+.home .fas,.services .fab,
 .plans .far,
 .information .fas,
 .work .fas,
@@ -120,9 +130,9 @@ li {
 }
 
 .navbar .logo-image img {
-	width: 108px;
-	height: 32px;
+    width:60px;
 }
+
 
 .navbar .logo-text {
 	color: #fff;
@@ -238,14 +248,52 @@ li {
  }
  .dropdown-submenu>.dropdown-menu {
 	top:0;
-	left:-10rem; /* 10rem is the min-width of dropdown-menu */
+	left:-15rem; /* 10rem is the min-width of dropdown-menu */
 	margin-top:-6px;
  }
+ .dropdown-submenu>#new_id_116{
+	top: -170px;
+	left:15rem !important; /* 10rem is the min-width of dropdown-menu */
+	margin-top:-6px;
+	max-height:400px;
+	overflow-y:scroll;
+ }
+ 
+ .dropdown-submenu>#new_id_10{
+	left:10rem !important; /* 10rem is the min-width of dropdown-menu */
+	margin-top:-6px;
+	max-height:400px;
+	overflow-y:scroll;
+ }
+ 
+ 
  /* rotate caret on hover */
  .dropdown-menu > li > a:hover:after {
 	text-decoration: underline;
 	transform: rotate(-90deg);
  } 
+ 
+ /*.dropdown-submenu .dropdown-menu{*/
+ /*   column-count: 2;*/
+ /*}*/
+ 
+.dropdown-submenu .dropdown-menu::-webkit-scrollbar-track
+{
+	-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+	background-color: #F5F5F5;
+}
+
+.dropdown-submenu .dropdown-menu::-webkit-scrollbar
+{
+	width: 10px;
+	background-color: #F5F5F5;
+}
+
+.dropdown-submenu .dropdown-menu::-webkit-scrollbar-thumb
+{
+	background-color: #000000;
+	border: 2px solid #555555;
+}
 
 /****************/
 /*     Home     */
@@ -458,6 +506,7 @@ li {
 /* Dropdown Menu */
 .navbar .dropdown .dropdown-menu {
   	animation: fadeDropdown 0.2s; /* required for the fade animation */
+	left: -75px;
 }
 
 @-webkit-keyframes fadeDropdown {
@@ -502,7 +551,8 @@ li {
 /******************************/
 #myBtn {
 	z-index: 99;
-	right: 20px;
+    background: #05e096;
+    right: 10px;
 	width: 52px;
 	height: 52px;
 	bottom: 20px;
@@ -512,7 +562,7 @@ li {
 	position: fixed;
 	cursor: pointer;
 	border-radius: 50%;
-	background-color: #1862a1;
+	/*background-color: #1862a1;*/
 }
 
 #myBtn:hover {
@@ -530,8 +580,7 @@ li {
 /*     Extra Pages     */
 /***********************/
 .ex-header {
-	padding-top: 8.5rem;
-	padding-bottom: 4rem;
+	padding: 1rem;
 	background-color: #1a4c76;
 }
 
@@ -594,14 +643,124 @@ section .container .card ul li{
 }
 
 .footer ul li{
-	padding-top: 0.5rem!important;
-    padding-bottom: 0.5rem!important;
+    padding-bottom: 0.5rem !important;
 }
 
 .footer ul li::before{
     content: "▶";
 	color: white;
 	padding-right: 4px;
+}
+.table-bordered>:not(caption)>*>* {
+    border-width: 2px 2px !important;
+}
+
+/*************************/
+/*    SUCCESS SVG ICON   */
+/*************************/
+.confetti {
+  position: absolute;
+  animation: grow 1.4s cubic-bezier(0.42, 0, 0.275, 1.155) both;
+}
+.confetti:nth-child(1) {
+  width: 12px;
+  height: 12px;
+  left: 12px;
+  top: 16px;
+}
+.confetti:nth-child(2) {
+  width: 18px;
+  height: 18px;
+  left: 168px;
+  top: 84px;
+}
+.confetti:nth-child(3) {
+  width: 10px;
+  height: 10px;
+  left: 32px;
+  top: 162px;
+}
+.confetti:nth-child(4) {
+  width: 20px;
+  height: 20px;
+  left: 82px;
+  top: -12px;
+}
+.confetti:nth-child(5) {
+  width: 14px;
+  height: 14px;
+  left: 125px;
+  top: 162px;
+}
+.confetti:nth-child(6) {
+  width: 10px;
+  height: 10px;
+  left: 16px;
+  top: 16px;
+}
+.confetti:nth-child(1) {
+  animation-delay: 0.7s;
+}
+.confetti:nth-child(2) {
+  animation-delay: 1.4s;
+}
+.confetti:nth-child(3) {
+  animation-delay: 2.1s;
+}
+.confetti:nth-child(4) {
+  animation-delay: 2.8s;
+}
+.confetti:nth-child(5) {
+  animation-delay: 3.5s;
+}
+.confetti:nth-child(6) {
+  animation-delay: 4.2s;
+}
+
+.checkmark {
+  position: relative;
+  padding: 30px;
+  animation: checkmark 5.6s cubic-bezier(0.42, 0, 0.275, 1.155) both;
+}
+
+.checkmark__check {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  z-index: 10;
+  transform: translate3d(-50%, -50%, 0);
+  fill: #fff;
+}
+
+.checkmark__back {
+  animation: rotate 35s linear both infinite;
+}
+
+@keyframes rotate {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+@keyframes grow {
+  0%, 100% {
+    transform: scale(0);
+  }
+  50% {
+    transform: scale(1);
+  }
+}
+@keyframes checkmark {
+  0%, 100% {
+    opacity: 0;
+    transform: scale(0);
+  }
+  10%, 50%, 90% {
+    opacity: 1;
+    transform: scale(1);
+  }
 }
 
 /*************************/
@@ -614,7 +773,7 @@ section .container .card ul li{
 	.about,
 	.contact,
 	.plans {
-		height: 100%;
+		/*height: 100%;*/
 	}
 }
 
@@ -720,5 +879,9 @@ section .container .card ul li{
 		right: -16px;
 		width: 22px;
 		background-size: 22px 34px;
+	}
+	
+	.div-avatar img{
+	    width: 100px;
 	}
 }

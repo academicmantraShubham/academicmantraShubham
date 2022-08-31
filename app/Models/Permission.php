@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use Cache;
 use \DateTimeInterface;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
@@ -30,5 +31,20 @@ class Permission extends Model
     protected function serializeDate(DateTimeInterface $date)
     {
         return $date->format('Y-m-d H:i:s');
+    }
+    
+     protected static function booted()
+    {
+        static::deleted(function () {
+            Cache::forget('permissions');
+        });
+
+        static::created(function () {
+            Cache::forget('permissions');
+        });
+
+        static::updated(function () {
+            Cache::forget('permissions');
+        });
     }
 }

@@ -6,13 +6,10 @@ window.onscroll = function () {
 
 function scrollFunction() {
 	let intViewportWidth = window.innerWidth;
-	if (
-		document.body.scrollTop > 30 ||
-		(document.documentElement.scrollTop > 30) & (intViewportWidth > 991)
-	) {
+	if (document.body.scrollTop > 30 || (document.documentElement.scrollTop > 30) & (intViewportWidth > 991)) 
+	{
 		document.getElementById("navbar").classList.add("top-nav-collapse");
-	} else if (
-		document.body.scrollTop < 30 ||
+	} else if (document.body.scrollTop < 30 ||
 		(document.documentElement.scrollTop < 30) & (intViewportWidth > 991)
 	) {
 		document.getElementById("navbar").classList.remove("top-nav-collapse");
@@ -39,19 +36,23 @@ document.querySelector(".navbar-toggler").addEventListener("click", () => {
 //     $subMenu.toggleClass('show');
 //     return false;
 //  });
+
 document.querySelectorAll('.dropdown-menu a.dropdown-toggle').forEach(
     elem => {
         //SUBMENU HOVER
         if (window.innerWidth > 991) {
-            elem.addEventListener("mouseover",
+            elem.addEventListener("mouseenter",
             (e) => {
-                    if (document.querySelector('.dropdown-submenu .dropdown-menu.show')?.classList.contains('show')) {
-                        document.querySelector('.dropdown-submenu .dropdown-menu.show').classList.remove("show");
-                    }
                     var $subMenu = e.target.nextElementSibling;
                     $subMenu.classList.toggle('show');
                 }
-            )
+            );
+            elem.addEventListener("mouseleave",
+            (e) => {
+                    var $subMenu = e.target.nextElementSibling;
+                    $subMenu.classList.toggle('show');
+                }
+            );
         }else{
             elem.addEventListener("click",
             (e) => {
@@ -63,6 +64,25 @@ document.querySelectorAll('.dropdown-menu a.dropdown-toggle').forEach(
                 }
             )  
         }
+    }
+);
+
+document.querySelectorAll('.dropdown-submenu .dropdown-menu').forEach(
+    elem => {
+        //SUBMENU HOVER
+        elem.addEventListener("mouseenter",
+        (e) => {
+                var $parent = e.target;
+                $parent.classList.toggle('show');
+            }
+        );
+        elem.addEventListener("mouseleave",
+        (e) => {
+                var $parent = e.target;
+                console.log($parent)
+                $parent.classList.toggle('show');
+            }
+        );
     }
 );
  
@@ -84,29 +104,29 @@ function toggleDropdown(e) {
 }
 
 // ON HOVER
-const dropdownCheck = document.querySelector(".dropdown");
+// const dropdownCheck = document.querySelector(".dropdown");
 
-if (dropdownCheck !== null) {
-    document
-        .querySelector(".dropdown")
-        .addEventListener("mouseleave", toggleDropdown);
-    document
-        .querySelector(".dropdown")
-        .addEventListener("mouseover", toggleDropdown);
+// if (dropdownCheck !== null) {
+//     document
+//         .querySelector(".dropdown")
+//         .addEventListener("mouseleave", toggleDropdown);
+//     document
+//         .querySelector(".dropdown")
+//         .addEventListener("mouseover", toggleDropdown);
 
-    // ON CLICK
-    document.querySelector(".dropdown").addEventListener("click", (e) => {
-        const _d = e.target.closest(".dropdown");
-        let _m = document.querySelector(".dropdown-menu", _d);
-        if (_d.classList.contains("show")) {
-            _m.classList.remove("show");
-            _d.classList.remove("show");
-        } else {
-            _m.classList.add("show");
-            _d.classList.add("show");
-        }
-    });
-}
+//     // ON CLICK
+//     document.querySelector(".dropdown").addEventListener("click", (e) => {
+//         const _d = e.target.closest(".dropdown");
+//         let _m = document.querySelector(".dropdown-menu", _d);
+//         if (_d.classList.contains("show")) {
+//             _m.classList.remove("show");
+//             _d.classList.remove("show");
+//         } else {
+//             _m.classList.add("show");
+//             _d.classList.add("show");
+//         }
+//     });
+// }
 
 /* BACK TO TOP BUTTON */
 // GET THE BUTTON
@@ -146,6 +166,32 @@ var cardSlider = new Swiper(".card-slider", {
         prevEl: ".swiper-button-prev",
     },
     slidesPerView: 3,
+    spaceBetween: 70,
+    breakpoints: {
+        // when window is <= 767px
+        767: {
+        slidesPerView: 1,
+        },
+        // when window is <= 991px
+        991: {
+        slidesPerView: 2,
+        spaceBetween: 40,
+        },
+    },
+});
+
+/*WRITERS CARD SLIDER - SWIPER */
+var cardSlider = new Swiper(".writers-slider", {
+    autoplay: {
+        delay: 4000,
+        disableOnInteraction: false,
+    },
+    loop: true,
+    navigation: {
+        nextEl: "#writers-button-next",
+        prevEl: "#writers-button-prev",
+    },
+    slidesPerView: 2,
     spaceBetween: 70,
     breakpoints: {
         // when window is <= 767px

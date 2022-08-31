@@ -26,24 +26,6 @@
         </li>
 
         <li class="c-sidebar-nav-item">
-            <a href="{{ route("admin.writers") }}" class="c-sidebar-nav-link">
-                <i class="c-sidebar-nav-icon fas fa-fw fa fa-edit">
-
-                </i>
-                {{ trans('Writers') }}
-            </a>
-        </li>
-
-        <li class="c-sidebar-nav-item">
-            <a href="{{ route("admin.faqs") }}" class="c-sidebar-nav-link">
-                <i class="c-sidebar-nav-icon fas fa-fw fa fa-edit">
-
-                </i>
-                {{ trans("Faq's") }}
-            </a>
-        </li>
-
-        <li class="c-sidebar-nav-item">
             <a href="{{ route("admin.menu.index") }}" class="c-sidebar-nav-link">
                 <i class="c-sidebar-nav-icon fas fa-fw fa fa-keyboard-o">
 
@@ -51,7 +33,33 @@
                 {{ trans('global.menu') }}
             </a>
         </li>
+        
+        <li class="c-sidebar-nav-item">
+            <a href="{{ route("admin.faqs") }}" class="c-sidebar-nav-link">
+                <i class="c-sidebar-nav-icon fas fa-fw fa  fa-bullhorn">
+                </i>
+                {{ trans("Faq's") }}
+            </a>
+        </li>
+        
+        <li class="c-sidebar-nav-item">
+            <a href="{{ route("admin.writers") }}" class="c-sidebar-nav-link">
+                <i class="c-sidebar-nav-icon fas fa-fw fa fa-pencil-square">
 
+                </i>
+                {{ trans('Writers') }}
+            </a>
+        </li>
+
+        <li class="c-sidebar-nav-item">
+            <a href="{{ route("admin.samples") }}" class="c-sidebar-nav-link">
+                <i class="c-sidebar-nav-icon fas fa-fw fa fa-book">
+
+                </i>
+                {{ trans('Samples') }}
+            </a>
+        </li>
+        
         @can('user_management_access')
             <li class="c-sidebar-nav-dropdown {{ request()->is("admin/permissions*") ? "c-show" : "" }} {{ request()->is("admin/roles*") ? "c-show" : "" }} {{ request()->is("admin/users*") ? "c-show" : "" }}">
                 <a class="c-sidebar-nav-dropdown-toggle" href="#">

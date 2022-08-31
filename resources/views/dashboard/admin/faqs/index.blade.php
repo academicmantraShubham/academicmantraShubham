@@ -135,7 +135,6 @@
                             </div>
                         </div>
                     @endforeach
-
                 </tbody>
           
                 
@@ -193,6 +192,7 @@
                     </div>
                 </div>
             </table>
+           {{$faqs->links()}}
         </div>
     </div>
 </div>

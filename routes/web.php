@@ -18,18 +18,11 @@ use App\Http\Controllers\Website\WebSiteController;
 use App\Http\Controllers\AjaxController;
 
 
-
 //Website Routes
 Route::get('/clear-cache', function () {
-	$exitCode = Artisan::call('cache:clear');
+    Artisan::call('cache:clear');
+    Artisan::call('config:cache');
 	dd('Cache cleared');
-	// return what you want
-});
-
-Route::get('/config-cache', function () {
-	$exitCode = Artisan::call('config:cache');
-	dd('Cache cleared');
-	// return what you want
 });
 
 Route::get('detail/{id}/', [WebSiteController::class, 'detail'])->name('website.pages.detail');
@@ -42,6 +35,9 @@ Route::get('/contact', [WebSiteController::class, 'contact'])->name('contact');
 Route::get('/price', [WebSiteController::class, 'price'])->name('price');
 Route::get('/privacy-policy', [WebSiteController::class, 'privacyPolicy'])->name('privacy-policy');
 Route::get('/blogs', [WebSiteController::class, 'blog'])->name('blogs');
+Route::get('/get-your-essay', [WebSiteController::class, 'order'])->name('order');
+Route::get('/experts', [WebSiteController::class, 'experts'])->name('experts');
+Route::get('/samples', [WebSiteController::class, 'samples'])->name('samples');
 
 Route::get('/home', function () { 
     if (session('status')) {
@@ -61,12 +57,15 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.', 'middleware' => ['auth']], 
     Route::delete('homepage/destroy', [HomepageController::class, 'massDestroy'])->name('homepage.massDestroy');
     Route::resource('homepage', HomepageController::class);
     Route::get('homepage/{id}/sub', [HomepageController::class, 'subIndex'])->name('homepage.sub');
+    Route::post('homepage-sortable',[HomepageController::class, 'updatePosition'])->name('homepage.updatePosition');
 
     // writers
     Route::get('writers', [HomepageController::class, 'writers'])->name('writers');
     //faqs
     Route::get('faqs', [HomepageController::class, 'faqs'])->name('faqs');
-
+    //samples
+    Route::get('samples', [HomepageController::class, 'samples'])->name('samples');
+    
     // Menus
     Route::delete('menu/destroy', [MenuController::class, 'massDestroy'])->name('menu.massDestroy');
     Route::resource('menu', MenuController::class); 

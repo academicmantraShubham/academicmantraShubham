@@ -19,7 +19,7 @@ class HomepageController extends Controller
      */
     public function index()
     {
-        $homepages = Homepage::whereParentId(0)->whereStatus(1)->withCount('subHomepages')->get();
+        $homepages = Homepage::whereParentId(0)->whereStatus(1)->withCount('subHomepages')->orderBy('section_position')->get();
         $metadata = Homepage::wherePage('meta data')->withCount('subHomepages')->first();
         $footerdata = Homepage::wherePage('footer data')->withCount('subHomepages')->first();
         $logo = Homepage::wherePage('logo')->withCount('subHomepages')->first();
@@ -141,28 +141,48 @@ class HomepageController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $find =  Homepage::find($id);
+        if($find){
+            $find->delete();
+            return  redirect()->back()->with('message', 'Home Page Data Deleted');
+        }
+        return  redirect()->back()->with('message', 'Error: Item Not Found');
     }
 
     public function subIndex($id)
     {
         $Homepage = Homepage::whereId($id)->first();
-        $homepages = Homepage::whereParentId($id)->get();
-
+        $homepages = Homepage::whereParentId($id)->wherePage(null)->get();
         return view('dashboard.admin.homepage.subindex', compact('Homepage', 'homepages'));
     }
 
     public function writers()
     {
-        $writers = Homepage::wherePage('writers')->with('Menu')->get();
+        $writers = Homepage::wherePage('writers')->with('Menu')->paginate(10);
         $menus = Menu::whereIn('id', [3,9])->withCount('subMenus')->get();
         return view('dashboard.admin.writers.index', compact('writers', 'menus'));
     }
 
     public function faqs()
     {
-        $faqs = Homepage::wherePage('faqs')->with('Menu')->get();
+        $faqs = Homepage::wherePage('faqs')->with('Menu')->paginate(10);
         $menus = Menu::whereIn('id', [3,9])->withCount('subMenus')->get();
         return view('dashboard.admin.faqs.index', compact('faqs', 'menus'));
+    }
+    
+    public function samples()
+    {
+        $samples = Homepage::wherePage('samples')->with('Menu')->paginate(10);
+        $menus = Menu::whereIn('id', [3,9])->withCount('subMenus')->get();
+        return view('dashboard.admin.samples.index', compact('samples', 'menus'));
+    }
+    
+    public function updatePosition(Request $request)
+    {
+        foreach ($request->order as $order) {
+            Homepage::whereId($order['id'])->update(['section_position' => $order['section_position']]);
+        }
+        
+        return response()->json(['data' => $request->order, 'message' => 'updated position', 'status' => 'success'], 200);
     }
 }

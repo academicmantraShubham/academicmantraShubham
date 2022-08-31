@@ -37,7 +37,7 @@ class MenuController extends Controller
         $menu = Menu::create($request->all());
 
         if ($request->has('content') && $request->content == 1 && $menu) {
-            $request->title =  $request->ctitle;
+            $request->merge(['title' => $request->ctitle]);
             $request->merge(['menu_id' => $menu->id, 'user_id' => auth()->user()->id]);
             $contentPage = ContentPage::create($request->all());
             if ($request->input('featured_image', false)) {
@@ -72,7 +72,7 @@ class MenuController extends Controller
 
         if ($request->has('content') && $request->content == 1 && $menu) {
             // dd($request->all());
-            $request->title =  $request->ctitle;
+            $request->merge(['title' => $request->ctitle]);
             $contentPage =  ContentPage::whereMenuId($menu->id)->first();
 
             if ($contentPage) {

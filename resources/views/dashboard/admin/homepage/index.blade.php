@@ -19,6 +19,19 @@
     .modal-backdrop.show{
          z-index:102 !important;
     }
+    #sortable tr {
+        cursor: move; /* fallback if grab cursor is unsupported */
+        cursor: grab;
+        cursor: -moz-grab;
+        cursor: -webkit-grab;
+    }
+    
+     /* (Optional) Apply a "closed-hand" cursor during drag operation. */
+    #sortable tr:active{
+        cursor: grabbing;
+        cursor: -moz-grabbing;
+        cursor: -webkit-grabbing;
+    }
 </style>
 <div class="card">
     <div class="card-header">
@@ -27,14 +40,15 @@
 
     <div class="card-body">
         <div class="table-responsive">
-            <table class="table table-bordered table-striped table-hover datatable datatable-Permission">
+            <table class="table table-bordered table-striped table-hover">
+            <!--<table class="table table-bordered table-striped table-hover datatable datatable-Permission">-->
                 <thead>
                     <tr>
                         <th width="10">
 
                         </th>
                         <th>
-                            {{ trans('cruds.menu.fields.id') }}
+                            {{ trans('name') }}
                         </th>
                         <th>
                             {{ trans('cruds.menu.fields.title') }}
@@ -46,17 +60,11 @@
                             {{ trans('Image') }}
                         </th>
                         <th>
-                            {{ trans('Sub Content') }}
-                        </th>
-                        <th>
-                            {{ trans('Section Position') }}
-                        </th>
-                        <th>
                             &nbsp;
                         </th>
                     </tr>
                 </thead>
-                <tbody>
+                <tbody >
 
                     <tr data-entry-id="{{ $logo->id ?? '' }}">
                         <td>
@@ -79,13 +87,6 @@
                             @endif
                         </td>
                         <td>
-                            {{ $logo->sub_homepages_count ?? '' }}
-                        </td>
-                        <td>
-                            <p><i>NULL</i></p>
-                        </td>
-                        <td>
-
                             @can('menu_edit')
                                 <a class="btn btn-xs btn-info" style="color: white"  data-toggle="modal" data-target="#add_page{{ $logo->id }}">
                                     {{ trans('global.edit') }}
@@ -151,12 +152,6 @@
                             @endif
                         </td>
                         <td>
-                            {{ $metadata->sub_homepages_count ?? '' }}
-                        </td>
-                        <td>
-                            <p><i>NULL</i></p>
-                        </td>
-                        <td>
 
                             @can('menu_edit')
                                 <a class="btn btn-xs btn-info" style="color: white"  data-toggle="modal" data-target="#add_page{{ $metadata->id }}">
@@ -168,7 +163,7 @@
                     </tr>
 
                     <!-- Meta Update -->
-                    <div class="modal fade" id="add_page{{ $metadata->id }}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal fade" id="add_page{{ $metadata->id }}"  role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                         <div class="modal-dialog" role="document" style="max-width:60%">
                             <div class="modal-content">
                                 <div class="modal-header">
@@ -226,17 +221,7 @@
                             {!!substr(strip_tags($footerdata->content),0,25)!!}...
                         </td>
                         <td>
-                            @if ( $footerdata->image)
-                                <a href="{{ $footerdata->image }}" target="_blank" style="display: inline-block">
-                                    <img style="width: 55px; height:55px; border-radius:50%;" src="{{ $footerdata->image }}">
-                                </a>
-                            @endif
-                        </td>
-                        <td>
-                            {{ $footerdata->sub_homepages_count ?? '' }}
-                        </td>
-                        <td>
-                            <p><i>NULL</i></p>
+                           
                         </td>
                         <td>
 
@@ -250,7 +235,7 @@
                     </tr>
 
                     <!-- Footer Update -->
-                    <div class="modal fade" id="add_page{{ $footerdata->id }}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal fade" id="add_page{{ $footerdata->id }}" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                         <div class="modal-dialog" role="document" style="max-width:60%">
                             <div class="modal-content">
                                 <div class="modal-header">
@@ -294,13 +279,49 @@
                         </div>
                     </div>
 
+                </tbody>
+          
+            </table>
+        </div>
+    </div>
+    
+    <div class="card-body">
+        <div class="table-responsive">
+            <table class="table table-bordered table-striped table-hover">
+            <!--<table class="table table-bordered table-striped table-hover datatable datatable-Permission">-->
+                <thead>
+                    <tr>
+                        <th width="10">
+
+                        </th>
+                        <th>
+                            {{ trans('cruds.menu.fields.id') }}
+                        </th>
+                        <th>
+                            {{ trans('cruds.menu.fields.title') }}
+                        </th>
+                        <th>
+                            {{ trans('Content') }}
+                        </th>
+                        <th>
+                            {{ trans('Image') }}
+                        </th>
+                        <th>
+                            {{ trans('Sub Content') }}
+                        </th>
+                        <th>
+                            &nbsp;
+                        </th>
+                    </tr>
+                </thead>
+                <tbody id="sortable">
                     @foreach($homepages as $key => $homepage)
-                        <tr data-entry-id="{{ $homepage->id }}">
+                        <tr data-id="{{ $homepage->id }}">
                             <td>
 
                             </td>
                             <td>
-                                {{ ++$key ?? '' }}
+                                {{ $homepage->section_position ?? '' }}
                             </td>
                             <td>
                               <a href="{{ route('admin.homepage.sub', $homepage->id ) }}"> {{ strip_tags($homepage->title) ?? '' }} </a>
@@ -317,9 +338,6 @@
                             </td>
                             <td>
                                 {{ $homepage->sub_homepages_count ?? '' }}
-                            </td>
-                            <td>
-                                {{ $homepage->section_position ?? '' }}
                             </td>
                             <td>
 
@@ -468,6 +486,7 @@
 @endsection
 @section('scripts')
 @parent
+ <script src="https://code.jquery.com/ui/1.13.1/jquery-ui.js"></script>
 <script>
     $(function () {
         let dtButtons = $.extend(true, [], $.fn.dataTable.defaults.buttons)
@@ -556,6 +575,38 @@
       }
     );
   }
+  $( function() {
+    $( "#sortable" ).sortable();
+    $( "#sortable" ).on( "sortupdate", function( event, ui ) {
+        var order = [];
+        var token = $('meta[name="csrf-token"]').attr('content');
+        $('#sortable tr').each(function(index,element) {
+            order.push({
+              id: $(this).attr('data-id'),
+              section_position: index + 1
+            });
+        });
+        console.log(order);
+        $.ajax({
+            type: "POST", 
+            dataType: "json", 
+            url: "{{ route('admin.homepage.updatePosition') }}",
+            data: {
+              order: order,
+              _token: token
+            },
+            success: function(response) {
+                if (response.status == "success") {
+                    alert(response.message);
+                  console.log(response);
+                } else {
+                  console.log(response);
+                }
+            }
+        });
+    });
+  });
 });
 </script>
+
 @endsection

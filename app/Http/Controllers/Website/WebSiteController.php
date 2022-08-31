@@ -33,7 +33,7 @@ class WebSiteController extends Controller
         $data['subscribeus'] =  $this->website['subscribeus'];
         $data['bestoffers'] = Homepage::wherePage('best offers')->with('subHomepages')->get();
         $data['askedquestions'] = Homepage::wherePage('asked questions')->with('subHomepages')->get();
-        $data['logo'] = Homepage::wherePage('logo')->first();
+        $data['logo'] = Homepage::select(['image', 'alt'])->wherePage('logo')->first();
         $data['footerdata'] = Homepage::wherePage('footer data')->first();
         return $data;
     }
@@ -48,16 +48,17 @@ class WebSiteController extends Controller
         $data['expectus'] = Homepage::wherePage('expect from us')->with('subHomepages')->first();
         $data['whatYouneed'] = Homepage::wherePage('whatYouneed')->with('subHomepages')->first();
         $data['clientsSays'] = Homepage::wherePage('clientsSays')->with('subHomepages')->first();
-        $data['callus'] = Homepage::wherePage('call us')->first();
-        $data['sendyourquery'] = Homepage::wherePage('sendyourquery')->first();
+        $data['callus'] = Homepage::wherePage('call us')->with('subHomepages')->first();
         $data['explorePossibilities'] = Homepage::wherePage('explorePossibilities')->first();
         $data['calculators'] = Calculator::whereNotNull('place')->get();
         $data['faqs'] = Homepage::wherePage('asked questions')->with('subHomepages')->first();
-        $data['hireus'] = Homepage::wherePage('hire us')->with('subHomepages')->first();
         $data['askedquestions'] = Homepage::wherePage('asked questions')->with('subHomepages')->first();
-        $data['fillrequirements'] = Homepage::wherePage('fill requirements')->first();
         $data['bestoffers'] = Homepage::wherePage('best offers')->with('subHomepages')->first();
+        $data['usps'] = Homepage::wherePage('usp')->with('subHomepages')->first();
+        $data['hblog'] = Homepage::wherePage('blog')->first();
+        $data['customessay'] = Homepage::wherePage('customessay')->first();
         $data['blogs'] = ContentPage::whereType('blog')->take(4)->get();
+        $data['freeServices'] = Homepage::wherePage('freeServices')->withCount('subHomepages')->first();
         return view('website.index', $data);
     }
 
@@ -123,7 +124,6 @@ class WebSiteController extends Controller
         $data = $this->common();
         $data['bolgDetails'] = ContentPage::whereId($id)->first();
         return view('website.pages.detail', $data);
-        abort(404, "page not found");
     }
 
     public function post(Request $request, $slug)
@@ -132,10 +132,38 @@ class WebSiteController extends Controller
         $data['countries'] = Menu::whereParentId(9)->get();
         $menu = Menu::whereSlug($slug)->first();
         if ($menu->content == 1) {
-            $data['states'] = Menu::whereParentId($menu->parent_id)->get();
+            // $data['states'] = Menu::whereParentId($menu->parent_id)->get();
             $data['post'] = ContentPage::whereMenuId($menu->id)->withCount(['writers', 'faqs'])->first();
+            // dd($data);
             return view('website.pages.post', $data);
         }
         abort(404, "page not found");
+    }
+    
+    public function order(){
+        $data = $this->common();
+        return view('website.pages.order-now', $data);
+    }
+    
+    public function experts(){
+        $data = $this->common();
+        $menu = Menu::whereSlug('experts')->first();
+        if ($menu) {
+            $data['post'] = ContentPage::whereMenuId($menu->id)->first();
+            $data['writers'] = Homepage::wherePage('writers')->paginate(10);
+            return view('website.pages.experts', $data);
+        }
+         abort(404, "page not found");
+    }
+    
+    public function samples(){
+        $data = $this->common();
+        $menu = Menu::whereSlug('samples')->first();
+        if ($menu) {
+            $data['post'] = ContentPage::whereMenuId($menu->id)->first();
+            $data['samples'] = Homepage::wherePage('samples')->paginate(10);
+            return view('website.pages.samples', $data);
+        }
+        return view('website.pages.samples', $data);
     }
 }
