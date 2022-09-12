@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Models\Menu;
 use App\Models\Homepage;
 use App\Models\ContentPage;
+use App\Models\ContentCategory;
 use App\Models\BlogPage;
 use App\Models\Calculator;
 use Cache;
@@ -47,6 +48,8 @@ class WebSiteController extends Controller
         $data['bestthesis'] = Homepage::wherePage('best thesis')->first();
         $data['expectus'] = Homepage::wherePage('expect from us')->with('subHomepages')->first();
         $data['whatYouneed'] = Homepage::wherePage('whatYouneed')->with('subHomepages')->first();
+        $data['writers'] = Homepage::wherePage('writers')->with('Menu')->inRandomOrder()->limit(6)->get();
+        // dd( $data['writers'] );
         $data['clientsSays'] = Homepage::wherePage('clientsSays')->with('subHomepages')->first();
         $data['callus'] = Homepage::wherePage('call us')->with('subHomepages')->first();
         $data['explorePossibilities'] = Homepage::wherePage('explorePossibilities')->first();
@@ -97,17 +100,37 @@ class WebSiteController extends Controller
         abort(404, "page not found");
     }
     
-    public function blog(Request $request)
+    public function blogs(Request $request)
     {        
         $data = $this->common();
         $menu = Menu::whereSlug('blogs')->first();
         if ($menu) {
             $data['blogs'] = ContentPage::whereType('blog')->paginate(6);
+            $data['categories'] = ContentCategory::all();
             return view('website.pages.blog', $data);
         }
         abort(404, "page not found");
     } 
 
+    public function blog($id)
+    {   
+        $data = $this->common();
+        $data['bolgDetails'] = ContentPage::whereId($id)->first();
+        return view('website.pages.detail', $data);
+    }
+
+    public function category(Request $request, $slug)
+    {        
+        $data = $this->common();
+        // $menu = Menu::whereSlug('blogs')->first();
+        $data['category'] = ContentCategory::whereSlug($slug)->with('contents')->first();
+        if ($data['category']) {
+            $data['categories'] = ContentCategory::all();
+            return view('website.pages.category', $data);
+        }
+        abort(404, "page not found");
+    } 
+    
     public function privacyPolicy(Request $request)
     {
         $data = $this->common();
@@ -118,23 +141,17 @@ class WebSiteController extends Controller
         }
         abort(404, "page not found");
     }
-
-    public function detail($id)
-    {   
-        $data = $this->common();
-        $data['bolgDetails'] = ContentPage::whereId($id)->first();
-        return view('website.pages.detail', $data);
-    }
-
+    
     public function post(Request $request, $slug)
     {
         $data = $this->common();
         $data['countries'] = Menu::whereParentId(9)->get();
         $menu = Menu::whereSlug($slug)->first();
         if ($menu->content == 1) {
-            // $data['states'] = Menu::whereParentId($menu->parent_id)->get();
-            $data['post'] = ContentPage::whereMenuId($menu->id)->withCount(['writers', 'faqs'])->first();
+            $data['cities'] = Menu::whereParentId($menu->parent_id)->get();
+            $data['post'] = ContentPage::whereMenuId($menu->id)->with(['writers.Menu', 'faqs'])->first();
             // dd($data);
+             $data['writers'] = Homepage::wherePage('writers')->inRandomOrder()->with(['Menu'])->limit(6)->get();
             return view('website.pages.post', $data);
         }
         abort(404, "page not found");
@@ -156,14 +173,14 @@ class WebSiteController extends Controller
          abort(404, "page not found");
     }
     
-    public function samples(){
+    public function reviews(){
         $data = $this->common();
-        $menu = Menu::whereSlug('samples')->first();
+        $menu = Menu::whereSlug('reviews')->first();
         if ($menu) {
             $data['post'] = ContentPage::whereMenuId($menu->id)->first();
-            $data['samples'] = Homepage::wherePage('samples')->paginate(10);
-            return view('website.pages.samples', $data);
+            $data['reviews'] = Homepage::whereParentId('38')->get();
+            return view('website.pages.reviews', $data);
         }
-        return view('website.pages.samples', $data);
+        return view('website.pages.reviews', $data);
     }
 }

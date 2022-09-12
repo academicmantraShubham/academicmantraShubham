@@ -39,14 +39,26 @@
     <meta name="twitter:card" content="summary_large_image">
     <!-- to have large image post format in Twitter -->
 @endsection
-<style>
-    .information h4{
-        text-align:center;
-    }
-</style>
+
 <!-- swipper css -->
 @push('css')
     <link href="{{ asset('website/css/swiper.css') }}" rel="stylesheet">
+    <style>
+        .bottom h2{
+            color: #05ada3;
+            line-height: 1.1;
+            font-weight: 400;
+            letter-spacing: .2px;
+            white-space: nowrap;
+            text-align:center;
+        }
+        .div-h-text h2, .div-h-text h3{
+            text-align:center;
+        }
+        .div-h-text + p{
+            text-align:center;
+        }
+    </style>
 @endpush
 
 @section('content')
@@ -87,8 +99,11 @@
                 <!-- Part - 1  -->
                 <div class="col-lg-8" data-aos="fade-right">
                     <div class="container">
-                        {!! $faqs->title !!}
-                        <div class="accordion accordion-flush" id="accordionExample">
+                        <div class="text-center">
+                            {!! $faqs->title !!}
+                        </div>
+                        
+                         {{-- <div class="accordion accordion-flush" id="accordionExample">
                             @foreach ($faqs->subHomepages as $faq)
                                 <div class="accordion-item">
                                     <h2 class="accordion-header" id="heading_{{ $faq->id }}">
@@ -109,7 +124,39 @@
                                     </div>
                                 </div>
                             @endforeach
+                        </div>--}}
+                        
+                        <div class="content content__accordion">
+                          <div class="accordion">
+                            <div class="accordion__wrapper">
+                            @foreach ($faqs->subHomepages as $faq)
+                              <div class="accordion__item">
+                                <div class="accordion__item--summary">
+                                  <div class="accordion__item-icon">
+                                    <i class="fas fa-fw fa-futbol"></i>
+                                  </div>
+                                  <div class="accordion__item-title">
+                                    <h5>{{ strip_tags($faq->title) }}</h5>
+                                  </div>
+                                  <div class="accordion__item-toggler">
+                                    <button>
+                                      <i class="fas fa-fw fa-angle-down"></i>
+                                    </button>
+                                  </div>
+                                </div>
+                                <div class="accordion__item--detail">
+                                  <div class="accordion__detail">
+                                    <div class="accordion__detail-section">
+                                       {!! $faq->content !!}
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                              @endforeach
+                            </div>
+                          </div>
                         </div>
+                        
                     </div>
                 </div>
                 <!-- Part - 2  -->
@@ -198,7 +245,7 @@
 
                         <div class="row mt-3">
                             <div class="col-4">
-                                <p style="padding: 0 5px;border-radius: 4px;background-color: #20ba68; color: #fff;">
+                                <p class="offer-cal">
                                     <s id="customer-data-higer"></s> 25% off
                                 </p>
                             </div>
@@ -230,7 +277,7 @@
         <div class="container">
             <div class="row d-flex align-items-center">
                 <div class="col-lg-7" data-aos="fade-right">
-                    <h2>{!! @$bestthesis->title !!}</h2>
+                    <div class="text-center">{!! @$bestthesis->title !!}</div>
                     {!! @$bestthesis->content !!}
                     <div class="my-3">
                         <a class="btn" href="{{@$bestthesis->bg_alt}}">Read More</a>
@@ -251,7 +298,7 @@
         <div class="container text-light">
             <div class="text-center pb-4">
                 
-                <h2 class="py-2"> {!! @$callus->title !!}</h2>
+                <div class="py-2 text-center div-h-text"> {!! @$callus->title !!}</div>
                 <p class="para-light">{!! @$callus->content !!}</p>
                 @foreach ($callus->subHomepages as $key => $contact)
                     <a class="btn m-2" href="{{ strip_tags($contact->content) }}" data-aos="zoom-in">
@@ -282,26 +329,25 @@
                             <div class="swiper-wrapper">
                                 <!-- Slide -->
                                 <!-- end of slide -->
-                                @foreach ($clientsSays->subHomepages as $key => $clientsSays1)
+                                @foreach ($writers as $key => $writer)
                                     <!-- Slide -->
                                     <div class="swiper-slide">
                                         <div class="testimonial-card p-4">
-                                            <b>About Writer</b>
-                                            <p>{!! $clientsSays1->content !!}</p>
+                                            <b>About {{ $writer->Menu->title }} Writer</b>
+                                            <p>{!! $writer->content !!}</p>
                                             <div class="d-flex pt-4">
                                                 <div  class="div-avatar">
-                                                    <img class="avatar" src="{{ @$clientsSays1->image }}"
-                                                        alt="testimonial">
+                                                    <img class="avatar" src="{{ $writer->image ?? '/images/homepage/1660655334.jpg' }}" alt="{{ strip_tags($writer->title)}} Expert">
                                                 </div>
                                                 <div class="ms-3 pt-2">
-                                                    {!! $clientsSays1->title !!}
-                                                    <div class="row text-center">
-                                                        <button class="btn m-2">
+                                                    {!! $writer->title !!}
+                                                    <div class="row text-center hire-div">
+                                                        <a href="{{route('order')}}" class="btn m-2">
                                                             Hire Me
-                                                        </button>
+                                                        </a>
                                                     </div>
                                                     <p class="mt-2">
-                                                        Rating: 4.3 <i class="fa fa-star text-warning"
+                                                        Rating: {{$writer->bg_alt }} <i class="fa fa-star text-warning"
                                                             aria-hidden="true"></i> <i class="fa fa-star text-warning"
                                                             aria-hidden="true"></i> <i class="fa fa-star text-warning"
                                                             aria-hidden="true"></i> <i class="fa fa-star text-warning"
@@ -314,6 +360,7 @@
                                                         <span class="badge rounded-pill bg-primary"> Essay writing</span>
                                                     </p>
                                                 </div>
+                                                
                                             </div>
                                         </div>
                                     </div>
@@ -336,14 +383,15 @@
             </div>
             <!-- end of row -->
         </div> <!-- end of container -->
-    </section> <!-- end of writers -->
+    </section> 
+    <!-- end of writers -->
 
 
-    <!-- Services -->
+    <!-- expectus -->
     <section class="services d-flex align-items-center py-5" id="services">
         <div class="container text-light">
             <div class="text-center pb-4">
-                <h2 class="py-2">{!! @$expectus->title !!}</h2>
+                <div class="py-2 text-center div-h-text">{!! @$expectus->title !!}</div>
                 <p class="para-light">{!! @$expectus->content !!}</p>
             </div>
             <div class="row gy-4 py-2" data-aos="zoom-in">
@@ -352,20 +400,23 @@
                         <!-- <a href="">  -->
                         <div class="card bg-transparent">
                             <h4 class="py-2 fas">{{ strip_tags($subHomepage->title) }}</h4>
-                            <p class="para-light">{!! substr($subHomepage->content, 0, 100) !!}</p>
+                            <div class="para-light">
+                                {!! $subHomepage->content !!}
+                            </div>
                         </div>
                         <!-- </a> -->
                     </div>
                 @endforeach
             </div> <!-- end of row -->
         </div> <!-- end of container -->
-    </section> <!-- end of services -->
+    </section> 
+    <!-- end of services -->
 
-    <!-- Plans -->
+    <!-- $bestoffers -->
     <section class="plans d-flex align-items-center py-5" id="plans">
         <div class="container text-light">
             <div class="text-center pb-4">
-                <h2 class="py-2">{!! @$bestoffers->title !!}</h2>
+                <div class="py-2 text-center div-h-text">{!! @$bestoffers->title !!}</div>
                 <p class="para-light">{!! @$bestoffers->content !!}</p>
             </div>
             <div class="row gy-4" data-aos="zoom-in">
@@ -374,19 +425,19 @@
                         <div class="card bg-transparent px-4">
                             {!! @$item->title !!}
                             {!! @$item->content !!}
-
                             <!-- <h4 class="py-3">$24/Month</h4> -->
                             <div class="my-3">
-                                <a class="btn" href="#your-link">View Plans</a>
+                                <a class="btn" href="{{route('order')}}?code={{ $item->alt }}">View Plans</a>
                             </div>
                         </div>
                     </div>
                 @endforeach
             </div> <!-- end of row -->
         </div> <!-- end of container -->
-    </section> <!-- end of plans -->
+    </section> 
+    <!-- end of $bestoffers -->
 
-    <!-- Work -->
+    <!-- $explorePossibilities -->
     <section class="work d-flex align-items-center py-5">
         <div class="container-fluid text-light">
             <div class="row">
@@ -396,7 +447,7 @@
                 <div class="col-lg-5 d-flex align-items-center px-4 py-3" data-aos="">
                     <div class="row">
                         <div class="text-center text-lg-start py-4 pt-lg-0">
-                            <h2 class="py-2">{!! @$explorePossibilities->title !!}</h2>
+                            <div class="py-2 div-h-text">{!! @$explorePossibilities->title !!}</div>
                             <p class="para-light">{!! @$explorePossibilities->content !!}</p>
                         </div>
                         <div class="container" data-aos="fade-explorePossibilities">
@@ -437,14 +488,14 @@
         </div>
         <!-- end of container -->
     </section>
-    <!-- end of work -->
+    <!-- end of $explorePossibilities -->
 
-    <!-- Testimonials -->
+    <!-- $clientsSays -->
     <div class="slider-1 testimonial text-light d-flex align-items-center">
         <div class="container mb-2">
             <div class="row">
                 <div class="text-center w-lg-75 m-auto pb-4">
-                    <h2 class="py-2">{!! @$clientsSays->title !!}</h2>
+                    <div class="py-2 text-center div-h-text">{!! @$clientsSays->title !!}</div>
                     <p class="para-light">{!! @$clientsSays->content !!}</p>
                 </div>
             </div>
@@ -464,7 +515,7 @@
                                             <p>{!! $clientsSays->content !!}</p>
                                             <div class="d-flex pt-4">
                                                 <div>
-                                                    <img class="avatar" src="{{ @$clientsSays->image }}"
+                                                    <img class="avatar" src="{{ @$clientsSays->image ?? '/images/homepage/1640713712.jpg'}}"
                                                         alt="testimonial">
                                                 </div>
                                                 <div class="ms-3 pt-2">
@@ -494,7 +545,7 @@
         </div>
         <!-- end of container -->
     </div>
-    <!-- end of testimonials -->
+    <!-- end of $clientsSays -->
 
     <!-- Contact -->
     {{-- <section class="contact d-flex align-items-center py-5" id="contact">
@@ -552,7 +603,7 @@
                     <img class="img-fluid" src="{{ @$customessay->image }}" alt="{{ @$customessay->alt }}">
                 </div>
                 <div class="col-lg-7" data-aos="fade-right">
-                    <h2>{!! @$customessay->title !!}</h2>
+                    <div class="text-center py-2 div-h-text">{!! @$customessay->title !!}</div>
                     {!! @$customessay->content !!}
                     <div class="my-3">
                         <a class="btn" href="{{ @$customessay->bg_alt }}">Read More</a>
@@ -565,23 +616,15 @@
     </section>
     <!-- end of Services -->
 
-    <style>
-        .bottom h2{
-            color: #05ada3;
-            line-height: 1.1;
-            font-weight: 400;
-            letter-spacing: .2px;
-            white-space: nowrap;
-        }
-    </style>
-
     <!-- ======= Usp Section ======= -->
     <section class="bottom d-flex align-items-center text-light py-5" id="about">
         <div class="container">
             <div class="row d-flex align-items-center">
                 <div class="col-lg-12" data-aos="fade-right">
-                    {!! @$usps->title !!}
-                    {!! @$usps->content !!}
+                    <div class="text-center div-h-text">
+                        {!! @$usps->title !!}
+                        {!! @$usps->content !!} 
+                    </div>
                     <div class="row information">
                         <div class="row">
                             <div class="col-md-8">
@@ -683,28 +726,28 @@
                     <div class="p-2"><i class="far fa-map fa-3x"></i></div>
                     <div class="ms-2">
                         <h6>ADDRESS</h6>
-                        <p>Teuku Umar ST. 1919</p>
+                        <p>James cook drive Truganina, Victoria Australia zip-code 3029</p>
                     </div>
                 </div>
                 <div class="col-lg-3 d-flex align-items-center">
                     <div class="p-2"><i class="fas fa-mobile-alt fa-3x"></i></div>
                     <div class="ms-2">
                         <h6>CALL FOR QUERY</h6>
-                        <p>(800) 265 216 2020</p>
+                        <p> <a href="tel:+61-413228507"> +61-413228507</a></p>
                     </div>
                 </div>
                 <div class="col-lg-3 d-flex align-items-center">
                     <div class="p-2"><i class="far fa-envelope fa-3x"></i></div>
                     <div class="ms-2">
                         <h6>SEND US MESSAGE</h6>
-                        <p>infodemofile@example.com</p>
+                        <p><a href="help@bestessaywritingservices.com.au">help@bews.com.au</a></p>
                     </div>
                 </div>
                 <div class="col-lg-3 d-flex align-items-center">
                     <div class="p-2"><i class="far fa-clock fa-3x"></i></div>
                     <div class="ms-2">
                         <h6>OPENING HOURS</h6>
-                        <p>09:00 AM - 18:00 PM</p>
+                        <p><b>24/7</b></p>
                     </div>
                 </div>
             </div>
@@ -748,5 +791,17 @@
             }
             calculatePrice();
         </script>
+
+        <script>
+            const accordionItems = document.querySelectorAll(".accordion__item--summary");
+        
+            accordionItems.forEach(function(item) {
+              item.addEventListener("click", function(event) {
+                event.stopPropagation();
+                item.parentNode.classList.toggle("accordion__item--active");
+              });
+            });
+        </script>
+
     @endpush
 @endsection

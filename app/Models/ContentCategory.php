@@ -32,4 +32,9 @@ class ContentCategory extends Model
     {
         return $date->format('Y-m-d H:i:s');
     }
+    
+    public function contents()
+    {
+        return $this->belongsToMany(ContentPage::class);
+    }
 }

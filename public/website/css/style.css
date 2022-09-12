@@ -25,6 +25,7 @@ button {
 }
 p,
 ul,
+h3,
 h4 {
 	padding: .2rem;
 	margin-bottom:.5rem;
@@ -33,6 +34,7 @@ h4 {
 .para-light{
     text-align: center;
 }
+
 ul{
     margin:0 8px;
 }
@@ -40,6 +42,10 @@ ul{
 a {
 	color: white;
 	text-decoration: none;
+}
+
+a:hover{
+    color: #bfbfbf;
 }
 
 li {
@@ -196,6 +202,7 @@ li {
 }
 
 .navbar .nav-item .nav-link {
+    line-height:20px;
 	color: #eee;
 	text-decoration: none;
 	padding-top: 0.625rem;
@@ -365,6 +372,16 @@ li {
 	color: black;
 	padding: 5px 30px;
 	background-image: var(--gradient);
+}
+
+.para-light a {
+    border: 1px solid;
+    border-radius: 0;
+    border-width: 2px;
+    padding: 10px 30px;
+    border-image-slice: 1;
+    border-image-source: var(--gradient);
+    box-shadow: 5px 5px 0px 0px var(--secondary);
 }
 
 /* Other Pages Button */
@@ -580,6 +597,7 @@ li {
 /*     Extra Pages     */
 /***********************/
 .ex-header {
+    margin-top:6rem;
 	padding: 1rem;
 	background-color: #1a4c76;
 }
@@ -884,4 +902,196 @@ section .container .card ul li{
 	.div-avatar img{
 	    width: 100px;
 	}
+}
+
+.div-avatar img{
+    width:120px;
+}
+.information h4{
+    text-align:center;
+}
+.hire-div{
+    padding:10px;
+}
+.offer-cal{
+    text-align:center;
+    padding: 0 5px;
+    border-radius: 4px;
+    background-color: #20ba68;
+    color: #fff;
+}
+.mobile-hide{
+    display:inline-block;
+}
+.mobile-show{
+    display:none;
+}
+ /*Accordion*/
+:root {
+    --light-pink: #0a58ca;
+    --white: #FFFFFF;
+    --gray-white: #F9F9F9;
+    --box-shadow: 5px 5px 50px 10px rgba(40, 39, 86, 0.15);
+}
+
+.content__accordion {
+  padding: 40px 0;
+}
+
+.accordion {
+  max-width: 80%;
+  margin: 0 auto;
+}
+
+.accordion__wrapper,
+.accordion__item {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.accordion__wrapper {
+  gap: 12px;
+}
+
+.accordion__item--summary,
+.accordion__item--detail {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px;
+  border: 1px solid var(--light-pink);
+  border-radius: 8px;
+  box-shadow: var(--box-shadow);
+}
+
+.accordion__item--summary {
+  flex-direction: row;
+  background-color: #05e096;
+  cursor: pointer;
+}
+
+.accordion__item--detail {
+  margin-top: 0px;
+  background-color:currentcolor;
+  max-height: 0;
+  opacity: 0;
+  padding: 0;
+  transition: .5s;
+  border: 1px solid transparent;
+  visibility: hidden;
+  overflow: hidden;
+}
+
+.accordion__item-title h5 {
+  font-size: 18px;
+  font-weight: 600;
+  line-height: 24px;
+  letter-spacing: 0.5px;
+}
+
+.accordion__item-toggler {
+  margin-left: auto;
+}
+
+.accordion__item-toggler button {
+  border: none;
+  outline: none;
+  background-color: transparent;
+  color: var(--white)
+}
+
+.accordion__detail-section {
+  padding: 12px;
+  padding-left: 25px;
+  font-size: 14px;
+  line-height: 22px;
+  letter-spacing: 0.3px;
+  color: #4a7ca7;
+}
+
+.accordion__item--active .accordion__item-toggler button i {
+   transform: rotate(180deg);
+}
+
+.accordion__item--active .accordion__item--detail {
+  max-height: 500px;
+  opacity: 1;
+  visibility: visible;
+  margin-top: 12px;
+  border: 1px solid var(--light-pink);
+}
+
+.accordion ul{
+    margin-top:6px;
+}
+.accordion ul li{
+    list-style: inside;
+}
+
+@media only screen and (max-width: 600px){
+
+    .accordion{
+        max-width:100%;
+    }
+    .accordion__item-title h5{
+        font-size:16px;
+    }
+    .testimonial-card .d-flex{
+        display:block!important;
+    }
+    .testimonial-card .div-avatar{
+        text-align:center;
+    }
+    .testimonial-card .d-flex .ms-3 p{
+        text-align:center;
+    }
+    .mobile-hide{
+        display:none;
+    }
+    .mobile-show{
+        display:inline-block;
+    }
+}
+/*END Accordion*/
+
+/*start breadcrumb*/
+
+/* Style the list */
+ol.breadcrumb, ol.category {
+    display:block;
+    border-radius: 4px;
+    margin-top:16px;
+    background:#284f7e;
+    padding: 10px 16px;
+    list-style: none;
+}
+
+/* Display list items side by side */
+ol.breadcrumb li, ol.category li {
+  display: inline;
+  font-size: 18px;
+}
+
+/* Add a slash symbol (/) before/behind each list item */
+ol.breadcrumb li+li:before {
+  padding: 8px;
+  color: black;
+  content: "/\00a0";
+}
+
+/* Add a color to all links inside the list */
+ol.breadcrumb li a {
+  color: #eee;
+  text-decoration: none;
+}
+ol.category{
+ text-align:center;
+}
+ol.category li{
+    font-size: 24px;
+    background: #4a7ca7;
+    padding: 0 15px;
+    margin: 13px;
 }

@@ -143,7 +143,7 @@
           grid-row: 4 / 5;
           background-color: #FADEE0;
           border-radius: 100px 0 0 0;
-          -moz-border-radius: 100px 0 0 0;
+          -moz-border-raadius: 100px 0 0 0;
           -webkit-border-radius: 100px 0 0 0;
         }
         
@@ -174,113 +174,6 @@
             position: sticky;
             top: 0;
         }
-        /*Accordion*/
-        :root {
-            --indigo: #6867AC;
-            --purple: #0d6efd;
-            --purple-pink: #dc3545;
-            --light-pink: #0a58ca;
-            --white: #FFFFFF;
-            --gray-white: #F9F9F9;
-            --box-shadow: 5px 5px 50px 10px rgba(40, 39, 86, 0.15);
-        }
-        
-        .content__accordion {
-          padding: 40px 0;
-        }
-        
-        .accordion {
-          max-width: 80%;
-          margin: 0 auto;
-        }
-        
-        .accordion__wrapper,
-        .accordion__item {
-          display: flex;
-          flex-direction: column;
-          width: 100;
-        }
-        
-        .accordion__wrapper {
-          gap: 12px;
-        }
-        
-        .accordion__item--summary,
-        .accordion__item--detail {
-          width: 100%;
-          display: flex;
-          align-items: center;
-          gap: 12px;
-          padding: 12px;
-          border: 1px solid var(--light-pink);
-          border-radius: 8px;
-          box-shadow: var(--box-shadow);
-        }
-        
-        .accordion__item--summary {
-          flex-direction: row;
-          background-color: #05e096;
-          cursor: pointer;
-        }
-        
-        .accordion__item--detail {
-          margin-top: 0px;
-          background-color:currentcolor;
-          max-height: 0;
-          opacity: 0;
-          padding: 0;
-          transition: .5s;
-          border: 1px solid transparent;
-          visibility: hidden;
-          overflow: hidden;
-        }
-        
-        .accordion__item-title h5 {
-          font-size: 18px;
-          font-weight: 600;
-          line-height: 24px;
-          letter-spacing: 0.5px;
-        }
-        
-        .accordion__item-toggler {
-          margin-left: auto;
-        }
-        
-        .accordion__item-toggler button {
-          border: none;
-          outline: none;
-          background-color: transparent;
-          color: var(--white)
-        }
-        
-        .accordion__detail-section {
-          padding: 12px;
-          padding-left: 25px;
-          font-size: 14px;
-          line-height: 22px;
-          letter-spacing: 0.3px;
-          color: #4a7ca7;
-        }
-        
-        .accordion__item--active .accordion__item-toggler button i {
-           transform: rotate(180deg);
-        }
-        
-        .accordion__item--active .accordion__item--detail {
-          max-height: 500px;
-          opacity: 1;
-          visibility: visible;
-          margin-top: 12px;
-          border: 1px solid var(--light-pink);
-        }
-        
-        .accordion ul{
-            margin-top:6px;
-        }
-        .accordion ul li{
-            list-style: inside;
-        }
-        /*END Accordion*/
         
         @media (max-width: 900px) {
           .grid__container {
@@ -426,6 +319,44 @@
       </div> <!-- end of container -->
   </section> <!-- end of services --> --}}
   
+  @if( url()->current() == "https://demo.bestessaywritingservices.com.au/au-australia")
+    <!-- ======= Blog Section ======= -->
+    <section class="testimonial d-flex align-items-center text-light pb-2" id="about">
+        <div class="container">
+            <div class="row">
+                <div class="text-center w-lg-75 m-auto pb-4">
+                    <h2 class="py-2">Cities Where We Serve</h2>
+                     <p class="para-light">
+                         
+                     </p> 
+                </div>
+            </div>
+
+            <div class="row d-flex align-items-center">
+                @foreach ($cities as $key => $blog)
+                    <div class="col-lg-4 col-md-4 col-sm-6 col-sm-12" data-aos="fade-up">
+                        <div class="testimonial-card mt-4 p-2" data-aos="fade-right">
+                            <div class="row">
+                                {{--<div class="col-lg-12 text-center mb-4" data-aos="fade-down">
+                                    <img class="img-fluid" src="{{ $blog->featured_image->getUrl() }}"
+                                        alt="bestessaywritingservices">
+                                </div> --}}
+                                <div class="col-lg-12 mb-4">
+                                    <h3 class="mt-2">{{ $blog->title }}</h3>
+                                    {!! substr(strip_tags($blog->page_text), 0, 100) !!}
+                                </div>
+                            </div>
+                            <a class="btn mb-4" href="{{ route('post', $blog->slug) }}">Read More</a>
+                        </div>
+                    </div>
+                @endforeach
+            </div> <!-- end of row -->
+        </div>
+        <!-- end of container -->
+    </section>
+    <!-- End Blog Section -->
+    @endif
+    
     <!-- writers -->
     <section class="plans d-flex align-items-center py-5" id="plans">
         <div class="container text-light">
@@ -444,22 +375,22 @@
                             <div class="swiper-wrapper">
                                 <!-- Slide -->
                                 <!-- end of slide -->
-                                @foreach ($post->writers as $writer)
+                                @foreach ($writers as $writer)
                                     <!-- Slide -->
                                     <div class="swiper-slide">
                                         <div class="testimonial-card p-4">
-                                            <b>About Writer</b>
+                                            <b>About {{ $writer->Menu->title }} Writer</b>
                                             <p>{!! $writer->content !!}</p>
                                             <div class="d-flex pt-4">
                                                 <div class="div-avatar">
-                                                    <img class="avatar" src="{{ $writer->image ?? '/images/homepage/1660655334.jpg' }}" alt="{{ strip_tags($writer->title)}} Expert">
+                                                    <img class="avatar"  src="{{ $writer->image ?? '/images/homepage/1660655334.jpg' }}" alt="{{ strip_tags($writer->title)}} Expert">
                                                 </div>
                                                 <div class="ms-3 pt-2">
                                                     {!! $writer->title !!}
                                                     <div class="row text-center">
-                                                        <button class="btn m-2">
+                                                        <a href="{{route('order')}}" class="btn m-2">
                                                             Hire Me
-                                                        </button>
+                                                        </a>
                                                     </div>
                                                     <p class="mt-2">
                                                         Rating: {{$writer->bg_alt }} <i class="fa fa-star text-warning"
@@ -471,8 +402,8 @@
                                                     </p>
                                                     <p class="mt-2">
                                                         Expertise:
-                                                        <span class="badge rounded-pill bg-primary"> Essay writing</span>
-                                                        <span class="badge rounded-pill bg-primary"> Essay writing</span>
+                                                        <span class="badge rounded-pill bg-primary"> {{ $writer->Menu->title }}</span>
+                                                        <!--<span class="badge rounded-pill bg-primary"> Essay writing</span>-->
                                                     </p>
                                                 </div>
                                             </div>
@@ -526,6 +457,7 @@
                                 </div>
                             @endforeach
                         </div>--}}
+                        
                         <!-- accordion -->
 
                         <div class="content content__accordion">
@@ -558,6 +490,7 @@
                             </div>
                           </div>
                         </div>
+                        
                     </div>
                 </div>
             </div>

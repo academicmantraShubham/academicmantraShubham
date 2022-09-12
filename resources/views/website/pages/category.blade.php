@@ -43,7 +43,7 @@
                 <section class="about d-flex align-items-center text-light pb-2" id="about">
                     <div class="container">
                         <div class="row d-flex align-items-center">
-                            @foreach ($blogs as $key => $blog)
+                            @foreach ($category->contents as $key => $blog)
                                 @if ($loop->first)
                                     <div class="col-md-12">
                                         <div class="testimonial-card mt-4 p-2" data-aos="fade-right">
@@ -96,7 +96,7 @@
                 <!-- End blog entry -->
                 <div class="blog-pagination mt-2 mb-2">
                     <ul class="justify-content-center">
-                        {!! $blogs->links('pagination::bootstrap-4') !!}
+                        {{-- {!! $blogs->links('pagination::bootstrap-4') !!} --}}
                     </ul>
                 </div>
             </div>

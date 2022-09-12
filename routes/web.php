@@ -25,7 +25,7 @@ Route::get('/clear-cache', function () {
 	dd('Cache cleared');
 });
 
-Route::get('detail/{id}/', [WebSiteController::class, 'detail'])->name('website.pages.detail');
+Route::get('detail/{id}/', [WebSiteController::class, 'blog'])->name('website.pages.detail');
 
 Auth::routes(['register' => false]);
 
@@ -34,10 +34,12 @@ Route::get('/about', [WebSiteController::class, 'about'])->name('about');
 Route::get('/contact', [WebSiteController::class, 'contact'])->name('contact');
 Route::get('/price', [WebSiteController::class, 'price'])->name('price');
 Route::get('/privacy-policy', [WebSiteController::class, 'privacyPolicy'])->name('privacy-policy');
-Route::get('/blogs', [WebSiteController::class, 'blog'])->name('blogs');
+Route::get('/blogs', [WebSiteController::class, 'blogs'])->name('blogs');
+Route::get('/blog/{slug}', [WebSiteController::class, 'blog'])->name('blog');
+Route::get('/category/{slug}', [WebSiteController::class, 'category'])->name('category');
 Route::get('/get-your-essay', [WebSiteController::class, 'order'])->name('order');
 Route::get('/experts', [WebSiteController::class, 'experts'])->name('experts');
-Route::get('/samples', [WebSiteController::class, 'samples'])->name('samples');
+Route::get('/reviews', [WebSiteController::class, 'reviews'])->name('reviews');
 
 Route::get('/home', function () { 
     if (session('status')) {
