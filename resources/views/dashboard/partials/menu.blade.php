@@ -56,7 +56,7 @@
                 <i class="c-sidebar-nav-icon fas fa-fw fa fa-book">
 
                 </i>
-                {{ trans('Samples') }}
+                {{ trans('Reviews') }}
             </a>
         </li>
         

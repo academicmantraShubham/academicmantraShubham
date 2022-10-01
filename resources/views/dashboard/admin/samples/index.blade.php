@@ -4,7 +4,7 @@
     <div style="margin-bottom: 10px;" class="row">
         <div class="col-lg-12">
             <a class="btn btn-success"  data-toggle="modal" data-target="#add_page" style="color: white">
-                {{ trans('global.add') }} Samples Content 
+                {{ trans('global.add') }} Reviews Content 
             </a>
         </div>
     </div>
@@ -95,7 +95,7 @@
                             <div class="modal-dialog" role="document">
                                 <div class="modal-content">
                                     <div class="modal-header">
-                                        <h5 class="modal-title" id="exampleModalLabel">&emsp;Edit Sample</h5>
+                                        <h5 class="modal-title" id="exampleModalLabel">&emsp;Edit Review</h5>
                                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                         <span aria-hidden="true">&times;</span>
                                         </button>
@@ -168,7 +168,7 @@
                     <div class="modal-dialog" role="document" style="max-width:60%">
                         <div class="modal-content">
                             <div class="modal-header">
-                                <h5 class="modal-title" id="exampleModalLabel">&emsp;Add Sample</h5>
+                                <h5 class="modal-title" id="exampleModalLabel">&emsp;Add Review</h5>
                                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                 <span aria-hidden="true">&times;</span>
                                 </button>
@@ -177,7 +177,7 @@
                                <form  method="POST" action="{{ route('admin.homepage.store') }}" enctype="multipart/form-data">
                                    @csrf 
                                    <input type="hidden" name="last_url" value="{{  URL::current() }}">
-                                   <input type="hidden" name="page" value="{{ old('page','samples') }}">
+                                   <input type="hidden" name="page" value="{{ old('page','reviews') }}">
 
                                  <div class="row">
                                     <div class="form-group col-12">

@@ -118,7 +118,25 @@ class ContentPageController extends Controller
         // Menu::whereIn('id', request('ids'))->update(['content' =>  0]);
         return response(null, Response::HTTP_NO_CONTENT);
     }
+    
+    //add blogs 
+    public function blogsStore(Request $request)
+    {
+        $request->merge(['user_id' => auth()->user()->id]);
+        $contentPage = ContentPage::create($request->all());
+        $contentPage->categories()->sync($request->input('categories', []));
+        $contentPage->tags()->sync($request->input('tags', []));
+        if ($request->input('featured_image', false)) {
+            $contentPage->addMedia(storage_path('tmp/uploads/' . basename($request->input('featured_image'))))->toMediaCollection('featured_image');
+        }
 
+        if ($media = $request->input('ck-media', false)) {
+            Media::whereIn('id', $media)->update(['model_id' => $contentPage->id]);
+        }
+
+        return redirect()->route('admin.content-pages.index');
+    }
+    
     public function storeCKEditorImages(Request $request)
     {
         abort_if(Gate::denies('content_page_create') && Gate::denies('content_page_edit'), Response::HTTP_FORBIDDEN, '403 Forbidden');

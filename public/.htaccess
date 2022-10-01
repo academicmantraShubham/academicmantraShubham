@@ -4,7 +4,9 @@
     </IfModule>
 
     RewriteEngine On
-
+    RewriteCond %{HTTP_HOST} www.bestessaywritingservices.com.au
+    RewriteRule (.*) https://bestessaywritingservices.com.au/$1 [R=301,L]
+    
     # Handle Authorization Header
     RewriteCond %{HTTP:Authorization} .
     RewriteRule .* - [E=HTTP_AUTHORIZATION:%{HTTP:Authorization}]

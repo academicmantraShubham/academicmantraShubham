@@ -53,7 +53,7 @@
                             </td>
                             <td>
                                 @can('menu_show')
-                                    <a class="btn btn-xs btn-primary" href="{{ route('admin.menu.show', $menu->id) }}">
+                                    <a class="btn btn-xs btn-primary" href="{{ route('post', $menu->slug) }}">
                                         {{ trans('global.view') }}
                                     </a>
                                 @endcan

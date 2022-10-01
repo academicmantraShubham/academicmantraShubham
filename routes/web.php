@@ -39,6 +39,8 @@ Route::get('/blog/{slug}', [WebSiteController::class, 'blog'])->name('blog');
 Route::get('/category/{slug}', [WebSiteController::class, 'category'])->name('category');
 Route::get('/get-your-essay', [WebSiteController::class, 'order'])->name('order');
 Route::get('/experts', [WebSiteController::class, 'experts'])->name('experts');
+Route::get('/services', [WebSiteController::class, 'services'])->name('services');
+Route::get('/locations', [WebSiteController::class, 'locations'])->name('locations');
 Route::get('/reviews', [WebSiteController::class, 'reviews'])->name('reviews');
 
 Route::get('/home', function () { 
@@ -50,7 +52,7 @@ Route::get('/home', function () {
 
 
 Route::group(['prefix' => 'admin', 'as' => 'admin.', 'middleware' => ['auth']], function () {
-    Route::get('/', [HomeController::class, 'index'])->name('home');
+    Route::get('/dashboard', [HomeController::class, 'index'])->name('home');
 
     // Blog
     Route::resource('blog_content', BlogPageController::class);
@@ -66,7 +68,8 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.', 'middleware' => ['auth']], 
     //faqs
     Route::get('faqs', [HomepageController::class, 'faqs'])->name('faqs');
     //samples
-    Route::get('samples', [HomepageController::class, 'samples'])->name('samples');
+    // Route::get('samples', [HomepageController::class, 'samples'])->name('samples');
+    Route::get('reviews', [HomepageController::class, 'samples'])->name('samples');
     
     // Menus
     Route::delete('menu/destroy', [MenuController::class, 'massDestroy'])->name('menu.massDestroy');
@@ -108,6 +111,8 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.', 'middleware' => ['auth']], 
     Route::post('content-pages/media', [ContentPageController::class, 'storeMedia'])->name('content-pages.storeMedia');
     Route::post('content-pages/ckmedia', [ContentPageController::class, 'storeCKEditorImages'])->name('content-pages.storeCKEditorImages');
     Route::resource('content-pages', ContentPageController::class);
+    Route::post('blog-pages', [ContentPageController::class, 'blogsStore'])->name('content-pages.blogsStore');
+    
 });
 
 Route::group(['prefix' => 'profile', 'as' => 'profile.', 'middleware' => ['auth']], function () {

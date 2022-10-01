@@ -60,7 +60,7 @@ class WebSiteController extends Controller
         $data['usps'] = Homepage::wherePage('usp')->with('subHomepages')->first();
         $data['hblog'] = Homepage::wherePage('blog')->first();
         $data['customessay'] = Homepage::wherePage('customessay')->first();
-        $data['blogs'] = ContentPage::whereType('blog')->take(4)->get();
+        $data['blogs'] = ContentPage::whereType('blog')->take(3)->get();
         $data['freeServices'] = Homepage::wherePage('freeServices')->withCount('subHomepages')->first();
         return view('website.index', $data);
     }
@@ -147,11 +147,13 @@ class WebSiteController extends Controller
         $data = $this->common();
         $data['countries'] = Menu::whereParentId(9)->get();
         $menu = Menu::whereSlug($slug)->first();
-        if ($menu->content == 1) {
-            $data['cities'] = Menu::whereParentId($menu->parent_id)->get();
+        if ($menu && $menu->content == 1) {
+            $data['cities'] = Menu::whereParentId($menu->parent_id)->with('post')->get();
             $data['post'] = ContentPage::whereMenuId($menu->id)->with(['writers.Menu', 'faqs'])->first();
-            // dd($data);
-             $data['writers'] = Homepage::wherePage('writers')->inRandomOrder()->with(['Menu'])->limit(6)->get();
+            $files = \Storage::allFiles('public/banners');
+            $rand = \Arr::random($files, 1);
+            $data['banner'] =  str_replace("public","storage",$rand[0]);
+            $data['writers'] = Homepage::wherePage('writers')->inRandomOrder()->with(['Menu'])->limit(6)->get();
             return view('website.pages.post', $data);
         }
         abort(404, "page not found");
@@ -162,15 +164,40 @@ class WebSiteController extends Controller
         return view('website.pages.order-now', $data);
     }
     
-    public function experts(){
+    public function experts(Request $request){
         $data = $this->common();
         $menu = Menu::whereSlug('experts')->first();
         if ($menu) {
             $data['post'] = ContentPage::whereMenuId($menu->id)->first();
             $data['writers'] = Homepage::wherePage('writers')->paginate(10);
+            $data['services'] = Menu::whereIn('id', [3,9])->withCount('subMenus')->get();
             return view('website.pages.experts', $data);
         }
-         abort(404, "page not found");
+        abort(404, "page not found");
+    }
+    
+     public function services(){
+        $data = $this->common();
+        $menu = Menu::whereSlug('services')->first();
+        if ($menu) {
+            $data['post'] = ContentPage::whereMenuId($menu->id)->first();
+            $data['services'] = Menu::whereIn('id', [3])->withCount('subMenus')->get();
+            $data['writers'] = Homepage::wherePage('writers')->inRandomOrder()->with(['Menu'])->limit(6)->get();
+            return view('website.pages.services', $data);
+        }
+        abort(404, "page not found");
+    }
+    
+     public function locations(){
+        $data = $this->common();
+        $menu = Menu::whereSlug('locations')->first();
+        if ($menu) {
+            $data['post'] = ContentPage::whereMenuId($menu->id)->first();
+            $data['cities'] = Menu::whereParentId(10)->with('post')->get();
+            $data['writers'] = Homepage::wherePage('writers')->inRandomOrder()->with(['Menu'])->limit(6)->get();
+            return view('website.pages.locations', $data);
+        }
+        abort(404, "page not found");
     }
     
     public function reviews(){
@@ -179,8 +206,9 @@ class WebSiteController extends Controller
         if ($menu) {
             $data['post'] = ContentPage::whereMenuId($menu->id)->first();
             $data['reviews'] = Homepage::whereParentId('38')->get();
+             $data['services'] = Menu::whereIn('id', [3,9])->withCount('subMenus')->get();
             return view('website.pages.reviews', $data);
         }
-        return view('website.pages.reviews', $data);
+        abort(404, "page not found");
     }
 }

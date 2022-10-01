@@ -1,6 +1,6 @@
 @extends('website.layouts.app') 
 @section('headerData')
-<title></title>
+<title>{!! strip_tags($bolgDetails->title) !!} - Best Essay Writing Services</title>
 <meta name="description" content="Best essay writing services in Australia. We provide assignment, academic content, dissertation and thesis writing with zero plagiarism.">
 <meta name="keywords" content="Best essay writing in Australia, online assignment help, Academic writing services, thesis writing and dissertation writing services, online writing services" >
 @endsection

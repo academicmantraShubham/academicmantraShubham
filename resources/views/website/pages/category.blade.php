@@ -26,8 +26,8 @@
 <section id="categorys" class="categorys">
     <div class="container">
         <ol class="category">
-            @foreach($categories as $category)
-                <li><a href="/category/{{ $category->slug }}">{{ $category->name }}</a></li>
+            @foreach($categories as $categor)
+                <li><a href="/category/{{ $categor->slug }}">{{ $categor->name }}</a></li>
             @endforeach
         </ol>
     </div>

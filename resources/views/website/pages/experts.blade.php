@@ -42,9 +42,49 @@
                 <article class="para-light">{!! @$post->page_text !!}</article>
             </div>
             <!-- end of row -->
+            
+            <form method="get">
+              <div class="row justify-content-center my-2">
+                <div class="col-md-4 my-2">
+                    <select id="inputState" class="form-control" name="service">
+                        <option value="" >Select Service</option>
+                         @foreach ($services as $service)
+                            @foreach ( $service->subMenus as $subMenu)
+                                @if (count($subMenu->subMenus) > 0)
+                                    <optgroup label="{{ $subMenu->title }}">
+                                        @foreach ($subMenu->subMenus as $child)
+                                            <option value="{{ $child->id }}" {{ app('request')->input('service') == $child->id ? 'selected': '' }}>{{ $child->title }}</option>
+                                        @endforeach
+                                    </optgroup>
+                                    @else    
+                                    <option value="{{ $subMenu->id }}" {{ app('request')->input('service') == $subMenu->id ? 'selected': '' }}>{{ $subMenu->title }}</option>
+                                @endif
+                            @endforeach
+                        @endforeach
+                    </select>
+                </div>
+                
+                <div class="col-md-4 my-2">
+                    <select id="inputState" class="form-control" name="ratings">
+                        <option selected>Select Rating</option>
+                        <option value="4"  {{ app('request')->input('ratings') == 4 ? 'selected': '' }}>4 Star</option>
+                        <option value="5"  {{ app('request')->input('ratings') == 5 ? 'selected': '' }}>5 Star</option>
+                    </select>
+                </div>
+                
+                <div class="col-md-4 my-2">
+                    <button class="btn" style="width:100%">
+                        Search Writer
+                    </button>
+                </div>
+                
+              </div>
+            </form>
+                    
             <div class="row p-2" data-aos="zoom-in">
                 <div class="col-lg-12">
                     <!-- Card Slider -->
+                    
                     <div class="slider-container">
                         <div class="swiper-container writers-slider">
                             <div class="swiper-wrapper">
@@ -102,6 +142,49 @@
     </section>
     <!-- end of writers -->
 
+    <section class="w3l-about1 plans" id="about">
+      <div id="cwp23-block" class="py-5">
+        <div class="container py-lg-5">
+          <div class="row cwp23-content">
+            <div class="col-lg-12  mt-lg-0 mt-5  cwp23-text">
+              <div class="cwp23-title">
+                <h3 class="text-center">Why Choose us? </h3>
+              </div>
+              <div class="row justify-content-center">
+                <div class="col-md-5 testimonial-card p-2 m-2">
+                  <span class="fa fa-user-md" aria-hidden="true"></span>
+                  <b> 
+                    <a href="/services">Lorem ipsum</a>
+                  </b>
+                  <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Recusandae, necessitatibus reiciendis. Voluptatem, eaque fugiat? Natus ab soluta nostrum quos! Laboriosam</p>
+                </div>
+                <div class="col-md-5 testimonial-card p-2 m-2">
+                  <span class="fa fa-graduation-cap" aria-hidden="true"></span>
+                  <b>
+                  <a href="/services">Lorem ipsum</a>
+                  </b>
+                  <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Recusandae, necessitatibus reiciendis. Voluptatem, eaque fugiat? Natus ab soluta nostrum quos! Laboriosam</p>
+                </div>
+                <div class="col-md-5 testimonial-card p-2 m-2">
+                  <span class="fa fa-history" aria-hidden="true"></span>
+                  <b>
+                  <a href="/services">Lorem ipsum</a>
+                  </b>
+                  <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Recusandae, necessitatibus reiciendis. Voluptatem, eaque fugiat? Natus ab soluta nostrum quos! Laboriosam</p>
+                </div>
+                <div class="col-md-5 testimonial-card p-2 m-2">
+                  <span class="fa fa-users" aria-hidden="true"></span>
+                  <b>
+                  <a href="/services">Lorem ipsu</a>
+                  </b>
+                  <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Recusandae, necessitatibus reiciendis. Voluptatem, eaque fugiat? Natus ab soluta nostrum quos! Laboriosam</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
 @endsection
 @push('js')
 

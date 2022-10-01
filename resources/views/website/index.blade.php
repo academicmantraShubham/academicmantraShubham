@@ -1,7 +1,7 @@
 @extends('website.layouts.app')
 @section('headerData')
     <!-- seo tags -->
-    <title>{{ $metadata->title ?? 'Plagiarism Free Writing by PHD Experts – Thesis N Dissertation	' }}</title>
+    <title>{{ $metadata->title ?? 'Plagiarism Free Writing by PHD Experts – Best Essay Writing Services' }}</title>
     <meta name="description"
         content="{{ $metadata->content ??'Save up your time and outsource your thesis, dissertations and more  to PHD qualified writing professionals. Guaranteed on-time delivery with high quality material at affordable prices.' }}">
     <meta name="keywords"
@@ -260,7 +260,7 @@
                             </div>
                         </div>
                         <div class="row mt-2 p-3">
-                            <button class="btn"> Write My Paper</button>
+                            <a class="btn" href="{{route('order')}}"> Write My Paper</a>
                         </div>
 
                     </div>

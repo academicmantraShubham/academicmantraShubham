@@ -6,7 +6,7 @@
     </div>
 
     <div class="card-body">
-        <form method="POST" action="{{ route("admin.content-pages.store") }}" enctype="multipart/form-data">
+        <form method="POST" action="{{ route("admin.content-pages.blogsStore") }}" enctype="multipart/form-data">
             @csrf
             <div class="row">
                 <div class="col-md-6">

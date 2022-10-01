@@ -2,7 +2,7 @@
 
 @section('headerData')
  <!-- seo tags -->
- <title>{{ $post->meta_title ?? '' }} – Thesis N Dissertation</title>
+ <title>{{ $post->meta_title ?? '' }} – Best Essay Writing Services</title>
  <meta name="description" content="{{ @$post->meta_description }}">
  <meta name="keywords" content="{{ @$post->meta_keyword }}" > 
 @endsection
@@ -172,8 +172,42 @@
         }
         .col-offer-img{
             position: sticky;
-            top: 0;
+            top: 20%;
         }
+        
+        /*blockquote Start*/
+        
+        #excerpt blockquote p, #services blockquote p{
+            color:#ab526b;
+            font-size: larger;
+            font-weight: 700;
+        }
+        
+        #excerpt blockquote, #services blockquote {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin: 20px;
+            padding: 20px 10px;
+            border-radius: 10px;
+            background-color: #e5ddcb;
+        }
+        
+        #excerpt blockquote:before, #services blockquote:before{
+            content: open-quote;
+        }
+        
+        #services blockquote:after, #excerpt blockquote:after{
+            content: close-quote;
+        }
+        
+        #excerpt blockquote:after, #excerpt blockquote:before, #services blockquote:before, #services blockquote:after {
+            opacity: 0.25;
+            padding: 0 10px;
+            font-size: 3em;
+            color: rebeccapurple;
+        }
+        /*blockquote End*/
         
         @media (max-width: 900px) {
           .grid__container {
@@ -200,13 +234,13 @@
 @endpush
 
 @section('content')
-{{--
+
   <!--Bannner-->
-  <div class="hero">
+    <div class="hero" style="padding-top: 5.5rem;">
       <div class="text">
         <p class="text__short">Best Essay Writing Services</p>
-        <h3 class="text__title">Lorem ipsum dolor sit amet</h3>
-        <p class="text__description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Recusandae, necessitatibus reiciendis. Voluptatem, eaque fugiat? Natus ab soluta nostrum quos! Laboriosam</p>
+        <h3 class="text__title">Get Your Writing Service</h3>
+        <p class="text__description">Get trusted and verified essay writers to assist in  your essay writing project . Book now to get your free sample copy today.Terms&conditions applicable</p>
         <a class="text__button"href="{{route('order')}}">Order Now</a>
       </div>
       
@@ -225,21 +259,25 @@
         <div class="grid__item twelve"></div>
       </div>
     </div>
+    
   <!--End Banner--> 
-  --}}
   
-    <!-- Header -->
-  <header class="ex-header">
-      <div class="container">
-          <div class="row">
-              <div class="col-xl-10 offset-xl-1">
-                  <h2 style="color:white">Services</h2>
-              </div> <!-- end of col -->
-          </div> <!-- end of row -->
-      </div> <!-- end of container -->
-  </header> <!-- end of ex-header -->
-  <!-- end of header -->
-  
+    <!-- ======= Breadcrumbs ======= -->
+    <section id="breadcrumbs" class="breadcrumbs">
+        <div class="container">
+            <ol class="breadcrumb">
+                <li><a href="/">Home</a></li>
+                @if(strpos(url()->current(), 'au-') !== false)
+                    <li><a href="{{ route('locations') }}">Locations </a></li>
+                @else
+                    <li><a href="{{ route('services') }}">Services </a></li>
+                @endif
+                <li>{{ $post->title }}</li>
+            </ol>
+        </div>
+    </section>
+    <!-- End Breadcrumbs -->
+
   <!-- About -->
   @if (isset($post) && !empty($post))
   
@@ -253,7 +291,7 @@
                   <!--</div>-->
               </div>
               <div class="col-lg-5 text-center py-4 py-sm-0" data-aos="fade-down"> 
-                  <img class="img-fluid" src="{{ $post->featured_image ? $post->featured_image->getUrl() : 'https://demo.bestessaywritingservices.com.au/images/homepage/1646737989.svg' }}" alt="bestessaywritingservices" >
+                  <img loading="lazy" class="img-fluid" title="{{ $post->title }}" src="{{ $post->featured_image ? $post->featured_image->getUrl() : '/images/homepage/1646737989.svg' }}" alt="{{ $post->title }}" >
               </div>
           </div> <!-- end of row -->
       </div> <!-- end of container -->
@@ -274,52 +312,18 @@
                   {!! $post->page_text !!}
               </div>
               <div  class="col-sm-3 mt-2 col-offer-img" data-aos="fade-left">
-                 <img loading="lazy"  class="img-fluid" src="{{asset('images/banners/post-banner.webp')}}" width="125%">
+                  <a href="{{ route('order')}}">
+                    <img loading="lazy" class="img-fluid" src="{{ $banner ?? asset('banners/post-banner.webp')}}" width="100%">
+                  </a>
               </div>
           </div> <!-- end of row -->
       </div> <!-- end of container -->
     </section> <!-- end of about -->
     
   @endif
+ 
   
-  {{-- <!-- Services -->
-  <section class="services d-flex align-items-center py-5" id="services">
-      <div class="container text-light">
-        <div class="text-center pb-4" >
-              <h2 class="py-2">Writers</h2>
-              <p class="para-light">test</p>
-          </div>
-          <div class="row gy-4 py-2" data-aos="zoom-in">
-              
-          @if($post->writers_count > 0)
-          
-              @foreach ($post->writers as $item)
-                  <div class="col-lg-4">
-                      <a href=""> <div class="card bg-transparent">                    
-                          <h4 class="py-2">{!! $item->title !!}</h4>
-                          <p class="para-light">{!! $item->content !!}</p>
-                      </div></a>
-                  </div>
-              @endforeach 
-
-          @else
-          
-              @foreach ($team->subHomepages as $item)
-                  <div class="col-lg-4">
-                    <a href="assignment-help.html"> <div class="card bg-transparent">                    
-                      <h4 class="py-2">{!! $item->title !!}</h4>
-                      <p class="para-light">{!! $item->content !!}</p>
-                    </div></a>
-                  </div>
-              @endforeach
-              
-          @endif     
-
-          </div> <!-- end of row -->
-      </div> <!-- end of container -->
-  </section> <!-- end of services --> --}}
-  
-  @if( url()->current() == "https://demo.bestessaywritingservices.com.au/au-australia")
+  @if( url()->current() == "https://bestessaywritingservices.com.au/au-australia")
     <!-- ======= Blog Section ======= -->
     <section class="testimonial d-flex align-items-center text-light pb-2" id="about">
         <div class="container">
@@ -333,22 +337,26 @@
             </div>
 
             <div class="row d-flex align-items-center">
-                @foreach ($cities as $key => $blog)
+                @foreach ($cities as $key => $city)
+                    @if ($loop->first)
+                    @else
                     <div class="col-lg-4 col-md-4 col-sm-6 col-sm-12" data-aos="fade-up">
                         <div class="testimonial-card mt-4 p-2" data-aos="fade-right">
                             <div class="row">
-                                {{--<div class="col-lg-12 text-center mb-4" data-aos="fade-down">
-                                    <img class="img-fluid" src="{{ $blog->featured_image->getUrl() }}"
-                                        alt="bestessaywritingservices">
-                                </div> --}}
+                                <div class="col-lg-12 text-center mb-4" data-aos="fade-down">
+                                    <img class="img-fluid" src="{{ $city->post->featured_image ? $city->post->featured_image->getUrl() : '/images/homepage/1646737989.svg' }}"
+                                        alt="{{ $city->title  }} essay writing services">
+                                </div> 
+                                
                                 <div class="col-lg-12 mb-4">
-                                    <h3 class="mt-2">{{ $blog->title }}</h3>
-                                    {!! substr(strip_tags($blog->page_text), 0, 100) !!}
+                                    <h3 class="mt-2">{{ $city->post->title }}</h3>
+                                    {!! substr(strip_tags($city->post->page_text), 0, 100) !!}
                                 </div>
                             </div>
-                            <a class="btn mb-4" href="{{ route('post', $blog->slug) }}">Read More</a>
+                            <a class="btn mb-4" href="{{ route('post', $city->slug) }}">Read More</a>
                         </div>
                     </div>
+                    @endif
                 @endforeach
             </div> <!-- end of row -->
         </div>
@@ -427,6 +435,7 @@
     </section>
     <!-- end of writers -->
     
+   @if($post->faqs)
    <!-- FAQS -->
     <section class="bottom d-flex align-items-center text-light py-5">
         <div class="container">
@@ -498,8 +507,52 @@
         <!-- end of row -->
         </div>
     </section>
+    @endif
     <!-- End FAQs -->
     
+    <section class="w3l-about1 plans" id="about">
+      <div id="cwp23-block" class="py-5">
+        <div class="container py-lg-5">
+          <div class="row cwp23-content">
+            <div class="col-lg-12  mt-lg-0 mt-5  cwp23-text">
+              <div class="cwp23-title">
+                <h3 class="text-center">Why Choose us? </h3>
+              </div>
+              <div class="row justify-content-center">
+                <div class="col-md-5 testimonial-card p-2 m-2">
+                  <span class="fa fa-user-md" aria-hidden="true"></span>
+                  <b> 
+                    <a href="/services">Lorem ipsum</a>
+                  </b>
+                  <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Recusandae, necessitatibus reiciendis. Voluptatem, eaque fugiat? Natus ab soluta nostrum quos! Laboriosam</p>
+                </div>
+                <div class="col-md-5 testimonial-card p-2 m-2">
+                  <span class="fa fa-graduation-cap" aria-hidden="true"></span>
+                  <b>
+                  <a href="/services">Lorem ipsum</a>
+                  </b>
+                  <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Recusandae, necessitatibus reiciendis. Voluptatem, eaque fugiat? Natus ab soluta nostrum quos! Laboriosam</p>
+                </div>
+                <div class="col-md-5 testimonial-card p-2 m-2">
+                  <span class="fa fa-history" aria-hidden="true"></span>
+                  <b>
+                  <a href="/services">Lorem ipsum</a>
+                  </b>
+                  <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Recusandae, necessitatibus reiciendis. Voluptatem, eaque fugiat? Natus ab soluta nostrum quos! Laboriosam</p>
+                </div>
+                <div class="col-md-5 testimonial-card p-2 m-2">
+                  <span class="fa fa-users" aria-hidden="true"></span>
+                  <b>
+                  <a href="/services">Lorem ipsu</a>
+                  </b>
+                  <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Recusandae, necessitatibus reiciendis. Voluptatem, eaque fugiat? Natus ab soluta nostrum quos! Laboriosam</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
   <!-- ======= Frequently Asked Questions Section ======= -->
   <!-- <section  role="img" aria-label="{{ @$askedquestions[0]->bg_alt }}" id="faq" class="faq section-bg" style="{{ @$askedquestions[0]->bg_color ? 'background:'.@$askedquestions[0]->bg_color.';':'' }}{{ @$askedquestions[0]->bg_image ?  'background-image: url("'.$askedquestions[0]->bg_image.'");' : '' }}">
     <div class="container">

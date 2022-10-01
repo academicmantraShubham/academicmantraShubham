@@ -136,7 +136,7 @@ li {
 }
 
 .navbar .logo-image img {
-    width:60px;
+    width:250px;
 }
 
 
@@ -520,6 +520,10 @@ li {
 	border-radius: 50%;
 }
 
+.writers-slider p:nth-of-type(3), .reviews-slider p:nth-of-type(3){
+    min-height:140px;
+    overflow:hidden;
+}
 /* Dropdown Menu */
 .navbar .dropdown .dropdown-menu {
   	animation: fadeDropdown 0.2s; /* required for the fade animation */
