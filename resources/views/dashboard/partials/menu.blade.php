@@ -43,6 +43,14 @@
         </li>
         
         <li class="c-sidebar-nav-item">
+            <a href="{{ route("admin.why-choose-us") }}" class="c-sidebar-nav-link">
+                <i class="c-sidebar-nav-icon fas fa-fw fa fa-address-card-o">
+                </i>
+                {{ trans('Why Choose Us') }}
+            </a>
+        </li>
+        
+        <li class="c-sidebar-nav-item">
             <a href="{{ route("admin.writers") }}" class="c-sidebar-nav-link">
                 <i class="c-sidebar-nav-icon fas fa-fw fa fa-pencil-square">
 

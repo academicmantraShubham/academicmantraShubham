@@ -65,9 +65,15 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.', 'middleware' => ['auth']], 
 
     // writers
     Route::get('writers', [HomepageController::class, 'writers'])->name('writers');
+    
     //faqs
     Route::get('faqs', [HomepageController::class, 'faqs'])->name('faqs');
+    
+    //why choose us
+    Route::get('why-choose-us', [HomepageController::class, 'whyChooseUs'])->name('why-choose-us');
+    
     //samples
+    
     // Route::get('samples', [HomepageController::class, 'samples'])->name('samples');
     Route::get('reviews', [HomepageController::class, 'samples'])->name('samples');
     

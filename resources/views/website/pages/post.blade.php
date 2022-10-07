@@ -209,6 +209,21 @@
         }
         /*blockquote End*/
         
+        /*top universty*/
+        ul.top-university-ul{
+            display: flex;
+            justify-content:center;
+        }
+        li.top-university-li{
+           padding:5px;
+        }
+        img.top-university-img{
+            width:150px;
+        }
+        li.top-university-li p{
+           text-align:center;
+        }
+        /*End top universty*/
         @media (max-width: 900px) {
           .grid__container {
                 min-width: 50%;
@@ -323,46 +338,46 @@
   @endif
  
   
-  @if( url()->current() == "https://bestessaywritingservices.com.au/au-australia")
-    <!-- ======= Blog Section ======= -->
-    <section class="testimonial d-flex align-items-center text-light pb-2" id="about">
-        <div class="container">
-            <div class="row">
-                <div class="text-center w-lg-75 m-auto pb-4">
-                    <h2 class="py-2">Cities Where We Serve</h2>
-                     <p class="para-light">
-                         
-                     </p> 
-                </div>
-            </div>
-
-            <div class="row d-flex align-items-center">
-                @foreach ($cities as $key => $city)
-                    @if ($loop->first)
-                    @else
-                    <div class="col-lg-4 col-md-4 col-sm-6 col-sm-12" data-aos="fade-up">
-                        <div class="testimonial-card mt-4 p-2" data-aos="fade-right">
-                            <div class="row">
-                                <div class="col-lg-12 text-center mb-4" data-aos="fade-down">
-                                    <img class="img-fluid" src="{{ $city->post->featured_image ? $city->post->featured_image->getUrl() : '/images/homepage/1646737989.svg' }}"
-                                        alt="{{ $city->title  }} essay writing services">
-                                </div> 
-                                
-                                <div class="col-lg-12 mb-4">
-                                    <h3 class="mt-2">{{ $city->post->title }}</h3>
-                                    {!! substr(strip_tags($city->post->page_text), 0, 100) !!}
-                                </div>
-                            </div>
-                            <a class="btn mb-4" href="{{ route('post', $city->slug) }}">Read More</a>
-                        </div>
+    @if( url()->current() == "https://bestessaywritingservices.com.au/au-australia")
+        <!-- ======= Country Section ======= -->
+        <section class="testimonial d-flex align-items-center text-light pb-2" id="about">
+            <div class="container">
+                <div class="row">
+                    <div class="text-center w-lg-75 m-auto pb-4">
+                        <h2 class="py-2">Cities Where We Serve</h2>
+                         <p class="para-light">
+                             
+                         </p> 
                     </div>
-                    @endif
-                @endforeach
-            </div> <!-- end of row -->
-        </div>
-        <!-- end of container -->
-    </section>
-    <!-- End Blog Section -->
+                </div>
+    
+                <div class="row d-flex align-items-center">
+                    @foreach ($cities as $key => $city)
+                        @if ($loop->first)
+                        @else
+                        <div class="col-lg-4 col-md-4 col-sm-6 col-sm-12" data-aos="fade-up">
+                            <div class="testimonial-card mt-4 p-2" data-aos="fade-right">
+                                <div class="row">
+                                    <div class="col-lg-12 text-center mb-4" data-aos="fade-down">
+                                        <img class="img-fluid" src="{{ $city->post->featured_image ? $city->post->featured_image->getUrl() : '/images/homepage/1646737989.svg' }}"
+                                            alt="{{ $city->title  }} essay writing services">
+                                    </div> 
+                                    
+                                    <div class="col-lg-12 mb-4">
+                                        <h3 class="mt-2">{{ $city->post->title }}</h3>
+                                        {!! substr(strip_tags($city->post->page_text), 0, 100) !!}
+                                    </div>
+                                </div>
+                                <a class="btn mb-4" href="{{ route('post', $city->slug) }}">Read More</a>
+                            </div>
+                        </div>
+                        @endif
+                    @endforeach
+                </div> <!-- end of row -->
+            </div>
+            <!-- end of container -->
+        </section>
+        <!-- End Country Section -->
     @endif
     
     <!-- writers -->
@@ -435,81 +450,127 @@
     </section>
     <!-- end of writers -->
     
-   @if($post->faqs)
-   <!-- FAQS -->
-    <section class="bottom d-flex align-items-center text-light py-5">
-        <div class="container">
-            <div class="row d-flex">
-                <!-- Part - 1  -->
-                <div class="col-md-12" data-aos="fade-right">
-                    <div class="container">
-                        <h3 class="m-2"> <strong>Recently Asked Question</strong></h3>
-                        {{-- <div class="accordion accordion-flush" id="accordionExample">
-                            @foreach ($post->faqs as $faq)
-                                <div class="accordion-item">
-                                    <h2 class="accordion-header" id="heading_{{ $faq->id }}">
-                                        <button class="accordion-button {{ $loop->first ? '' : 'collapsed' }}"
-                                            type="button" data-bs-toggle="collapse"
-                                            data-bs-target="#collapse_{{ $faq->id }}" aria-expanded="true"
-                                            aria-controls="collapse_{{ $faq->id }}">
-                                            {!! $faq->title !!}
-                                        </button>
-                                    </h2>
-
-                                    <div id="collapse_{{ $faq->id }}"
-                                        class="accordion-collapse collapse {{ $loop->first ? 'show' : '' }}"
-                                        aria-labelledby="heading_{{ $faq->id }}" data-bs-parent="#accordionExample">
-                                        <div class="accordion-body text-secondary">
-                                            {!! $faq->content !!}
+    @if( url()->current() != "https://bestessaywritingservices.com.au/au-australia" && strpos(url()->current(), 'au-') !== false)
+        <!-- ======= Top Colleges ======= -->
+        <section class="testimonial d-flex align-items-center text-light pb-2" id="about">
+            <div class="container">
+                <div class="row">
+                    <div class="text-center w-lg-75 m-auto pb-4">
+                        <h2 class="py-2">Top Colleges of {{ $post->title }}</h2>
+                         <!--<p class="para-light">-->
+                             
+                         <!--</p> -->
+                    </div>
+                </div>
+    
+                <div class="row d-flex align-items-center">
+                     <div class="col-12" data-aos="fade-up">
+                         <ul class="top-university-ul">
+                             <li class="top-university-li">
+                                  <img class="top-university-img" src="/images/Macquarie-University-logo.jpg">
+                                  <p class="top-university-name">Macquarie University</p>
+                             </li>
+                             <li class="top-university-li">
+                                  <img class="top-university-img" src="/images/Macquarie-University-logo.jpg">
+                                  <p class="top-university-name">Macquarie University</p>
+                             </li>
+                             <li class="top-university-li">
+                                  <img class="top-university-img" src="/images/Macquarie-University-logo.jpg">
+                                  <p class="top-university-name">Macquarie University</p>
+                             </li>
+                             <li class="top-university-li">
+                                  <img class="top-university-img" src="/images/Macquarie-University-logo.jpg">
+                                  <p class="top-university-name">Macquarie University</p>
+                             </li>
+                             <li class="top-university-li">
+                                  <img class="top-university-img" src="/images/Macquarie-University-logo.jpg">
+                                  <p class="top-university-name">Macquarie University</p>
+                             </li>
+                         </ul>
+                     </div>
+                </div> <!-- end of row -->
+            </div>
+            <!-- end of container -->
+        </section>
+        <!-- End Top Colleges Section -->
+    @endif
+    
+    @if(count($post->faqs) > 0)
+        <!-- FAQS -->
+        <section class="bottom d-flex align-items-center text-light py-5">
+            <div class="container">
+                <div class="row d-flex">
+                    <!-- Part - 1  -->
+                    <div class="col-md-12" data-aos="fade-right">
+                        <div class="container">
+                            <h3 class="m-2 text-center"> <strong>Recently Asked Question</strong></h3>
+                            {{-- <div class="accordion accordion-flush" id="accordionExample">
+                                @foreach ($post->faqs as $faq)
+                                    <div class="accordion-item">
+                                        <h2 class="accordion-header" id="heading_{{ $faq->id }}">
+                                            <button class="accordion-button {{ $loop->first ? '' : 'collapsed' }}"
+                                                type="button" data-bs-toggle="collapse"
+                                                data-bs-target="#collapse_{{ $faq->id }}" aria-expanded="true"
+                                                aria-controls="collapse_{{ $faq->id }}">
+                                                {!! $faq->title !!}
+                                            </button>
+                                        </h2>
+    
+                                        <div id="collapse_{{ $faq->id }}"
+                                            class="accordion-collapse collapse {{ $loop->first ? 'show' : '' }}"
+                                            aria-labelledby="heading_{{ $faq->id }}" data-bs-parent="#accordionExample">
+                                            <div class="accordion-body text-secondary">
+                                                {!! $faq->content !!}
+                                            </div>
                                         </div>
                                     </div>
-                                </div>
-                            @endforeach
-                        </div>--}}
-                        
-                        <!-- accordion -->
-
-                        <div class="content content__accordion">
-                          <div class="accordion">
-                            <div class="accordion__wrapper">
-                            @foreach ($post->faqs as $faq)
-                              <div class="accordion__item">
-                                <div class="accordion__item--summary">
-                                  <div class="accordion__item-icon">
-                                    <i class="fas fa-fw fa-futbol"></i>
-                                  </div>
-                                  <div class="accordion__item-title">
-                                    <h5>{{ strip_tags($faq->title) }}</h5>
-                                  </div>
-                                  <div class="accordion__item-toggler">
-                                    <button>
-                                      <i class="fas fa-fw fa-angle-down"></i>
-                                    </button>
-                                  </div>
-                                </div>
-                                <div class="accordion__item--detail">
-                                  <div class="accordion__detail">
-                                    <div class="accordion__detail-section">
-                                       {!! $faq->content !!}
+                                @endforeach
+                            </div>--}}
+                            
+                            <!-- accordion -->
+    
+                            <div class="content content__accordion">
+                              <div class="accordion">
+                                <div class="accordion__wrapper">
+                                @foreach ($post->faqs as $faq)
+                                  <div class="accordion__item">
+                                    <div class="accordion__item--summary">
+                                      <div class="accordion__item-icon">
+                                        <i class="fas fa-fw fa-futbol"></i>
+                                      </div>
+                                      <div class="accordion__item-title">
+                                        <h5>{{ strip_tags($faq->title) }}</h5>
+                                      </div>
+                                      <div class="accordion__item-toggler">
+                                        <button>
+                                          <i class="fas fa-fw fa-angle-down"></i>
+                                        </button>
+                                      </div>
+                                    </div>
+                                    <div class="accordion__item--detail">
+                                      <div class="accordion__detail">
+                                        <div class="accordion__detail-section">
+                                           {!! $faq->content !!}
+                                        </div>
+                                      </div>
                                     </div>
                                   </div>
+                                  @endforeach
                                 </div>
                               </div>
-                              @endforeach
                             </div>
-                          </div>
+                            
                         </div>
-                        
                     </div>
                 </div>
             </div>
-        </div>
-        <!-- end of row -->
-        </div>
-    </section>
+            <!-- end of row -->
+            </div>
+        </section>
+        <!-- End FAQs -->
     @endif
-    <!-- End FAQs -->
     
+    <!--why choose us-->
     <section class="w3l-about1 plans" id="about">
       <div id="cwp23-block" class="py-5">
         <div class="container py-lg-5">
@@ -519,105 +580,23 @@
                 <h3 class="text-center">Why Choose us? </h3>
               </div>
               <div class="row justify-content-center">
-                <div class="col-md-5 testimonial-card p-2 m-2">
-                  <span class="fa fa-user-md" aria-hidden="true"></span>
-                  <b> 
-                    <a href="/services">Lorem ipsum</a>
-                  </b>
-                  <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Recusandae, necessitatibus reiciendis. Voluptatem, eaque fugiat? Natus ab soluta nostrum quos! Laboriosam</p>
-                </div>
-                <div class="col-md-5 testimonial-card p-2 m-2">
-                  <span class="fa fa-graduation-cap" aria-hidden="true"></span>
-                  <b>
-                  <a href="/services">Lorem ipsum</a>
-                  </b>
-                  <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Recusandae, necessitatibus reiciendis. Voluptatem, eaque fugiat? Natus ab soluta nostrum quos! Laboriosam</p>
-                </div>
-                <div class="col-md-5 testimonial-card p-2 m-2">
-                  <span class="fa fa-history" aria-hidden="true"></span>
-                  <b>
-                  <a href="/services">Lorem ipsum</a>
-                  </b>
-                  <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Recusandae, necessitatibus reiciendis. Voluptatem, eaque fugiat? Natus ab soluta nostrum quos! Laboriosam</p>
-                </div>
-                <div class="col-md-5 testimonial-card p-2 m-2">
-                  <span class="fa fa-users" aria-hidden="true"></span>
-                  <b>
-                  <a href="/services">Lorem ipsu</a>
-                  </b>
-                  <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Recusandae, necessitatibus reiciendis. Voluptatem, eaque fugiat? Natus ab soluta nostrum quos! Laboriosam</p>
-                </div>
+                  @foreach($whyChooseUs as $chooseUs)
+                    <div class="col-md-5 testimonial-card p-2 m-2">
+                      <span class="fa {{ $chooseUs->alt }}" aria-hidden="true"></span>
+                      <b> 
+                        <a href="{{ route('services') }}">{{ strip_tags($chooseUs->title) }}</a>
+                      </b>
+                      <p> {{ strip_tags($chooseUs->content) }}</p>
+                    </div>
+                  @endforeach
               </div>
             </div>
           </div>
         </div>
       </div>
     </section>
-  <!-- ======= Frequently Asked Questions Section ======= -->
-  <!-- <section  role="img" aria-label="{{ @$askedquestions[0]->bg_alt }}" id="faq" class="faq section-bg" style="{{ @$askedquestions[0]->bg_color ? 'background:'.@$askedquestions[0]->bg_color.';':'' }}{{ @$askedquestions[0]->bg_image ?  'background-image: url("'.$askedquestions[0]->bg_image.'");' : '' }}">
-    <div class="container">
-
-      <div class="section-title">
-        {!! @$askedquestions[0]->title !!}
-        {!! @$askedquestions[0]->content !!}
-      </div>
-
-      <div class="faq-list">
-        <ul>
-          @if($post->faqs_count > 0)
-            @foreach ($post->faqs as $key => $item)
-              <li>
-                @php
-                    $num = ++$key;
-                @endphp
-                <i class="bx bx-help-circle icon-help"></i> <a data-bs-toggle="collapse" @if ($num == 1) class="collapse" @else class="collapsed" @endif data-bs-target="#faq-list-{{ $num }}"> {{  strip_tags($item->title) }} <i class="bx bx-chevron-down icon-show"></i><i class="bx bx-chevron-up icon-close"></i></a>
-                <div id="faq-list-{{ $num }}" class="collapse  @if ($num == 1) show @endif" data-bs-parent=".faq-list">
-                  {!! $item->content !!}
-                </div>
-              </li>
-            @endforeach
-            @else 
-            @foreach ($askedquestions[0]->subHomepages as $key => $item)
-              <li>
-                @php
-                    $num = ++$key;
-                @endphp
-                <i class="bx bx-help-circle icon-help"></i> <a data-bs-toggle="collapse" @if ($num == 1) class="collapse" @else class="collapsed" @endif data-bs-target="#faq-list-{{ $num }}"> {{  strip_tags($item->title) }} <i class="bx bx-chevron-down icon-show"></i><i class="bx bx-chevron-up icon-close"></i></a>
-                <div id="faq-list-{{ $num }}" class="collapse  @if ($num == 1) show @endif" data-bs-parent=".faq-list">
-                  {!! $item->content !!}
-                </div>
-              </li>
-            @endforeach
-            @endif
-
-        </ul>
-      </div>
-
-    </div>
-  </section>End Frequently Asked Questions Section -->
-
-  <!-- ======= Pricing Section ======= -->
-  <!-- <section  role="img" aria-label="{{ @$bestoffers[0]->bg_alt }}" id="pricing" class="pricing" style="{{ @$bestoffers[0]->bg_color ? 'background:'.@$bestoffers[0]->bg_color.';':'' }}{{ @$bestoffers[0]->bg_image ?  'background-image: url("'.$bestoffers[0]->bg_image.'");' : '' }}">
-    <div class="container">
-
-      <div class="section-title">
-        {!! @$bestoffers[0]->title !!}
-        {!! @$bestoffers[0]->content !!}
-      </div>
-      <div class="row offers">
-          @foreach ($bestoffers[0]->subHomepages as $key => $item)
-            <div class="col-lg-4">
-              <div class="box @if(++$key % 2 == 0)featured @endif">
-                  {!! @$item->title !!}
-                {!! @$item->content !!}
-                <a href="contact" class="buy-btn">Get Started</a>
-              </div>
-            </div>
-          @endforeach
-      </div>
-
-    </div>
-  </section>End Pricing Section -->
+    <!--End why choose us-->
+    
 @endsection
 @push('js')
 <script>

@@ -170,6 +170,21 @@ class HomepageController extends Controller
         return view('dashboard.admin.faqs.index', compact('faqs', 'menus'));
     }
     
+    //reviews
+    public function reviews()
+    {
+        $faqs = Homepage::wherePage('reviews')->with('Menu')->paginate(10);
+        $menus = Menu::whereIn('id', [3,9])->withCount('subMenus')->get();
+        return view('dashboard.admin.faqs.index', compact('faqs', 'menus'));
+    }
+    
+    //why choose us
+    public function whyChooseUs()
+    {
+        $whyChooseUs = Homepage::wherePage('why-choose-us')->paginate(10);
+        return view('dashboard.admin.why-choose-us.index', compact('whyChooseUs'));
+    }
+    
     public function samples()
     {
         $samples = Homepage::wherePage('samples')->with('Menu')->paginate(10);

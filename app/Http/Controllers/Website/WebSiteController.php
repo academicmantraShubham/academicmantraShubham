@@ -154,6 +154,7 @@ class WebSiteController extends Controller
             $rand = \Arr::random($files, 1);
             $data['banner'] =  str_replace("public","storage",$rand[0]);
             $data['writers'] = Homepage::wherePage('writers')->inRandomOrder()->with(['Menu'])->limit(6)->get();
+            $data['whyChooseUs'] = Homepage::wherePage('why-choose-us')->inRandomOrder()->limit(4)->get();
             return view('website.pages.post', $data);
         }
         abort(404, "page not found");
