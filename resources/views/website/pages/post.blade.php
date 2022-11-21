@@ -14,22 +14,6 @@
 
 @section('content')
 
-    <!-- ======= Breadcrumbs ======= -->
-    <section id="breadcrumbs" class="breadcrumbs">
-        <div class="container">
-            <ol class="breadcrumb">
-                <li><a href="/">Home</a></li>
-                @if (strpos(url()->current(), 'au-') !== false)
-                    <li><a href="{{ route('locations') }}">Locations </a></li>
-                @else
-                    <li><a href="{{ route('services') }}">Services </a></li>
-                @endif
-                <li>{{ $post->title }}</li>
-            </ol>
-        </div>
-    </section>
-    <!-- End Breadcrumbs -->
-
     <!-- About -->
     @if (isset($post) && !empty($post))
         <section class="about d-flex align-items-center text-light py-5" id="excerpt">
@@ -43,12 +27,28 @@
                     </div>
                     <div class="col-lg-5 text-center py-4 py-sm-0" data-aos="fade-down">
                         <img loading="lazy" class="img-fluid" title="{{ $post->title }}"
-                            src="{{ $post->featured_image ? $post->featured_image->getUrl() : '/images/homepage/1646737989.svg' }}"
+                            src="{{ $post->featured_image->getUrl() ? $post->featured_image->getUrl() : '/images/homepage/1646737989.svg' }}"
                             alt="{{ $post->title }}">
                     </div>
                 </div> <!-- end of row -->
             </div> <!-- end of container -->
         </section> <!-- end of about -->
+
+        <!-- ======= Breadcrumbs ======= -->
+        <section id="breadcrumbs" class="breadcrumbs">
+            <div class="container">
+                <ol class="breadcrumb">
+                    <li><a href="/">Home</a></li>
+                    @if (strpos(url()->current(), 'au-') !== false)
+                        <li><a href="{{ route('locations') }}">Locations </a></li>
+                    @else
+                        <li><a href="{{ route('services') }}">Services </a></li>
+                    @endif
+                    <li>{{ $post->title }}</li>
+                </ol>
+            </div>
+        </section>
+        <!-- End Breadcrumbs -->
 
         <section class="bottom d-flex align-items-center text-light py-5" id="services">
             <div class="container">
@@ -66,8 +66,8 @@
                     </div>
                     <div class="col-sm-3 mt-2 col-offer-img" data-aos="fade-left">
                         <a href="{{ route('order') }}">
-                            <img loading="lazy" class="img-fluid" src="{{ $banner ?? asset('banners/post-banner.webp') }}" alt="{{ $post->title }}"
-                                width="100%">
+                            <img loading="lazy" class="img-fluid" src="{{ $banner ?? asset('banners/post-banner.webp') }}"
+                                alt="{{ $post->title }}" width="100%">
                         </a>
                     </div>
                 </div> <!-- end of row -->
