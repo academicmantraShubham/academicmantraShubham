@@ -655,7 +655,7 @@
     <!-- ======= Usp Section ======= -->
 
      <!--Free Services -->
-     <section class="about d-flex align-items-center text-light py-5" id="about">
+     {{-- <section class="about d-flex align-items-center text-light py-5" id="about">
         <div class="container">
             <div class="row d-flex align-items-center">
                 <h2 class="text-center font-weight-bold p-2"><strong>{{ strip_tags(@$freeServices->title) }}</strong></h2>
@@ -680,7 +680,7 @@
             <!-- end of row -->
         </div>
         <!-- end of container -->
-    </section>
+    </section> --}}
     <!-- end of Free Services -->
 
     <!-- ======= Blog Section ======= -->
