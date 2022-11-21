@@ -27,7 +27,7 @@
                     </div>
                     <div class="col-lg-5 text-center py-4 py-sm-0" data-aos="fade-down">
                         <img loading="lazy" class="img-fluid" title="{{ $post->title }}"
-                            src="{{ $post->featured_image->getUrl() ? $post->featured_image->getUrl() : '/images/homepage/1646737989.svg' }}"
+                            src="{{ $post->featured_image ? $post->featured_image->getUrl() : '/images/homepage/1646737989.svg' }}"
                             alt="{{ $post->title }}">
                     </div>
                 </div> <!-- end of row -->
@@ -49,7 +49,7 @@
             </div>
         </section>
         <!-- End Breadcrumbs -->
-
+        
         <section class="bottom d-flex align-items-center text-light py-5" id="services">
             <div class="container">
                 <div class="row d-flex align-items-start justify-content-center">
