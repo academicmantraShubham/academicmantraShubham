@@ -54,7 +54,7 @@
                                                         {!! substr(strip_tags($blog->page_text), 0, 200) !!}
                                                     </p>
                                                     <a class="btn mb-4 mobile-hide"
-                                                        href="{{ route('website.pages.detail',$blog->id) }}">Read More</a>
+                                                        href="{{ route('blog' ,$blog->slug) }}">Read More</a>
                                                 </div>
                                                 <div class="col-lg-5 text-center mb-4" data-aos="fade-down">
                                                     <img class="img-fluid" src="{{ $blog->featured_image->getUrl() }}"
@@ -62,7 +62,7 @@
                                                 </div>
                                             </div>
                                             <a class="btn mb-4 mobile-show"
-                                                href="{{ route('website.pages.blog', $blog->slug) }}">Read More</a>
+                                                href="{{ route('blog', $blog->slug) }}">Read More</a>
                                         </div>
                                     </div>
 
@@ -83,7 +83,7 @@
                                                 <!-- </div> -->
                                             </div>
                                             <a class="btn mb-4"
-                                                href="{{ route('website.pages.detail',$blog->id) }}">Read More</a>
+                                                href="{{ route('blog',$blog->id) }}">Read More</a>
                                         </div>
                                     </div>
                                 @endif
