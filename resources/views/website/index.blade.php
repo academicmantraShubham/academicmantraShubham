@@ -719,7 +719,7 @@
                                     {!! substr(strip_tags($blog->page_text), 0, 100) !!}
                                 </div>
                             </div>
-                            <a class="btn mb-4" href="{{ route('website.pages.detail', $blog->id) }}">Read More</a>
+                            <a class="btn mb-4" href="{{ route('website.pages.blog', $blog->slug) }}">Read More</a>
                         </div>
                     </div>
                 @endforeach

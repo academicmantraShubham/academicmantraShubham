@@ -62,7 +62,7 @@
                                                 </div>
                                             </div>
                                             <a class="btn mb-4 mobile-show"
-                                                href="{{ route('website.pages.detail',$blog->id) }}">Read More</a>
+                                                href="{{ route('website.pages.blog', $blog->slug) }}">Read More</a>
                                         </div>
                                     </div>
 
