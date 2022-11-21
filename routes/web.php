@@ -1,28 +1,28 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\AjaxController;
 use App\Http\Controllers\Admin\HomeController;
-use App\Http\Controllers\Admin\HomepageController;
 use App\Http\Controllers\Admin\MenuController;
-use App\Http\Controllers\Admin\PermissionsController;
 use App\Http\Controllers\Admin\RolesController;
 use App\Http\Controllers\Admin\UsersController;
-use App\Http\Controllers\Admin\ContentCategoryController;
+use App\Http\Controllers\Admin\BlogPageController;
+use App\Http\Controllers\Admin\HomepageController;
+use App\Http\Controllers\Website\WebSiteController;
 use App\Http\Controllers\Admin\ContentTagController;
 use App\Http\Controllers\Admin\ContentPageController;
-use App\Http\Controllers\Auth\ChangePasswordController;
-use App\Http\Controllers\Admin\BlogPageController;
+use App\Http\Controllers\Admin\PermissionsController;
 
 //Website Controller
-use App\Http\Controllers\Website\WebSiteController;
-use App\Http\Controllers\AjaxController;
+use App\Http\Controllers\Auth\ChangePasswordController;
+use App\Http\Controllers\Admin\ContentCategoryController;
 
 
 //Website Routes
 Route::get('/clear-cache', function () {
     Artisan::call('cache:clear');
     Artisan::call('config:cache');
-	dd('Cache cleared');
+    dd('Cache cleared');
 });
 
 Route::get('detail/{id}/', [WebSiteController::class, 'blog'])->name('website.pages.detail');
@@ -43,11 +43,11 @@ Route::get('/services', [WebSiteController::class, 'services'])->name('services'
 Route::get('/locations', [WebSiteController::class, 'locations'])->name('locations');
 Route::get('/reviews', [WebSiteController::class, 'reviews'])->name('reviews');
 
-Route::get('/home', function () { 
+Route::get('/home', function () {
     if (session('status')) {
         return redirect()->route('admin.home')->with('status', session('status'));
     }
-    return redirect()->route('admin.home'); 
+    return redirect()->route('admin.home');
 });
 
 
@@ -61,25 +61,25 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.', 'middleware' => ['auth']], 
     Route::delete('homepage/destroy', [HomepageController::class, 'massDestroy'])->name('homepage.massDestroy');
     Route::resource('homepage', HomepageController::class);
     Route::get('homepage/{id}/sub', [HomepageController::class, 'subIndex'])->name('homepage.sub');
-    Route::post('homepage-sortable',[HomepageController::class, 'updatePosition'])->name('homepage.updatePosition');
+    Route::post('homepage-sortable', [HomepageController::class, 'updatePosition'])->name('homepage.updatePosition');
 
     // writers
     Route::get('writers', [HomepageController::class, 'writers'])->name('writers');
-    
+
     //faqs
     Route::get('faqs', [HomepageController::class, 'faqs'])->name('faqs');
-    
+
     //why choose us
     Route::get('why-choose-us', [HomepageController::class, 'whyChooseUs'])->name('why-choose-us');
-    
+
     //samples
-    
+
     // Route::get('samples', [HomepageController::class, 'samples'])->name('samples');
     Route::get('reviews', [HomepageController::class, 'samples'])->name('samples');
-    
+
     // Menus
     Route::delete('menu/destroy', [MenuController::class, 'massDestroy'])->name('menu.massDestroy');
-    Route::resource('menu', MenuController::class); 
+    Route::resource('menu', MenuController::class);
 
     //Sub Menus
     Route::get('menu/{id}/sub', [MenuController::class, 'subIndex'])->name('menu.sub');
@@ -104,7 +104,7 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.', 'middleware' => ['auth']], 
     Route::resource('users', UsersController::class);
 
     // Content Category
-    Route::delete('content-categories/destroy',[ContentCategoryController::class, 'massDestroy'])->name('content-categories.massDestroy');
+    Route::delete('content-categories/destroy', [ContentCategoryController::class, 'massDestroy'])->name('content-categories.massDestroy');
     Route::resource('content-categories', ContentCategoryController::class);
 
 
@@ -118,7 +118,6 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.', 'middleware' => ['auth']], 
     Route::post('content-pages/ckmedia', [ContentPageController::class, 'storeCKEditorImages'])->name('content-pages.storeCKEditorImages');
     Route::resource('content-pages', ContentPageController::class);
     Route::post('blog-pages', [ContentPageController::class, 'blogsStore'])->name('content-pages.blogsStore');
-    
 });
 
 Route::group(['prefix' => 'profile', 'as' => 'profile.', 'middleware' => ['auth']], function () {
@@ -131,4 +130,4 @@ Route::group(['prefix' => 'profile', 'as' => 'profile.', 'middleware' => ['auth'
     }
 });
 
-Route::get('/{slug}', [WebSiteController::class, 'post'])->name('post'); 
+Route::get('/{slug}', [WebSiteController::class, 'post'])->name('post');
