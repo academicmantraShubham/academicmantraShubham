@@ -66,7 +66,7 @@
                     </div>
                     <div class="col-sm-3 mt-2 col-offer-img" data-aos="fade-left">
                         <a href="{{ route('order') }}">
-                            <img loading="lazy" class="img-fluid" src="{{ $banner ?? asset('banners/post-banner.webp') }}"
+                            <img loading="lazy" class="img-fluid" src="{{ $banner ?? asset('banners/post-banner.webp') }}" alt="{{ $post->title }}"
                                 width="100%">
                         </a>
                     </div>
