@@ -168,6 +168,7 @@
 
 @section('scripts')
     <script>
+
         $('#slug').keyup(function() {
             var Text = $(this).val();
             Text = Text.toLowerCase();
