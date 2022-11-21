@@ -115,10 +115,10 @@ class WebSiteController extends Controller
         abort(404, "page not found");
     }
 
-    public function blog($id)
+    public function blog($slug)
     {
         $data = $this->common();
-        $data['bolgDetails'] = ContentPage::whereId($id)->first();
+        $data['bolgDetails'] = ContentPage::whereSlug($slug)->first();
         return view('website.pages.detail', $data);
     }
 
