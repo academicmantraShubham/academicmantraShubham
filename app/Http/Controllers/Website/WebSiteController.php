@@ -2,15 +2,17 @@
 
 namespace App\Http\Controllers\Website;
 
-use App\Http\Controllers\Controller;
-use Illuminate\Http\Request;
-use App\Models\Menu;
-use App\Models\Homepage;
-use App\Models\ContentPage;
-use App\Models\ContentCategory;
-use App\Models\BlogPage;
-use App\Models\Calculator;
+use Arr;
 use Cache;
+use Storage;
+use App\Models\Menu;
+use App\Models\BlogPage;
+use App\Models\Homepage;
+use App\Models\Calculator;
+use App\Models\ContentPage;
+use Illuminate\Http\Request;
+use App\Models\ContentCategory;
+use App\Http\Controllers\Controller;
 
 class WebSiteController extends Controller
 {
@@ -151,8 +153,8 @@ class WebSiteController extends Controller
         if ($menu && $menu->content == 1) {
             $data['cities'] = Menu::whereParentId($menu->parent_id)->with('post')->get();
             $data['post'] = ContentPage::whereMenuId($menu->id)->with(['writers.Menu', 'faqs'])->first();
-            $files = \Storage::allFiles('public/banners');
-            $rand = \Arr::random($files, 1);
+            $files = Storage::allFiles('public/banners');
+            $rand = Arr::random($files, 1);
             $data['banner'] =  str_replace("public", "storage", $rand[0]);
             $data['writers'] = Homepage::wherePage('writers')->inRandomOrder()->with(['Menu'])->limit(6)->get();
             $data['whyChooseUs'] = Homepage::wherePage('why-choose-us')->inRandomOrder()->limit(4)->get();
