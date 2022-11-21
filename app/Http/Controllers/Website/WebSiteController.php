@@ -16,15 +16,16 @@ class WebSiteController extends Controller
 {
     public $website = [];
 
-    public function __construct(){
-        $this->website['menus'] = Cache::remember('menus', 60, function() {
-            return Menu::with('subMenus.subMenus')->whereParentId(0)->get(['id', 'title', 'slug']);  
-        });   
+    public function __construct()
+    {
+        $this->website['menus'] = Cache::remember('menus', 60, function () {
+            return Menu::with('subMenus.subMenus')->whereParentId(0)->get(['id', 'title', 'slug']);
+        });
         // $this->website['menus'] =  Menu::with('subMenus.subMenus')->whereParentId(0)->get(['id', 'title', 'slug']);  
 
-        $this->website['subscribeus'] = Cache::remember('subscribeus', 60, function() {
+        $this->website['subscribeus'] = Cache::remember('subscribeus', 60, function () {
             return Homepage::wherePage('subscribe us')->first();
-        });     
+        });
     }
 
     private function common()
@@ -99,9 +100,9 @@ class WebSiteController extends Controller
         }
         abort(404, "page not found");
     }
-    
+
     public function blogs(Request $request)
-    {        
+    {
         $data = $this->common();
         $menu = Menu::whereSlug('blogs')->first();
         if ($menu) {
@@ -110,17 +111,17 @@ class WebSiteController extends Controller
             return view('website.pages.blog', $data);
         }
         abort(404, "page not found");
-    } 
+    }
 
     public function blog($id)
-    {   
+    {
         $data = $this->common();
         $data['bolgDetails'] = ContentPage::whereId($id)->first();
         return view('website.pages.detail', $data);
     }
 
     public function category(Request $request, $slug)
-    {        
+    {
         $data = $this->common();
         // $menu = Menu::whereSlug('blogs')->first();
         $data['category'] = ContentCategory::whereSlug($slug)->with('contents')->first();
@@ -129,8 +130,8 @@ class WebSiteController extends Controller
             return view('website.pages.category', $data);
         }
         abort(404, "page not found");
-    } 
-    
+    }
+
     public function privacyPolicy(Request $request)
     {
         $data = $this->common();
@@ -141,7 +142,7 @@ class WebSiteController extends Controller
         }
         abort(404, "page not found");
     }
-    
+
     public function post(Request $request, $slug)
     {
         $data = $this->common();
@@ -152,32 +153,35 @@ class WebSiteController extends Controller
             $data['post'] = ContentPage::whereMenuId($menu->id)->with(['writers.Menu', 'faqs'])->first();
             $files = \Storage::allFiles('public/banners');
             $rand = \Arr::random($files, 1);
-            $data['banner'] =  str_replace("public","storage",$rand[0]);
+            $data['banner'] =  str_replace("public", "storage", $rand[0]);
             $data['writers'] = Homepage::wherePage('writers')->inRandomOrder()->with(['Menu'])->limit(6)->get();
             $data['whyChooseUs'] = Homepage::wherePage('why-choose-us')->inRandomOrder()->limit(4)->get();
             return view('website.pages.post', $data);
         }
         abort(404, "page not found");
     }
-    
-    public function order(){
+
+    public function order()
+    {
         $data = $this->common();
         return view('website.pages.order-now', $data);
     }
-    
-    public function experts(Request $request){
+
+    public function experts(Request $request)
+    {
         $data = $this->common();
         $menu = Menu::whereSlug('experts')->first();
         if ($menu) {
             $data['post'] = ContentPage::whereMenuId($menu->id)->first();
             $data['writers'] = Homepage::wherePage('writers')->paginate(10);
-            $data['services'] = Menu::whereIn('id', [3,9])->withCount('subMenus')->get();
+            $data['services'] = Menu::whereIn('id', [3, 9])->withCount('subMenus')->get();
             return view('website.pages.experts', $data);
         }
         abort(404, "page not found");
     }
-    
-     public function services(){
+
+    public function services()
+    {
         $data = $this->common();
         $menu = Menu::whereSlug('services')->first();
         if ($menu) {
@@ -188,8 +192,9 @@ class WebSiteController extends Controller
         }
         abort(404, "page not found");
     }
-    
-     public function locations(){
+
+    public function locations()
+    {
         $data = $this->common();
         $menu = Menu::whereSlug('locations')->first();
         if ($menu) {
@@ -200,14 +205,15 @@ class WebSiteController extends Controller
         }
         abort(404, "page not found");
     }
-    
-    public function reviews(){
+
+    public function reviews()
+    {
         $data = $this->common();
         $menu = Menu::whereSlug('reviews')->first();
         if ($menu) {
             $data['post'] = ContentPage::whereMenuId($menu->id)->first();
             $data['reviews'] = Homepage::whereParentId('38')->get();
-             $data['services'] = Menu::whereIn('id', [3,9])->withCount('subMenus')->get();
+            $data['services'] = Menu::whereIn('id', [3, 9])->withCount('subMenus')->get();
             return view('website.pages.reviews', $data);
         }
         abort(404, "page not found");
