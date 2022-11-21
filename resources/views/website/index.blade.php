@@ -3,9 +3,9 @@
     <!-- seo tags -->
     <title>{{ $metadata->title ?? 'Plagiarism Free Writing by PHD Experts – Best Essay Writing Services' }}</title>
     <meta name="description"
-        content="{{ $metadata->content ??'Save up your time and outsource your thesis, dissertations and more  to PHD qualified writing professionals. Guaranteed on-time delivery with high quality material at affordable prices.' }}">
+        content="{{ $metadata->content ?? 'Save up your time and outsource your thesis, dissertations and more  to PHD qualified writing professionals. Guaranteed on-time delivery with high quality material at affordable prices.' }}">
     <meta name="keywords"
-        content="{{ $metadata->alt ??'Best essay writing in Australia, online assignment help, Academic writing services, thesis writing and dissertation writing services, online writing services' }}">
+        content="{{ $metadata->alt ?? 'Best essay writing in Australia, online assignment help, Academic writing services, thesis writing and dissertation writing services, online writing services' }}">
     <meta charset="utf-8">
     <!-- shcema -->
     <meta name="csrf-token" content="{{ csrf_token() }}" />
@@ -44,19 +44,22 @@
 @push('css')
     <link href="{{ asset('website/css/swiper.css') }}" rel="stylesheet">
     <style>
-        .bottom h2{
+        .bottom h2 {
             color: #05ada3;
             line-height: 1.1;
             font-weight: 400;
             letter-spacing: .2px;
             white-space: nowrap;
-            text-align:center;
+            text-align: center;
         }
-        .div-h-text h2, .div-h-text h3{
-            text-align:center;
+
+        .div-h-text h2,
+        .div-h-text h3 {
+            text-align: center;
         }
-        .div-h-text + p{
-            text-align:center;
+
+        .div-h-text+p {
+            text-align: center;
         }
     </style>
 @endpush
@@ -68,7 +71,7 @@
             <h1 class="headline">{{ strip_tags(@$thesisNdissertation->title) }}</h1>
             <p class="para py-3">{!! @$thesisNdissertation->content !!}</p>
             <div class="my-3">
-                <a class="btn" href="{{route('order')}}">Order Now</a>
+                <a class="btn" href="{{ route('order') }}">Order Now</a>
             </div>
         </div>
         <!-- end of container -->
@@ -102,8 +105,8 @@
                         <div class="text-center">
                             {!! $faqs->title !!}
                         </div>
-                        
-                         {{-- <div class="accordion accordion-flush" id="accordionExample">
+
+                        {{-- <div class="accordion accordion-flush" id="accordionExample">
                             @foreach ($faqs->subHomepages as $faq)
                                 <div class="accordion-item">
                                     <h2 class="accordion-header" id="heading_{{ $faq->id }}">
@@ -124,39 +127,39 @@
                                     </div>
                                 </div>
                             @endforeach
-                        </div>--}}
-                        
+                        </div> --}}
+
                         <div class="content content__accordion">
-                          <div class="accordion">
-                            <div class="accordion__wrapper">
-                            @foreach ($faqs->subHomepages as $faq)
-                              <div class="accordion__item">
-                                <div class="accordion__item--summary">
-                                  <div class="accordion__item-icon">
-                                    <i class="fas fa-fw fa-futbol"></i>
-                                  </div>
-                                  <div class="accordion__item-title">
-                                    <h5>{{ strip_tags($faq->title) }}</h5>
-                                  </div>
-                                  <div class="accordion__item-toggler">
-                                    <button>
-                                      <i class="fas fa-fw fa-angle-down"></i>
-                                    </button>
-                                  </div>
+                            <div class="accordion">
+                                <div class="accordion__wrapper">
+                                    @foreach ($faqs->subHomepages as $faq)
+                                        <div class="accordion__item">
+                                            <div class="accordion__item--summary">
+                                                <div class="accordion__item-icon">
+                                                    <i class="fas fa-fw fa-futbol"></i>
+                                                </div>
+                                                <div class="accordion__item-title">
+                                                    <h5>{{ strip_tags($faq->title) }}</h5>
+                                                </div>
+                                                <div class="accordion__item-toggler">
+                                                    <button>
+                                                        <i class="fas fa-fw fa-angle-down"></i>
+                                                    </button>
+                                                </div>
+                                            </div>
+                                            <div class="accordion__item--detail">
+                                                <div class="accordion__detail">
+                                                    <div class="accordion__detail-section">
+                                                        {!! $faq->content !!}
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    @endforeach
                                 </div>
-                                <div class="accordion__item--detail">
-                                  <div class="accordion__detail">
-                                    <div class="accordion__detail-section">
-                                       {!! $faq->content !!}
-                                    </div>
-                                  </div>
-                                </div>
-                              </div>
-                              @endforeach
                             </div>
-                          </div>
                         </div>
-                        
+
                     </div>
                 </div>
                 <!-- Part - 2  -->
@@ -229,7 +232,8 @@
                                 <div class="form-check-inline">
                                     <label class="form-check-label">
                                         <input type="radio" class="form-check-input" id="service-double"
-                                            name="service-space" onChange="calculatePrice()" value="1" checked>Double spaces
+                                            name="service-space" onChange="calculatePrice()" value="1" checked>Double
+                                        spaces
                                     </label>
                                 </div>
                             </div>
@@ -260,7 +264,7 @@
                             </div>
                         </div>
                         <div class="row mt-2 p-3">
-                            <a class="btn" href="{{route('order')}}"> Write My Paper</a>
+                            <a class="btn" href="{{ route('order') }}"> Write My Paper</a>
                         </div>
 
                     </div>
@@ -280,7 +284,7 @@
                     <div class="text-center">{!! @$bestthesis->title !!}</div>
                     {!! @$bestthesis->content !!}
                     <div class="my-3">
-                        <a class="btn" href="{{@$bestthesis->bg_alt}}">Read More</a>
+                        <a class="btn" href="{{ @$bestthesis->bg_alt }}">Read More</a>
                     </div>
                 </div>
                 <div class="col-lg-5 text-center py-4 py-sm-0" data-aos="fade-down">
@@ -297,15 +301,15 @@
     <section style="background-color: #3570a3;" class="services d-flex align-items-center py-5" id="services">
         <div class="container text-light">
             <div class="text-center pb-4">
-                
+
                 <div class="py-2 text-center div-h-text"> {!! @$callus->title !!}</div>
                 <p class="para-light">{!! @$callus->content !!}</p>
                 @foreach ($callus->subHomepages as $key => $contact)
                     <a class="btn m-2" href="{{ strip_tags($contact->content) }}" data-aos="zoom-in">
-                        {!! $contact->alt !!} {{  strip_tags($contact->title) }}
+                        {!! $contact->alt !!} {{ strip_tags($contact->title) }}
                     </a>
                 @endforeach
-                
+
             </div>
         </div>
     </section>
@@ -334,20 +338,22 @@
                                     <div class="swiper-slide">
                                         <div class="testimonial-card p-4">
                                             <b>About {{ $writer->Menu->title }} Writer</b>
-                                            <p>{!! $writer->content !!}</p>
+                                            <p>{{ strip_tags($writer->content) }}</p>
                                             <div class="d-flex pt-4">
-                                                <div  class="div-avatar">
-                                                    <img class="avatar" src="{{ $writer->image ?? '/images/homepage/1660655334.jpg' }}" alt="{{ strip_tags($writer->title)}} Expert">
+                                                <div class="div-avatar">
+                                                    <img class="avatar"
+                                                        src="{{ $writer->image ?? '/images/homepage/1660655334.jpg' }}"
+                                                        alt="{{ strip_tags($writer->title) }} Expert">
                                                 </div>
                                                 <div class="ms-3 pt-2">
                                                     {!! $writer->title !!}
                                                     <div class="row text-center hire-div">
-                                                        <a href="{{route('order')}}" class="btn m-2">
+                                                        <a href="{{ route('order') }}" class="btn m-2">
                                                             Hire Me
                                                         </a>
                                                     </div>
                                                     <p class="mt-2">
-                                                        Rating: {{$writer->bg_alt }} <i class="fa fa-star text-warning"
+                                                        Rating: {{ $writer->bg_alt }} <i class="fa fa-star text-warning"
                                                             aria-hidden="true"></i> <i class="fa fa-star text-warning"
                                                             aria-hidden="true"></i> <i class="fa fa-star text-warning"
                                                             aria-hidden="true"></i> <i class="fa fa-star text-warning"
@@ -360,7 +366,7 @@
                                                         <span class="badge rounded-pill bg-primary"> Essay writing</span>
                                                     </p>
                                                 </div>
-                                                
+
                                             </div>
                                         </div>
                                     </div>
@@ -371,7 +377,7 @@
                             <!-- end of swiper-wrapper -->
                             <!-- Add Arrows -->
                             <!-- <div class="swiper-button-next"></div>
-                      <div class="swiper-button-prev"></div> -->
+                          <div class="swiper-button-prev"></div> -->
                             <!-- end of add arrows -->
                         </div>
                         <!-- end of swiper-container -->
@@ -383,7 +389,7 @@
             </div>
             <!-- end of row -->
         </div> <!-- end of container -->
-    </section> 
+    </section>
     <!-- end of writers -->
 
 
@@ -409,7 +415,7 @@
                 @endforeach
             </div> <!-- end of row -->
         </div> <!-- end of container -->
-    </section> 
+    </section>
     <!-- end of services -->
 
     <!-- $bestoffers -->
@@ -427,14 +433,14 @@
                             {!! @$item->content !!}
                             <!-- <h4 class="py-3">$24/Month</h4> -->
                             <div class="my-3">
-                                <a class="btn" href="{{route('order')}}?code={{ $item->alt }}">View Plans</a>
+                                <a class="btn" href="{{ route('order') }}?code={{ $item->alt }}">View Plans</a>
                             </div>
                         </div>
                     </div>
                 @endforeach
             </div> <!-- end of row -->
         </div> <!-- end of container -->
-    </section> 
+    </section>
     <!-- end of $bestoffers -->
 
     <!-- $explorePossibilities -->
@@ -454,27 +460,31 @@
                             <div class="row g-5">
                                 <div class="col-6 text-start">
                                     <i class="fas fa-briefcase fa-2x text-start"></i>
-                                    <h2 class="purecounter" data-purecounter-start="0" data-purecounter-end="{{strip_tags(@$explorePossibilities->subHomepages[0]->content)}}"
+                                    <h2 class="purecounter" data-purecounter-start="0"
+                                        data-purecounter-end="{{ strip_tags(@$explorePossibilities->subHomepages[0]->content) }}"
                                         data-purecounter-duration="3">1</h2>
-                                    <p>{{strip_tags(@$explorePossibilities->subHomepages[0]->title)}}</p>
+                                    <p>{{ strip_tags(@$explorePossibilities->subHomepages[0]->title) }}</p>
                                 </div>
                                 <div class="col-6">
                                     <i class="fas fa-award fa-2x"></i>
-                                    <h2 class="purecounter" data-purecounter-start="0" data-purecounter-end="{{strip_tags(@$explorePossibilities->subHomepages[1]->content)}}"
+                                    <h2 class="purecounter" data-purecounter-start="0"
+                                        data-purecounter-end="{{ strip_tags(@$explorePossibilities->subHomepages[1]->content) }}"
                                         data-purecounter-duration="3">1</h2>
-                                    <p>{{strip_tags(@$explorePossibilities->subHomepages[1]->title)}}</p>
+                                    <p>{{ strip_tags(@$explorePossibilities->subHomepages[1]->title) }}</p>
                                 </div>
                                 <div class="col-6">
                                     <i class="fas fa-users fa-2x"></i>
-                                    <h2 class="purecounter" data-purecounter-start="0" data-purecounter-end="{{strip_tags(@$explorePossibilities->subHomepages[2]->content)}}"
+                                    <h2 class="purecounter" data-purecounter-start="0"
+                                        data-purecounter-end="{{ strip_tags(@$explorePossibilities->subHomepages[2]->content) }}"
                                         data-purecounter-duration="3">1</h2>
-                                    <p>{{strip_tags(@$explorePossibilities->subHomepages[2]->title)}}</p>
+                                    <p>{{ strip_tags(@$explorePossibilities->subHomepages[2]->title) }}</p>
                                 </div>
                                 <div class="col-6">
                                     <i class="fas fa-clock fa-2x"></i>
-                                    <h2 class="purecounter" data-purecounter-start="0" data-purecounter-end="{{strip_tags(@$explorePossibilities->subHomepages[3]->content)}}"
+                                    <h2 class="purecounter" data-purecounter-start="0"
+                                        data-purecounter-end="{{ strip_tags(@$explorePossibilities->subHomepages[3]->content) }}"
                                         data-purecounter-duration="3">1</h2>
-                                    <p>{{strip_tags(@$explorePossibilities->subHomepages[3]->title)}}</p>
+                                    <p>{{ strip_tags(@$explorePossibilities->subHomepages[3]->title) }}</p>
                                 </div>
                             </div>
                         </div>
@@ -515,7 +525,8 @@
                                             <p>{!! $clientsSays->content !!}</p>
                                             <div class="d-flex pt-4">
                                                 <div>
-                                                    <img class="avatar" src="{{ @$clientsSays->image ?? '/images/homepage/1640713712.jpg'}}"
+                                                    <img class="avatar"
+                                                        src="{{ @$clientsSays->image ?? '/images/homepage/1640713712.jpg' }}"
                                                         alt="testimonial">
                                                 </div>
                                                 <div class="ms-3 pt-2">
@@ -623,7 +634,7 @@
                 <div class="col-lg-12" data-aos="fade-right">
                     <div class="text-center div-h-text">
                         {!! @$usps->title !!}
-                        {!! @$usps->content !!} 
+                        {!! @$usps->content !!}
                     </div>
                     <div class="row information">
                         <div class="row">
@@ -632,7 +643,7 @@
                                     @foreach ($usps->subHomepages as $usp)
                                         <div class="col-md-6">
                                             <div class="usp-title" style="display:flex; align-items:center">
-                                                <i class="fas fa-poll-h fa-3x p-2"></i>    {!! @$usp->title !!}
+                                                <i class="fas fa-poll-h fa-3x p-2"></i> {!! @$usp->title !!}
                                             </div>
                                             <div class="usp-content" style="padding-left:60px">
                                                 {!! @$usp->content !!}
@@ -641,7 +652,8 @@
                                     @endforeach
                                 </div>
                             </div>
-                            <div class="col-md-4 text-center py-4 py-sm-0 justify-content-center" style="display:flex;" data-aos="fade-down">
+                            <div class="col-md-4 text-center py-4 py-sm-0 justify-content-center" style="display:flex;"
+                                data-aos="fade-down">
                                 <img class="img-fluid" src="{{ @$usps->image }}" alt="{{ @$usps->alt }}">
                             </div>
                         </div>
@@ -654,8 +666,8 @@
     </section>
     <!-- ======= Usp Section ======= -->
 
-     <!--Free Services -->
-     {{-- <section class="about d-flex align-items-center text-light py-5" id="about">
+    <!--Free Services -->
+    {{-- <section class="about d-flex align-items-center text-light py-5" id="about">
         <div class="container">
             <div class="row d-flex align-items-center">
                 <h2 class="text-center font-weight-bold p-2"><strong>{{ strip_tags(@$freeServices->title) }}</strong></h2>
@@ -689,7 +701,7 @@
             <div class="row">
                 <div class="text-center w-lg-75 m-auto pb-4">
                     <h2 class="py-2">{{ strip_tags(@$hblog->title) }}</h2>
-                     <p class="para-light">{!! @$hblog->content !!}</p> 
+                    <p class="para-light">{!! @$hblog->content !!}</p>
                 </div>
             </div>
 
@@ -794,14 +806,13 @@
 
         <script>
             const accordionItems = document.querySelectorAll(".accordion__item--summary");
-        
+
             accordionItems.forEach(function(item) {
-              item.addEventListener("click", function(event) {
-                event.stopPropagation();
-                item.parentNode.classList.toggle("accordion__item--active");
-              });
+                item.addEventListener("click", function(event) {
+                    event.stopPropagation();
+                    item.parentNode.classList.toggle("accordion__item--active");
+                });
             });
         </script>
-
     @endpush
 @endsection
