@@ -124,7 +124,6 @@ class ContentPageController extends Controller
     {
 
         $request->merge(['user_id' => auth()->user()->id, 'menu_id' => 114]);
-        dd($request->all());
         $contentPage = ContentPage::create($request->all());
         $contentPage->categories()->sync($request->input('categories', []));
         $contentPage->tags()->sync($request->input('tags', []));

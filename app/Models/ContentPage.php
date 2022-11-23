@@ -39,6 +39,7 @@ class ContentPage extends Model implements HasMedia
         'menu_id',
         'user_id',
         'excerpt',
+        'type',
         'created_at',
         'updated_at',
         'deleted_at',
