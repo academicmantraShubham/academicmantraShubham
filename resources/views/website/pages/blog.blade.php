@@ -71,13 +71,17 @@
                                     <div class="col-md-4">
                                         <div class="testimonial-card mt-4 p-2" data-aos="fade-right">
                                             <div class="row">
+
+                                                <div class="col-lg-12 text-center mb-4" data-aos="fade-down">
+                                                    <img class="img-fluid" src="{{ $blog->featured_image ? $blog->featured_image->getUrl() : '/images/homepage/1646737989.svg' }}"
+                                                        alt="{{ $blog->title }}">
+                                                </div>
+
                                                 <div class="col-lg-12 mb-4">
                                                     <h3 class="mt-2">{{$blog->title }}</h3>
                                                     <p>
                                                         {!! substr(strip_tags($blog->page_text), 0, 200) !!}
                                                     </p>
-                                                    <img class="img-fluid" src="{{ $blog->featured_image ? $blog->featured_image->getUrl() : "/images/homepage/1646737989.svg"  }}"
-                                                    alt="{{ $blog->title }}">
                                                 </div>
                                                 <!-- <div class="col-lg-5 text-center mb-4" data-aos="fade-down"> -->
                                                 <!-- </div> -->

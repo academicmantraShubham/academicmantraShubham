@@ -716,7 +716,9 @@
                                 </div>
                                 <div class="col-lg-12 mb-4">
                                     <h3 class="mt-2">{{ $blog->title }}</h3>
-                                    {!! substr(strip_tags($blog->page_text), 0, 100) !!}
+                                    <p>
+                                        {!! substr(strip_tags($blog->page_text), 0, 100) !!}
+                                    </p>
                                 </div>
                             </div>
                             <a class="btn mb-4" href="{{ route('blog', $blog->slug) }}">Read More</a>
