@@ -122,7 +122,9 @@ class ContentPageController extends Controller
     //add blogs 
     public function blogsStore(Request $request)
     {
-        $request->merge(['user_id' => auth()->user()->id, 'type' => 'blog']);
+
+        dd($request->all());
+        $request->merge(['user_id' => auth()->user()->id, 'type' => 'blog', 'menu_id' => 114]);
         $contentPage = ContentPage::create($request->all());
         $contentPage->categories()->sync($request->input('categories', []));
         $contentPage->tags()->sync($request->input('tags', []));
