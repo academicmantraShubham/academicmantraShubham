@@ -16,7 +16,7 @@
 
     <!-- About -->
     @if (isset($post) && !empty($post))
-        <section class="about d-flex align-items-center text-light py-5" id="excerpt">
+        <section class="about d-flex align-items-center text-light py-5" id="excerpt"  style="padding-top: 5.5rem;">
             <div class="container">
                 <div class="row d-flex align-items-center">
                     <div class="col-lg-7" data-aos="fade-right">
