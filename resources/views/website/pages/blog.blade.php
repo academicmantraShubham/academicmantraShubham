@@ -76,7 +76,7 @@
                                                     <p>
                                                         {!! substr(strip_tags($blog->page_text), 0, 200) !!}
                                                     </p>
-                                                    <img class="img-fluid" src="{{ $blog->featured_image->getUrl() }}"
+                                                    <img class="img-fluid" src="{{ $blog->featured_image->getUrl() ??  "/images/homepage/1646737989.svg" }}"
                                                     alt="bestessaywritingservices">
                                                 </div>
                                                 <!-- <div class="col-lg-5 text-center mb-4" data-aos="fade-down"> -->
