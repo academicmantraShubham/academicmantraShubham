@@ -79,7 +79,7 @@
                             </td>
                             <td>
                                 @can('content_page_show')
-                                    <a class="btn btn-xs btn-primary" href="{{ route('admin.content-pages.show', $contentPage->id) }}">
+                                    <a class="btn btn-xs btn-primary" target="_blank" href="{{ route('blog', $contentPage->slug) }}">
                                         {{ trans('global.view') }}
                                     </a>
                                 @endcan
