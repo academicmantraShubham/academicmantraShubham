@@ -108,7 +108,7 @@ class WebSiteController extends Controller
         $data = $this->common();
         $menu = Menu::whereSlug('blogs')->first();
         if ($menu) {
-            $data['blogs'] = ContentPage::whereType('blog')->paginate(6);
+            $data['blogs'] = ContentPage::whereType('blog')->paginate(7);
             $data['categories'] = ContentCategory::all();
             return view('website.pages.blog', $data);
         }
