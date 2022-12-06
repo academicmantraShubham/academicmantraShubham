@@ -377,7 +377,7 @@
                             <!-- end of swiper-wrapper -->
                             <!-- Add Arrows -->
                             <!-- <div class="swiper-button-next"></div>
-                              <div class="swiper-button-prev"></div> -->
+                                  <div class="swiper-button-prev"></div> -->
                             <!-- end of add arrows -->
                         </div>
                         <!-- end of swiper-container -->
@@ -667,7 +667,7 @@
     <!-- ======= Usp Section ======= -->
 
     <!--Free Services -->
-    {{-- <section class="about d-flex align-items-center text-light py-5" id="about">
+    <section class="about d-flex align-items-center text-light py-5" id="about">
         <div class="container">
             <div class="row d-flex align-items-center">
                 <h2 class="text-center font-weight-bold p-2"><strong>{{ strip_tags(@$freeServices->title) }}</strong></h2>
@@ -679,7 +679,7 @@
                     @foreach ($freeServices->subHomepages as $freeService)
                     <tr>
                         <td>{!! @$freeService->title !!}</td>
-                        <td>{!! @$freeService->content !!}</td>
+                        <td> <strike>  {!! @$freeService->content !!} </strike></td>
                         <td>{!! @$freeService->alt !!}</td>
                     </tr>
                     @endforeach
@@ -692,7 +692,7 @@
             <!-- end of row -->
         </div>
         <!-- end of container -->
-    </section> --}}
+    </section>
     <!-- end of Free Services -->
 
     <!-- ======= Blog Section ======= -->

@@ -64,7 +64,7 @@ class WebSiteController extends Controller
         $data['hblog'] = Homepage::wherePage('blog')->first();
         $data['customessay'] = Homepage::wherePage('customessay')->first();
         $data['blogs'] = ContentPage::whereType('blog')->take(3)->get();
-        // $data['freeServices'] = Homepage::wherePage('freeServices')->withCount('subHomepages')->first();
+        $data['freeServices'] = Homepage::wherePage('freeServices')->withCount('subHomepages')->first();
         return view('website.index', $data);
     }
 
