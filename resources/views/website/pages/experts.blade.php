@@ -1,10 +1,10 @@
 @extends('website.layouts.app')
 
 @section('headerData')
- <!-- seo tags -->
- <title>{{ $post->meta_title ?? '' }} – Thesis N Dissertation</title>
- <meta name="description" content="{{ @$post->meta_description }}">
- <meta name="keywords" content="{{ @$post->meta_keyword }}" > 
+    <!-- seo tags -->
+    <title>{{ $post->meta_title ?? '' }} – Thesis N Dissertation</title>
+    <meta name="description" content="{{ @$post->meta_description }}">
+    <meta name="keywords" content="{{ @$post->meta_keyword }}">
 @endsection
 
 <!-- swipper css -->
@@ -13,84 +13,89 @@
 @endpush
 
 @section('content')
+    @include('website.partials.banner')
 
-@include('website.partials.banner')
-  
-  <!-- Header -->
-      <header class="ex-header">
-          <div class="container">
-              <div class="row">
-                  <div class="col-xl-10 offset-xl-1">
-                        <div class="breadcrum">
-                            <div class="container">
-                              <p><a href="/">Home</a> &nbsp; / &nbsp;Experts</p>
-                            </div>
+    <!-- Header -->
+    <header class="ex-header">
+        <div class="container">
+            <div class="row">
+                <div class="col-xl-10 offset-xl-1">
+                    <div class="breadcrum">
+                        <div class="container">
+                            <p><a href="/">Home</a> &nbsp; / &nbsp;Experts</p>
                         </div>
-                  </div> <!-- end of col -->
-              </div> <!-- end of row -->
-          </div> <!-- end of container -->
-      </header> <!-- end of ex-header -->
-  <!-- end of header -->
-  
+                    </div>
+                </div> <!-- end of col -->
+            </div> <!-- end of row -->
+        </div> <!-- end of container -->
+    </header> <!-- end of ex-header -->
+    <!-- end of header -->
 
-    
-        <!-- writers -->
+
+
+    <!-- writers -->
     <section class="plans d-flex align-items-center py-5" id="plans">
         <div class="container text-light">
             <div class="text-center pb-4">
-               <h2 class="py-2">{{ @$post->title }}</h2>
+                <h2 class="py-2">{{ @$post->title }}</h2>
                 <article class="para-light">{!! @$post->page_text !!}</article>
             </div>
             <!-- end of row -->
-            
+
             <form method="get">
-              <div class="row justify-content-center my-2">
-                <div class="col-md-4 my-2">
-                    <select id="inputState" class="form-control" name="service">
-                        <option value="" >Select Service</option>
-                         @foreach ($services as $service)
-                            @foreach ( $service->subMenus as $subMenu)
-                                @if (count($subMenu->subMenus) > 0)
-                                    <optgroup label="{{ $subMenu->title }}">
-                                        @foreach ($subMenu->subMenus as $child)
-                                            <option value="{{ $child->id }}" {{ app('request')->input('service') == $child->id ? 'selected': '' }}>{{ $child->title }}</option>
-                                        @endforeach
-                                    </optgroup>
-                                    @else    
-                                    <option value="{{ $subMenu->id }}" {{ app('request')->input('service') == $subMenu->id ? 'selected': '' }}>{{ $subMenu->title }}</option>
-                                @endif
+                <div class="row justify-content-center my-2">
+                    <div class="col-md-4 my-2">
+                        <select id="inputState" class="form-control" name="service">
+                            <option value="">Select Service</option>
+                            @foreach ($services as $service)
+                                @foreach ($service->subMenus as $subMenu)
+                                    @if (count($subMenu->subMenus) > 0)
+                                        <optgroup label="{{ $subMenu->title }}">
+                                            @foreach ($subMenu->subMenus as $child)
+                                                <option value="{{ $child->id }}"
+                                                    {{ app('request')->input('service') == $child->id ? 'selected' : '' }}>
+                                                    {{ $child->title }}</option>
+                                            @endforeach
+                                        </optgroup>
+                                    @else
+                                        <option value="{{ $subMenu->id }}"
+                                            {{ app('request')->input('service') == $subMenu->id ? 'selected' : '' }}>
+                                            {{ $subMenu->title }}</option>
+                                    @endif
+                                @endforeach
                             @endforeach
-                        @endforeach
-                    </select>
+                        </select>
+                    </div>
+
+                    <div class="col-md-4 my-2">
+                        <select id="inputState" class="form-control" name="ratings">
+                            <option selected>Select Rating</option>
+                            <option value="4" {{ app('request')->input('ratings') == 4 ? 'selected' : '' }}>4 Star
+                            </option>
+                            <option value="5" {{ app('request')->input('ratings') == 5 ? 'selected' : '' }}>5 Star
+                            </option>
+                        </select>
+                    </div>
+
+                    <div class="col-md-4 my-2">
+                        <button class="btn" style="width:100%">
+                            Search Writer
+                        </button>
+                    </div>
+
                 </div>
-                
-                <div class="col-md-4 my-2">
-                    <select id="inputState" class="form-control" name="ratings">
-                        <option selected>Select Rating</option>
-                        <option value="4"  {{ app('request')->input('ratings') == 4 ? 'selected': '' }}>4 Star</option>
-                        <option value="5"  {{ app('request')->input('ratings') == 5 ? 'selected': '' }}>5 Star</option>
-                    </select>
-                </div>
-                
-                <div class="col-md-4 my-2">
-                    <button class="btn" style="width:100%">
-                        Search Writer
-                    </button>
-                </div>
-                
-              </div>
             </form>
-                    
+
             <div class="row p-2" data-aos="zoom-in">
                 <div class="col-lg-12">
                     <!-- Card Slider -->
-                    
+
                     <div class="slider-container">
                         <div class="swiper-container writers-slider">
                             <div class="swiper-wrapper">
                                 <!-- Slide -->
                                 <!-- end of slide -->
-                                 @foreach ($writers as $writer)
+                                @foreach ($writers as $writer)
                                     <!-- Slide -->
                                     <div class="swiper-slide">
                                         <div class="testimonial-card p-4">
@@ -98,7 +103,9 @@
                                             <p>{!! $writer->content !!}</p>
                                             <div class="d-flex pt-4">
                                                 <div class="div-avatar">
-                                                    <img class="avatar" src="{{ $writer->image ?? '/images/homepage/1660655334.jpg' }}" alt="{{ strip_tags($writer->title)}} Expert">
+                                                    <img class="avatar"
+                                                        src="{{ $writer->image ?? '/images/homepage/1660655334.jpg' }}"
+                                                        alt="{{ strip_tags($writer->title) }} Expert">
                                                 </div>
                                                 <div class="ms-3 pt-2">
                                                     {!! $writer->title !!}
@@ -108,7 +115,7 @@
                                                         </button>
                                                     </div>
                                                     <p class="mt-2">
-                                                        Rating: {{$writer->bg_alt }} <i class="fa fa-star text-warning"
+                                                        Rating: {{ $writer->bg_alt }} <i class="fa fa-star text-warning"
                                                             aria-hidden="true"></i> <i class="fa fa-star text-warning"
                                                             aria-hidden="true"></i> <i class="fa fa-star text-warning"
                                                             aria-hidden="true"></i> <i class="fa fa-star text-warning"
@@ -143,49 +150,29 @@
     <!-- end of writers -->
 
     <section class="w3l-about1 plans" id="about">
-      <div id="cwp23-block" class="py-5">
-        <div class="container py-lg-5">
-          <div class="row cwp23-content">
-            <div class="col-lg-12  mt-lg-0 mt-5  cwp23-text">
-              <div class="cwp23-title">
-                <h3 class="text-center">Why Choose us? </h3>
-              </div>
-              <div class="row justify-content-center">
-                <div class="col-md-5 testimonial-card p-2 m-2">
-                  <span class="fa fa-user-md" aria-hidden="true"></span>
-                  <b> 
-                    <a href="/services">Lorem ipsum</a>
-                  </b>
-                  <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Recusandae, necessitatibus reiciendis. Voluptatem, eaque fugiat? Natus ab soluta nostrum quos! Laboriosam</p>
+        <div id="cwp23-block" class="py-5">
+            <div class="container py-lg-5">
+                <div class="row cwp23-content">
+                    <div class="col-lg-12  mt-lg-0 mt-5  cwp23-text">
+                        <div class="cwp23-title">
+                            <h3 class="text-center">Why Choose us? </h3>
+                        </div>
+                        <div class="row justify-content-center">
+                            @foreach ($whyChooseUs as $chooseUs)
+                                <div class="col-md-5 testimonial-card p-2 m-2">
+                                    <span class="fa {{ $chooseUs->alt }}" aria-hidden="true"></span>
+                                    <b>
+                                        <a href="{{ route('services') }}">{{ strip_tags($chooseUs->title) }}</a>
+                                    </b>
+                                    <p> {{ strip_tags($chooseUs->content) }}</p>
+                                </div>
+                            @endforeach
+                        </div>
+                    </div>
                 </div>
-                <div class="col-md-5 testimonial-card p-2 m-2">
-                  <span class="fa fa-graduation-cap" aria-hidden="true"></span>
-                  <b>
-                  <a href="/services">Lorem ipsum</a>
-                  </b>
-                  <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Recusandae, necessitatibus reiciendis. Voluptatem, eaque fugiat? Natus ab soluta nostrum quos! Laboriosam</p>
-                </div>
-                <div class="col-md-5 testimonial-card p-2 m-2">
-                  <span class="fa fa-history" aria-hidden="true"></span>
-                  <b>
-                  <a href="/services">Lorem ipsum</a>
-                  </b>
-                  <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Recusandae, necessitatibus reiciendis. Voluptatem, eaque fugiat? Natus ab soluta nostrum quos! Laboriosam</p>
-                </div>
-                <div class="col-md-5 testimonial-card p-2 m-2">
-                  <span class="fa fa-users" aria-hidden="true"></span>
-                  <b>
-                  <a href="/services">Lorem ipsu</a>
-                  </b>
-                  <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Recusandae, necessitatibus reiciendis. Voluptatem, eaque fugiat? Natus ab soluta nostrum quos! Laboriosam</p>
-                </div>
-              </div>
             </div>
-          </div>
         </div>
-      </div>
     </section>
 @endsection
 @push('js')
-
 @endpush

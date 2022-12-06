@@ -177,6 +177,7 @@ class WebSiteController extends Controller
             $data['post'] = ContentPage::whereMenuId($menu->id)->first();
             $data['writers'] = Homepage::wherePage('writers')->paginate(10);
             $data['services'] = Menu::whereIn('id', [3, 9])->withCount('subMenus')->get();
+            $data['whyChooseUs'] = Homepage::wherePage('why-choose-us')->inRandomOrder()->limit(4)->get();
             return view('website.pages.experts', $data);
         }
         abort(404, "page not found");
@@ -216,6 +217,7 @@ class WebSiteController extends Controller
             $data['post'] = ContentPage::whereMenuId($menu->id)->first();
             $data['reviews'] = Homepage::whereParentId('38')->get();
             $data['services'] = Menu::whereIn('id', [3, 9])->withCount('subMenus')->get();
+            $data['whyChooseUs'] = Homepage::wherePage('why-choose-us')->inRandomOrder()->limit(4)->get();
             return view('website.pages.reviews', $data);
         }
         abort(404, "page not found");
