@@ -55,13 +55,18 @@ document.querySelectorAll('.dropdown-menu a.dropdown-toggle').forEach(
         } else {
             elem.addEventListener("click",
                 (e) => {
-                    $dropDownMenu = document.querySelector('.dropdown-submenu .dropdown-menu.show');
-                    if ( $dropDownMenu?.classList.contains('show')) {
-                        $dropDownMenu.classList.remove("show");
-                    }
+                    // $dropDownMenu = document.querySelector('.dropdown-submenu .dropdown-menu.show');
+                    // if ( $dropDownMenu?.classList.contains('show')) {
+                    //     $dropDownMenu.classList.remove("show");
+                    // }
                     var $subMenu = e.target.nextElementSibling;
-                    console.log($subMenu);
                     $subMenu.classList.toggle('show');
+                    setTimeout(() => {
+                        if (!e.target.parentNode.parentNode.classList.contains('show')) {
+                            e.target.parentNode.parentNode.classList.add("show");
+                            e.target.parentNode.parentNode.previousElementSibling.classList.add("show");
+                        }
+                    }, 100);
                 }
             )
         }
@@ -80,7 +85,6 @@ document.querySelectorAll('.dropdown-submenu .dropdown-menu').forEach(
         elem.addEventListener("mouseleave",
             (e) => {
                 var $parent = e.target;
-                // console.log($parent)
                 $parent.classList.toggle('show');
             }
         );
