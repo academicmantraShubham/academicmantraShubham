@@ -186,9 +186,8 @@ li {
 	font-weight: 500;
 	font-size: 0.875rem;
 	line-height: 0.875rem;
-	padding-top: 0.625rem;
+	padding: 0.625rem 0;
 	text-decoration: none;
-	padding-bottom: 0.625rem;
 }
 
 .navbar .dropdown-item:hover {
@@ -204,12 +203,13 @@ li {
 }
 
 .navbar .nav-item .nav-link {
-	line-height: 20px;
+	/* line-height: 20px; */
 	color: #eee;
 	text-decoration: none;
 	padding-top: 0.625rem;
 	padding-bottom: 0.625rem;
 	transition: all 0.2s ease;
+	font-size: 14px;
 }
 
 .navbar .fa-stack {
@@ -925,6 +925,12 @@ section .container .card ul li {
 
 	.div-avatar img {
 		width: 100px;
+	}
+
+	.navbar .dropdown-menu {
+		margin: 5px;
+		padding: 5px;
+		border: 2px solid #40d76a;
 	}
 }
 

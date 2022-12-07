@@ -13,8 +13,8 @@
         {
             "@context": "https://schema.org/",
             "@type": "service",
-            "name": "thesisndissertationhelp.com",
-            "image": "logo.png",
+            "name": "bestessaywritingservices.com.au",
+            "image": "https://bestessaywritingservices.com.au/images/homepage/1664381283.png",
             "aggregateRating": {
                 "@type": "AggregateRating",
                 "ratingValue": "4.8",
@@ -24,17 +24,17 @@
     </script>
 
     <!--OG Meta Tags to improve the way the post looks when you share the page on Facebook, Twitter, LinkedIn -->
-    <meta property="og:site_name" content="" />
+    <meta property="og:site_name" content="Best Essay Writing Services" />
     <!-- website name -->
-    <meta property="og:site" content="" />
+    <meta property="og:site" content="https://bestessaywritingservices.com.au" />
     <!-- website link -->
-    <meta property="og:title" content="" />
+    <meta property="og:title" content="{{ $metadata->title ?? 'Plagiarism Free Writing by PHD Experts – Best Essay Writing Services' }}" />
     <!-- title shown in the actual shared post -->
-    <meta property="og:description" content="" />
+    <meta property="og:description" content="{{ $metadata->content ?? 'Save up your time and outsource your thesis, dissertations and more  to PHD qualified writing professionals. Guaranteed on-time delivery with high quality material at affordable prices.' }}" />
     <!-- description shown in the actual shared post -->
     <meta property="og:image" content="" />
     <!-- image link, make sure it's jpg -->
-    <meta property="og:url" content="" />
+    <meta property="og:url" content="https://bestessaywritingservices.com.au" />
     <!-- where do you want your post to link to -->
     <meta name="twitter:card" content="summary_large_image">
     <!-- to have large image post format in Twitter -->

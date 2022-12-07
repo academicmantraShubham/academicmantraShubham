@@ -7,7 +7,6 @@
     <meta name="keywords" content="{{ @$post->meta_keyword }}">
 @endsection
 
-<!-- swipper css -->
 @push('css')
     <style>
         .div-avatar img {
