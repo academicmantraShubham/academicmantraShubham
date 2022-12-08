@@ -49,7 +49,7 @@
             line-height: 1.1;
             font-weight: 400;
             letter-spacing: .2px;
-            white-space: nowrap;
+            /* white-space: nowrap; */
             text-align: center;
         }
 
