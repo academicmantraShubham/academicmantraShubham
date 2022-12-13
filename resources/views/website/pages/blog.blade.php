@@ -58,7 +58,7 @@
                                                     <div class="col-lg-5 text-center mb-4" data-aos="fade-down">
                                                         <img class="img-fluid"
                                                             src="{{ $blog->featured_image ? $blog->featured_image->getUrl() : '/images/homepage/1646737989.svg' }}"
-                                                            alt="{{ $blog->title }}">
+                                                            alt="{{ $blog->title }}" style="width: 220px;">
                                                     </div>
                                                 </div>
                                                 <a class="btn mb-4 mobile-show" href="{{ route('blog', $blog->slug) }}">Read
