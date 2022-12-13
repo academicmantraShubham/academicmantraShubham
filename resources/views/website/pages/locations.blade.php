@@ -49,23 +49,47 @@
 
             <div class="row d-flex align-items-center justify-content-center">
                 @foreach ($cities as $key => $city)
-                    <div class="col-lg-4 col-md-4 col-sm-6 col-sm-12" data-aos="fade-up">
-                        <div class="testimonial-card mt-4 p-2" data-aos="fade-right">
-                            <div class="row">
-                                <div class="col-lg-12 text-center mb-4" data-aos="fade-down">
-                                    <img class="img-fluid"
+                    @if ($loop->first)
+                        <div class="col-md-12">
+                            <div class="testimonial-card mt-4 p-2" data-aos="fade-right">
+                                <div class="row">
+                                    <div class="col-lg-7 mb-4">
+                                        <h3 class="mt-2">>{{ $city->post->title }}</h3>
+                                        <p>
+                                            {{substr(strip_tags($city->post->page_text), 0, 100) }}
+                                        </p>
+                                        <a class="btn mb-4 mobile-hide" href="{{ route('post', $city->slug) }}">Read
+                                            More</a>
+                                    </div>
+                                    <div class="col-lg-5 text-center mb-4" data-aos="fade-down">
+                                        <img class="img-fluid"
                                         src="{{ $city->post->featured_image ? $city->post->featured_image->getUrl() : '/images/homepage/1646737989.svg' }}"
                                         alt="{{ $city->title }} essay writing services">
+                                    </div>
                                 </div>
-
-                                <div class="col-lg-12 mb-4">
-                                    <h3 class="mt-2">{{ $city->post->title }}</h3>
-                                    {!! substr(strip_tags($city->post->page_text), 0, 100) !!}
-                                </div>
+                                <a class="btn mb-4 mobile-show" href="{{ route('post', $city->slug) }}">Read
+                                    More</a>
                             </div>
-                            <a class="btn mb-4" href="{{ route('post', $city->slug) }}">Read More</a>
                         </div>
-                    </div>
+                    @else
+                        <div class="col-lg-4 col-md-4 col-sm-6 col-sm-12" data-aos="fade-up">
+                            <div class="testimonial-card mt-4 p-2" data-aos="fade-right">
+                                <div class="row">
+                                    <div class="col-lg-12 text-center mb-4" data-aos="fade-down">
+                                        <img class="img-fluid"
+                                            src="{{ $city->post->featured_image ? $city->post->featured_image->getUrl() : '/images/homepage/1646737989.svg' }}"
+                                            alt="{{ $city->title }} essay writing services">
+                                    </div>
+
+                                    <div class="col-lg-12 mb-4">
+                                        <h3 class="mt-2">{{ $city->post->title }}</h3>
+                                        {{substr(strip_tags($city->post->page_text), 0, 100) }}
+                                    </div>
+                                </div>
+                                <a class="btn mb-4" href="{{ route('post', $city->slug) }}">Read More</a>
+                            </div>
+                        </div>
+                    @endif
                 @endforeach
             </div> <!-- end of row -->
         </div>
