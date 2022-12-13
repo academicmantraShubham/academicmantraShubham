@@ -14,7 +14,7 @@
         .div-avatar img {
             width: 120px;
         }
-        .testimonial-card img{
+        .testimonial-card img.img-fluid{
             width: 220px;
         }
     </style>
