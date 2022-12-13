@@ -199,7 +199,7 @@ class WebSiteController extends Controller
     public function locations()
     {
         $data = $this->common();
-        $menu = Menu::whereSlug('where-we-serve	')->first();
+        $menu = Menu::whereSlug('where-we-serve')->first();
         if ($menu) {
             $data['post'] = ContentPage::whereMenuId($menu->id)->first();
             $data['cities'] = Menu::whereParentId(10)->with('post')->get();
