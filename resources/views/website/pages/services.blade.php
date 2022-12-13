@@ -14,6 +14,20 @@
         .div-avatar img {
             width: 120px;
         }
+
+        ul#service-list-ul {
+            column-count: 3;
+            column-gap: 20px;
+            column-rule: 2px double var(--secondary);
+            padding: 15px;
+            border-radius: 10px;
+            margin: 10px 10px 20px;
+            border-bottom: 3px solid var(--secondary);
+            -webkit-box-shadow: 0px 10px 50px -10px rgb(0 0 0 / 40%);
+            -moz-box-shadow: 0px 10px 50px -10px rgba(0, 0, 0, 0.4);
+            box-shadow: 0px 10px 50px -10px rgb(0 0 0 / 40%);
+        }
+        
     </style>
 @endpush
 
