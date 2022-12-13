@@ -97,7 +97,7 @@
                                 <div class="testimonial-card mt-4 p-2" data-aos="fade-right">
                                     <div class="row">
                                         <div class="col-lg-12 text-center mb-4" data-aos="fade-down">
-                                            <img class="img-fluid"
+                                            <img class="img-fluid" loading="lazy"
                                                 src="{{ $city->post->featured_image ? $city->post->featured_image->getUrl() : '/images/homepage/1646737989.svg' }}"
                                                 alt="{{ $city->title }} essay writing services">
                                         </div>
@@ -145,7 +145,7 @@
                                             <p>{!! $writer->content !!}</p>
                                             <div class="d-flex pt-4">
                                                 <div class="div-avatar">
-                                                    <img class="avatar"
+                                                    <img class="avatar" loading="lazy"
                                                         src="{{ $writer->image ?? '/images/homepage/1660655334.jpg' }}"
                                                         alt="{{ strip_tags($writer->title) }} Expert">
                                                 </div>
@@ -210,23 +210,23 @@
                     <div class="col-12" data-aos="fade-up">
                         <ul class="top-university-ul">
                             <li class="top-university-li">
-                                <img class="top-university-img" src="/images/Macquarie-University-logo.jpg">
+                                <img loading="lazy" class="top-university-img" src="/images/Macquarie-University-logo.jpg">
                                 <p class="top-university-name">Macquarie University</p>
                             </li>
                             <li class="top-university-li">
-                                <img class="top-university-img" src="/images/Macquarie-University-logo.jpg">
+                                <img loading="lazy" class="top-university-img" src="/images/Macquarie-University-logo.jpg">
                                 <p class="top-university-name">Macquarie University</p>
                             </li>
                             <li class="top-university-li">
-                                <img class="top-university-img" src="/images/Macquarie-University-logo.jpg">
+                                <img loading="lazy" class="top-university-img" src="/images/Macquarie-University-logo.jpg">
                                 <p class="top-university-name">Macquarie University</p>
                             </li>
                             <li class="top-university-li">
-                                <img class="top-university-img" src="/images/Macquarie-University-logo.jpg">
+                                <img loading="lazy" class="top-university-img" src="/images/Macquarie-University-logo.jpg">
                                 <p class="top-university-name">Macquarie University</p>
                             </li>
                             <li class="top-university-li">
-                                <img class="top-university-img" src="/images/Macquarie-University-logo.jpg">
+                                <img loading="lazy" class="top-university-img" src="/images/Macquarie-University-logo.jpg">
                                 <p class="top-university-name">Macquarie University</p>
                             </li>
                         </ul>
