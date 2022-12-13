@@ -24,7 +24,6 @@
             <ol class="breadcrumb">
                 <li><a href="/">Home</a></li>
                 <li>Locations </li>
-
             </ol>
         </div>
     </section>
