@@ -14,6 +14,9 @@
         .div-avatar img {
             width: 120px;
         }
+        .testimonial-card img{
+            width: 220px;
+        }
     </style>
 @endpush
 
