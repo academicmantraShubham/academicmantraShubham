@@ -37,6 +37,7 @@
         @media only screen and (max-width: 540px) {
             ul#service-list-ul {
                 column-count: 1;
+                text-align: center; 
             }
         }
     </style>
