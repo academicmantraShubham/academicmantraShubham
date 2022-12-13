@@ -55,6 +55,25 @@ li {
 	list-style-type: none;
 }
 
+ul.top-university-ul{
+    list-style: none;
+    display: flex;
+}
+
+li.top-university-li{
+	list-style: none;
+}
+
+li.top-university-li img{
+    list-style: none;
+    display: flex;
+	width:150px;
+}
+
+.col-offer-img{
+	position: sticky;
+    top: 100px;
+}
 #excerpt li,
 #services li {
 	list-style-type: circle;
