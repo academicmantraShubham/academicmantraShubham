@@ -54,9 +54,9 @@
                             <div class="testimonial-card mt-4 p-2" data-aos="fade-right">
                                 <div class="row">
                                     <div class="col-lg-7 mb-4">
-                                        <h3 class="mt-2">>{{ $city->post->title }}</h3>
+                                        <h3 class="mt-2">{{ $city->post->title }}</h3>
                                         <p>
-                                            {{substr(strip_tags($city->post->page_text), 0, 100) }}
+                                            {{substr(strip_tags($city->post->page_text), 0, 200) }}
                                         </p>
                                         <a class="btn mb-4 mobile-hide" href="{{ route('post', $city->slug) }}">Read
                                             More</a>
