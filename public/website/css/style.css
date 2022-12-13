@@ -58,6 +58,7 @@ li {
 ul.top-university-ul{
     list-style: none;
     display: flex;
+	justify-content:center;
 }
 
 li.top-university-li{
