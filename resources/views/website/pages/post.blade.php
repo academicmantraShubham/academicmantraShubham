@@ -210,23 +210,23 @@
                     <div class="col-12" data-aos="fade-up">
                         <ul class="top-university-ul">
                             <li class="top-university-li">
-                                <img loading="lazy" class="top-university-img" src="/images/Macquarie-University-logo.jpg">
+                                <img loading="lazy" class="top-university-img" src="/images/universities/Macquarie-University-logo.jpg">
                                 <p class="top-university-name">Macquarie University</p>
                             </li>
                             <li class="top-university-li">
-                                <img loading="lazy" class="top-university-img" src="/images/Macquarie-University-logo.jpg">
+                                <img loading="lazy" class="top-university-img" src="/images/universities/Macquarie-University-logo.jpg">
                                 <p class="top-university-name">Macquarie University</p>
                             </li>
                             <li class="top-university-li">
-                                <img loading="lazy" class="top-university-img" src="/images/Macquarie-University-logo.jpg">
+                                <img loading="lazy" class="top-university-img" src="/images/universities/Macquarie-University-logo.jpg">
                                 <p class="top-university-name">Macquarie University</p>
                             </li>
                             <li class="top-university-li">
-                                <img loading="lazy" class="top-university-img" src="/images/Macquarie-University-logo.jpg">
+                                <img loading="lazy" class="top-university-img" src="/images/universities/Macquarie-University-logo.jpg">
                                 <p class="top-university-name">Macquarie University</p>
                             </li>
                             <li class="top-university-li">
-                                <img loading="lazy" class="top-university-img" src="/images/Macquarie-University-logo.jpg">
+                                <img loading="lazy" class="top-university-img" src="/images/universities/Macquarie-University-logo.jpg">
                                 <p class="top-university-name">Macquarie University</p>
                             </li>
                         </ul>
