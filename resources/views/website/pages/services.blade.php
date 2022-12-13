@@ -28,13 +28,13 @@
             box-shadow: 0px 10px 50px -10px rgb(0 0 0 / 40%);
         }
         
-        @media (min-width: 992px) {
+        @media (max-width: 992px) {
             ul#service-list-ul {
                 column-count: 2;
             }
         }
 
-        @media only screen and (min-width: 540px) {
+        @media only screen and (max-width: 540px) {
             ul#service-list-ul {
                 column-count: 1;
             }
