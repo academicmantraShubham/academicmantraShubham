@@ -346,13 +346,14 @@
     <!--End why choose us-->
 
     @php
-        @if (strpos(url()->current(), 'au-') !== false)
-        $url = {{ route('locations') }};
-        $name = "Locations";
-        @else
-        $url = {{ route('services') }};
-        $name = "Services";
-        @endif
+        if (strpos(url()->current(), 'au-') !== false) {
+            $url = {{ route('locations') }};
+            $name = 'Locations';
+        } else {
+            $url = {{ route('services') }};
+            $name = 'Services';
+        }
+        
     @endphp
 @endsection
 @push('js')
