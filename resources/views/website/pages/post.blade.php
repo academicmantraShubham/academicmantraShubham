@@ -16,7 +16,7 @@
 
     <!-- About -->
     @if (isset($post) && !empty($post))
-        <section class="about d-flex align-items-center text-light py-5" id="excerpt"  style="margin-top: 5.5rem;">
+        <section class="about d-flex align-items-center text-light py-5" id="excerpt" style="margin-top: 5.5rem;">
             <div class="container">
                 <div class="row d-flex align-items-center">
                     <div class="col-lg-7" data-aos="fade-right">
@@ -49,7 +49,7 @@
             </div>
         </section>
         <!-- End Breadcrumbs -->
-        
+
         <section class="bottom d-flex align-items-center text-light py-5" id="services">
             <div class="container">
                 <div class="row d-flex align-items-start justify-content-center">
@@ -210,23 +210,28 @@
                     <div class="col-12" data-aos="fade-up">
                         <ul class="top-university-ul">
                             <li class="top-university-li">
-                                <img loading="lazy" class="top-university-img" src="/images/universities/Macquarie-University-logo.jpg">
+                                <img loading="lazy" class="top-university-img"
+                                    src="/images/universities/Macquarie-University-logo.jpg">
                                 <p class="top-university-name">Macquarie University</p>
                             </li>
                             <li class="top-university-li">
-                                <img loading="lazy" class="top-university-img" src="/images/universities/Macquarie-University-logo.jpg">
+                                <img loading="lazy" class="top-university-img"
+                                    src="/images/universities/Macquarie-University-logo.jpg">
                                 <p class="top-university-name">Macquarie University</p>
                             </li>
                             <li class="top-university-li">
-                                <img loading="lazy" class="top-university-img" src="/images/universities/Macquarie-University-logo.jpg">
+                                <img loading="lazy" class="top-university-img"
+                                    src="/images/universities/Macquarie-University-logo.jpg">
                                 <p class="top-university-name">Macquarie University</p>
                             </li>
                             <li class="top-university-li">
-                                <img loading="lazy" class="top-university-img" src="/images/universities/Macquarie-University-logo.jpg">
+                                <img loading="lazy" class="top-university-img"
+                                    src="/images/universities/Macquarie-University-logo.jpg">
                                 <p class="top-university-name">Macquarie University</p>
                             </li>
                             <li class="top-university-li">
-                                <img loading="lazy" class="top-university-img" src="/images/universities/Macquarie-University-logo.jpg">
+                                <img loading="lazy" class="top-university-img"
+                                    src="/images/universities/Macquarie-University-logo.jpg">
                                 <p class="top-university-name">Macquarie University</p>
                             </li>
                         </ul>
@@ -340,6 +345,15 @@
     </section>
     <!--End why choose us-->
 
+    @php
+        @if (strpos(url()->current(), 'au-') !== false)
+        $url = {{ route('locations') }};
+        $name = "Locations";
+        @else
+        $url = {{ route('services') }};
+        $name = "Services";
+        @endif
+    @endphp
 @endsection
 @push('js')
     <script>
@@ -351,5 +365,42 @@
                 item.parentNode.classList.toggle("accordion__item--active");
             });
         });
+    </script>
+
+    <script type="application/ld+json">
+    {
+     "@context": "https://schema.org",
+     "@type": "BreadcrumbList",
+     "itemListElement":
+     [
+      {
+       "@type": "ListItem",
+       "position": 1,
+       "item":
+       {
+        "@id": "{{ route('home') }}",
+        "name": "Home"
+        }
+      },
+      {
+       "@type": "ListItem",
+      "position": 2,
+      "item":
+       {
+         "@id": "{{  $url  }}",
+         "name": "{{ $name }}"
+       }
+      },
+      {
+        "@type": "ListItem",
+       "position": 3,
+       "item":
+        {
+          "@id": "{{ url()->current()  }}",
+          "name": "{{ $post->title }}"
+        }
+       }
+     ]
+    }
     </script>
 @endpush
