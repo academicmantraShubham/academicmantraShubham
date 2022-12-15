@@ -347,10 +347,10 @@
 
     @php
         if (strpos(url()->current(), 'au-') !== false) {
-            $url = {{ route('locations') }};
+            $url = route('locations');
             $name = 'Locations';
         } else {
-            $url = {{ route('services') }};
+            $url = route('services');
             $name = 'Services';
         }
         
