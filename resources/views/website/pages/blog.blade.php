@@ -48,7 +48,7 @@
                                             <div class="testimonial-card mt-4 p-2" data-aos="fade-right">
                                                 <div class="row">
                                                     <div class="col-lg-7 mb-4">
-                                                        <h3 class="mt-2">{{ $blog->title }}</h3>
+                                                        <h5 class="mt-2 text-success">{{ $blog->title }}</h5>
                                                         <p>
                                                             {!! substr(strip_tags($blog->page_text), 0, 200) !!}
                                                         </p>
@@ -77,7 +77,7 @@
                                                     </div>
 
                                                     <div class="col-lg-12 mb-4">
-                                                        <h3 class="mt-2">{{ $blog->title }}</h3>
+                                                        <h5 class="mt-2 text-success">{{ $blog->title }}</h5>
                                                         <p>
                                                             {!! substr(strip_tags($blog->page_text), 0, 200) !!}
                                                         </p>

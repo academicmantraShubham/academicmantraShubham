@@ -716,7 +716,7 @@
                                         alt="{{ $blog->title }}">
                                 </div>
                                 <div class="col-lg-12 mb-4">
-                                    <h3 class="mt-2">{{ $blog->title }}</h3>
+                                    <h5 class="mt-2 text-success">{{ $blog->title }}</h5>
                                     <p>
                                         {!! substr(strip_tags($blog->page_text), 0, 100) !!}
                                     </p>
