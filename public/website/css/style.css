@@ -403,6 +403,10 @@ li.top-university-li img{
 	box-shadow: 5px 5px 0px 0px var(--secondary);
 }
 
+.text-success{
+	color: #0ee951;
+}
+
 /* Other Pages Button */
 .btn-tertiary {
 	color: #fbf8f8;

@@ -405,7 +405,7 @@
                     <div class="col-lg-4">
                         <!-- <a href="">  -->
                         <div class="card bg-transparent">
-                            <h4 class="py-2 fas">{{ strip_tags($subHomepage->title) }}</h4>
+                            <h4 class="py-2 text-success">{{ strip_tags($subHomepage->title) }}</h4>
                             <div class="para-light">
                                 {!! $subHomepage->content !!}
                             </div>
