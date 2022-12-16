@@ -67,7 +67,7 @@
                                     <div class="col-lg-5 text-center mb-4" data-aos="fade-down">
                                         <img class="img-fluid mt-2"
                                         src="{{ $city->post->featured_image ? $city->post->featured_image->getUrl() : '/images/homepage/1646737989.svg' }}"
-                                        alt="{{ $city->title }} essay writing services" style="width: 220px;">
+                                        alt="{{ $city->title }} essay writing services" style="width: 300px;">
                                     </div>
                                 </div>
                                 <a class="btn mb-4 mobile-show" href="{{ route('post', $city->slug) }}">Read
