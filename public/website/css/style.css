@@ -589,7 +589,7 @@ li.top-university-li img{
 #myBtn {
 	z-index: 99;
 	background: #05e096;
-	right: 10px;
+	left: 10px;
 	width: 52px;
 	height: 52px;
 	bottom: 20px;

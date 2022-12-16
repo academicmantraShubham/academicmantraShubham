@@ -65,7 +65,7 @@
                                             More</a>
                                     </div>
                                     <div class="col-lg-5 text-center mb-4" data-aos="fade-down">
-                                        <img class="img-fluid"
+                                        <img class="img-fluid mt-2"
                                         src="{{ $city->post->featured_image ? $city->post->featured_image->getUrl() : '/images/homepage/1646737989.svg' }}"
                                         alt="{{ $city->title }} essay writing services" style="width: 220px;">
                                     </div>
