@@ -2,11 +2,11 @@
 
 namespace App\Models;
 
-use Cache;
 use \DateTimeInterface;
-use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Support\Facades\Cache;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class Permission extends Model
 {
@@ -32,9 +32,19 @@ class Permission extends Model
     {
         return $date->format('Y-m-d H:i:s');
     }
-    
-     protected static function booted()
+
+
+    /**
+     * The "booted" method of the model.
+     *
+     * @return void
+     */
+    protected static function booted()
     {
+        static::saved(function () {
+            Cache::forget('permissions');
+        });
+
         static::deleted(function () {
             Cache::forget('permissions');
         });
@@ -47,4 +57,5 @@ class Permission extends Model
             Cache::forget('permissions');
         });
     }
+
 }
