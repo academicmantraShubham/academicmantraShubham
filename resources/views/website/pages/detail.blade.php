@@ -17,7 +17,7 @@
                     <li><a href="/">Blogs</a></li>
                     <li>{{ strip_tags($bolgDetails->title ) }}</li>
                 </ol>
-                <h2 class="mb-4">{!! $bolgDetails->title !!}</h2>
+                <h1 class="mb-4 text-center">{!! $bolgDetails->title !!}</h1>
             </div>
         </section>
         <!-- End Breadcrumbs -->

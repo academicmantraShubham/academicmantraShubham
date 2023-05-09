@@ -119,6 +119,7 @@ class WebSiteController extends Controller
     {
         $data = $this->common();
         $data['bolgDetails'] = ContentPage::whereSlug($slug)->first();
+        dd($data['bolgDetails']);
         return view('website.pages.detail', $data);
     }
 
