@@ -7,16 +7,21 @@
         content="Best essay writing in Australia, online assignment help, Academic writing services, thesis writing and dissertation writing services, online writing services">
 @endsection
 @section('content')
-    <main id=""  style="padding-top: 5.5rem;">
+    <main id="" style="padding-top: 5.5rem;">
+
         <!-- ======= Breadcrumbs ======= -->
-        <section id="breadcrumbs" class="breadcrumbs mt-5">
+        <section id="breadcrumbs" class="breadcrumbs" >
             <div class="container">
-                <ol>
+                <ol class="breadcrumb">
                     <li><a href="/">Home</a></li>
+                    <li><a href="/">Blogs</a></li>
+                    <li>{{ strip_tags($bolgDetails->title ) }}</li>
                 </ol>
-                <h2>{!! $bolgDetails->title !!}</h2>
+                <h2 class="mb-4">{!! $bolgDetails->title !!}</h2>
             </div>
         </section>
+        <!-- End Breadcrumbs -->
+
         <!-- Basic -->
         <div class="ex-basic-1 pt-3 pb-5">
             <div class="container">
@@ -33,8 +38,6 @@
             </div> <!-- end of container -->
         </div> <!-- end of ex-basic-1 -->
         <!-- end of basic -->
-
-
 
         <!-- End #main -->
     @endsection
