@@ -17,8 +17,8 @@
                 </ol>
                 <h1 class="mb-4 text-center">{!! $bolgDetails->title !!}</h1>
                 <img class="img-fluid"
-                    src="{{ $blog->featured_image ? $blog->featured_image->getUrl() : '/images/homepage/1646737989.svg' }}"
-                    alt="{{ $blog->title }}">
+                    src="{{ $bolgDetails->featured_image ? $bolgDetails->featured_image->getUrl() : '/images/homepage/1646737989.svg' }}"
+                    alt="{{ $bolgDetails->title }}">
             </div>
         </section>
         <!-- End Breadcrumbs -->
