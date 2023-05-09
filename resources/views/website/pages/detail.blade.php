@@ -9,17 +9,18 @@
 
         <!-- ======= Breadcrumbs ======= -->
         <section id="breadcrumbs" class="breadcrumbs">
-
-            <img class="img-fluid"
+            <div class="container">
+                <img class="img-fluid"
                 src="{{ $bolgDetails->featured_image ? $bolgDetails->featured_image->getUrl() : '/images/homepage/1646737989.svg' }}"
                 alt="{{ $bolgDetails->title }}">
-            <h1 class="mb-4 text-center">{!! $bolgDetails->title !!}</h1>
-            <div class="container">
                 <ol class="breadcrumb">
                     <li><a href="/">Home</a></li>
                     <li><a href="/">Blogs</a></li>
                     <li>{{ strip_tags($bolgDetails->title) }}</li>
                 </ol>
+
+                <h1 class="mb-4 text-center">{!! $bolgDetails->title !!}</h1>
+
             </div>
         </section>
         <!-- End Breadcrumbs -->
