@@ -26,7 +26,7 @@
                         <!--</div>-->
                     </div>
                     <div class="col-lg-5 text-center py-4 py-sm-0" data-aos="fade-down">
-                        <img loading="lazy" class="img-fluid" title="{{ $post->title }}"
+                        <img loading="lazy" class="img-fluid" title="{{ $post->title }}" style="width:150px"
                             src="{{ $post->featured_image ? $post->featured_image->getUrl() : '/images/homepage/1646737989.svg' }}"
                             alt="{{ $post->title }}">
                     </div>
