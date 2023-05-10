@@ -32,7 +32,7 @@
                     <div class="col-xl-10 offset-xl-1">
                         {!! $bolgDetails->page_text !!}
 
-                        <div class="mt-2">
+                        <div class="mt-2 inter-linking">
                             {!! $bolgDetails->excerpt !!}
                         </div>
 

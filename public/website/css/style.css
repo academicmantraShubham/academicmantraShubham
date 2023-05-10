@@ -1170,3 +1170,7 @@ ol.category li {
 	padding: 0 15px;
 	margin: 13px;
 }
+
+.inter-linking a{
+	text-decoration: underline wavy #0ee951;
+}

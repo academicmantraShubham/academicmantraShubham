@@ -60,7 +60,7 @@
                 </div>
             </div> --}}
                 </div>
-                <div class="row d-flex align-items-start">
+                <div class="row d-flex align-items-start inter-linking">
                     <div class="col-sm-9 mt-2" data-aos="fade-right">
                         {!! $post->page_text !!}
                     </div>
