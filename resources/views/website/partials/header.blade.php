@@ -36,7 +36,7 @@
                   </li>
                @else
                   <li class="nav-item">
-                     <a class="nav-link @if($loop->first) active @endif" aria-current="page"  href="{{ $menu->content ? url($menu->slug) ? '#' }}">{{ $menu->title }}</a>
+                     <a class="nav-link @if($loop->first) active @endif" aria-current="page"  href="{{ $menu->content ? url($menu->slug) : '#' }}">{{ $menu->title }}</a>
                   </li>
                @endif 
             @endforeach
