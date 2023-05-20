@@ -22,7 +22,9 @@
                                  <a class="dropdown-item dropdown-toggle" href="#">{{ $subMenu->title }}</a>
                                  <ul class="dropdown-menu" id="new_id_{{ $subMenu->id }}">
                                     @foreach ($subMenu->subMenus as $subChlid)
-                                       <li><a class="dropdown-item" href="{{ url($subChlid->slug) }}">{{ $subChlid->title }}</a></li>
+                                       @if ($subChlid->content)
+                                          <li><a class="dropdown-item" href="{{ url($subChlid->slug) }}">{{ $subChlid->title }}</a></li>
+                                       @endif
                                     @endforeach 
                                  </ul>
                               </li>
@@ -34,7 +36,7 @@
                   </li>
                @else
                   <li class="nav-item">
-                     <a class="nav-link @if($loop->first) active @endif" aria-current="page"  href="{{ url($menu->slug) }}">{{ $menu->title }}</a>
+                     <a class="nav-link @if($loop->first) active @endif" aria-current="page"  href="{{ $menu->content ? url($menu->slug) ? '#' }}">{{ $menu->title }}</a>
                   </li>
                @endif 
             @endforeach

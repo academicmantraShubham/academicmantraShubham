@@ -21,7 +21,7 @@ class WebSiteController extends Controller
     public function __construct()
     {
         $this->website['menus'] = Cache::remember('menus', 60, function () {
-            return Menu::with('subMenus.subMenus')->whereParentId(0)->get(['id', 'title', 'slug']);
+            return Menu::with('subMenus.subMenus')->whereParentId(0)->get(['id', 'title', 'slug','content']);
         });
         // $this->website['menus'] =  Menu::with('subMenus.subMenus')->whereParentId(0)->get(['id', 'title', 'slug']);  
 
