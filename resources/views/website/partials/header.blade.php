@@ -22,9 +22,7 @@
                                  <a class="dropdown-item dropdown-toggle" href="#">{{ $subMenu->title }}</a>
                                  <ul class="dropdown-menu" id="new_id_{{ $subMenu->id }}">
                                     @foreach ($subMenu->subMenus as $subChlid)
-                                       @if ($subChlid->content)
-                                          <li><a class="dropdown-item" href="{{ url($subChlid->slug) }}">{{ $subChlid->title }}</a></li>
-                                       @endif
+                                          <li><a class="dropdown-item" href="{{ $subChlid->content ? url($subChlid->slug) : '*' }}">{{ $subChlid->title }}</a></li>
                                     @endforeach 
                                  </ul>
                               </li>
