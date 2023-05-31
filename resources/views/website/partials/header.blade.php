@@ -1,20 +1,3 @@
-<style>
-    .dropdown-menu {
-        padding: 10px;
-        border-radius: 10px;
-        border: none;
-    }
-    .dropdown-item {
-        padding: 15px;
-        font-weight: 700;
-        color: #000;
-        min-width: 200px;
-        border-radius: 10px;
-    }
-    .new_id .dropdown-item {
-        padding: 2px;
-    }
-</style>
 
 <!-- ======= Header ======= -->
 <!-- Navigation --> 
