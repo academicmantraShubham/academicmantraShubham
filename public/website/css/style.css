@@ -281,21 +281,14 @@ li.top-university-li img{
 	margin-top: -6px;
 }
 
-.dropdown-submenu>#new_id_116 {
-	top: -170px;
-	left: 15rem !important;
-	/* 10rem is the min-width of dropdown-menu */
-	margin-top: -6px;
-	max-height: 400px;
-	overflow-y: scroll;
-}
-
-.dropdown-submenu>#new_id_10 {
-	left: 10rem !important;
-	/* 10rem is the min-width of dropdown-menu */
-	margin-top: -6px;
-	max-height: 400px;
-	overflow-y: scroll;
+.dropdown-submenu>.new_id {
+    background: #1862a1;
+    position: relative !important;
+    top: 7px;
+    left: 24px !important;
+    margin-top: -6px;
+    max-height: 400px;
+    overflow-y: auto;
 }
 
 /* rotate caret on hover */

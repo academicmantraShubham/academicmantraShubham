@@ -20,7 +20,7 @@
                            @if (count($subMenu->subMenus) > 0)
                               <li class="dropdown-submenu">
                                  <a class="dropdown-item dropdown-toggle" href="#">{{ $subMenu->title }}</a>
-                                 <ul class="dropdown-menu" id="new_id_{{ $subMenu->id }}">
+                                 <ul class="dropdown-menu new_id" id="new_id_{{ $subMenu->id }}">
                                     @foreach ($subMenu->subMenus as $subChlid)
                                           <li><a class="dropdown-item" href="{{ $subChlid->content ? url($subChlid->slug) : 'javascript:void(0)' }}">{{ $subChlid->title }}</a></li>
                                     @endforeach 
