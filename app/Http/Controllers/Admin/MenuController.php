@@ -2,13 +2,13 @@
 
 namespace App\Http\Controllers\Admin;
 
-use Symfony\Component\HttpFoundation\Response;
-use App\Http\Controllers\Controller;
-use Illuminate\Http\Request;
+use Validator;
 use App\Models\Menu;
 use App\Models\ContentPage;
-use Gate;
-use Validator;
+use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Gate;
+use Symfony\Component\HttpFoundation\Response;
 class MenuController extends Controller
 {
     public function index()
@@ -167,5 +167,29 @@ class MenuController extends Controller
         abort_if(Gate::denies('menu_edit'), Response::HTTP_FORBIDDEN, '403 Forbidden');
         $menu = Menu::whereId($id)->first();
         return view('dashboard.admin.menu.child.edit', compact('menu'));
+    }
+
+
+    public function childSubIndex($id)
+    {
+        abort_if(Gate::denies('menu_access'), Response::HTTP_FORBIDDEN, '403 Forbidden');
+        $menu = Menu::whereId($id)->first();
+        $menus = Menu::whereParentId($id)->withCount('subMenus')->get();
+        return view('dashboard.admin.menu.child-sub.index', compact('menus', 'menu'));
+    }
+
+    public function childSubCreate($id)
+    {
+        abort_if(Gate::denies('menu_create'), Response::HTTP_FORBIDDEN, '403 Forbidden');
+
+        $menu = Menu::whereId($id)->first();
+        return view('dashboard.admin.menu.child-sub.create', compact('menu'));
+    }
+
+    public function childSubEdit($id)
+    {
+        abort_if(Gate::denies('menu_edit'), Response::HTTP_FORBIDDEN, '403 Forbidden');
+        $menu = Menu::whereId($id)->first();
+        return view('dashboard.admin.menu.child-sub.edit', compact('menu'));
     }
 }

@@ -4,14 +4,14 @@
         <div style="margin-bottom: 10px;" class="row">
             <div class="col-lg-12">
                 <a class="btn btn-success" href="{{ route('admin.menu.sub.create', $menu->id) }}">
-                    {{ trans('global.add') }} {{ $menu->title }} Sub{{ trans('cruds.menu.title') }}
+                    {{ trans('global.add') }} {{ $menu->title }} Child Sub {{ trans('cruds.menu.title') }}
                 </a>
             </div>
         </div>
     @endcan
     <div class="card">
         <div class="card-header">
-            Sub{{ trans('cruds.menu.title') }} {{ trans('global.list') }}
+            Child{{ trans('cruds.menu.title') }} {{ trans('global.list') }}
         </div>
 
         <div class="card-body">
@@ -32,9 +32,6 @@
                                 {{ trans('cruds.menu.fields.slug') }}
                             </th>
                             <th>
-                                {{ trans('Sub Menu') }}
-                            </th>
-                            <th>
                                 &nbsp;
                             </th>
                         </tr>
@@ -49,17 +46,14 @@
                                     {{ ++$key ?? '' }}
                                 </td>
                                 <td>
-                                    <a href="{{ route('admin.menu.child', $menu->id) }}">{{ $menu->title ?? '' }}</a>
+                                    {{ $menu->title ?? '' }}
                                 </td>
                                 <td>
                                     {{ $menu->slug ?? '' }}
                                 </td>
                                 <td>
-                                    {{ $menu->sub_menus_count ?? '' }}
-                                </td>
-                                <td>
                                     @can('menu_show')
-                                        <a class="btn btn-xs btn-primary" href="{{ route('admin.menu.show', $menu->id) }}">
+                                        <a class="btn btn-xs btn-primary" href="{{ route('post', $menu->slug) }}">
                                             {{ trans('global.view') }}
                                         </a>
                                     @endcan

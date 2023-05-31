@@ -285,10 +285,13 @@ li.top-university-li img{
     background: #1862a1;
     position: relative !important;
     top: 7px;
-    left: 24px !important;
+    left: 0px !important;
     margin-top: -6px;
     max-height: 400px;
     overflow-y: auto;
+}
+.dropdown-submenu>.child-sub-menu{
+    background: var(--primary);;
 }
 
 /* rotate caret on hover */

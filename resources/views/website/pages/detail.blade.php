@@ -11,8 +11,8 @@
         <section id="breadcrumbs" class="breadcrumbs">
             <div class="container">
                 <img class="img-fluid"
-                src="{{ $bolgDetails->featured_image ? $bolgDetails->featured_image->getUrl() : '/images/homepage/1646737989.svg' }}"
-                alt="{{ $bolgDetails->title }}">
+                    src="{{ $bolgDetails->featured_image ? $bolgDetails->featured_image->getUrl() : '/images/homepage/1646737989.svg' }}"
+                    alt="{{ $bolgDetails->title }}">
                 <ol class="breadcrumb">
                     <li><a href="/">Home</a></li>
                     <li><a href="/">Blogs</a></li>

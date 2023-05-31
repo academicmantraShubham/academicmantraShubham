@@ -91,6 +91,11 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.', 'middleware' => ['auth']], 
     Route::get('menu/{id}/child/create', [MenuController::class, 'childCreate'])->name('menu.child.create');
     Route::get('menu/{id}/child/edit', [MenuController::class, 'childEdit'])->name('menu.child.edit');
 
+    //Child SUb Menus
+    Route::get('menu/{id}/child-sub', [MenuController::class, 'childSubIndex'])->name('menu.child-sub');
+    Route::get('menu/{id}/child-sub/create', [MenuController::class, 'childSubCreate'])->name('menu.child-sub.create');
+    Route::get('menu/{id}/child-sub/edit', [MenuController::class, 'childSubEdit'])->name('menu.child-sub.edit');
+
     // Permissions
     Route::delete('permissions/destroy', [PermissionsController::class, 'massDestroy'])->name('permissions.massDestroy');
     Route::resource('permissions', PermissionsController::class);
