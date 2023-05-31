@@ -290,6 +290,7 @@ li.top-university-li img{
     max-height: 400px;
     overflow-y: auto;
 }
+
 .dropdown-submenu>.child-sub-menu{
     background: var(--primary);;
 }
@@ -333,6 +334,10 @@ li.top-university-li img{
 }
 .new_id .dropdown-item {
 	padding: 2px;
+}
+
+.child-sub-menu {
+    padding-bottom: 5px !important;
 }
 /****************/
 /*     Home     */
