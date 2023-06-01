@@ -3,7 +3,7 @@
     @can('permission_create')
         <div style="margin-bottom: 10px;" class="row">
             <div class="col-lg-12">
-                <a class="btn btn-success" href="{{ route('admin.menu.sub.create', $menu->id) }}">
+                <a class="btn btn-success" href="{{ route('admin.menu.child-sub.create', $menu->id) }}">
                     {{ trans('global.add') }} {{ $menu->title }} Child Sub {{ trans('cruds.menu.title') }}
                 </a>
             </div>
@@ -59,7 +59,7 @@
                                     @endcan
 
                                     @can('menu_edit')
-                                        <a class="btn btn-xs btn-info" href="{{ route('admin.menu.sub.edit', $menu->id) }}">
+                                        <a class="btn btn-xs btn-info" href="{{ route('admin.menu.child-sub.edit', $menu->id) }}">
                                             {{ trans('global.edit') }}
                                         </a>
                                     @endcan

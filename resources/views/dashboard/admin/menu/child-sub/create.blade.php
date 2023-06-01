@@ -174,13 +174,13 @@
             $("#slug").val(Text);
         });
 
-        $('input#title').keyup(function() {
-            $(this).val(
-                $(this).val().toLowerCase().replace(/\b[a-z]/g, function(letter) {
-                    return letter.toUpperCase();
-                })
-            );
-        });
+        // $('input#title').keyup(function() {
+        //     $(this).val(
+        //         $(this).val().toLowerCase().replace(/\b[a-z]/g, function(letter) {
+        //             return letter.toUpperCase();
+        //         })
+        //     );
+        // });
 
         $('#content').change(function() {
             var Text = $(this).val();
@@ -239,7 +239,7 @@
                                                     .message ?
                                                     `${genericErrorText}\n${xhr.status} ${response.message}` :
                                                     `${genericErrorText}\n ${xhr.status} ${xhr.statusText}`
-                                                    );
+                                                );
                                             }
 
                                             $('form').append(
@@ -253,7 +253,7 @@
 
                                         if (xhr.upload) {
                                             xhr.upload.addEventListener('progress', function(
-                                            e) {
+                                                e) {
                                                 if (e.lengthComputable) {
                                                     loader.uploadTotal = e.total;
                                                     loader.uploaded = e.loaded;
