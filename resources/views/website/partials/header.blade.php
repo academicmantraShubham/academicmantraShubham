@@ -25,7 +25,7 @@
                                     @foreach ($subMenu->subMenus as $subChlid)
                                        @if ($subChlid->subMenus->count() > 0)
                                        <li class="dropdown-submenu">
-                                          <a class="dropdown-item dropdown-toggle" href="#">{{ $subMenu->title }}</a>
+                                          <a class="dropdown-item dropdown-toggle" href="#">{{ $subChlid->title }}</a>
                                           <ul class="dropdown-menu new_id child-sub-menu" id="new_id_{{ $subMenu->id }}">
                                              @foreach ( $subChlid->subMenus as $subChlidSub)
                                                 <li><a class="dropdown-item" href="{{ $subChlidSub->content ? url($subChlidSub->slug) : 'javascript:void(0)' }}">{{ $subChlidSub->title }}</a></li>
