@@ -166,7 +166,6 @@
 @endsection
 @section('scripts')
     <script>
-        alert('asgd')
         $('#slug').keyup(function() {
             var Text = $(this).val();
             Text = Text.toLowerCase();
