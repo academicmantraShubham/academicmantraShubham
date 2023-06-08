@@ -10,6 +10,11 @@
 <!-- swipper css -->
 @push('css')
     <link href="{{ asset('website/css/swiper.css') }}" rel="stylesheet">
+    <style>
+        .inter-linking figure img{
+            width: 100%;
+        }
+    </style>
 @endpush
 
 @section('content')
@@ -21,9 +26,6 @@
                 <div class="row d-flex align-items-center">
                     <div class="col-lg-7" data-aos="fade-right">
                         {!! $post->excerpt !!}
-                        <!--<div class="my-3">-->
-                        <!--    <a class="btn" href="price.html">Offers</a>-->
-                        <!--</div>-->
                     </div>
                     <div class="col-lg-5 text-center py-4 py-sm-0" data-aos="fade-down">
                         <img loading="lazy" class="img-fluid" title="{{ $post->title }}" style="width:150px"
@@ -54,11 +56,6 @@
             <div class="container">
                 <div class="row d-flex align-items-start justify-content-center">
                     <h1 class="m-2">{{ $post->title }}</h1>
-                    {{-- <div class="col-sm-9" data-aos="fade-right">
-                <div  class="" data-aos="fade-left">
-                    <img loading="lazy" class="img-fluid" src="{{asset('images/banners/inside-banner.png')}}" width="125%">
-                </div>
-            </div> --}}
                 </div>
                 <div class="row d-flex align-items-start inter-linking">
                     <div class="col-sm-9 mt-2" data-aos="fade-right">
