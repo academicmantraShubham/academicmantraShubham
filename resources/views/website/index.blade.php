@@ -12,7 +12,7 @@
     <script type="application/ld+json">
         {
             "@context": "https://schema.org/",
-            "@type": "service",
+            "@type": "product",
             "name": "bestessaywritingservices.com.au",
             "image": "https://bestessaywritingservices.com.au/images/homepage/1664381283.png",
             "aggregateRating": {
