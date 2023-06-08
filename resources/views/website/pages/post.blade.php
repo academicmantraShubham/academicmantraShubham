@@ -2,7 +2,7 @@
 
 @section('headerData')
     <!-- seo tags -->
-    <title>{{ $post->meta_title ?? '' }} – Best Essay Writing Services</title>
+    <title>{{ $post->meta_title ?? 'Best Essay Writing Services' }}</title>
     <meta name="description" content="{{ @$post->meta_description }}">
     <meta name="keywords" content="{{ @$post->meta_keyword }}">
 @endsection
