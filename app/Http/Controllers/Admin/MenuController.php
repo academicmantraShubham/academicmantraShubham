@@ -76,7 +76,7 @@ class MenuController extends Controller
             $contentPage =  ContentPage::whereMenuId($menu->id)->first();
 
             if ($contentPage) {
-                ContentPage::whereMenuId($menu->id)->update($request->except(['_method', '_token', 'featured_image', 'last_url', 'slug', 'content', 'ctitle']));
+                ContentPage::whereMenuId($menu->id)->update($request->except(['_method', '_token', 'featured_image', 'last_url', 'slug', 'content', 'ctitle', 'ck-media']));
             }else{
                 $request->merge(['menu_id' => $menu->id, 'user_id' => auth()->user()->id]);
                 $contentPage = ContentPage::create($request->all());
