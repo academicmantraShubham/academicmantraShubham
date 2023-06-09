@@ -50,6 +50,9 @@
     </style>
 @endpush
 
+{{-- Toast --}}
+@include('website.partials.toaster')
+
 @section('content')
 
     @php
