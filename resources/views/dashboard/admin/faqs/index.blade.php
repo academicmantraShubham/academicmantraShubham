@@ -120,21 +120,26 @@
                                                     <div class="form-group col-12 mt-2">
                                                         <label for="title">Select Service or Country</label>
                                                         <select class="form-control" name="parent_id" required>
-
                                                             @foreach ($menus as $menu)
                                                                 @foreach ($menu->subMenus as $subMenu)
                                                                     @if (count($subMenu->subMenus) > 0)
                                                                         <optgroup label="{{ $subMenu->title }}">
                                                                             @foreach ($subMenu->subMenus as $child)
-                                                                                <option value="{{ $child->id }}"
-                                                                                    {{ $homepage->parent_id == $child->id ? 'selected' : '' }}>
-                                                                                    {{ $child->title }}</option>
+                                                                                @if($child->subMenus->count() > 0)
+                                                                                <optgroup label="&nbsp;&nbsp;&nbsp;&nbsp;{{ $child->title }}">
+                                                                                    @foreach ($child->subMenus as $childSub)
+                                                                                        <option  {{ $homepage->parent_id == $childSub->id ? 'selected' : '' }}  value="{{ $childSub->id }}"> {{ $childSub->title }} </option>
+                                                                                    @endforeach
+                                                                                </optgroup>
+                                                                                @else
+                                                                                    <option  {{ $homepage->parent_id == $child->id ? 'selected' : '' }}  value="{{ $child->id }}"> {{ $child->title }} </option>
+                                                                                @endif
                                                                             @endforeach
                                                                         </optgroup>
                                                                     @else
-                                                                        <option value="{{ $subMenu->id }}"
-                                                                            {{ $homepage->parent_id == $subMenu->id ? 'selected' : '' }}>
-                                                                            {{ $subMenu->title }}</option>
+                                                                        <option   {{ $homepage->parent_id == $subMenu->id ? 'selected' : '' }} value="{{ $subMenu->id }}">
+                                                                            {{ $subMenu->title }}
+                                                                        </option>
                                                                     @endif
                                                                 @endforeach
                                                             @endforeach
