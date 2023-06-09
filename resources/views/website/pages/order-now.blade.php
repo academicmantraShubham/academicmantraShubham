@@ -80,7 +80,7 @@
         </div> <!-- end of container -->
     </header> <!-- end of ex-header -->
     <!-- end of header -->
-    
+
     <section class="w3l-about1" id="about">
         <div id="cwp23-block" class="py-5">
             <div class="container py-lg-5">
@@ -129,7 +129,8 @@
                                 <div class="cwp23-title">
                                     <h3>Fill Form & Order Now </h3>
                                 </div>
-                                <form action="" method="post" class="" enctype="multipart/form-data">
+                                <form action="{{ route('place-order') }}" method="post" class=""
+                                    enctype="multipart/form-data">
                                     @csrf
                                     <div class="main-input">
                                         <div class="form-group py-2">
@@ -143,9 +144,30 @@
                                         <div class="form-group py-2">
                                             <select name="service" placeholder="Subject"
                                                 class="form-control form-control-input" id="menus" required>
-                                                <option value=""> Select Service</option>
-                                                @foreach ($menus as $menu)
-                                                    <option value="{{ $menu->id }}"> {{ $menu->title }} </option>
+                                                <option disabled selected value="">Select Service</option>
+                                                @foreach ($services as $menu)
+                                                    @foreach ($menu->subMenus as $subMenu)
+                                                        @if (count($subMenu->subMenus) > 0)
+                                                            <optgroup label="{{ $subMenu->title }}">
+                                                                @foreach ($subMenu->subMenus as $child)
+                                                                    @if ($child->subMenus->count() > 0)
+                                                            <optgroup label="&nbsp;&nbsp;&nbsp;&nbsp;{{ $child->title }}">
+                                                                @foreach ($child->subMenus as $childSub)
+                                                                    <option value="{{ $childSub->id }}">
+                                                                        {{ $childSub->title }} </option>
+                                                                @endforeach
+                                                            </optgroup>
+                                                        @else
+                                                            <option value="{{ $child->id }}"> {{ $child->title }}
+                                                            </option>
+                                                        @endif
+                                                    @endforeach
+                                                    </optgroup>
+                                                @else
+                                                    <option value="{{ $subMenu->id }}">{{ $subMenu->title }}
+                                                    </option>
+                                                @endif
+                                                @endforeach
                                                 @endforeach
                                             </select>
                                         </div>

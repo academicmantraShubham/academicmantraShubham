@@ -38,6 +38,7 @@ Route::get('/blogs', [WebSiteController::class, 'blogs'])->name('blogs');
 Route::get('/blog/{slug}', [WebSiteController::class, 'blog'])->name('blog');
 Route::get('/category/{slug}', [WebSiteController::class, 'category'])->name('category');
 Route::get('/get-your-essay', [WebSiteController::class, 'order'])->name('order');
+Route::post('/place-order', [WebSiteController::class, 'placeOrder'])->name('place-order');
 Route::get('/experts', [WebSiteController::class, 'experts'])->name('experts');
 Route::get('/services', [WebSiteController::class, 'services'])->name('services');
 Route::get('/locations', [WebSiteController::class, 'locations'])->name('locations');

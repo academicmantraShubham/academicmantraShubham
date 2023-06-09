@@ -21,7 +21,7 @@ class WebSiteController extends Controller
     public function __construct()
     {
         $this->website['menus'] = Cache::remember('menus', 60, function () {
-            return Menu::with('subMenus.subMenus.subMenus')->orderBy('position', 'ASC')->whereParentId(0)->get(['id', 'title', 'slug','content']);
+            return Menu::with('subMenus.subMenus.subMenus')->orderBy('position', 'ASC')->whereParentId(0)->get(['id', 'title', 'slug', 'content']);
         });
         // $this->website['menus'] =  Menu::with('subMenus.subMenus')->whereParentId(0)->get(['id', 'title', 'slug']);  
 
@@ -166,6 +166,7 @@ class WebSiteController extends Controller
     public function order()
     {
         $data = $this->common();
+        $data['services'] = Menu::whereIn('id', [3, 9, 181])->withCount('subMenus')->get();
         return view('website.pages.order-now', $data);
     }
 
@@ -221,5 +222,10 @@ class WebSiteController extends Controller
             return view('website.pages.reviews', $data);
         }
         abort(404, "page not found");
+    }
+
+    public function placeOrder(Request $request)
+    {
+        return redirect()->back()->withSuccess('Thank You !! we will get back to you.');
     }
 }
