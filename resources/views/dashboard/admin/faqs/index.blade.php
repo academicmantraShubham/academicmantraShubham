@@ -194,9 +194,11 @@
                                                                 <optgroup label="{{ $subMenu->title }}">
                                                                     @foreach ($subMenu->subMenus as $child)
                                                                         @if($child->subMenus->count() > 0)
+                                                                        <optgroup label="{{ $child->title }}">
                                                                             @foreach ($child->subMenus as $childSub)
                                                                                 <option value="{{ $childSub->id }}"> {{ $childSub->title }} </option>
                                                                             @endforeach
+                                                                        </optgroup>
                                                                         @else
                                                                             <option value="{{ $child->id }}"> {{ $child->title }} </option>
                                                                         @endif
