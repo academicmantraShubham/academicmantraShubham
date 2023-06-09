@@ -159,14 +159,14 @@ class HomepageController extends Controller
     public function writers()
     {
         $writers = Homepage::wherePage('writers')->with('Menu')->paginate(10);
-        $menus = Menu::whereIn('id', [3,9])->withCount('subMenus')->get();
+        $menus = Menu::whereIn('id', [3,9,181])->withCount('subMenus')->get();
         return view('dashboard.admin.writers.index', compact('writers', 'menus'));
     }
 
     public function faqs()
     {
         $faqs = Homepage::wherePage('faqs')->with('Menu')->paginate(10);
-        $menus = Menu::whereIn('id', [3,9])->withCount('subMenus')->get();
+        $menus = Menu::whereIn('id', [3,9,181])->withCount('subMenus')->get();
         return view('dashboard.admin.faqs.index', compact('faqs', 'menus'));
     }
     
@@ -174,7 +174,7 @@ class HomepageController extends Controller
     public function reviews()
     {
         $faqs = Homepage::wherePage('reviews')->with('Menu')->paginate(10);
-        $menus = Menu::whereIn('id', [3,9])->withCount('subMenus')->get();
+        $menus = Menu::whereIn('id', [3,9,181])->withCount('subMenus')->get();
         return view('dashboard.admin.faqs.index', compact('faqs', 'menus'));
     }
     
@@ -188,7 +188,7 @@ class HomepageController extends Controller
     public function samples()
     {
         $samples = Homepage::wherePage('samples')->with('Menu')->paginate(10);
-        $menus = Menu::whereIn('id', [3,9])->withCount('subMenus')->get();
+        $menus = Menu::whereIn('id', [3,9,181])->withCount('subMenus')->get();
         return view('dashboard.admin.samples.index', compact('samples', 'menus'));
     }
     
