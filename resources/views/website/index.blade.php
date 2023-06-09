@@ -319,7 +319,7 @@
     <section class="plans d-flex align-items-center py-5" id="plans">
         <div class="container text-light">
             <div class="text-center pb-4">
-                <h2 class="py-2">Team of Professional Essay Writers</h2>
+                <h2 class="py-2">Team of Professional Writers</h2>
                 <p class="para-light">With our essay service, you'll find an essay writer for any task. Their rating is
                     based on previous customer reviews and successful orders. Before you hire a writer, you can familiarize
                     yourself with their track record in detail.</p>
