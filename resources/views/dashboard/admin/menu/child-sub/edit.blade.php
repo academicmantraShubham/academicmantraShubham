@@ -80,7 +80,7 @@
                                 <label class="" for="meta_title">{{ trans('Meta Title') }}</label>
                                 <input class="form-control {{ $errors->has('meta_title') ? 'is-invalid' : '' }}"
                                     type="text" name="meta_title" id="meta_title"
-                                    value="{{ old('meta_title', @$menu->post->title) }}">
+                                    value="{{ old('meta_title', @$menu->post->meta_title) }}">
                                 @if ($errors->has('meta_title'))
                                     <div class="invalid-feedback">
                                         {{ $errors->first('meta_title') }}
