@@ -350,7 +350,7 @@ li.top-university-li img {
 .child-sub-menu {
 	padding-bottom: 5px !important;
 	max-height: 500px !important;
-    overflow: auto;
+    overflow: auto  !important;
 }
 
 /****************/
