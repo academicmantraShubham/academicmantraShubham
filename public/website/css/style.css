@@ -299,8 +299,6 @@ li.top-university-li img {
 
 .dropdown-submenu>.child-sub-menu {
 	background: var(--primary);
-	max-height: 500px;
-    overflow: auto;
 }
 
 /* rotate caret on hover */
@@ -349,13 +347,10 @@ li.top-university-li img {
 	border-radius: 10px;
 }
 
-.new_id .dropdown-item {
-	/* padding: 2px; */
-
-}
-
 .child-sub-menu {
 	padding-bottom: 5px !important;
+	max-height: 500px;
+    overflow: auto;
 }
 
 /****************/
