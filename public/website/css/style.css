@@ -299,7 +299,8 @@ li.top-university-li img {
 
 .dropdown-submenu>.child-sub-menu {
 	background: var(--primary);
-	;
+	max-height: 500px;
+    overflow: auto;
 }
 
 /* rotate caret on hover */

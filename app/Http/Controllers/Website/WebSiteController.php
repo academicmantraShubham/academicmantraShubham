@@ -166,7 +166,7 @@ class WebSiteController extends Controller
     public function order()
     {
         $data = $this->common();
-        $data['services'] = Menu::whereIn('id', [3, 9, 181])->withCount('subMenus')->get();
+        $data['services'] = Menu::whereIn('id', [3, 181])->withCount('subMenus')->get();
         return view('website.pages.order-now', $data);
     }
 

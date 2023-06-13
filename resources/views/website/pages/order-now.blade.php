@@ -48,6 +48,9 @@
             font-weight: 600;
         }
     </style>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/selectize.js/0.12.6/css/selectize.bootstrap3.min.css"
+        integrity="sha256-ze/OEYGcFbPRmvCnrSeKbRTtjG4vGLHXgOqsyLFTRjg=" crossorigin="anonymous" />
 @endpush
 
 {{-- Toast --}}
@@ -146,7 +149,7 @@
                                         </div>
                                         <div class="form-group py-2">
                                             <select name="service" placeholder="Subject"
-                                                class="form-control form-control-input" id="menus" required>
+                                                class="form-control form-control-input" id="menus-select" required>
                                                 <option disabled selected value="">Select Service</option>
                                                 @foreach ($services as $menu)
                                                     @foreach ($menu->subMenus as $subMenu)
@@ -255,3 +258,17 @@
     </section>
 
 @endsection
+
+@push('js')
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/selectize.js/0.12.6/js/standalone/selectize.min.js"
+        integrity="sha256-+C0A5Ilqmu4QcSPxrlGpaZxJ04VjsRjKu+G82kl5UJk=" crossorigin="anonymous"></script>
+
+    <script>
+        $(document).ready(function() {
+            $('#menus-select').selectize({
+                sortField: 'text'
+            });
+        });
+    </script>
+@endpush
