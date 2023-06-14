@@ -36,7 +36,7 @@ document.querySelector(".navbar-toggler").addEventListener("click", () => {
 //     return false;
 //  });
 
-document.querySelectorAll('.dropdown-menu a.dropdown-toggle').forEach(
+document.querySelectorAll('.dropdown-menu a.dropdown-toggle.second').forEach(
     elem => {
         //SUBMENU HOVER
         if (window.innerWidth > 991) {
