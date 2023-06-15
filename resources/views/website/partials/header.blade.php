@@ -51,7 +51,7 @@
                @endif 
             @endforeach
             <li class="nav-item">
-               <a class="nav-link " aria-current="page"  href="{{  url('order') }}">Order Now</a>
+               <a class="nav-link " aria-current="page"  href="{{  route('order') }}">Order Now</a>
             </li>
          </ul>
          <span class="nav-item social-icons">
