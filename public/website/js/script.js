@@ -110,23 +110,23 @@ document.querySelectorAll('.dropdown-menu a.dropdown-toggle.third').forEach(
     }
 );
 
-document.querySelectorAll('.dropdown-submenu .dropdown-menu').forEach(
-    elem => {
-        //SUBMENU HOVER
-        elem.addEventListener("mouseenter",
-            (e) => {
-                var $parent = e.target;
-                $parent.classList.toggle('show');
-            }
-        );
-        elem.addEventListener("mouseleave",
-            (e) => {
-                var $parent = e.target;
-                $parent.classList.toggle('show');
-            }
-        );
-    }
-);
+// document.querySelectorAll('.dropdown-submenu .dropdown-menu').forEach(
+//     elem => {
+//         //SUBMENU HOVER
+//         elem.addEventListener("mouseenter",
+//             (e) => {
+//                 var $parent = e.target;
+//                 $parent.classList.toggle('show');
+//             }
+//         );
+//         elem.addEventListener("mouseleave",
+//             (e) => {
+//                 var $parent = e.target;
+//                 $parent.classList.toggle('show');
+//             }
+//         );
+//     }
+// );
 
 // HOVER ON DESKTOP
 function toggleDropdown(e) {
