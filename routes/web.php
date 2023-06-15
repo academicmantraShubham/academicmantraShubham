@@ -40,7 +40,7 @@ Route::get('/category/{slug}', [WebSiteController::class, 'category'])->name('ca
 Route::get('/get-your-essay', [WebSiteController::class, 'order'])->name('order');
 Route::post('/place-order', [WebSiteController::class, 'placeOrder'])->name('place-order');
 Route::get('/experts', [WebSiteController::class, 'experts'])->name('experts');
-Route::get('/services', [WebSiteController::class, 'services'])->name('services');
+Route::get('/services-bews', [WebSiteController::class, 'services'])->name('services');
 Route::get('/locations', [WebSiteController::class, 'locations'])->name('locations');
 Route::get('/reviews', [WebSiteController::class, 'reviews'])->name('reviews');
 
