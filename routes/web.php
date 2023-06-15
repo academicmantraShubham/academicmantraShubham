@@ -30,6 +30,7 @@ Route::get('detail/{id}/', [WebSiteController::class, 'blog'])->name('website.pa
 Auth::routes(['register' => false]);
 
 Route::get('/', [WebSiteController::class, 'index'])->name('home');
+Route::get('/services', [WebSiteController::class, 'services'])->name('services');
 Route::get('/about', [WebSiteController::class, 'about'])->name('about');
 Route::get('/contact', [WebSiteController::class, 'contact'])->name('contact');
 Route::get('/price', [WebSiteController::class, 'price'])->name('price');
@@ -40,7 +41,6 @@ Route::get('/category/{slug}', [WebSiteController::class, 'category'])->name('ca
 Route::get('/get-your-essay', [WebSiteController::class, 'order'])->name('order');
 Route::post('/place-order', [WebSiteController::class, 'placeOrder'])->name('place-order');
 Route::get('/experts', [WebSiteController::class, 'experts'])->name('experts');
-Route::get('/services', [WebSiteController::class, 'services'])->name('services');
 Route::get('/locations', [WebSiteController::class, 'locations'])->name('locations');
 Route::get('/reviews', [WebSiteController::class, 'reviews'])->name('reviews');
 
