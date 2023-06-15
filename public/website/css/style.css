@@ -1188,5 +1188,6 @@ ol.category li {
 }
 
 .inter-linking a{
-	text-decoration: underline wavy #0ee951;
+	/* text-decoration: underline wavy #0ee951; */
+	color: #0ee951;
 }

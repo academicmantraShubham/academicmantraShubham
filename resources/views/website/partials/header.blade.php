@@ -46,10 +46,13 @@
                   </li>
                @else
                   <li class="nav-item">
-                     <a class="nav-link @if($loop->first) active @endif" aria-current="page"  href="{{ $menu->content ? url($menu->slug) : 'javascript:void(0)' }}">{{ $menu->title }}</a>
+                     <a class="nav-link @if($loop->first) active @endif" aria-current="page"  href="{{ url($menu->slug) }}">{{ $menu->title }}</a>
                   </li>
                @endif 
             @endforeach
+            <li class="nav-item">
+               <a class="nav-link " aria-current="page"  href="{{  url('order') }}">Order Now</a>
+            </li>
          </ul>
          <span class="nav-item social-icons">
             <span class="fa-stack">
