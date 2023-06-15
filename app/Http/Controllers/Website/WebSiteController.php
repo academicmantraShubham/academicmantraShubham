@@ -187,7 +187,7 @@ class WebSiteController extends Controller
     public function services()
     {
         $data = $this->common();
-        $menu = Menu::whereSlug('services')->first();
+        $menu = Menu::whereSlug('essay-writing-services')->first();
         if ($menu) {
             $data['post'] = ContentPage::whereMenuId($menu->id)->first();
             $data['services'] = Menu::whereIn('id', [3])->withCount('subMenus')->get();
