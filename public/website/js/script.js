@@ -39,20 +39,20 @@ document.querySelector(".navbar-toggler").addEventListener("click", () => {
 document.querySelectorAll('.dropdown-menu a.dropdown-toggle.second').forEach(
     elem => {
         //SUBMENU HOVER
-        // if (window.innerWidth > 991) {
-        //     elem.addEventListener("mouseenter",
-        //         (e) => {
-        //             var $subMenu = e.target.nextElementSibling;
-        //             $subMenu.classList.toggle('show');
-        //         }
-        //     );
-        //     elem.addEventListener("mouseleave",
-        //         (e) => {
-        //             var $subMenu = e.target.nextElementSibling;
-        //             $subMenu.classList.toggle('show');
-        //         }
-        //     );
-        // } else {
+        if (window.innerWidth > 991) {
+            elem.addEventListener("mouseenter",
+                (e) => {
+                    var $subMenu = e.target.nextElementSibling;
+                    $subMenu.classList.toggle('show');
+                }
+            );
+            elem.addEventListener("mouseleave",
+                (e) => {
+                    var $subMenu = e.target.nextElementSibling;
+                    $subMenu.classList.toggle('show');
+                }
+            );
+        } else {
             elem.addEventListener("click",
                 (e) => {
                     // $dropDownMenu = document.querySelector('.dropdown-submenu .dropdown-menu.show');
@@ -69,27 +69,27 @@ document.querySelectorAll('.dropdown-menu a.dropdown-toggle.second').forEach(
                     }, 100);
                 }
             )
-        // }
+        }
     }
 );
 
 document.querySelectorAll('.dropdown-menu a.dropdown-toggle.third').forEach(
     elem => {
         //SUBMENU HOVER
-        // if (window.innerWidth > 991) {
-        //     elem.addEventListener("mouseenter",
-        //         (e) => {
-        //             var $subMenu = e.target.nextElementSibling;
-        //             $subMenu.classList.toggle('show');
-        //         }
-        //     );
-        //     elem.addEventListener("mouseleave",
-        //         (e) => {
-        //             var $subMenu = e.target.nextElementSibling;
-        //             $subMenu.classList.toggle('show');
-        //         }
-        //     );
-        // } else {
+        if (window.innerWidth > 991) {
+            elem.addEventListener("mouseenter",
+                (e) => {
+                    var $subMenu = e.target.nextElementSibling;
+                    $subMenu.classList.toggle('show');
+                }
+            );
+            elem.addEventListener("mouseleave",
+                (e) => {
+                    var $subMenu = e.target.nextElementSibling;
+                    $subMenu.classList.toggle('show');
+                }
+            );
+        } else {
             elem.addEventListener("click",
                 (e) => {
                     // $dropDownMenu = document.querySelector('.dropdown-submenu .dropdown-menu.show');
@@ -106,27 +106,27 @@ document.querySelectorAll('.dropdown-menu a.dropdown-toggle.third').forEach(
                     }, 100);
                 }
             )
-        // }
+        }
     }
 );
 
-// document.querySelectorAll('.dropdown-submenu .dropdown-menu').forEach(
-//     elem => {
-//         //SUBMENU HOVER
-//         elem.addEventListener("mouseenter",
-//             (e) => {
-//                 var $parent = e.target;
-//                 $parent.classList.toggle('show');
-//             }
-//         );
-//         elem.addEventListener("mouseleave",
-//             (e) => {
-//                 var $parent = e.target;
-//                 $parent.classList.toggle('show');
-//             }
-//         );
-//     }
-// );
+document.querySelectorAll('.dropdown-submenu .dropdown-menu').forEach(
+    elem => {
+        //SUBMENU HOVER
+        elem.addEventListener("mouseenter",
+            (e) => {
+                var $parent = e.target;
+                $parent.classList.toggle('show');
+            }
+        );
+        elem.addEventListener("mouseleave",
+            (e) => {
+                var $parent = e.target;
+                $parent.classList.toggle('show');
+            }
+        );
+    }
+);
 
 // HOVER ON DESKTOP
 function toggleDropdown(e) {
