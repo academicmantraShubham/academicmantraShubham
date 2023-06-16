@@ -8,6 +8,8 @@
 @endsection
 
 @push('css')
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/css/select2.min.css" rel="stylesheet" />
+
     <style>
         .div-avatar img {
             width: 120px;
@@ -47,9 +49,11 @@
         .coupon-expiration {
             font-weight: 600;
         }
-    </style>
 
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/css/select2.min.css" rel="stylesheet" />
+        .select2-results__option {
+            color: #222 !important;
+        }
+    </style>
 @endpush
 
 {{-- Toast --}}
@@ -261,7 +265,7 @@
 @push('js')
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/js/select2.min.js"></script>
-    
+
 
     <script>
         $("#menus-select").select2({
