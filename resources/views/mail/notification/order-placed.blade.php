@@ -8,25 +8,25 @@
 </head>
 <body>
     <div>
-        Name: {{ $detail['name'] ?? '' }}
+        Name: {{ $data['name'] ?? '' }}
     </div>
     <div>
-        Email: {{ $detail['email'] ?? '' }}
+        Email: {{ $data['email'] ?? '' }}
     </div>
     <div>
-        Service: {{ $detail['service'] ?? '' }}
+        Service: {{ $data['service'] ?? '' }}
     </div>
     <div>
-        Deadline: {{ $detail['deadline'] ?? '' }}
+        Deadline: {{ $data['deadline'] ?? '' }}
     </div>
     <div>
-        Topic: {{ $detail['topic'] ?? ''  }}
+        Topic: {{ $data['topic'] ?? ''  }}
     </div>
     <div>
-        Word Count: {{ $detail['word_count'] ?? '' }}
+        Word Count: {{ $data['word_count'] ?? '' }}
     </div>
     <div>
-        Message: {{ $detail['message'] ?? '' }}
+        Message: {{ $data['message'] ?? '' }}
     </div>
 </body>
 </html>
