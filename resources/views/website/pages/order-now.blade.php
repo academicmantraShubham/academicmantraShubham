@@ -49,8 +49,7 @@
         }
     </style>
 
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/selectize.js/0.12.6/css/selectize.bootstrap3.min.css"
-        integrity="sha256-ze/OEYGcFbPRmvCnrSeKbRTtjG4vGLHXgOqsyLFTRjg=" crossorigin="anonymous" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/css/select2.min.css" rel="stylesheet" />
 @endpush
 
 {{-- Toast --}}
@@ -260,71 +259,13 @@
 @endsection
 
 @push('js')
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/selectize.js/0.12.6/js/standalone/selectize.min.js"
-        integrity="sha256-+C0A5Ilqmu4QcSPxrlGpaZxJ04VjsRjKu+G82kl5UJk=" crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/js/select2.min.js"></script>
+    
 
     <script>
-        /**
-         * Plugin: "preserve_search" (selectize.js)
-         * Based on: "preserve_on_blur" of Eric M. Klingensmith
-         *
-         * Licensed under the Apache License, Version 2.0 (the "License"); you may not use this
-         * file except in compliance with the License. You may obtain a copy of the License at:
-         * http://www.apache.org/licenses/LICENSE-2.0
-         *
-         * Unless required by applicable law or agreed to in writing, software distributed under
-         * the License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF
-         * ANY KIND, either express or implied. See the License for the specific language
-         * governing permissions and limitations under the License.
-         */
-        Selectize.define('preserve_search', function(options) {
-            var self = this;
-
-            options.text = options.text || function(option) {
-                return option[this.settings.labelField];
-            };
-
-            this.onBlur = (function(e) {
-                var original = self.onBlur;
-
-                return function(e) {
-                    // Capture the current input value
-                    var $input = this.$control_input;
-                    var inputValue = $input.val();
-
-                    // Do the default actions
-                    original.apply(this, [e]);
-
-                    // Set the value back                    
-                    this.setTextboxValue(inputValue);
-                };
-            })();
-
-            this.onOptionSelect = (function(e) {
-                var original = self.onOptionSelect;
-
-                return function(e) {
-                    // Capture the current input value
-                    var $input = this.$control_input;
-                    var inputValue = $input.val();
-
-                    original.apply(this, [e]);
-                    this.setTextboxValue(inputValue);
-                    this.refreshOptions();
-                    if (this.currentResults.items.length <= 0) {
-                        this.setTextboxValue('');
-                        this.refreshOptions();
-                    }
-                };
-            })();
-        });
-
-
-        $(document).ready(function() {
-            $('#menus-select').selectize({
-                plugins: ['remove_button', 'preserve_search']
-            });
+        $("#menus-select").select2({
+            tags: true
         });
     </script>
 @endpush
