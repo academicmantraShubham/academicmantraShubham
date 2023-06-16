@@ -3,7 +3,6 @@
 namespace App\Http\Controllers\Website;
 
 use Arr;
-use Cache;
 use Storage;
 use App\Models\Menu;
 use App\Models\BlogPage;
@@ -12,7 +11,10 @@ use App\Models\Calculator;
 use App\Models\ContentPage;
 use Illuminate\Http\Request;
 use App\Models\ContentCategory;
+use App\Notifications\OrderPlaced;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Cache;
+use Illuminate\Support\Facades\Notification;
 
 class WebSiteController extends Controller
 {
@@ -226,6 +228,17 @@ class WebSiteController extends Controller
 
     public function placeOrder(Request $request)
     {
+        $this->validate($request, [
+            'name'      =>   'required',
+            'service'   =>   'required',
+            'email'     =>   'required|email',
+            'deadline'  =>   'required',
+            'topic'     =>   'required',
+            'word_count' =>  'required',
+            'file.*'    =>   'max:20000',
+        ]);
+
+        Notification::route('mail', $request->email)->notify(new OrderPlaced($request));
         return redirect()->back()->withSuccess('Thank You !! we will get back to you.');
     }
 }

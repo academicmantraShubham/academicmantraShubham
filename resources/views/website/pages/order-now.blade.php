@@ -133,7 +133,7 @@
                         <div class="container w3l-contacts-12" id="contact">
                             <div class="contacts12-main">
                                 <div class="cwp23-title">
-                                    <h3>Fill Form & Order Now </h3>
+                                    <h3 class="text-center">Fill Form & Order Now </h3>
                                 </div>
                                 <form action="{{ route('place-order') }}" method="post" class=""
                                     enctype="multipart/form-data">
