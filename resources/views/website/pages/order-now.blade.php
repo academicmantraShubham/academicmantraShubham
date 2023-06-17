@@ -133,7 +133,7 @@
                             <div class="col-md-12 testimonial-card p-2 m-2">
                                 @php
                                     $imgs = ['images/offer-20.jpg', 'images/offer-50.jpg', 'images/offer-30.jpg'];
-                                    $random_keys = array_rand($imgs,3);
+                                    $random_keys = array_rand($imgs);
                                 @endphp
                                 <img src="{{ $imgs[$random_keys[0]] }}" alt="offer bews" width="100%">
                             </div>
