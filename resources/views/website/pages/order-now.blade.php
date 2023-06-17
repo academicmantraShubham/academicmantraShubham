@@ -99,7 +99,7 @@
                             <h3>Welcome to the Professional Essay Writing Services! </h3>
                         </div>
                         <div class="row justify-content-center">
-                            <div class="col-md-5 testimonial-card p-2 m-2">
+                            {{-- <div class="col-md-5 testimonial-card p-2 m-2">
                                 <span class="fa fa-user-md" aria-hidden="true"></span>
                                 <b>
                                     <a href="/services">Professional Writers</a>
@@ -128,6 +128,14 @@
                                     <a href="/services">On-time Submission</a>
                                 </b>
                                 <p>Due to the importance of the deadline, our experts deliver your essays just in time.</p>
+                            </div> --}}
+
+                            <div class="col-md-12 testimonial-card p-2 m-2">
+                                @php
+                                    $imgs = ['images/offer-20.jpg', 'images/offer-50.jpg', 'images/offer-30.jpg'];
+                                    $random_keys = array_rand($imgs,3);
+                                @endphp
+                                <img src="{{ $imgs[$random_keys[0]] }}" alt="offer bews" width="100%">
                             </div>
                         </div>
                     </div>
