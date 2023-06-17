@@ -134,7 +134,7 @@
                                 @php
                                     $imgs = ['images/offer-20.jpg', 'images/offer-50.jpg', 'images/offer-30.jpg'];
                                 @endphp
-                                <img src="{{ $imgs[rand(0,4)] }}" alt="offer bews" width="100%">
+                                <img src="{{ $imgs[rand(0, 3)] }}" alt="offer bews" width="100%">
                             </div>
                         </div>
                     </div>
