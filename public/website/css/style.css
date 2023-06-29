@@ -470,6 +470,14 @@ li.top-university-li img{
 	border: 2px solid white;
 }
 
+#plans .testimonial-card{
+	height: 530px;
+}
+
+.clients-says .testimonial-card{
+	height: 430px;
+}
+
 /************************/
 /*     Testimonials     */
 /************************/

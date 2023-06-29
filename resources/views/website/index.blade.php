@@ -501,7 +501,7 @@
     <!-- end of $explorePossibilities -->
 
     <!-- $clientsSays -->
-    <div class="slider-1 testimonial text-light d-flex align-items-center">
+    <div class="slider-1 testimonial text-light d-flex align-items-center clients-says">
         <div class="container mb-2">
             <div class="row">
                 <div class="text-center w-lg-75 m-auto pb-4">
