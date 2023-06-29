@@ -180,8 +180,13 @@
                     </svg>
                 </div>
                 <div class="modal__content">
-                    <h1 class="modal__title">SPONSOR MY EDUCATION <span>START-UP CONTEST</span></h1>
-                    <p class="modal__paragraph">This contest is geared towards discovering and funding innovative ideas.
+                    <h1 class="modal__title">
+                        Thank You 
+                        {{-- <span>START-UP CONTEST</span> --}}
+                    </h1>
+                    <p class="modal__paragraph">
+                        Your Request Has Been Submitted Successfully and Our Team Will Contact You Within 15 Mins.
+
                     </p>
                     <button class="modal__button">Click here to participate</button>
                 </div>
