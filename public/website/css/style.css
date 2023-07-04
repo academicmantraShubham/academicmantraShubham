@@ -266,8 +266,8 @@ li.top-university-li img {
 
 .dropdown-submenu > .child-sub-menu {
   background: var(--primary);
-  height: 500px;
-  overflow-y: scroll;
+  height: 500px !important;
+  overflow-y: scroll !important;
 }
 
 
