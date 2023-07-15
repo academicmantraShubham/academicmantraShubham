@@ -102,7 +102,7 @@
                         </tr>
 
                         <!-- Logo Update -->
-                        <div class="modal fade" id="add_page{{ $logo->id }}" tabindex="-1" role="dialog"
+                        <div class="modal fade" id="add_page{{ $logo->id }}"  role="dialog"
                             aria-labelledby="exampleModalLabel" aria-hidden="true">
                             <div class="modal-dialog" role="document" style="max-width:60%">
                                 <div class="modal-content">
@@ -381,7 +381,7 @@
                                 </td>
                             </tr>
                             <!-- Update -->
-                            <div class="modal fade" id="add_page{{ $homepage->id }}" tabindex="-1" role="dialog"
+                            <div class="modal fade" id="add_page{{ $homepage->id }}"  role="dialog"
                                 aria-labelledby="exampleModalLabel" aria-hidden="true">
                                 <div class="modal-dialog" role="document" style="max-width:60%">
                                     <div class="modal-content">
@@ -456,7 +456,7 @@
 
 
                     <!-- Modal -->
-                    <div class="modal fade" id="add_page" tabindex="-1" role="dialog"
+                    <div class="modal fade" id="add_page"  role="dialog"
                         aria-labelledby="exampleModalLabel" aria-hidden="true">
                         <div class="modal-dialog" role="document" style="max-width:60%">
                             <div class="modal-content">
