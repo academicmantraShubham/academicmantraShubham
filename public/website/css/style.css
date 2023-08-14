@@ -909,8 +909,8 @@ div#navbarNavDropdown
     padding-top: 0.75rem;
     padding-bottom: 0.875rem;
     box-shadow: 0 3px 3px 1px rgba(0, 0, 0, 0.08);
-    max-height: 500px;
-    overflow-y: auto;
+    /* max-height: 500px;
+    overflow-y: auto; */
   }
   .navbar .dropdown-divider {
     width: 90%;
