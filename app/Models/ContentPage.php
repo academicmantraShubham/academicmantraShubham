@@ -3,13 +3,13 @@
 namespace App\Models;
 
 use \DateTimeInterface;
-use Illuminate\Database\Eloquent\Factories\HasFactory;
-use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\SoftDeletes;
-use Spatie\MediaLibrary\HasMedia;
-use Spatie\MediaLibrary\InteractsWithMedia;
-use Spatie\MediaLibrary\MediaCollections\Models\Media;
 use App\Models\Homepage;
+use Spatie\MediaLibrary\HasMedia;
+use Illuminate\Database\Eloquent\Model;
+use Spatie\MediaLibrary\InteractsWithMedia;
+use Illuminate\Database\Eloquent\SoftDeletes;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Spatie\MediaLibrary\MediaCollections\Models\Media;
 
 class ContentPage extends Model implements HasMedia
 {
@@ -63,12 +63,12 @@ class ContentPage extends Model implements HasMedia
 
     public function faqs()
     {
-        return $this->hasMany(Homepage::class,'parent_id','menu_id')->wherePage('faqs');
+        return $this->hasMany(Homepage::class, 'parent_id', 'menu_id')->wherePage('faqs');
     }
 
     public function writers()
     {
-        return $this->hasMany(Homepage::class,'parent_id','menu_id')->wherePage('writers');
+        return $this->hasMany(Homepage::class, 'parent_id', 'menu_id')->wherePage('writers');
     }
 
     public function getFeaturedImageAttribute()
