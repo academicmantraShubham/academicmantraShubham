@@ -106,29 +106,6 @@
                             {!! $faqs->title !!}
                         </div>
 
-                        {{-- <div class="accordion accordion-flush" id="accordionExample">
-                            @foreach ($faqs->subHomepages as $faq)
-                                <div class="accordion-item">
-                                    <h2 class="accordion-header" id="heading_{{ $faq->id }}">
-                                        <button class="accordion-button {{ $loop->first ? '' : 'collapsed' }}"
-                                            type="button" data-bs-toggle="collapse"
-                                            data-bs-target="#collapse_{{ $faq->id }}" aria-expanded="true"
-                                            aria-controls="collapse_{{ $faq->id }}">
-                                            {!! $faq->title !!}
-                                        </button>
-                                    </h2>
-
-                                    <div id="collapse_{{ $faq->id }}"
-                                        class="accordion-collapse collapse {{ $loop->first ? 'show' : '' }}"
-                                        aria-labelledby="heading_{{ $faq->id }}" data-bs-parent="#accordionExample">
-                                        <div class="accordion-body text-secondary">
-                                            {!! $faq->content !!}
-                                        </div>
-                                    </div>
-                                </div>
-                            @endforeach
-                        </div> --}}
-
                         <div class="content content__accordion">
                             <div class="accordion">
                                 <div class="accordion__wrapper">
@@ -281,7 +258,7 @@
         <div class="container">
             <div class="row d-flex align-items-center">
                 <div class="col-lg-7" data-aos="fade-right">
-                    <div class="text-center">{!! @$bestthesis->title !!}</div>
+                    <div class="">{!! @$bestthesis->title !!}</div>
                     {!! @$bestthesis->content !!}
                     <div class="my-3">
                         <a class="btn" href="{{ @$bestthesis->bg_alt }}">Read More</a>

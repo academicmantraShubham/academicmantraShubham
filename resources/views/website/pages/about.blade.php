@@ -41,12 +41,12 @@
                         <div class="col-xl-10 offset-xl-1">
                             {!! $post->page_text !!}
                             <!-- <h1>We Are Best In Essay Writing</h1>
-                        <p>Consulted he eagerness unfeeling deficient existence of. Calling nothing end fertile for venture way boy. Esteem spirit temper too say adieus who direct esteem. It esteems luckily mr or picture placing drawing no. Apartments frequently or motionless on reasonable projecting expression. Last sentence of words thus better.</p>
-                        <p class="py-2">Ye on properly handsome returned throwing am no whatever. In without wishing he of picture no exposed talking minutes. Curiosity continual belonging offending so explained it exquisite. Do remember to followed yourself material mr recurred carriage. Way mrs end gave fat skin brown yesterday tall walk fact bed.</p>
+                            <p>Consulted he eagerness unfeeling deficient existence of. Calling nothing end fertile for venture way boy. Esteem spirit temper too say adieus who direct esteem. It esteems luckily mr or picture placing drawing no. Apartments frequently or motionless on reasonable projecting expression. Last sentence of words thus better.</p>
+                            <p class="py-2">Ye on properly handsome returned throwing am no whatever. In without wishing he of picture no exposed talking minutes. Curiosity continual belonging offending so explained it exquisite. Do remember to followed yourself material mr recurred carriage. Way mrs end gave fat skin brown yesterday tall walk fact bed.</p>
 
-                        <h2 class="my-3">Advantages of working with this package</h2>
-                        <p class="py-2">High drew west we no or at john. About or given on witty event. Or sociable up material bachelor bringing landlord confined. Busy so many in hung easy find well up. So of exquisite my an explained remainder. Dashwood denoting securing be on perceive my laughing so. Ye on properly handsome returned throwing am no whatever.</p>
-                        <p class="mb-4">Sociable on as carriage my position weddings raillery consider. Peculiar trifling absolute and wandered vicinity property yet. The and collecting motionless difficulty son. His hearing staying ten colonel met. Word drew six easy four dear cold deny. Fulfilled direction use continual set him propriety continued. Saw met applauded favourite deficient.</p> -->
+                            <h2 class="my-3">Advantages of working with this package</h2>
+                            <p class="py-2">High drew west we no or at john. About or given on witty event. Or sociable up material bachelor bringing landlord confined. Busy so many in hung easy find well up. So of exquisite my an explained remainder. Dashwood denoting securing be on perceive my laughing so. Ye on properly handsome returned throwing am no whatever.</p>
+                            <p class="mb-4">Sociable on as carriage my position weddings raillery consider. Peculiar trifling absolute and wandered vicinity property yet. The and collecting motionless difficulty son. His hearing staying ten colonel met. Word drew six easy four dear cold deny. Fulfilled direction use continual set him propriety continued. Saw met applauded favourite deficient.</p> -->
                             <br><br><a class="btn btn-tertiary" href="contact">Contact Us</a><br><br><br>
                         </div> <!-- end of col -->
                     </div> <!-- end of row -->

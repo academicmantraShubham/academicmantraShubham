@@ -34,6 +34,7 @@ class WebSiteController extends Controller
 
     private function common()
     {
+        $data['calculators'] = Calculator::whereNotNull('place')->get();
         $data['team'] = Homepage::wherePage('team')->with('subHomepages')->get();
         $data['menus'] =  $this->website['menus'];
         $data['subscribeus'] =  $this->website['subscribeus'];
@@ -72,7 +73,7 @@ class WebSiteController extends Controller
 
     public function about(Request $request)
     {
-        $data = $this->common();
+        $data = $this->common();    
         $menu = Menu::whereSlug('about')->first();
         if ($menu) {
             $data['post'] = ContentPage::whereMenuId($menu->id)->first();
@@ -143,6 +144,17 @@ class WebSiteController extends Controller
         if ($menu) {
             $data['post'] = ContentPage::whereMenuId($menu->id)->first();
             return view('website.pages.privacy-policy', $data);
+        }
+        abort(404, "page not found");
+    }
+
+    public function terms(Request $request)
+    {
+        $data = $this->common();    
+        $menu = Menu::whereSlug('terms-condition')->first();
+        if ($menu) {
+            $data['post'] = ContentPage::whereMenuId($menu->id)->first();
+            return view('website.pages.terms', $data);
         }
         abort(404, "page not found");
     }
