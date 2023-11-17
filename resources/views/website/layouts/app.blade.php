@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
     <!-- SEO Meta Tags -->
-    <meta name="author" content="Best Essay Writings">
+    <meta name="author" content="Get Essay Service">
     @yield('headerData')
     <!-- canonical -->
     <link rel="canonical" href="{{ url()->current() }}" />
@@ -35,7 +35,7 @@
         <div class="container d-flex justify-content-between">
             <div>
                 <p>Copyright © 2019</p><br>
-                <p><a href="/">Bestessaywritingservices.com.au</a></p>
+                <p><a href="/">Getessayservice.com</a></p>
             </div>
             <div>
                 <i class="fab fa-cc-visa fa-lg p-1"></i>
