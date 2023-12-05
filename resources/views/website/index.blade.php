@@ -13,8 +13,8 @@
         {
             "@context": "https://schema.org/",
             "@type": "product",
-            "name": "bestessaywritingservices.com.au",
-            "image": "https://bestessaywritingservices.com.au/images/homepage/1664381283.png",
+            "name": "getessayservice.com",
+            "image": "https://getessayservice.com//images/homepage/1664381283.png",
             "aggregateRating": {
                 "@type": "AggregateRating",
                 "ratingValue": "4.8",
@@ -70,22 +70,143 @@
         <div class="container text-light py-5" data-aos="fade-right">
             <h1 class="headline">{{ strip_tags(@$thesisNdissertation->title) }}</h1>
             <p class="para py-3">{!! @$thesisNdissertation->content !!}</p>
-            <div class="my-3">
+            {{-- <div class="my-3">
                 <a class="btn" href="{{ route('order') }}">Order Now</a>
-            </div>
+            </div> --}}
         </div>
         <!-- end of container -->
     </section>
     <!-- end of home -->
 
+
+    <!-- $explorePossibilities -->
+    <section class="work d-flex align-items-center py-5">
+        <div class="container-fluid text-light">
+            <div class="row">
+                <div class="col-lg-6 d-flex align-items-center" data-aos="fade-right">
+                    <img class="img-fluid" src="{!! @$explorePossibilities->image !!}" alt="{!! @$explorePossibilities->alt !!}">
+                </div>
+                <div class="col-lg-5 d-flex align-items-center px-4 py-3" data-aos="">
+                    <div class="row">
+                        <div class="text-center text-lg-start py-4 pt-lg-0">
+                            <div class="py-2 div-h-text">{!! @$explorePossibilities->title !!}</div>
+                            <p class="para-light">{!! @$explorePossibilities->content !!}</p>
+                        </div>
+                        <div class="container" data-aos="fade-explorePossibilities">
+                            <div class="row g-5">
+                                <div class="col-6 text-start">
+                                    <i class="fas fa-briefcase fa-2x text-start"></i>
+                                    <h2 class="purecounter" data-purecounter-start="0"
+                                        data-purecounter-end="{{ strip_tags(@$explorePossibilities->subHomepages[0]->content) }}"
+                                        data-purecounter-duration="3">1</h2>
+                                    <p>{{ strip_tags(@$explorePossibilities->subHomepages[0]->title) }}</p>
+                                </div>
+                                <div class="col-6">
+                                    <i class="fas fa-award fa-2x"></i>
+                                    <h2 class="purecounter" data-purecounter-start="0"
+                                        data-purecounter-end="{{ strip_tags(@$explorePossibilities->subHomepages[1]->content) }}"
+                                        data-purecounter-duration="3">1</h2>
+                                    <p>{{ strip_tags(@$explorePossibilities->subHomepages[1]->title) }}</p>
+                                </div>
+                                <div class="col-6">
+                                    <i class="fas fa-users fa-2x"></i>
+                                    <h2 class="purecounter" data-purecounter-start="0"
+                                        data-purecounter-end="{{ strip_tags(@$explorePossibilities->subHomepages[2]->content) }}"
+                                        data-purecounter-duration="3">1</h2>
+                                    <p>{{ strip_tags(@$explorePossibilities->subHomepages[2]->title) }}</p>
+                                </div>
+                                <div class="col-6">
+                                    <i class="fas fa-clock fa-2x"></i>
+                                    <h2 class="purecounter" data-purecounter-start="0"
+                                        data-purecounter-end="{{ strip_tags(@$explorePossibilities->subHomepages[3]->content) }}"
+                                        data-purecounter-duration="3">1</h2>
+                                    <p>{{ strip_tags(@$explorePossibilities->subHomepages[3]->title) }}</p>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- end of container -->
+                    </div>
+                    <!-- end of row -->
+                </div>
+                <!-- end of col-lg-5 -->
+            </div>
+            <!-- end of row -->
+        </div>
+        <!-- end of container -->
+    </section>
+    <!-- end of $explorePossibilities -->
+
+    <!-- $clientsSays -->
+    <div class="slider-1 testimonial text-light d-flex align-items-center clients-says">
+        <div class="container mb-2">
+            <div class="row">
+                <div class="text-center w-lg-75 m-auto pb-4">
+                    <div class="py-2 text-center div-h-text">{!! @$clientsSays->title !!}</div>
+                    <p class="para-light">{!! @$clientsSays->content !!}</p>
+                </div>
+            </div>
+            <!-- end of row -->
+            <div class="row p-2" data-aos="zoom-in">
+                <div class="col-lg-12">
+                    <!-- Card Slider -->
+                    <div class="slider-container">
+                        <div class="swiper-container card-slider">
+                            <div class="swiper-wrapper">
+                                <!-- Slide -->
+                                <!-- end of slide -->
+                                @foreach ($clientsSays->subHomepages as $key => $clientsSays)
+                                    <!-- Slide -->
+                                    <div class="swiper-slide">
+                                        <div class="testimonial-card p-4">
+                                            <p>{!! $clientsSays->content !!}</p>
+                                            <div class="d-flex pt-4">
+                                                <div>
+                                                    <img class="avatar"
+                                                        src="{{ @$clientsSays->image ?? '/images/homepage/1640713712.jpg' }}"
+                                                        alt="testimonial">
+                                                </div>
+                                                <div class="ms-3 pt-2">
+                                                    {!! $clientsSays->title !!}
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- end of swiper-slide -->
+                                    <!-- end of slide -->
+                                @endforeach
+                            </div>
+                            <!-- end of swiper-wrapper -->
+                            <!-- Add Arrows -->
+                            <div class="swiper-button-next"></div>
+                            <div class="swiper-button-prev"></div>
+                            <!-- end of add arrows -->
+                        </div>
+                        <!-- end of swiper-container -->
+                    </div>
+                    <!-- end of slider-container -->
+                    <!-- end of card slider -->
+                </div>
+                <!-- end of col -->
+            </div>
+            <!-- end of row -->
+        </div>
+        <!-- end of container -->
+    </div>
+    <!-- end of $clientsSays -->
+    
     <!-- Information -->
     <section class="information">
         <div class="container-fluid">
+            <div class="row">
+                <div class="text-center w-lg-75 m-auto pb-4">
+                    <div class="py-2 text-center div-h-text"> <h2> Get Our Essay Help In Just 3 Steps</h2></div>
+                </div>
+            </div>
             <div class="row text-light">
                 @foreach ($whatYouneed->subHomepages as $key => $whatYouneed)
                     <div class="col-lg-4 text-center p-5" data-aos="zoom-in">
                         {!! $whatYouneed->alt !!}
-                        <h4 class="py-3">{!! strip_tags($whatYouneed->title) !!}</h4>
+                        <h3 class="py-3 h2 text-center">{!! strip_tags($whatYouneed->title) !!}</h3>
                         <p class="para-light">{!! strip_tags($whatYouneed->content) !!}</p>
                     </div>
                 @endforeach
@@ -94,6 +215,293 @@
         <!-- end of container -->
     </section>
     <!-- end of information -->
+    
+    <!-- Service -->
+    <section class="services  d-flex align-items-center text-light py-5" id="about">
+        <div class="container">
+            <div class="row d-flex align-items-center">
+                <div class="col-lg-7" data-aos="fade-right">
+                    <div class="">{!! @$bestthesis->title !!}</div>
+                    {!! @$bestthesis->content !!}
+                    <div class="my-3">
+                        <a class="btn" href="{{ @$bestthesis->bg_alt }}">Read More</a>
+                    </div>
+                </div>
+                <div class="col-lg-5 text-center py-4 py-sm-0" data-aos="fade-down">
+                    <img class="img-fluid" src="{!! @$bestthesis->image !!}" alt="{!! @$bestthesis->alt !!}">
+                </div>
+            </div>
+            <!-- end of row -->
+        </div>
+        <!-- end of container -->
+    </section>
+    <!-- end of Service -->
+
+    <!-- writers -->
+    <section class="plans d-flex align-items-center py-5" id="plans">
+        <div class="container text-light">
+            <div class="text-center pb-4">
+                <h2 class="py-2">Team of Professional Writers</h2>
+                <p class="para-light">With our essay service, you'll find an essay writer for any task. Their rating is
+                    based on previous customer reviews and successful orders. Before you hire a writer, you can familiarize
+                    yourself with their track record in detail.</p>
+            </div>
+            <!-- end of row -->
+            <div class="row p-2" data-aos="zoom-in">
+                <div class="col-lg-12">
+                    <!-- Card Slider -->
+                    <div class="slider-container">
+                        <div class="swiper-container writers-slider">
+                            <div class="swiper-wrapper">
+                                <!-- Slide -->
+                                <!-- end of slide -->
+                                @foreach ($writers as $key => $writer)
+                                    <!-- Slide -->
+                                    <div class="swiper-slide">
+                                        <div class="testimonial-card p-4">
+                                            <b>About :- {{ $writer->Menu->title }} Writer</b>
+                                            <p>{{ strip_tags($writer->content) }}</p>
+                                            <div class="d-flex pt-4">
+                                                <div class="div-avatar">
+                                                    <img class="avatar"
+                                                        src="{{ $writer->image ?? '/images/homepage/1660655334.jpg' }}"
+                                                        alt="{{ strip_tags($writer->title) }} Expert">
+                                                </div>
+                                                <div class="ms-3 pt-2">
+                                                    {!! $writer->title !!}
+                                                    <div class="row text-center hire-div">
+                                                        <a href="{{ route('order') }}" class="btn m-2">
+                                                            Hire Me
+                                                        </a>
+                                                    </div>
+                                                    <p class="mt-2">
+                                                        Rating: {{ $writer->bg_alt }} <i class="fa fa-star text-warning"
+                                                            aria-hidden="true"></i> <i class="fa fa-star text-warning"
+                                                            aria-hidden="true"></i> <i class="fa fa-star text-warning"
+                                                            aria-hidden="true"></i> <i class="fa fa-star text-warning"
+                                                            aria-hidden="true"></i> <i class="fa fa-star text-warning"
+                                                            aria-hidden="true"></i>
+                                                    </p>
+                                                    <p class="mt-2">
+                                                        Expertise:
+                                                        <span class="badge rounded-pill bg-primary"> Essay writing</span>
+                                                        <span class="badge rounded-pill bg-primary"> Essay writing</span>
+                                                    </p>
+                                                </div>
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- end of swiper-slide -->
+                                    <!-- end of slide -->
+                                @endforeach
+                            </div>
+                            <!-- end of swiper-wrapper -->
+                            <!-- Add Arrows -->
+                            <!-- <div class="swiper-button-next"></div>
+                                  <div class="swiper-button-prev"></div> -->
+                            <!-- end of add arrows -->
+                        </div>
+                        <!-- end of swiper-container -->
+                    </div>
+                    <!-- end of slider-container -->
+                    <!-- end of card slider -->
+                </div>
+                <!-- end of col -->
+            </div>
+            <!-- end of row -->
+        </div> <!-- end of container -->
+    </section>
+    <!-- end of writers -->
+
+    <!--Free Services -->
+    <section class="about d-flex align-items-center text-light py-5" id="about">
+        <div class="container">
+            <div class="row d-flex align-items-center">
+                <h2 class="text-center font-weight-bold p-2"><strong>{{ strip_tags(@$freeServices->title) }}</strong></h2>
+                <div class="text-center m-2">
+                    {!! @$freeServices->content !!}
+                </div>
+            <table class="table table-bordered">
+                <tbody style="color:#ffffff">
+                    @foreach ($freeServices->subHomepages as $freeService)
+                    <tr>
+                        <td>{!! @$freeService->title !!}</td>
+                        <td> <strike>  {!! @$freeService->content !!} </strike></td>
+                        <td>{!! @$freeService->alt !!}</td>
+                    </tr>
+                    @endforeach
+                    <tr>
+                        <td colspan="3" class="text-center font-weight-bold" style="color:#ffffff"><p class="text-center font-weight-bold"><strong>{{ @$freeServices->alt }}</strong></p></td>
+                    </tr>
+                </tbody>
+                </table>       
+            </div>
+            <!-- end of row -->
+        </div>
+        <!-- end of container -->
+    </section>
+    <!-- end of Free Services -->
+    
+
+    <!-- expectus -->
+    <section class="services d-flex align-items-center py-5" id="services">
+        <div class="container text-light">
+            <div class="text-center pb-4">
+                <div class="py-2 text-center div-h-text">{!! @$expectus->title !!}</div>
+                <p class="para-light">{!! @$expectus->content !!}</p>
+            </div>
+            <div class="row gy-4 py-2" data-aos="zoom-in">
+                @foreach ($expectus->subHomepages->take(9) as $key => $subHomepage)
+                    <div class="col-lg-4">
+                        <!-- <a href="">  -->
+                        <div class="card bg-transparent">
+                            <h3 class="py-2 text-success">{{ strip_tags($subHomepage->title) }}</h3>
+                            <div class="para-light">
+                                {!! $subHomepage->content !!}
+                            </div>
+                        </div>
+                        <!-- </a> -->
+                    </div>
+                @endforeach
+            </div> <!-- end of row -->
+        </div> <!-- end of container -->
+    </section>
+    <!-- end of services -->
+
+    <!-- $bestoffers -->
+    <section class="plans d-flex align-items-center py-5" id="plans">
+        <div class="container text-light">
+            <div class="text-center pb-4">
+                <div class="py-2 text-center div-h-text">{!! @$bestoffers->title !!}</div>
+                <p class="para-light">{!! @$bestoffers->content !!}</p>
+            </div>
+            <div class="row gy-4" data-aos="zoom-in">
+                @foreach ($bestoffers->subHomepages as $key => $item)
+                    <div class="col-lg-4 @if (++$key % 2 == 0) featured @endif">
+                        <div class="card bg-transparent px-4">
+                            {!! @$item->title !!}
+                            {!! @$item->content !!}
+                            <!-- <h4 class="py-3">$24/Month</h4> -->
+                            <div class="my-3">
+                                <a class="btn" href="{{ route('order') }}?code={{ $item->alt }}">View Plans</a>
+                            </div>
+                        </div>
+                    </div>
+                @endforeach
+            </div> <!-- end of row -->
+        </div> <!-- end of container -->
+    </section>
+    <!-- end of $bestoffers -->
+
+
+    <!-- Contact -->
+    {{-- <section class="contact d-flex align-items-center py-5" id="contact">
+      <div class="container-fluid text-light">
+         <div class="row">
+            <div class="col-lg-6 d-flex justify-content-center justify-content-lg-end align-items-center px-lg-5" data-aos="fade-right">
+               <div style="width:90%">
+                  <div class="text-center text-lg-start py-4 pt-lg-0">
+                     <h2 class="py-2">{!! @$sendyourquery->title !!}</h2>
+                     <p class="para-light">{!! @$sendyourquery->content !!}</p>
+                  </div>
+                  <div>
+                     <div class="row" >
+                        <div class="col-lg-6">
+                           <div class="form-group py-2">
+                              <input type="text" class="form-control form-control-input" id="exampleFormControlInput1" placeholder="Enter name">
+                           </div>
+                        </div>
+                        <div class="col-lg-6">
+                           <div class="form-group py-2">
+                              <input type="email" class="form-control form-control-input" id="exampleFormControlInput2" placeholder="Enter phone number">
+                           </div>
+                        </div>
+                     </div>
+                     <div class="form-group py-1">
+                        <input type="email" class="form-control form-control-input" id="exampleFormControlInput3" placeholder="Enter email">
+                     </div>
+                     <div class="form-group py-2">
+                        <textarea class="form-control form-control-input" id="exampleFormControlTextarea1" rows="6" placeholder="Message"></textarea>
+                     </div>
+                  </div>
+                  <div class="my-3">
+                     <a class="btn form-control-submit-button" href="#your-link">Submit</a>
+                  </div>
+               </div>
+               <!-- end of div -->
+            </div>
+            <!-- end of col -->
+            <div class="col-lg-6 d-flex align-items-center" data-aos="fade-down">
+               <img class="img-fluid d-none d-lg-block" src="{{ @$sendyourquery->image }}" alt="contact">        
+            </div>
+            <!-- end of col -->
+         </div>
+         <!-- end of row -->
+      </div>
+      <!-- end of container -->
+   </section> --}}
+    <!-- end of contact -->
+
+    <!-- Services -->
+    <section class="about d-flex align-items-center text-light py-5" id="about">
+        <div class="container">
+            <div class="row d-flex align-items-center">
+                <div class="col-lg-5 text-center py-4 py-sm-0" data-aos="fade-down">
+                    <img class="img-fluid" src="{{ @$customessay->image }}" alt="{{ @$customessay->alt }}">
+                </div>
+                <div class="col-lg-7" data-aos="fade-right">
+                    <div class="text-center py-2 div-h-text">{!! @$customessay->title !!}</div>
+                    {!! @$customessay->content !!}
+                    <div class="my-3">
+                        <a class="btn" href="{{ @$customessay->bg_alt }}">Read More</a>
+                    </div>
+                </div>
+            </div>
+            <!-- end of row -->
+        </div>
+        <!-- end of container -->
+    </section>
+    <!-- end of Services -->
+
+    <!-- ======= Usp Section ======= -->
+    <section class="bottom d-flex align-items-center text-light py-5" id="about">
+        <div class="container">
+            <div class="row d-flex align-items-center">
+                <div class="col-lg-12" data-aos="fade-right">
+                    <div class="text-center div-h-text">
+                        {!! @$usps->title !!}
+                        {!! @$usps->content !!}
+                    </div>
+                    <div class="row information">
+                        <div class="row">
+                            <div class="col-md-8">
+                                <div class="row">
+                                    @foreach ($usps->subHomepages as $usp)
+                                        <div class="col-md-6">
+                                            <div class="usp-title" style="display:flex; align-items:center">
+                                                <i class="fas fa-poll-h fa-3x p-2"></i> {!! @$usp->title !!}
+                                            </div>
+                                            <div class="usp-content" style="padding-left:60px">
+                                                {!! @$usp->content !!}
+                                            </div>
+                                        </div>
+                                    @endforeach
+                                </div>
+                            </div>
+                            <div class="col-md-4 text-center py-4 py-sm-0 justify-content-center" style="display:flex;"
+                                data-aos="fade-down">
+                                <img class="img-fluid" src="{{ @$usps->image }}" alt="{{ @$usps->alt }}">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- end of row -->
+        </div>
+        <!-- end of container -->
+    </section>
+    <!-- ======= Usp Section ======= -->
 
     <!-- Calculator -->
     <section class="about d-flex align-items-center text-light py-5">
@@ -109,14 +517,14 @@
                         <div class="content content__accordion">
                             <div class="accordion">
                                 <div class="accordion__wrapper">
-                                    @foreach ($faqs->subHomepages as $faq)
+                                    @foreach ($faqs->subHomepages->take(5) as $faq)
                                         <div class="accordion__item">
                                             <div class="accordion__item--summary">
                                                 <div class="accordion__item-icon">
                                                     <i class="fas fa-fw fa-futbol"></i>
                                                 </div>
                                                 <div class="accordion__item-title">
-                                                    <h5>{{ strip_tags($faq->title) }}</h5>
+                                                    <h3>{{ strip_tags($faq->title) }}</h3>
                                                 </div>
                                                 <div class="accordion__item-toggler">
                                                     <button>
@@ -252,27 +660,43 @@
         </div>
     </section>
     <!-- End Calculator -->
-
-    <!-- Service -->
-    <section class="services  d-flex align-items-center text-light py-5" id="about">
+    
+    <!-- ======= Blog Section ======= -->
+    <section class="testimonial d-flex align-items-center text-light pb-2" id="about">
         <div class="container">
-            <div class="row d-flex align-items-center">
-                <div class="col-lg-7" data-aos="fade-right">
-                    <div class="">{!! @$bestthesis->title !!}</div>
-                    {!! @$bestthesis->content !!}
-                    <div class="my-3">
-                        <a class="btn" href="{{ @$bestthesis->bg_alt }}">Read More</a>
-                    </div>
-                </div>
-                <div class="col-lg-5 text-center py-4 py-sm-0" data-aos="fade-down">
-                    <img class="img-fluid" src="{!! @$bestthesis->image !!}" alt="{!! @$bestthesis->alt !!}">
+            <div class="row">
+                <div class="text-center w-lg-75 m-auto pb-4">
+                    <h2 class="py-2">{{ strip_tags(@$hblog->title) }}</h2>
+                    <p class="para-light">{!! @$hblog->content !!}</p>
                 </div>
             </div>
-            <!-- end of row -->
+
+            <div class="row d-flex align-items-center">
+                @foreach ($blogs as $key => $blog)
+                    <div class="col-lg-4 col-md-4 col-sm-6 col-sm-12" data-aos="fade-up">
+                        <div class="testimonial-card mt-4 p-2" data-aos="fade-right">
+                            <div class="row">
+                                <div class="col-lg-12 text-center mb-4" data-aos="fade-down">
+                                    <img class="img-fluid"
+                                        src="{{ $blog->featured_image ? $blog->featured_image->getUrl() : 'https://dummyimage.com/2000x1114/fff/aaa&text=get%20essay%20service' }}"
+                                        alt="{{ $blog->title }}">
+                                </div>
+                                <div class="col-lg-12 mb-4">
+                                    <p class="mt-2 text-success">{{ $blog->title }}</p>
+                                    <p>
+                                        {!! substr(strip_tags($blog->page_text), 0, 100) !!}
+                                    </p>
+                                </div>
+                            </div>
+                            <a class="btn mb-4" href="{{ route('blog', $blog->slug) }}">Read More</a>
+                        </div>
+                    </div>
+                @endforeach
+            </div> <!-- end of row -->
         </div>
         <!-- end of container -->
     </section>
-    <!-- end of Service -->
+    <!-- End Blog Section -->
 
     <!-- Call To Action -->
     <section style="background-color: #3570a3;" class="services d-flex align-items-center py-5" id="services">
@@ -291,424 +715,7 @@
         </div>
     </section>
     <!-- End Call To Action -->
-
-    <!-- writers -->
-    <section class="plans d-flex align-items-center py-5" id="plans">
-        <div class="container text-light">
-            <div class="text-center pb-4">
-                <h2 class="py-2">Team of Professional Writers</h2>
-                <p class="para-light">With our essay service, you'll find an essay writer for any task. Their rating is
-                    based on previous customer reviews and successful orders. Before you hire a writer, you can familiarize
-                    yourself with their track record in detail.</p>
-            </div>
-            <!-- end of row -->
-            <div class="row p-2" data-aos="zoom-in">
-                <div class="col-lg-12">
-                    <!-- Card Slider -->
-                    <div class="slider-container">
-                        <div class="swiper-container writers-slider">
-                            <div class="swiper-wrapper">
-                                <!-- Slide -->
-                                <!-- end of slide -->
-                                @foreach ($writers as $key => $writer)
-                                    <!-- Slide -->
-                                    <div class="swiper-slide">
-                                        <div class="testimonial-card p-4">
-                                            <b>About :- {{ $writer->Menu->title }} Writer</b>
-                                            <p>{{ strip_tags($writer->content) }}</p>
-                                            <div class="d-flex pt-4">
-                                                <div class="div-avatar">
-                                                    <img class="avatar"
-                                                        src="{{ $writer->image ?? '/images/homepage/1660655334.jpg' }}"
-                                                        alt="{{ strip_tags($writer->title) }} Expert">
-                                                </div>
-                                                <div class="ms-3 pt-2">
-                                                    {!! $writer->title !!}
-                                                    <div class="row text-center hire-div">
-                                                        <a href="{{ route('order') }}" class="btn m-2">
-                                                            Hire Me
-                                                        </a>
-                                                    </div>
-                                                    <p class="mt-2">
-                                                        Rating: {{ $writer->bg_alt }} <i class="fa fa-star text-warning"
-                                                            aria-hidden="true"></i> <i class="fa fa-star text-warning"
-                                                            aria-hidden="true"></i> <i class="fa fa-star text-warning"
-                                                            aria-hidden="true"></i> <i class="fa fa-star text-warning"
-                                                            aria-hidden="true"></i> <i class="fa fa-star text-warning"
-                                                            aria-hidden="true"></i>
-                                                    </p>
-                                                    <p class="mt-2">
-                                                        Expertise:
-                                                        <span class="badge rounded-pill bg-primary"> Essay writing</span>
-                                                        <span class="badge rounded-pill bg-primary"> Essay writing</span>
-                                                    </p>
-                                                </div>
-
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <!-- end of swiper-slide -->
-                                    <!-- end of slide -->
-                                @endforeach
-                            </div>
-                            <!-- end of swiper-wrapper -->
-                            <!-- Add Arrows -->
-                            <!-- <div class="swiper-button-next"></div>
-                                  <div class="swiper-button-prev"></div> -->
-                            <!-- end of add arrows -->
-                        </div>
-                        <!-- end of swiper-container -->
-                    </div>
-                    <!-- end of slider-container -->
-                    <!-- end of card slider -->
-                </div>
-                <!-- end of col -->
-            </div>
-            <!-- end of row -->
-        </div> <!-- end of container -->
-    </section>
-    <!-- end of writers -->
-
-
-    <!-- expectus -->
-    <section class="services d-flex align-items-center py-5" id="services">
-        <div class="container text-light">
-            <div class="text-center pb-4">
-                <div class="py-2 text-center div-h-text">{!! @$expectus->title !!}</div>
-                <p class="para-light">{!! @$expectus->content !!}</p>
-            </div>
-            <div class="row gy-4 py-2" data-aos="zoom-in">
-                @foreach ($expectus->subHomepages as $key => $subHomepage)
-                    <div class="col-lg-4">
-                        <!-- <a href="">  -->
-                        <div class="card bg-transparent">
-                            <h4 class="py-2 text-success">{{ strip_tags($subHomepage->title) }}</h4>
-                            <div class="para-light">
-                                {!! $subHomepage->content !!}
-                            </div>
-                        </div>
-                        <!-- </a> -->
-                    </div>
-                @endforeach
-            </div> <!-- end of row -->
-        </div> <!-- end of container -->
-    </section>
-    <!-- end of services -->
-
-    <!-- $bestoffers -->
-    <section class="plans d-flex align-items-center py-5" id="plans">
-        <div class="container text-light">
-            <div class="text-center pb-4">
-                <div class="py-2 text-center div-h-text">{!! @$bestoffers->title !!}</div>
-                <p class="para-light">{!! @$bestoffers->content !!}</p>
-            </div>
-            <div class="row gy-4" data-aos="zoom-in">
-                @foreach ($bestoffers->subHomepages as $key => $item)
-                    <div class="col-lg-4 @if (++$key % 2 == 0) featured @endif">
-                        <div class="card bg-transparent px-4">
-                            {!! @$item->title !!}
-                            {!! @$item->content !!}
-                            <!-- <h4 class="py-3">$24/Month</h4> -->
-                            <div class="my-3">
-                                <a class="btn" href="{{ route('order') }}?code={{ $item->alt }}">View Plans</a>
-                            </div>
-                        </div>
-                    </div>
-                @endforeach
-            </div> <!-- end of row -->
-        </div> <!-- end of container -->
-    </section>
-    <!-- end of $bestoffers -->
-
-    <!-- $explorePossibilities -->
-    <section class="work d-flex align-items-center py-5">
-        <div class="container-fluid text-light">
-            <div class="row">
-                <div class="col-lg-6 d-flex align-items-center" data-aos="fade-right">
-                    <img class="img-fluid" src="{!! @$explorePossibilities->image !!}" alt="{!! @$explorePossibilities->alt !!}">
-                </div>
-                <div class="col-lg-5 d-flex align-items-center px-4 py-3" data-aos="">
-                    <div class="row">
-                        <div class="text-center text-lg-start py-4 pt-lg-0">
-                            <div class="py-2 div-h-text">{!! @$explorePossibilities->title !!}</div>
-                            <p class="para-light">{!! @$explorePossibilities->content !!}</p>
-                        </div>
-                        <div class="container" data-aos="fade-explorePossibilities">
-                            <div class="row g-5">
-                                <div class="col-6 text-start">
-                                    <i class="fas fa-briefcase fa-2x text-start"></i>
-                                    <h2 class="purecounter" data-purecounter-start="0"
-                                        data-purecounter-end="{{ strip_tags(@$explorePossibilities->subHomepages[0]->content) }}"
-                                        data-purecounter-duration="3">1</h2>
-                                    <p>{{ strip_tags(@$explorePossibilities->subHomepages[0]->title) }}</p>
-                                </div>
-                                <div class="col-6">
-                                    <i class="fas fa-award fa-2x"></i>
-                                    <h2 class="purecounter" data-purecounter-start="0"
-                                        data-purecounter-end="{{ strip_tags(@$explorePossibilities->subHomepages[1]->content) }}"
-                                        data-purecounter-duration="3">1</h2>
-                                    <p>{{ strip_tags(@$explorePossibilities->subHomepages[1]->title) }}</p>
-                                </div>
-                                <div class="col-6">
-                                    <i class="fas fa-users fa-2x"></i>
-                                    <h2 class="purecounter" data-purecounter-start="0"
-                                        data-purecounter-end="{{ strip_tags(@$explorePossibilities->subHomepages[2]->content) }}"
-                                        data-purecounter-duration="3">1</h2>
-                                    <p>{{ strip_tags(@$explorePossibilities->subHomepages[2]->title) }}</p>
-                                </div>
-                                <div class="col-6">
-                                    <i class="fas fa-clock fa-2x"></i>
-                                    <h2 class="purecounter" data-purecounter-start="0"
-                                        data-purecounter-end="{{ strip_tags(@$explorePossibilities->subHomepages[3]->content) }}"
-                                        data-purecounter-duration="3">1</h2>
-                                    <p>{{ strip_tags(@$explorePossibilities->subHomepages[3]->title) }}</p>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- end of container -->
-                    </div>
-                    <!-- end of row -->
-                </div>
-                <!-- end of col-lg-5 -->
-            </div>
-            <!-- end of row -->
-        </div>
-        <!-- end of container -->
-    </section>
-    <!-- end of $explorePossibilities -->
-
-    <!-- $clientsSays -->
-    <div class="slider-1 testimonial text-light d-flex align-items-center clients-says">
-        <div class="container mb-2">
-            <div class="row">
-                <div class="text-center w-lg-75 m-auto pb-4">
-                    <div class="py-2 text-center div-h-text">{!! @$clientsSays->title !!}</div>
-                    <p class="para-light">{!! @$clientsSays->content !!}</p>
-                </div>
-            </div>
-            <!-- end of row -->
-            <div class="row p-2" data-aos="zoom-in">
-                <div class="col-lg-12">
-                    <!-- Card Slider -->
-                    <div class="slider-container">
-                        <div class="swiper-container card-slider">
-                            <div class="swiper-wrapper">
-                                <!-- Slide -->
-                                <!-- end of slide -->
-                                @foreach ($clientsSays->subHomepages as $key => $clientsSays)
-                                    <!-- Slide -->
-                                    <div class="swiper-slide">
-                                        <div class="testimonial-card p-4">
-                                            <p>{!! $clientsSays->content !!}</p>
-                                            <div class="d-flex pt-4">
-                                                <div>
-                                                    <img class="avatar"
-                                                        src="{{ @$clientsSays->image ?? '/images/homepage/1640713712.jpg' }}"
-                                                        alt="testimonial">
-                                                </div>
-                                                <div class="ms-3 pt-2">
-                                                    {!! $clientsSays->title !!}
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <!-- end of swiper-slide -->
-                                    <!-- end of slide -->
-                                @endforeach
-                            </div>
-                            <!-- end of swiper-wrapper -->
-                            <!-- Add Arrows -->
-                            <div class="swiper-button-next"></div>
-                            <div class="swiper-button-prev"></div>
-                            <!-- end of add arrows -->
-                        </div>
-                        <!-- end of swiper-container -->
-                    </div>
-                    <!-- end of slider-container -->
-                    <!-- end of card slider -->
-                </div>
-                <!-- end of col -->
-            </div>
-            <!-- end of row -->
-        </div>
-        <!-- end of container -->
-    </div>
-    <!-- end of $clientsSays -->
-
-    <!-- Contact -->
-    {{-- <section class="contact d-flex align-items-center py-5" id="contact">
-      <div class="container-fluid text-light">
-         <div class="row">
-            <div class="col-lg-6 d-flex justify-content-center justify-content-lg-end align-items-center px-lg-5" data-aos="fade-right">
-               <div style="width:90%">
-                  <div class="text-center text-lg-start py-4 pt-lg-0">
-                     <h2 class="py-2">{!! @$sendyourquery->title !!}</h2>
-                     <p class="para-light">{!! @$sendyourquery->content !!}</p>
-                  </div>
-                  <div>
-                     <div class="row" >
-                        <div class="col-lg-6">
-                           <div class="form-group py-2">
-                              <input type="text" class="form-control form-control-input" id="exampleFormControlInput1" placeholder="Enter name">
-                           </div>
-                        </div>
-                        <div class="col-lg-6">
-                           <div class="form-group py-2">
-                              <input type="email" class="form-control form-control-input" id="exampleFormControlInput2" placeholder="Enter phone number">
-                           </div>
-                        </div>
-                     </div>
-                     <div class="form-group py-1">
-                        <input type="email" class="form-control form-control-input" id="exampleFormControlInput3" placeholder="Enter email">
-                     </div>
-                     <div class="form-group py-2">
-                        <textarea class="form-control form-control-input" id="exampleFormControlTextarea1" rows="6" placeholder="Message"></textarea>
-                     </div>
-                  </div>
-                  <div class="my-3">
-                     <a class="btn form-control-submit-button" href="#your-link">Submit</a>
-                  </div>
-               </div>
-               <!-- end of div -->
-            </div>
-            <!-- end of col -->
-            <div class="col-lg-6 d-flex align-items-center" data-aos="fade-down">
-               <img class="img-fluid d-none d-lg-block" src="{{ @$sendyourquery->image }}" alt="contact">        
-            </div>
-            <!-- end of col -->
-         </div>
-         <!-- end of row -->
-      </div>
-      <!-- end of container -->
-   </section> --}}
-    <!-- end of contact -->
-
-    <!-- Services -->
-    <section class="about d-flex align-items-center text-light py-5" id="about">
-        <div class="container">
-            <div class="row d-flex align-items-center">
-                <div class="col-lg-5 text-center py-4 py-sm-0" data-aos="fade-down">
-                    <img class="img-fluid" src="{{ @$customessay->image }}" alt="{{ @$customessay->alt }}">
-                </div>
-                <div class="col-lg-7" data-aos="fade-right">
-                    <div class="text-center py-2 div-h-text">{!! @$customessay->title !!}</div>
-                    {!! @$customessay->content !!}
-                    <div class="my-3">
-                        <a class="btn" href="{{ @$customessay->bg_alt }}">Read More</a>
-                    </div>
-                </div>
-            </div>
-            <!-- end of row -->
-        </div>
-        <!-- end of container -->
-    </section>
-    <!-- end of Services -->
-
-    <!-- ======= Usp Section ======= -->
-    <section class="bottom d-flex align-items-center text-light py-5" id="about">
-        <div class="container">
-            <div class="row d-flex align-items-center">
-                <div class="col-lg-12" data-aos="fade-right">
-                    <div class="text-center div-h-text">
-                        {!! @$usps->title !!}
-                        {!! @$usps->content !!}
-                    </div>
-                    <div class="row information">
-                        <div class="row">
-                            <div class="col-md-8">
-                                <div class="row">
-                                    @foreach ($usps->subHomepages as $usp)
-                                        <div class="col-md-6">
-                                            <div class="usp-title" style="display:flex; align-items:center">
-                                                <i class="fas fa-poll-h fa-3x p-2"></i> {!! @$usp->title !!}
-                                            </div>
-                                            <div class="usp-content" style="padding-left:60px">
-                                                {!! @$usp->content !!}
-                                            </div>
-                                        </div>
-                                    @endforeach
-                                </div>
-                            </div>
-                            <div class="col-md-4 text-center py-4 py-sm-0 justify-content-center" style="display:flex;"
-                                data-aos="fade-down">
-                                <img class="img-fluid" src="{{ @$usps->image }}" alt="{{ @$usps->alt }}">
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!-- end of row -->
-        </div>
-        <!-- end of container -->
-    </section>
-    <!-- ======= Usp Section ======= -->
-
-    <!--Free Services -->
-    <section class="about d-flex align-items-center text-light py-5" id="about">
-        <div class="container">
-            <div class="row d-flex align-items-center">
-                <h2 class="text-center font-weight-bold p-2"><strong>{{ strip_tags(@$freeServices->title) }}</strong></h2>
-                <div class="text-center m-2">
-                    {!! @$freeServices->content !!}
-                </div>
-            <table class="table table-bordered">
-                <tbody style="color:#ffffff">
-                    @foreach ($freeServices->subHomepages as $freeService)
-                    <tr>
-                        <td>{!! @$freeService->title !!}</td>
-                        <td> <strike>  {!! @$freeService->content !!} </strike></td>
-                        <td>{!! @$freeService->alt !!}</td>
-                    </tr>
-                    @endforeach
-                    <tr>
-                        <td colspan="3" class="text-center font-weight-bold" style="color:#ffffff"><h2><strong>{{ @$freeServices->alt }}</strong></h2></td>
-                    </tr>
-                </tbody>
-                </table>       
-            </div>
-            <!-- end of row -->
-        </div>
-        <!-- end of container -->
-    </section>
-    <!-- end of Free Services -->
-
-    <!-- ======= Blog Section ======= -->
-    <section class="testimonial d-flex align-items-center text-light pb-2" id="about">
-        <div class="container">
-            <div class="row">
-                <div class="text-center w-lg-75 m-auto pb-4">
-                    <h2 class="py-2">{{ strip_tags(@$hblog->title) }}</h2>
-                    <p class="para-light">{!! @$hblog->content !!}</p>
-                </div>
-            </div>
-
-            <div class="row d-flex align-items-center">
-                @foreach ($blogs as $key => $blog)
-                    <div class="col-lg-4 col-md-4 col-sm-6 col-sm-12" data-aos="fade-up">
-                        <div class="testimonial-card mt-4 p-2" data-aos="fade-right">
-                            <div class="row">
-                                <div class="col-lg-12 text-center mb-4" data-aos="fade-down">
-                                    <img class="img-fluid"
-                                        src="{{ $blog->featured_image ? $blog->featured_image->getUrl() : '/images/homepage/1646737989.svg' }}"
-                                        alt="{{ $blog->title }}">
-                                </div>
-                                <div class="col-lg-12 mb-4">
-                                    <h5 class="mt-2 text-success">{{ $blog->title }}</h5>
-                                    <p>
-                                        {!! substr(strip_tags($blog->page_text), 0, 100) !!}
-                                    </p>
-                                </div>
-                            </div>
-                            <a class="btn mb-4" href="{{ route('blog', $blog->slug) }}">Read More</a>
-                        </div>
-                    </div>
-                @endforeach
-            </div> <!-- end of row -->
-        </div>
-        <!-- end of container -->
-    </section>
-    <!-- End Blog Section -->
-
+    
 
     <!-- Location -->
     <section class="location text-light py-5">
