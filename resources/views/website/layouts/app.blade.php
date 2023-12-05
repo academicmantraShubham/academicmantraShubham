@@ -32,10 +32,9 @@
     <!-- <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a> -->
     <!-- Bottom -->
     <div class="bottom py-2 text-light">
-        <div class="container d-flex justify-content-between">
+        <div class="container d-md-flex justify-content-between">
             <div>
-                <p>Copyright © 2019</p><br>
-                <p><a href="/">Getessayservice.com</a></p>
+                <p>Copyright © {{ date('Y') }} <a href="/">getessayservice.com</a></p>
             </div>
             <div>
                 <i class="fab fa-cc-visa fa-lg p-1"></i>

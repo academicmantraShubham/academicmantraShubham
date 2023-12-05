@@ -26,15 +26,17 @@
     <!--OG Meta Tags to improve the way the post looks when you share the page on Facebook, Twitter, LinkedIn -->
     <meta property="og:site_name" content="Best Essay Writing Services" />
     <!-- website name -->
-    <meta property="og:site" content="https://bestessaywritingservices.com.au" />
+    <meta property="og:site" content="https://getessayservice.com/" />
     <!-- website link -->
-    <meta property="og:title" content="{{ $metadata->title ?? 'Plagiarism Free Writing by PHD Experts – Best Essay Writing Services' }}" />
+    <meta property="og:title"
+        content="{{ $metadata->title ?? 'Plagiarism Free Writing by PHD Experts – Best Essay Writing Services' }}" />
     <!-- title shown in the actual shared post -->
-    <meta property="og:description" content="{{ $metadata->content ?? 'Save up your time and outsource your thesis, dissertations and more  to PHD qualified writing professionals. Guaranteed on-time delivery with high quality material at affordable prices.' }}" />
+    <meta property="og:description"
+        content="{{ $metadata->content ?? 'Save up your time and outsource your thesis, dissertations and more  to PHD qualified writing professionals. Guaranteed on-time delivery with high quality material at affordable prices.' }}" />
     <!-- description shown in the actual shared post -->
     <meta property="og:image" content="" />
     <!-- image link, make sure it's jpg -->
-    <meta property="og:url" content="https://bestessaywritingservices.com.au" />
+    <meta property="og:url" content="https://getessayservice.com/" />
     <!-- where do you want your post to link to -->
     <meta name="twitter:card" content="summary_large_image">
     <!-- to have large image post format in Twitter -->
@@ -60,6 +62,22 @@
 
         .div-h-text+p {
             text-align: center;
+        }
+
+        #header ul {
+            column-count: 3;
+        }
+
+        @media (max-width: 992px) {
+            #header ul {
+                column-count: 2;
+            }
+        }
+
+        @media only screen and (max-width: 540px) {
+            #header ul {
+                column-count: 1;
+            }
         }
     </style>
 @endpush
@@ -193,13 +211,15 @@
         <!-- end of container -->
     </div>
     <!-- end of $clientsSays -->
-    
+
     <!-- Information -->
     <section class="information">
         <div class="container-fluid">
             <div class="row">
                 <div class="text-center w-lg-75 m-auto pb-4">
-                    <div class="py-2 text-center div-h-text"> <h2> Get Our Essay Help In Just 3 Steps</h2></div>
+                    <div class="py-2 text-center div-h-text">
+                        <h2> Get Our Essay Help In Just 3 Steps</h2>
+                    </div>
                 </div>
             </div>
             <div class="row text-light">
@@ -215,7 +235,7 @@
         <!-- end of container -->
     </section>
     <!-- end of information -->
-    
+
     <!-- Service -->
     <section class="services  d-flex align-items-center text-light py-5" id="about">
         <div class="container">
@@ -299,7 +319,7 @@
                             <!-- end of swiper-wrapper -->
                             <!-- Add Arrows -->
                             <!-- <div class="swiper-button-next"></div>
-                                  <div class="swiper-button-prev"></div> -->
+                                      <div class="swiper-button-prev"></div> -->
                             <!-- end of add arrows -->
                         </div>
                         <!-- end of swiper-container -->
@@ -322,30 +342,32 @@
                 <div class="text-center m-2">
                     {!! @$freeServices->content !!}
                 </div>
-            <table class="table table-bordered">
-                <tbody style="color:#ffffff">
-                    @foreach ($freeServices->subHomepages as $freeService)
-                    <tr>
-                        <td>{!! @$freeService->title !!}</td>
-                        <td> <strike>  {!! @$freeService->content !!} </strike></td>
-                        <td>{!! @$freeService->alt !!}</td>
-                    </tr>
-                    @endforeach
-                    <tr>
-                        <td colspan="3" class="text-center font-weight-bold" style="color:#ffffff"><p class="text-center font-weight-bold"><strong>{{ @$freeServices->alt }}</strong></p></td>
-                    </tr>
-                </tbody>
-                </table>       
+                <table class="table table-bordered">
+                    <tbody style="color:#ffffff">
+                        @foreach ($freeServices->subHomepages as $freeService)
+                            <tr>
+                                <td>{!! @$freeService->title !!}</td>
+                                <td> <strike> {!! @$freeService->content !!} </strike></td>
+                                <td>{!! @$freeService->alt !!}</td>
+                            </tr>
+                        @endforeach
+                        <tr>
+                            <td colspan="3" class="text-center font-weight-bold" style="color:#ffffff">
+                                <p class="text-center font-weight-bold"><strong>{{ @$freeServices->alt }}</strong></p>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
             </div>
             <!-- end of row -->
         </div>
         <!-- end of container -->
     </section>
     <!-- end of Free Services -->
-    
+
 
     <!-- expectus -->
-    <section class="services d-flex align-items-center py-5" id="services">
+    <section class="plans d-flex align-items-center py-5" id="services">
         <div class="container text-light">
             <div class="text-center pb-4">
                 <div class="py-2 text-center div-h-text">{!! @$expectus->title !!}</div>
@@ -617,7 +639,8 @@
                                 <div class="form-check-inline">
                                     <label class="form-check-label">
                                         <input type="radio" class="form-check-input" id="service-double"
-                                            name="service-space" onChange="calculatePrice()" value="1" checked>Double
+                                            name="service-space" onChange="calculatePrice()" value="1"
+                                            checked>Double
                                         spaces
                                     </label>
                                 </div>
@@ -660,9 +683,9 @@
         </div>
     </section>
     <!-- End Calculator -->
-    
+
     <!-- ======= Blog Section ======= -->
-    <section class="testimonial d-flex align-items-center text-light pb-2" id="about">
+    <section class="plans d-flex align-items-center text-light pb-2" id="about">
         <div class="container">
             <div class="row">
                 <div class="text-center w-lg-75 m-auto pb-4">
@@ -715,7 +738,7 @@
         </div>
     </section>
     <!-- End Call To Action -->
-    
+
 
     <!-- Location -->
     <section class="location text-light py-5">

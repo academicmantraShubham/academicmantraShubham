@@ -179,7 +179,7 @@
     @endif
 
 
-    @if (url()->current() == 'https://bestessaywritingservices.com.au/au-australia')
+    @if (url()->current() == 'https://getessayservice.com//au-australia')
         <!-- ======= Country Section ======= -->
         <section class="testimonial d-flex align-items-center text-light pb-2" id="about">
             <div class="container">
@@ -295,7 +295,7 @@
     </section>
     <!-- end of writers -->
 
-    @if (url()->current() != 'https://bestessaywritingservices.com.au/au-australia' &&
+    @if (url()->current() != 'https://getessayservice.com//au-australia' &&
             strpos(url()->current(), 'au-') !== false)
         <!-- ======= Top Colleges ======= -->
         <section class="testimonial d-flex align-items-center text-light pb-2" id="about">

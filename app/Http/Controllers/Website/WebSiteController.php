@@ -23,7 +23,7 @@ class WebSiteController extends Controller
     public function __construct()
     {
         $this->website['menus'] = Cache::remember('menus', 60, function () {
-            return Menu::with('subMenus.subMenus.subMenus')->orderBy('position', 'ASC')->whereParentId(0)->get(['id', 'title', 'slug', 'content']);
+            return Menu::with('subMenus.subMenus.subMenus')->orderBy('position', 'ASC')->whereParentId(0)->whereIsPage(0)->get(['id', 'title', 'slug', 'content']);
         });
         // $this->website['menus'] =  Menu::with('subMenus.subMenus')->whereParentId(0)->get(['id', 'title', 'slug']);  
 
@@ -143,7 +143,7 @@ class WebSiteController extends Controller
         $menu = Menu::whereSlug('privacy-policy')->first();
         if ($menu) {
             $data['post'] = ContentPage::whereMenuId($menu->id)->first();
-            return view('website.pages.privacy-policy', $data);
+            return view('website.pages.pages', $data);
         }
         abort(404, "page not found");
     }
@@ -151,10 +151,10 @@ class WebSiteController extends Controller
     public function terms(Request $request)
     {
         $data = $this->common();    
-        $menu = Menu::whereSlug('terms-condition')->first();
+        $menu = Menu::whereSlug('terms-and-condition')->first();
         if ($menu) {
             $data['post'] = ContentPage::whereMenuId($menu->id)->first();
-            return view('website.pages.terms', $data);
+            return view('website.pages.pages', $data);
         }
         abort(404, "page not found");
     }

@@ -22,6 +22,7 @@ class Menu extends Migration
             $table->string('slug');
             $table->tinyInteger('content')->default(0);
             $table->tinyInteger('status')->default(1);
+            $table->tinyInteger('is_page')->default(0);
             $table->tinyInteger('sub_menu')->default(0);
             $table->timestamps();
             $table->softDeletes();

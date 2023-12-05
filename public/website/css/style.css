@@ -76,15 +76,17 @@ li.top-university-li img {
 .contact {
   position: relative;
 }
-.services,
+
 .work,
 .contact,
-.testimonial,
+.plans,
 .footer {
   background-color: #1862a1;
 }
+
+.services,
 .about,
-.plans,
+.testimonial,
 .company,
 .newsletter,
 .location {

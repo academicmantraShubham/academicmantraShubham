@@ -35,7 +35,7 @@ Route::get('/about', [WebSiteController::class, 'about'])->name('about');
 Route::get('/contact', [WebSiteController::class, 'contact'])->name('contact');
 Route::get('/price', [WebSiteController::class, 'price'])->name('price');
 Route::get('/privacy-policy', [WebSiteController::class, 'privacyPolicy'])->name('privacy-policy');
-Route::get('/terms-&-condition', [WebSiteController::class, 'terms'])->name('terms-condition');
+Route::get('/terms-and-condition', [WebSiteController::class, 'terms'])->name('terms-condition');
 Route::get('/blogs', [WebSiteController::class, 'blogs'])->name('blogs');
 Route::get('/blog/{slug}', [WebSiteController::class, 'blog'])->name('blog');
 Route::get('/category/{slug}', [WebSiteController::class, 'category'])->name('category');

@@ -14,11 +14,6 @@
             <div class="container">
                 <ol class="breadcrumb">
                     <li><a href="/">Home</a></li>
-                    @if (strpos(url()->current(), 'au-') !== false)
-                        <li><a href="{{ route('locations') }}">Locations </a></li>
-                    @else
-                        <li><a href="{{ route('services') }}">Services </a></li>
-                    @endif
                     <li>{{ $post->title }}</li>
                 </ol>
             </div>
@@ -35,10 +30,6 @@
                         {!! $post->page_text !!}
                     </div>
                     <div class="col-sm-3 mt-2 col-offer-img" data-aos="fade-left">
-                        {{-- <a href="{{ route('order') }}">
-                    <img loading="lazy" class="img-fluid" src="{{ $banner ?? asset('banners/post-banner.webp') }}"
-                        alt="{{ $post->title }}" width="100%">
-                </a> --}}
 
                         <div class="border border-light rounded p-3">
                             <p class="font-weight-bold text-center" style="font-size:28px">Get The Price Quote</p>
@@ -151,3 +142,39 @@
         </section> <!-- end of about -->
     @endif
 @endsection
+
+@push('js')
+    <script>
+        function calculatePrice() {
+
+            let loader = document.getElementById('loader');
+            let service = document.getElementById('service').value;
+            let serviceDay = document.getElementById('service-day').value;
+            let serviceType = document.getElementById('service-type').value;
+            let servicePage = document.getElementById('service-page').value;
+            let serviceCollege = document.getElementById('service-college').value;
+
+            loader.style.display = "inline-block";
+
+            if (document.getElementById('service-double').checked) {
+                var multi = document.getElementById('service-double').value;
+            }
+
+            if (document.getElementById('service-single').checked) {
+                var multi = document.getElementById('service-single').value;
+            }
+
+            data = parseInt(service) + parseInt(serviceDay) + parseInt(serviceType) + parseInt(servicePage) + parseInt(
+                serviceCollege);
+            multi = data * multi;
+
+            setTimeout(() => {
+                document.getElementById('customer-data').innerText = "$" + multi;
+                multi = parseInt(multi) * 1.25;
+                document.getElementById('customer-data-higer').innerText = "$" + multi;
+                loader.style.display = "none";
+            }, 1500);
+        }
+        calculatePrice();
+    </script>
+@endpush
