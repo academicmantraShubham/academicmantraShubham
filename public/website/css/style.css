@@ -1141,7 +1141,8 @@ ol.category li {
   margin: 0;
 }
 .navbar .dropdown .dropdown-menu {
-  min-height: 40px;
+  max-height: 400px;
+  overflow-y: scroll;
   padding: 0;
 }
 .inter-linking a {
