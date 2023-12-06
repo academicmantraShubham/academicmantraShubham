@@ -7,11 +7,6 @@
                         <h4 class="">GET ESSAY</h4>
                     </div> --}}
                     {!! $footerdata->title !!}
-                    <ul class="m-0">
-                        @foreach ($pages as $pd)
-                            <li><a href="{{ route('post', $pd->slug) }}">{{ $pd->title }}</a></li>
-                        @endforeach
-                    </ul>
                     {{-- <div class="d-flex">
                         <div class="me-3">
                             <a href="https://www.facebook.com/bestessaywritingservicesau">
@@ -64,6 +59,16 @@
 
                 </div> <!-- end of col -->
             </div> <!-- end of row -->
+
+            <div class="row">
+                <div class="col-12">
+                    <ul class="m-0 pages-data">
+                        @foreach ($pages as $pd)
+                            <li><a href="{{ route('post', $pd->slug) }}">{{ $pd->title }}</a></li>
+                        @endforeach
+                    </ul>
+                </div>
+            </div>
         </div> <!-- end of container -->
     </section>
     <!-- end of footer -->
