@@ -23,7 +23,7 @@ class WebSiteController extends Controller
     public function __construct()
     {
         $this->website['menus'] = Cache::remember('menus', 60, function () {
-            return Menu::with('subMenus.subMenus.subMenus')->orderBy('position', 'ASC')->whereParentId(0)->whereIsPage(0)->get(['id', 'title', 'slug', 'content']);
+            return Menu::with('subMenus.subMenus.subMenus')->orderBy('position', 'ASC')->whereParentId(0)->whereIsPage(0)->whereStatus(1)->get(['id', 'title', 'slug', 'content']);
         });
         // $this->website['menus'] =  Menu::with('subMenus.subMenus')->whereParentId(0)->get(['id', 'title', 'slug']);  
 
