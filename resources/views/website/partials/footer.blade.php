@@ -8,8 +8,9 @@
                     </div> --}}
                     {!! $footerdata->title !!}
                     <ul class="m-0">
-                        <li><a href="/terms-and-condition">Terms And Condition</a></li>
-                        <li><a href="/privacy-policy">Privacy Policy</a></li>
+                        @foreach ($pages as $pd)
+                            <li><a href="{{ route('post', $pd->slug) }}">{{ $pd->title }}</a></li>
+                        @endforeach
                     </ul>
                     {{-- <div class="d-flex">
                         <div class="me-3">
@@ -51,7 +52,7 @@
                         <h4>{!! @$subscribeus->title !!}</h4>
                     </div>
                     {{-- <p class="py-3 para-light"> --}}
-                        {!! @$subscribeus->content !!}
+                    {!! @$subscribeus->content !!}
                     {{-- </p> --}}
                     <div class="d-flex align-items-center">
                         <div class="input-group mb-3">
@@ -60,7 +61,7 @@
                             <button class="btn-secondary text-light"><i class="fas fa-envelope fa-lg"></i></button>
                         </div>
                     </div>
-                    
+
                 </div> <!-- end of col -->
             </div> <!-- end of row -->
         </div> <!-- end of container -->

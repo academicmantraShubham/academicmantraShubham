@@ -42,6 +42,9 @@ class WebSiteController extends Controller
         $data['askedquestions'] = Homepage::wherePage('asked questions')->with('subHomepages')->get();
         $data['logo'] = Homepage::select(['image', 'alt'])->wherePage('logo')->first();
         $data['footerdata'] = Homepage::wherePage('footer data')->first();
+        $data['pages'] = Cache::remember('pages', 60, function () {
+            return Menu::orderBy('position', 'ASC')->whereParentId(0)->whereIsPage(1)->get(['id', 'title', 'slug', 'content']);
+        });
         return $data;
     }
 
@@ -137,33 +140,39 @@ class WebSiteController extends Controller
         abort(404, "page not found");
     }
 
-    public function privacyPolicy(Request $request)
-    {
-        $data = $this->common();
-        $menu = Menu::whereSlug('privacy-policy')->first();
-        if ($menu) {
-            $data['post'] = ContentPage::whereMenuId($menu->id)->first();
-            return view('website.pages.pages', $data);
-        }
-        abort(404, "page not found");
-    }
+    // public function privacyPolicy(Request $request)
+    // {
+    //     $data = $this->common();
+    //     $menu = Menu::whereSlug('privacy-policy')->first();
+    //     if ($menu) {
+    //         $data['post'] = ContentPage::whereMenuId($menu->id)->first();
+    //         return view('website.pages.pages', $data);
+    //     }
+    //     abort(404, "page not found");
+    // }
 
-    public function terms(Request $request)
-    {
-        $data = $this->common();    
-        $menu = Menu::whereSlug('terms-and-condition')->first();
-        if ($menu) {
-            $data['post'] = ContentPage::whereMenuId($menu->id)->first();
-            return view('website.pages.pages', $data);
-        }
-        abort(404, "page not found");
-    }
+    // public function terms(Request $request)
+    // {
+    //     $data = $this->common();    
+    //     $menu = Menu::whereSlug('terms-and-condition')->first();
+    //     if ($menu) {
+    //         $data['post'] = ContentPage::whereMenuId($menu->id)->first();
+    //         return view('website.pages.pages', $data);
+    //     }
+    //     abort(404, "page not found");
+    // }
 
     public function post(Request $request, $slug)
     {
         $data = $this->common();
         $data['countries'] = Menu::whereParentId(9)->get();
         $menu = Menu::whereSlug($slug)->first();
+
+        if($menu->is_page == 1){
+            $data['post'] = ContentPage::whereMenuId($menu->id)->first();
+            return view('website.pages.pages', $data);
+        }
+
         if ($menu && $menu->content == 1) {
             $data['cities'] = Menu::whereParentId($menu->parent_id)->with('post')->get();
             $data['post'] = ContentPage::whereMenuId($menu->id)->with(['writers.Menu', 'faqs'])->first();
