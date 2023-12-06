@@ -253,6 +253,12 @@
                     </div>
                 @endforeach
             </div>
+
+            <div class="row text-light">
+                <div class="py-3 text-center">
+                    <a class="btn" href="{{ route('order') }}">Order Now</a>
+                </div>
+            </div>
         </div>
         <!-- end of container -->
     </section>
@@ -341,7 +347,7 @@
                             <!-- end of swiper-wrapper -->
                             <!-- Add Arrows -->
                             <!-- <div class="swiper-button-next"></div>
-                                          <div class="swiper-button-prev"></div> -->
+                                              <div class="swiper-button-prev"></div> -->
                             <!-- end of add arrows -->
                         </div>
                         <!-- end of swiper-container -->
@@ -549,7 +555,7 @@
 
     <!-- Services -->
     @if ($looking_prof)
-        <section class="about d-flex align-items-center text-light py-5" id="about">
+        <section class="plans d-flex align-items-center text-light py-5" id="about">
             <div class="container">
                 <div class="row d-flex align-items-center justify-content-center">
                     <div class="col-lg-12 looking-prof" data-aos="fade-right">
