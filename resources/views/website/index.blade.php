@@ -75,7 +75,7 @@
 
         /* ===== Scrollbar CSS ===== */
         /* Firefox */
-        .looking-prof {
+        * {
             scrollbar-width: thin;
             scrollbar-color: #6bffa4 #ffffff;
         }
@@ -557,8 +557,8 @@
         <section class="about d-flex align-items-center text-light py-5" id="about">
             <div class="container">
                 <div class="row d-flex align-items-center justify-content-center">
-                    <div class="col-lg-8" data-aos="fade-right">
-                        <div class="text-center py-2 div-h-text looking-prof">{!! @$looking_prof->title !!}</div>
+                    <div class="col-lg-12 looking-prof" data-aos="fade-right">
+                        <div class="text-center py-2 div-h-text ">{!! @$looking_prof->title !!}</div>
                         {!! @$looking_prof->content !!}
                         {{-- <div class="my-3">
                         <a class="btn" href="{{ @$customessay->bg_alt }}">Read More</a>
