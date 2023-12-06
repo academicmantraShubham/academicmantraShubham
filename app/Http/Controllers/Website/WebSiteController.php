@@ -68,6 +68,7 @@ class WebSiteController extends Controller
         $data['bestoffers'] = Homepage::wherePage('best offers')->with('subHomepages')->first();
         $data['usps'] = Homepage::wherePage('usp')->with('subHomepages')->first();
         $data['hblog'] = Homepage::wherePage('blog')->first();
+        $data['looking_prof'] = Homepage::wherePage('looking_prof')->first();
         $data['customessay'] = Homepage::wherePage('customessay')->first();
         $data['blogs'] = ContentPage::whereType('blog')->latest()->take(3)->get();
         $data['freeServices'] = Homepage::wherePage('freeServices')->withCount('subHomepages')->first();

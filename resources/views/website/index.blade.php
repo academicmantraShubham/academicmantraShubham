@@ -525,6 +525,26 @@
     </section>
     <!-- ======= Usp Section ======= -->
 
+    <!-- Services -->
+    @if($looking_prof)
+    <section class="about d-flex align-items-center text-light py-5" id="about">
+        <div class="container">
+            <div class="row d-flex align-items-center justify-content-center">
+                <div class="col-lg-8" data-aos="fade-right">
+                    <div class="text-center py-2 div-h-text">{!! @$looking_prof->title !!}</div>
+                    {!! @$looking_prof->content !!}
+                    {{-- <div class="my-3">
+                        <a class="btn" href="{{ @$customessay->bg_alt }}">Read More</a>
+                    </div> --}}
+                </div>
+            </div>
+            <!-- end of row -->
+        </div>
+        <!-- end of container -->
+    </section>
+    <!-- end of Services -->
+    @endif
+
     <!-- Calculator -->
     <section class="about d-flex align-items-center text-light py-5">
         <div class="container">

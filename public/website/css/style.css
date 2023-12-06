@@ -698,6 +698,7 @@ div#navbarNavDropdown
   display: inline-block;
 }
 .fixed-top.desktop_mob div#navbarNavDropdown ul.navbar-nav {
+  text-align: center;
   display: inline-block;
   width: 100%;
 }
