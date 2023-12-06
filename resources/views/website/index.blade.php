@@ -75,11 +75,6 @@
 
         /* ===== Scrollbar CSS ===== */
         /* Firefox */
-        * {
-            scrollbar-width: thin;
-            scrollbar-color: #6bffa4 #ffffff;
-        }
-
         /* Chrome, Edge, and Safari */
         .looking-prof::-webkit-scrollbar {
             width: 12px;
@@ -90,7 +85,7 @@
         }
 
         .looking-prof::-webkit-scrollbar-thumb {
-            background-color: #6bffa4;
+            background-color: #05e096;
             border-radius: 12px;
             border: 4px solid #ffffff;
         }
