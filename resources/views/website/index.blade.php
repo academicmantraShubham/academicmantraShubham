@@ -76,15 +76,15 @@
         /* ===== Scrollbar CSS ===== */
         /* Firefox */
         /* Chrome, Edge, and Safari */
-        .looking-prof::-webkit-scrollbar {
+        .accordion__wrapper::-webkit-scrollbar,.looking-prof::-webkit-scrollbar {
             width: 12px;
         }
 
-        .looking-prof::-webkit-scrollbar-track {
+        .accordion__wrapper::-webkit-scrollbar-track,.looking-prof::-webkit-scrollbar-track {
             background: #ffffff;
         }
 
-        .looking-prof::-webkit-scrollbar-thumb {
+        .accordion__wrapper::-webkit-scrollbar-thumb,.looking-prof::-webkit-scrollbar-thumb {
             background-color: #05e096;
             border-radius: 12px;
             border: 4px solid #ffffff;
