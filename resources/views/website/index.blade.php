@@ -90,6 +90,13 @@
             border: 4px solid #ffffff;
         }
 
+        @media (min-width: 992px) {
+            .accordion__wrapper {
+                max-height: 350px;
+                overflow-y: scroll;
+            }
+        }
+
         @media (max-width: 992px) {
             #header ul {
                 column-count: 2;
