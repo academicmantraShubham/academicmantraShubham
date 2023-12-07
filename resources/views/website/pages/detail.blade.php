@@ -1,6 +1,6 @@
 @extends('website.layouts.app')
 @section('headerData')
-    <title>{{ $bolgDetails->meta_title }} - Best Essay Writing Services</title>
+    <title>{{ $bolgDetails->meta_title }}</title>
     <meta name="description" content="{{ $bolgDetails->meta_keyword }}">
     <meta name="keywords" content="{{ $bolgDetails->meta_description }}">
 @endsection

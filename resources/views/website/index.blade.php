@@ -136,30 +136,30 @@
                             <div class="row g-5">
                                 <div class="col-6 text-start">
                                     <i class="fas fa-briefcase fa-2x text-start"></i>
-                                    <h2 class="purecounter" data-purecounter-start="0"
+                                    <p class="purecounter h2" data-purecounter-start="0"
                                         data-purecounter-end="{{ strip_tags(@$explorePossibilities->subHomepages[0]->content) }}"
-                                        data-purecounter-duration="3">1</h2>
+                                        data-purecounter-duration="3">1</p>
                                     <p>{{ strip_tags(@$explorePossibilities->subHomepages[0]->title) }}</p>
                                 </div>
                                 <div class="col-6">
                                     <i class="fas fa-award fa-2x"></i>
-                                    <h2 class="purecounter" data-purecounter-start="0"
+                                    <p class="purecounter h2" data-purecounter-start="0"
                                         data-purecounter-end="{{ strip_tags(@$explorePossibilities->subHomepages[1]->content) }}"
-                                        data-purecounter-duration="3">1</h2>
+                                        data-purecounter-duration="3">1</p>
                                     <p>{{ strip_tags(@$explorePossibilities->subHomepages[1]->title) }}</p>
                                 </div>
                                 <div class="col-6">
                                     <i class="fas fa-users fa-2x"></i>
-                                    <h2 class="purecounter" data-purecounter-start="0"
+                                    <p class="purecounter h2" data-purecounter-start="0"
                                         data-purecounter-end="{{ strip_tags(@$explorePossibilities->subHomepages[2]->content) }}"
-                                        data-purecounter-duration="3">1</h2>
+                                        data-purecounter-duration="3">1</p>
                                     <p>{{ strip_tags(@$explorePossibilities->subHomepages[2]->title) }}</p>
                                 </div>
                                 <div class="col-6">
                                     <i class="fas fa-clock fa-2x"></i>
-                                    <h2 class="purecounter" data-purecounter-start="0"
+                                    <p class="purecounter h2" data-purecounter-start="0"
                                         data-purecounter-end="{{ strip_tags(@$explorePossibilities->subHomepages[3]->content) }}"
-                                        data-purecounter-duration="3">1</h2>
+                                        data-purecounter-duration="3">1</p>
                                     <p>{{ strip_tags(@$explorePossibilities->subHomepages[3]->title) }}</p>
                                 </div>
                             </div>
@@ -202,7 +202,7 @@
                                             <div class="d-flex pt-4">
                                                 <div>
                                                     <img class="avatar"
-                                                        src="{{ @$clientsSays->image ?? '/images/homepage/1640713712.jpg' }}"
+                                                        src="{{ @$clientsSays->image ?? 'https://xsgames.co/randomusers/avatar.php?g=female' }}"
                                                         alt="testimonial">
                                                 </div>
                                                 <div class="ms-3 pt-2">
@@ -587,7 +587,7 @@
                         <div class="content content__accordion">
                             <div class="accordion">
                                 <div class="accordion__wrapper">
-                                    @foreach ($faqs->subHomepages->take(5) as $faq)
+                                    @foreach ($faqs->subHomepages as $faq)
                                         <div class="accordion__item">
                                             <div class="accordion__item--summary">
                                                 <div class="accordion__item-icon">

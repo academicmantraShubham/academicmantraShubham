@@ -1,11 +1,12 @@
 @extends('website.layouts.app')
 
 @section('headerData')
-<title>Blogs | Best Essay Writing Services</title>
+<title>Blogs | {{ $category->name }} </title>
 <meta name="description"
-    content="Best essay writing services in Australia. We provide assignment, academic content, dissertation and thesis writing with zero plagiarism.">
+    content="Get essay writing services in Australia. We provide assignment, academic content, dissertation and thesis writing with zero plagiarism.">
 <meta name="keywords"
-    content="Best essay writing in Australia, online assignment help, Academic writing services, thesis writing and dissertation writing services, online writing services">
+    content="Get essay writing in Austral
+    ia, online assignment help, Academic writing services, thesis writing and dissertation writing services, online writing services">
 @endsection
 
 @section('content')
@@ -15,9 +16,10 @@
     <div class="container">
         <ol class="breadcrumb">
             <li><a href="/">Home</a></li>
-            <li>Blog</li>
+            <li><a href="{{ route('blogs') }}">Blogs</a></li>
+            <li>{{ $category->name }}</li>
         </ol>
-        <h2 class="mb-4">Best Essay Latest Blogs</h2>
+        <h2 class="mb-4 text-center">{{ $category->name }} Latest Blogs</h2>
     </div>
 </section>
 <!-- End Breadcrumbs -->
@@ -57,7 +59,7 @@
                                                     href="{{ route('blog', $blog->slug) }}">Read More</a>
                                                 </div>
                                                 <div class="col-lg-5 text-center mb-4" data-aos="fade-down">
-                                                    <img class="img-fluid" src="{{ $blog->featured_image->getUrl() }}"
+                                                    <img class="img-fluid" src="{{ $blog->featured_image ? $blog->featured_image->getUrl() : '/images/homepage/1646737989.svg' }}"
                                                         alt="bestessaywritingservices">
                                                 </div>
                                             </div>
@@ -76,7 +78,7 @@
                                                     <p>
                                                         {!! substr(strip_tags($blog->page_text), 0, 200) !!}
                                                     </p>
-                                                    <img class="img-fluid" src="{{ $blog->featured_image->getUrl() }}"
+                                                    <img class="img-fluid" src="{{ $blog->featured_image ? $blog->featured_image->getUrl() : '/images/homepage/1646737989.svg' }}"
                                                     alt="bestessaywritingservices">
                                                 </div>
                                                 <!-- <div class="col-lg-5 text-center mb-4" data-aos="fade-down"> -->

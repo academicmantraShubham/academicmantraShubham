@@ -1,7 +1,7 @@
 @extends('website.layouts.app')
 
 @section('headerData')
-    <title>Blogs | Best Essay Writing Services</title>
+    <title>Blogs | Get Essay Writing Services</title>
     <meta name="description"
         content="Best essay writing services in Australia. We provide assignment, academic content, dissertation and thesis writing with zero plagiarism.">
     <meta name="keywords"
@@ -16,7 +16,7 @@
                 <li><a href="/">Home</a></li>
                 <li>Blog</li>
             </ol>
-            <h2 class="mb-4">Best Essay Latest Blogs</h2>
+            <h2 class="mb-4 text-center">Get Essay Latest Blogs</h2>
         </div>
     </section>
     <!-- End Breadcrumbs -->
