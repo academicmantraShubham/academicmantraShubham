@@ -5,6 +5,8 @@
     <title>{{ $post->meta_title ?? 'Best Essay Writing Services' }}</title>
     <meta name="description" content="{{ @$post->meta_description }}">
     <meta name="keywords" content="{{ @$post->meta_keyword }}">
+    <meta name="robots" content="noindex">  
+    <meta name="googlebot" content="noindex">
 @endsection
 
 @section('content')
