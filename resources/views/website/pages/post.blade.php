@@ -244,7 +244,7 @@
                                     <!-- Slide -->
                                     <div class="swiper-slide">
                                         <div class="testimonial-card p-4">
-                                            <b>About {{ $writer->Menu->title }} Writer</b>
+                                            <b>About {{ @$writer->Menu->title }} Writer</b>
                                             <p>{!! $writer->content !!}</p>
                                             <div class="d-flex pt-4">
                                                 <div class="div-avatar">
@@ -270,7 +270,7 @@
                                                     <p class="mt-2">
                                                         Expertise:
                                                         <span class="badge rounded-pill bg-primary">
-                                                            {{ $writer->Menu->title }}</span>
+                                                            {{ @$writer->Menu->title }}</span>
                                                         <!--<span class="badge rounded-pill bg-primary"> Essay writing</span>-->
                                                     </p>
                                                 </div>
