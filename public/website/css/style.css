@@ -827,6 +827,7 @@ div#navbarNavDropdown ul.navbar-nav>li:nth-child(2) .dropdown-menu.new_id.show {
 }
 
 /*BANDY CSS END*/
+
 .pages-data {
   display: flex;
   flex-wrap: nowrap;
@@ -836,6 +837,10 @@ div#navbarNavDropdown ul.navbar-nav>li:nth-child(2) .dropdown-menu.new_id.show {
 @media only screen and (max-width: 540px) {
   .pages-data {
     display: block;
+  }
+  .coulum-2{
+    column-count: 2;
+    width: max-content;
   }
 }
 /*************************/

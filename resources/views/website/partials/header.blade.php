@@ -12,7 +12,7 @@
       </button> 
       <div class="navbar-collapse offcanvas-collapse" id="navbarNavDropdown">
          <ul class="navbar-nav ms-auto navbar-nav-scroll">
-            @foreach ($menus as $menu) 
+            @foreach ($menus as $key => $menu) 
                @if ($menu->subMenus->count() > 0)
                   <li class="nav-item dropdown" >
                      <a class="nav-link dropdown-toggle" id="dropdown01" data-bs-toggle="dropdown" aria-expanded="false" href="javascript:void(0)">{{ $menu->title }} <i class="bi bi-chevron-down"></i></a>
@@ -21,7 +21,7 @@
                            @if ($subMenu->subMenus->count() > 0)
                               <li class="dropdown-submenu">
                                  <a class="dropdown-item dropdown-toggle second" href="#">{{ $subMenu->title }}</a>
-                                 <ul class="dropdown-menu new_id" id="new_id_{{ $subMenu->id }}">
+                                 <ul class="dropdown-menu new_id{{ $key == 2 ? 'coulum-2'}} " id="new_id_{{ $subMenu->id }}">
                                     @foreach ($subMenu->subMenus as $subChlid)
                                        @if ($subChlid->subMenus->count() > 0)
                                        <li class="dropdown-submenu">
