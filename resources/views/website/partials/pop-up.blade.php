@@ -106,7 +106,7 @@
     }
 </style>
 
-{{-- @if (!Session::has('popup'))
+@if (!Session::has('popup'))
     <div id="pop-up">
         <div class="modal" id="modal">
             <div class='modal__container'>
@@ -122,7 +122,7 @@
             </div>
         </div>
     </div>
-@endif --}}
+@endif
 
 {{ session()->put('popup', 'true') }}
 
