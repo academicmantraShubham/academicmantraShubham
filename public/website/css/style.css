@@ -834,6 +834,11 @@ div#navbarNavDropdown ul.navbar-nav>li:nth-child(2) .dropdown-menu.new_id.show {
   justify-content: space-between;
 }
 
+.coulum-2{
+  column-count: 2;
+  width: max-content;
+}
+
 @media only screen and (max-width: 540px) {
   .pages-data {
     display: block;
