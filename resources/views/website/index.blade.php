@@ -143,30 +143,38 @@
                             <div class="row g-5">
                                 <div class="col-6 text-start">
                                     <i class="fas fa-briefcase fa-2x text-start"></i>
+                                    <div class="row">
                                     <p class="purecounter h2" data-purecounter-start="0"
                                         data-purecounter-end="{{ strip_tags(@$explorePossibilities->subHomepages[0]->content) }}"
-                                        data-purecounter-duration="3">1</p>
-                                    <p>{{ strip_tags(@$explorePossibilities->subHomepages[0]->title) }}</p>
+                                        data-purecounter-duration="3">1</p><span>+</span>
+                                    </div>
+                                    <p>{{ strip_tags(@$explorePossibilities->subHomepages[0]->title) }}</p> 
                                 </div>
                                 <div class="col-6">
                                     <i class="fas fa-award fa-2x"></i>
-                                    <p class="purecounter h2" data-purecounter-start="0"
+                                    <div class="row">
+                                        <p class="purecounter h2" data-purecounter-start="0"
                                         data-purecounter-end="{{ strip_tags(@$explorePossibilities->subHomepages[1]->content) }}"
-                                        data-purecounter-duration="3">1</p>
-                                    <p>{{ strip_tags(@$explorePossibilities->subHomepages[1]->title) }}</p>
+                                        data-purecounter-duration="3">1</p><span>+</span>
+                                    </div>
+                                    <p>{{ strip_tags(@$explorePossibilities->subHomepages[1]->title) }}</p> <span>+</span>
                                 </div>
                                 <div class="col-6">
                                     <i class="fas fa-users fa-2x"></i>
+                                    <div class="row">
                                     <p class="purecounter h2" data-purecounter-start="0"
                                         data-purecounter-end="{{ strip_tags(@$explorePossibilities->subHomepages[2]->content) }}"
-                                        data-purecounter-duration="3">1</p>
-                                    <p>{{ strip_tags(@$explorePossibilities->subHomepages[2]->title) }}</p>
+                                        data-purecounter-duration="3">1</p><span>+</span>
+                                    </div>
+                                    <p>{{ strip_tags(@$explorePossibilities->subHomepages[2]->title) }}</p> 
                                 </div>
                                 <div class="col-6">
                                     <i class="fas fa-clock fa-2x"></i>
+                                    <div class="row">
                                     <p class="purecounter h2" data-purecounter-start="0"
                                         data-purecounter-end="{{ strip_tags(@$explorePossibilities->subHomepages[3]->content) }}"
-                                        data-purecounter-duration="3">1</p>
+                                        data-purecounter-duration="3">1</p><span>+</span>
+                                    </div>
                                     <p>{{ strip_tags(@$explorePossibilities->subHomepages[3]->title) }}</p>
                                 </div>
                             </div>
