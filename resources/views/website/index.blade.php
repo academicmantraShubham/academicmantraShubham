@@ -120,6 +120,12 @@
             {{-- <div class="my-3">
                 <a class="btn" href="{{ route('order') }}">Order Now</a>
             </div> --}}
+
+            <div class="row text-light">
+                <div class="py-3 text-center">
+                    <a class="btn" href="{{ route('order') }}">Order Now</a>
+                </div>
+            </div>
         </div>
         <!-- end of container -->
     </section>
