@@ -836,16 +836,12 @@ div#navbarNavDropdown ul.navbar-nav>li:nth-child(2) .dropdown-menu.new_id.show {
 
 .coulum-2{
   column-count: 2;
-  width: max-content;
+  width: max-content !important;
 }
 
 @media only screen and (max-width: 540px) {
   .pages-data {
     display: block;
-  }
-  .coulum-2{
-    column-count: 2;
-    width: max-content;
   }
 }
 /*************************/
