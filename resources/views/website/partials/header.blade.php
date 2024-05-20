@@ -16,7 +16,7 @@
                @if ($menu->subMenus->count() > 0)
                   <li class="nav-item dropdown" >
                      <a class="nav-link dropdown-toggle" id="dropdown01" data-bs-toggle="dropdown" aria-expanded="false" href="javascript:void(0)">{{ $menu->title }} <i class="bi bi-chevron-down"></i></a>
-                     <ul class="dropdown-menu {{ $key == 2 ? 'coulum-2' : ''}} " aria-labelledby="dropdown01">
+                     <ul class="dropdown-menu {{ $key == 2 ? 'coulum-2' : ''}} {{ $key }}" aria-labelledby="dropdown01">
                         @foreach ($menu->subMenus as $subMenu)
                            @if ($subMenu->subMenus->count() > 0)
                               <li class="dropdown-submenu">
