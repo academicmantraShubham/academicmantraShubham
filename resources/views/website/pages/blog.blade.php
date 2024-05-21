@@ -57,7 +57,7 @@
                                                     </div>
                                                     <div class="col-lg-5 text-center mb-4" data-aos="fade-down">
                                                         <img class="img-fluid mt-2"
-                                                            src="{{ $blog->featured_image ? $blog->featured_image->getUrl() : '/images/homepage/1646737989.svg' }}"
+                                                            src="{{ $blog->featured_image ? $blog->featured_image->getUrl() : '/images/homepage/1700484614.png' }}"
                                                             alt="{{ $blog->title }}" style="width: 300px;">
                                                     </div>
                                                 </div>
