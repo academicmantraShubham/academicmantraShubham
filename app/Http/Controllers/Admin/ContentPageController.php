@@ -24,7 +24,7 @@ class ContentPageController extends Controller
     {
         abort_if(Gate::denies('content_page_access'), Response::HTTP_FORBIDDEN, '403 Forbidden');
 
-        $contentPages = ContentPage::where('type', 'blog')->with(['categories', 'tags', 'media'])->get();
+        $contentPages = ContentPage::where('type', 'blog')->with(['categories', 'tags', 'media'])->latest()->get();
 
         return view('dashboard.admin.contentPages.index', compact('contentPages'));
     }
