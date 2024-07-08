@@ -13,21 +13,16 @@
     @endpush
 
 
-    <!-- Header -->
-    <header class="ex-header">
-        <div class="container">
-            <div class="row">
-                <div class="col-xl-10 offset-xl-1">
-                    <div class="breadcrum">
-                        <div class="container">
-                            <p><a href="/">Home</a> &nbsp; / &nbsp;Reviews</p>
-                        </div>
-                    </div>
-                </div> <!-- end of col -->
-            </div> <!-- end of row -->
-        </div> <!-- end of container -->
-    </header> <!-- end of ex-header -->
-    <!-- end of header -->
+        <!-- ======= Breadcrumbs ======= -->
+        <section id="breadcrumbs" class="breadcrumbs">
+            <div class="container">
+                <ol class="breadcrumb">
+                    <li><a href="/">Home</a></li>
+                    <li>Reviews</li>
+                </ol>
+            </div>
+        </section>
+        <!-- End Breadcrumbs -->
 
     {{-- @include('website.partials.banner') --}}
 
