@@ -108,7 +108,7 @@
 
 @if (!Session::has('popup'))
     <div id="pop-up">
-        <div class="modal show" id="modal">
+        <div class="modal" id="modal">
             <div class='modal__container'>
                 <img class="modal__img" loading="lazy" src="{{ asset('website/assets/images/pop-up-book.webp') }}"
                     alt="best essay writing offer">
@@ -147,7 +147,7 @@
 
 @if (Session::has('success'))
     <div id="pop-up">
-        <div class="modal show" id="modal">
+        <div class="modal" id="modal">
             <div class='modal__container'>
                 <div class='checkmark modal__img'>
                     <svg class='confetti' height='19' viewBox='0 0 19 19' width='19'
@@ -236,7 +236,7 @@
 
 @if (Session::has('error'))
     <div id="pop-up">
-        <div class="modal show" id="modal">
+        <div class="modal" id="modal">
             <div class='modal__container'>
                 <div class='checkmark'>
                     <svg class='confetti' height='19' viewBox='0 0 19 19' width='19'
