@@ -6,13 +6,18 @@
   --gradient: linear-gradient(to right, #0ee951, #00dabf);
 }
 
+body{
+  font-family: "math";
+  font-size: 17px;
+}
+
 h1,
 h2,
 h3,
 h4,
 h5,
 h6 {
-  font-family: "Poppins", sans-serif;
+  font-family: "math";
 }
 
 h1 {
@@ -21,7 +26,7 @@ h1 {
 }
 
 button {
-  font-family: sans-serif;
+  font-family: 'math';
 }
 
 p,
