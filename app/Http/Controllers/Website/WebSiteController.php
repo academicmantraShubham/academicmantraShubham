@@ -169,7 +169,7 @@ class WebSiteController extends Controller
         $data['countries'] = Menu::whereParentId(9)->get();
         $menu = Menu::whereSlug($slug)->first();
 
-        if($menu->is_page == 1){
+        if($menu && $menu->is_page == 1){
             $data['post'] = ContentPage::whereMenuId($menu->id)->first();
             return view('website.pages.pages', $data);
         }

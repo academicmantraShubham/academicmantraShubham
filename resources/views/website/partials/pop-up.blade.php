@@ -113,7 +113,7 @@
                 <img class="modal__img" loading="lazy" src="{{ asset('website/assets/images/pop-up-book.webp') }}"
                     alt="best essay writing offer">
                 <div class="modal__content">
-                    <h1 class="modal__title">SPONSOR MY EDUCATION <span>START-UP CONTEST</span></h1>
+                    <h4 class="modal__title">SPONSOR MY EDUCATION <span>START-UP CONTEST</span></h4>
                     <p class="modal__paragraph">This contest is geared towards discovering and funding innovative ideas.
                     </p>
                     <button class="modal__button">Click here to participate</button>
@@ -199,10 +199,10 @@
                     </svg>
                 </div>
                 <div class="modal__content">
-                    <h1 class="modal__title">
+                    <h4 class="modal__title">
                         Thank You
                         {{-- <span>START-UP CONTEST</span> --}}
-                    </h1>
+                    </h4>
                     <p class="modal__paragraph">
                         Your Request Has Been Submitted Successfully and Our Team Will Contact You Within 15 Mins.
 
@@ -288,7 +288,7 @@
                     </svg>
                 </div>
                 <div class="modal__content">
-                    <h1 class="modal__title">SPONSOR MY EDUCATION <span>START-UP CONTEST</span></h1>
+                    <h4 class="modal__title">SPONSOR MY EDUCATION <span>START-UP CONTEST</span></h4>
                     <p class="modal__paragraph">This contest is geared towards discovering and funding innovative
                         ideas.</p>
                     <button class="modal__button">Click here to participate</button>
