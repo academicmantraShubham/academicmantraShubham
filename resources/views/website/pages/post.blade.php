@@ -21,6 +21,7 @@
 
     <!-- About -->
     @if (isset($post) && !empty($post))
+        {{-- 
         <section class="about d-flex align-items-center text-light py-5" id="excerpt" style="margin-top: 5.5rem;">
             <div class="container">
                 <div class="row d-flex align-items-center">
@@ -32,9 +33,13 @@
                             src="{{ $post->featured_image ? $post->featured_image->getUrl() : '/images/homepage/1646737989.svg' }}"
                             alt="{{ $post->title }}">
                     </div>
-                </div> <!-- end of row -->
-            </div> <!-- end of container -->
-        </section> <!-- end of about -->
+                </div> 
+                <!-- end of row -->
+            </div> 
+            <!-- end of container -->
+        </section> 
+        <!-- end of about -->
+    --}}
 
         <!-- ======= Breadcrumbs ======= -->
         <section id="breadcrumbs" class="breadcrumbs">
@@ -295,8 +300,7 @@
     </section>
     <!-- end of writers -->
 
-    @if (url()->current() != 'https://getessayservice.com//au-australia' &&
-            strpos(url()->current(), 'au-') !== false)
+    @if (url()->current() != 'https://getessayservice.com//au-australia' && strpos(url()->current(), 'au-') !== false)
         <!-- ======= Top Colleges ======= -->
         <section class="testimonial d-flex align-items-center text-light pb-2" id="about">
             <div class="container">

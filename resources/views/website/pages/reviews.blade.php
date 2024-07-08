@@ -29,7 +29,7 @@
     </header> <!-- end of ex-header -->
     <!-- end of header -->
 
-    @include('website.partials.banner')
+    {{-- @include('website.partials.banner') --}}
 
     <!-- $clientsSays -->
     <div class="slider-1 testimonial text-light d-flex align-items-center" style="background:#1a4c76">
