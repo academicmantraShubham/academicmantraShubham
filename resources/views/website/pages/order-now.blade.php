@@ -267,6 +267,31 @@
         </div>
     </section>
 
+    <section class="w3l-about1 plans" id="about">
+        <div id="cwp23-block" class="py-5">
+            <div class="container py-lg-5">
+                <div class="row cwp23-content">
+                    <div class="col-lg-12  mt-lg-0 mt-5  cwp23-text">
+                        <div class="cwp23-title">
+                            <h3 class="text-center">Why Choose us? </h3>
+                        </div>
+                        <div class="row justify-content-center">
+                            @foreach ($whyChooseUs as $chooseUs)
+                                <div class="col-md-5 testimonial-card p-2 m-2">
+                                    <span class="fa {{ $chooseUs->alt }}" aria-hidden="true"></span>
+                                    <b>
+                                        <a href="{{ route('services') }}">{{ strip_tags($chooseUs->title) }}</a>
+                                    </b>
+                                    <p> {{ strip_tags($chooseUs->content) }}</p>
+                                </div>
+                            @endforeach
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
 @endsection
 
 @push('js')

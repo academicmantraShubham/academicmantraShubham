@@ -190,6 +190,7 @@ class WebSiteController extends Controller
     public function order()
     {
         $data = $this->common();
+        $data['whyChooseUs'] = Homepage::wherePage('why-choose-us')->inRandomOrder()->limit(4)->get();
         $data['services'] = Menu::whereIn('id', [3, 181])->withCount('subMenus')->get();
         return view('website.pages.order-now', $data);
     }
