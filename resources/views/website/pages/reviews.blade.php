@@ -13,16 +13,36 @@
     @endpush
 
 
-        <!-- ======= Breadcrumbs ======= -->
-        <section id="breadcrumbs" class="breadcrumbs">
+    @if (isset($post) && !empty($post))
+        <section class="about d-flex align-items-center text-light py-5" id="excerpt" style="margin-top: 5.5rem;">
             <div class="container">
-                <ol class="breadcrumb">
-                    <li><a href="/">Home</a></li>
-                    <li>Reviews</li>
-                </ol>
+                <div class="row d-flex align-items-center">
+                    <div class="col-lg-7" data-aos="fade-right">
+                        {!! $post->excerpt !!}
+                    </div>
+                    <div class="col-lg-5 text-center py-4 py-sm-0" data-aos="fade-down">
+                        <img loading="lazy" class="img-fluid" title="{{ $post->title }}" style="width:150px"
+                            src="{{ $post->featured_image ? $post->featured_image->getUrl() : '/images/homepage/1646737989.svg' }}"
+                            alt="{{ $post->title }}">
+                    </div>
+                </div>
+                <!-- end of row -->
             </div>
+            <!-- end of container -->
         </section>
-        <!-- End Breadcrumbs -->
+        <!-- end of about -->
+    @endif
+    
+    <!-- ======= Breadcrumbs ======= -->
+    <section id="breadcrumbs" class="breadcrumbs">
+        <div class="container">
+            <ol class="breadcrumb">
+                <li><a href="/">Home</a></li>
+                <li>Reviews</li>
+            </ol>
+        </div>
+    </section>
+    <!-- End Breadcrumbs -->
 
     {{-- @include('website.partials.banner') --}}
 
@@ -93,9 +113,7 @@
                                     <div class="swiper-slide">
                                         <div class="testimonial-card p-4">
                                             @php
-                                                $menu = \App\Models\Menu::whereParentId(3)
-                                                    ->inRandomOrder()
-                                                    ->first();
+                                                $menu = \App\Models\Menu::whereParentId(3)->inRandomOrder()->first();
                                             @endphp
                                             <p><b>Service - </b> {{ $menu->title }}</p>
                                             <p>{!! $review->content !!}</p>
@@ -149,16 +167,16 @@
                             <h3 class="text-center">Why Choose us? </h3>
                         </div>
                         <div class="row justify-content-center">
-                          @foreach ($whyChooseUs as $chooseUs)
-                              <div class="col-md-5 testimonial-card p-2 m-2">
-                                  <span class="fa {{ $chooseUs->alt }}" aria-hidden="true"></span>
-                                  <b>
-                                      <a href="{{ route('services') }}">{{ strip_tags($chooseUs->title) }}</a>
-                                  </b>
-                                  <p> {{ strip_tags($chooseUs->content) }}</p>
-                              </div>
-                          @endforeach
-                      </div>
+                            @foreach ($whyChooseUs as $chooseUs)
+                                <div class="col-md-5 testimonial-card p-2 m-2">
+                                    <span class="fa {{ $chooseUs->alt }}" aria-hidden="true"></span>
+                                    <b>
+                                        <a href="{{ route('services') }}">{{ strip_tags($chooseUs->title) }}</a>
+                                    </b>
+                                    <p> {{ strip_tags($chooseUs->content) }}</p>
+                                </div>
+                            @endforeach
+                        </div>
                     </div>
                 </div>
             </div>
