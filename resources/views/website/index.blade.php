@@ -228,6 +228,8 @@
                             <input type="number" placeholder="Enter word count" class="email" required>
                             <input type="text" class="email" placeholder="Choose Deadline" onfocus="(this.type='date')"
                                 name="deadline" min="<?php echo date('Y-m-d'); ?>" required />
+                            <input type="text" placeholder="Enter Topic" class="email" required>
+
                         </form>
 
                         <!-- BOUTTON LOGIN -->
