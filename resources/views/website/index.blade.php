@@ -129,6 +129,7 @@
 
         .card h2 {
             margin-bottom: 10px;
+            color: black;
         }
 
         .card a.fp {
@@ -160,7 +161,7 @@
 
         .login_register a.register {
             border-radius: 15px;
-            background: linear-gradient(90deg, #003A74, #006AD5);
+            background: linear-gradient(-90deg, #0ee951, #0dcaf0)
             color: white;
         }
 
