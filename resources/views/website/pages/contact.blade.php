@@ -75,7 +75,7 @@
                         </div> <!-- end of div -->
                     </div> <!-- end of col -->
                     <div class="col-lg-6 d-flex align-items-center" data-aos="fade-down">
-                        <img class="img-fluid d-none d-lg-block" src="{{ @$sendyourquery[0]->image }}" alt="contact">
+                        <img class="img-fluid d-none d-lg-block" src="{{ $post->featured_image ? $post->featured_image->getUrl() : '/images/homepage/1700484614.png' }}" alt="contact">
                     </div> <!-- end of col -->
                 </div> <!-- end of row -->
             </div> <!-- end of container -->
