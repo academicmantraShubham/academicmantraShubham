@@ -549,17 +549,31 @@
                 <p class="para-light">{!! @$expectus->content !!}</p>
             </div>
             <div class="row gy-4 py-2" data-aos="zoom-in">
-                @foreach ($expectus->subHomepages->take(9) as $key => $subHomepage)
-                    <div class="col-lg-4">
-                        <!-- <a href="">  -->
-                        <div class="card bg-transparent">
-                            <h3 class="py-2 text-success">{{ strip_tags($subHomepage->title) }}</h3>
-                            <div class="para-light">
-                                {!! $subHomepage->content !!}
-                            </div>
+                @foreach ($expectus->subHomepages->take(10) as $key => $subHomepage)
+                @if($key == 0)
+                <div class="col-lg-12">
+                    <!-- <a href="">  -->
+                    <div class="card bg-transparent">
+                        <h3 class="py-2 text-success">{{ strip_tags($subHomepage->title) }}</h3>
+                        <div class="para-light">
+                            {!! $subHomepage->content !!}
                         </div>
-                        <!-- </a> -->
                     </div>
+                    <!-- </a> -->
+                </div>
+                @else
+                <div class="col-lg-4">
+                    <!-- <a href="">  -->
+                    <div class="card bg-transparent">
+                        <h3 class="py-2 text-success">{{ strip_tags($subHomepage->title) }}</h3>
+                        <div class="para-light">
+                            {!! $subHomepage->content !!}
+                        </div>
+                    </div>
+                    <!-- </a> -->
+                </div>
+                @endif
+
                 @endforeach
             </div> <!-- end of row -->
         </div> <!-- end of container -->
