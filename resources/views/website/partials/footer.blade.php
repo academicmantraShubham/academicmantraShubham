@@ -50,6 +50,7 @@
                     {!! @$subscribeus->content !!}
                     {{-- </p> --}}
                     <form action="{{ route('subscribe-mail') }}" method="POST">
+                        @csrf
                         <div class="d-flex align-items-center">
                             <div class="input-group mb-3">
                                 <input type="email" name="email" required class="form-control p-2" placeholder="Enter Email"
