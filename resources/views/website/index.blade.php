@@ -343,8 +343,8 @@
                                                         alt="{{ strip_tags($writer->title) }} Expert">
                                                 </div> --}}
                                                 <div class="ms-3 pt-2">
-                                                    {!! $writer->title !!}
                                                     <div class="row text-center hire-div">
+                                                        {!! $writer->title !!}
                                                         <a href="{{ route('order') }}" class="btn m-2">
                                                             Hire Me
                                                         </a>
