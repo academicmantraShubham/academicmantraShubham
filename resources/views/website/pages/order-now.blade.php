@@ -53,6 +53,14 @@
         .select2-results__option {
             color: #222 !important;
         }
+
+        #contact {
+            padding: 15px;
+            border: 10px solid;
+            border-image-slice: 1;
+            border-width: 3px;
+            border-image-source: var(--gradient);
+        }
     </style>
 @endpush
 
@@ -62,17 +70,17 @@
 @section('content')
 
     @php
-        
+
         $code = app('request')->input('code');
         if ($code) {
             session()->put('code', $code);
         }
-        
+
         if ($code == 'remove') {
             session()->put('code', '');
             $code = '';
         }
-        
+
     @endphp
     <!-- Header -->
     <header class="ex-header">
@@ -221,9 +229,7 @@
                                         $coupon = 0;
                                         if (session()->has('code')) {
                                             $code = session()->get('code');
-                                            $coupon = \App\Models\Voucher::whereCode($code)
-                                                ->whereStatus(1)
-                                                ->first();
+                                            $coupon = \App\Models\Voucher::whereCode($code)->whereStatus(1)->first();
                                         }
                                     @endphp
 
@@ -291,7 +297,7 @@
             </div>
         </div>
     </section>
-    
+
 @endsection
 
 @push('js')
