@@ -31,7 +31,7 @@ Auth::routes(['register' => false]);
 
 Route::get('/', [WebSiteController::class, 'index'])->name('home');
 Route::get('/services', [WebSiteController::class, 'services'])->name('services');
-Route::get('/about-us', [WebSiteController::class, 'about'])->name('about');
+Route::get('/about', [WebSiteController::class, 'about'])->name('about');
 Route::get('/contact-us', [WebSiteController::class, 'contact'])->name('contact');
 Route::get('/price', [WebSiteController::class, 'price'])->name('price');
 // Route::get('/privacy-policy', [WebSiteController::class, 'privacyPolicy'])->name('privacy-policy');
