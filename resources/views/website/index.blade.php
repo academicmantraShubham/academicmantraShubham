@@ -197,12 +197,12 @@
             color: white;
             border-radius: 15px;
             border: none;
-            background-color: #003A74;
+            background-color: #0ee951;
             width: 100%;
             padding: 10px;
             margin-top: 15px;
             margin-bottom: 15px;
-            background: linear-gradient(-90deg, #003A74, #006AD5);
+            background: linear-gradient(-90deg, #0ee951, #0dcaf0)
             box-shadow: 1px 5px 9px rgba(211, 211, 211, .9);
         }
     </style>
