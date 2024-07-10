@@ -161,7 +161,7 @@
 
         .login_register a.register {
             border-radius: 15px;
-            background: linear-gradient(-90deg, #0ee951, #0dcaf0)
+            background: linear-gradient(-90deg, #0ee951, #0dcaf0);
             color: white;
         }
 
@@ -202,7 +202,7 @@
             padding: 10px;
             margin-top: 15px;
             margin-bottom: 15px;
-            background: linear-gradient(-90deg, #0ee951, #0dcaf0)
+            background: linear-gradient(-90deg, #0ee951, #0dcaf0);
             box-shadow: 1px 5px 9px rgba(211, 211, 211, .9);
         }
     </style>
