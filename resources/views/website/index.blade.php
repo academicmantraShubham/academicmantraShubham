@@ -227,11 +227,11 @@
                                         <div class="testimonial-card p-4">
                                             <p>{!! $clientsSays->content !!}</p>
                                             <div class="d-flex pt-4">
-                                                <div>
+                                                {{-- <div>
                                                     <img class="avatar"
                                                         src="{{ @$clientsSays->image ?? 'https://xsgames.co/randomusers/avatar.php?g=female' }}"
                                                         alt="testimonial">
-                                                </div>
+                                                </div> --}}
                                                 <div class="ms-3 pt-2">
                                                     {!! $clientsSays->title !!}
                                                 </div>
@@ -368,7 +368,7 @@
                                                         <span class="badge rounded-pill bg-primary"> Essay writing</span>
                                                     </p>
                                                     <p class="mt-2">
-                                                        Completedt Projects:
+                                                        Completed Projects:
                                                         <span class="badge rounded-pill bg-primary"> {{ rand(10,100) }}</span>
                                                     </p>
                                                 </div>
