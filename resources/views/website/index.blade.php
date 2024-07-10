@@ -555,7 +555,7 @@
                         <div class="card bg-transparent">
                             <h3 class="py-2 text-success">{{ strip_tags($subHomepage->title) }}</h3>
                             <div class="para-light">
-                                {{  sub_str(strip_tags($subHomepage->content) , 210) }}
+                                {{  substr(strip_tags($subHomepage->content) , 210) }}
                             </div>
                         </div>
                         <!-- </a> -->
