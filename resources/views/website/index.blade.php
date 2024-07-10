@@ -65,7 +65,7 @@
         }
 
         #header ul {
-            column-count: 3;
+            column-count: 2;
         }
 
         .looking-prof {
@@ -76,15 +76,18 @@
         /* ===== Scrollbar CSS ===== */
         /* Firefox */
         /* Chrome, Edge, and Safari */
-        .accordion__wrapper::-webkit-scrollbar,.looking-prof::-webkit-scrollbar {
+        .accordion__wrapper::-webkit-scrollbar,
+        .looking-prof::-webkit-scrollbar {
             width: 12px;
         }
 
-        .accordion__wrapper::-webkit-scrollbar-track,.looking-prof::-webkit-scrollbar-track {
+        .accordion__wrapper::-webkit-scrollbar-track,
+        .looking-prof::-webkit-scrollbar-track {
             background: #ffffff;
         }
 
-        .accordion__wrapper::-webkit-scrollbar-thumb,.looking-prof::-webkit-scrollbar-thumb {
+        .accordion__wrapper::-webkit-scrollbar-thumb,
+        .looking-prof::-webkit-scrollbar-thumb {
             background-color: #05e096;
             border-radius: 12px;
             border: 4px solid #ffffff;
@@ -115,12 +118,15 @@
     <!-- Home -->
     <section class="home py-5 d-flex align-items-center" id="header">
         <div class="container text-light py-5" data-aos="fade-right">
-            <h1 class="headline">{{ strip_tags(@$thesisNdissertation->title) }}</h1>
-            <p class="para py-3">{!! @$thesisNdissertation->content !!}</p>
-            {{-- <div class="my-3">
-                <a class="btn" href="{{ route('order') }}">Order Now</a>
-            </div> --}}
+            <div class="row">
+                <div class="col-md-6">
+                    <h1 class="headline">{{ strip_tags(@$thesisNdissertation->title) }}</h1>
+                    <p class="para py-3">{!! @$thesisNdissertation->content !!}</p>
+                </div>
+                <div class="col-md-6">
 
+                </div>
+            </div>
             <div class="row text-light">
                 <div class="py-3 text-center">
                     <a class="btn" href="{{ route('order') }}">Order Now</a>
@@ -150,36 +156,36 @@
                                 <div class="col-6 text-start">
                                     <i class="fas fa-briefcase fa-2x text-start"></i>
                                     <div class="d-flex">
-                                    <p class="purecounter h2" data-purecounter-start="0"
-                                        data-purecounter-end="{{ strip_tags(@$explorePossibilities->subHomepages[0]->content) }}"
-                                        data-purecounter-duration="3">1</p><span>+</span>
+                                        <p class="purecounter h2" data-purecounter-start="0"
+                                            data-purecounter-end="{{ strip_tags(@$explorePossibilities->subHomepages[0]->content) }}"
+                                            data-purecounter-duration="3">1</p><span>+</span>
                                     </div>
-                                    <p>{{ strip_tags(@$explorePossibilities->subHomepages[0]->title) }}</p> 
+                                    <p>{{ strip_tags(@$explorePossibilities->subHomepages[0]->title) }}</p>
                                 </div>
                                 <div class="col-6">
                                     <i class="fas fa-award fa-2x"></i>
                                     <div class="d-flex">
                                         <p class="purecounter h2" data-purecounter-start="0"
-                                        data-purecounter-end="{{ strip_tags(@$explorePossibilities->subHomepages[1]->content) }}"
-                                        data-purecounter-duration="3">1</p><span>+</span>
+                                            data-purecounter-end="{{ strip_tags(@$explorePossibilities->subHomepages[1]->content) }}"
+                                            data-purecounter-duration="3">1</p><span>+</span>
                                     </div>
                                     <p>{{ strip_tags(@$explorePossibilities->subHomepages[1]->title) }}</p>
                                 </div>
                                 <div class="col-6">
                                     <i class="fas fa-users fa-2x"></i>
                                     <div class="d-flex">
-                                    <p class="purecounter h2" data-purecounter-start="0"
-                                        data-purecounter-end="{{ strip_tags(@$explorePossibilities->subHomepages[2]->content) }}"
-                                        data-purecounter-duration="3">1</p><span>+</span>
+                                        <p class="purecounter h2" data-purecounter-start="0"
+                                            data-purecounter-end="{{ strip_tags(@$explorePossibilities->subHomepages[2]->content) }}"
+                                            data-purecounter-duration="3">1</p><span>+</span>
                                     </div>
-                                    <p>{{ strip_tags(@$explorePossibilities->subHomepages[2]->title) }}</p> 
+                                    <p>{{ strip_tags(@$explorePossibilities->subHomepages[2]->title) }}</p>
                                 </div>
                                 <div class="col-6">
                                     <i class="fas fa-clock fa-2x"></i>
                                     <div class="d-flex">
-                                    <p class="purecounter h2" data-purecounter-start="0"
-                                        data-purecounter-end="{{ strip_tags(@$explorePossibilities->subHomepages[3]->content) }}"
-                                        data-purecounter-duration="3">1</p><span>+</span>
+                                        <p class="purecounter h2" data-purecounter-start="0"
+                                            data-purecounter-end="{{ strip_tags(@$explorePossibilities->subHomepages[3]->content) }}"
+                                            data-purecounter-duration="3">1</p><span>+</span>
                                     </div>
                                     <p>{{ strip_tags(@$explorePossibilities->subHomepages[3]->title) }}</p>
                                 </div>
@@ -331,11 +337,11 @@
                                             <b>About :- {{ @$writer->Menu->title }} Writer</b>
                                             <p>{{ strip_tags($writer->content) }}</p>
                                             <div class="d-flex pt-4">
-                                                <div class="div-avatar">
+                                                {{-- <div class="div-avatar">
                                                     <img class="avatar"
                                                         src="{{ $writer->image ?? '/images/homepage/1660655334.jpg' }}"
                                                         alt="{{ strip_tags($writer->title) }} Expert">
-                                                </div>
+                                                </div> --}}
                                                 <div class="ms-3 pt-2">
                                                     {!! $writer->title !!}
                                                     <div class="row text-center hire-div">
@@ -356,6 +362,10 @@
                                                         <span class="badge rounded-pill bg-primary"> Essay writing</span>
                                                         <span class="badge rounded-pill bg-primary"> Essay writing</span>
                                                     </p>
+                                                    <p class="mt-2">
+                                                        Completedt Projects:
+                                                        <span class="badge rounded-pill bg-primary"> {{ rand(10,100) }}</span>
+                                                    </p>
                                                 </div>
 
                                             </div>
@@ -368,7 +378,7 @@
                             <!-- end of swiper-wrapper -->
                             <!-- Add Arrows -->
                             <!-- <div class="swiper-button-next"></div>
-                                              <div class="swiper-button-prev"></div> -->
+                                                  <div class="swiper-button-prev"></div> -->
                             <!-- end of add arrows -->
                         </div>
                         <!-- end of swiper-container -->
