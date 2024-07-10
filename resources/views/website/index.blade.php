@@ -335,7 +335,7 @@
                                     <!-- Slide -->
                                     <div class="swiper-slide">
                                         <div class="testimonial-card p-4">
-                                            <p>{{ substr(strip_tags($clientsSays->content), 210) }}</p>
+                                            <p>{{ substr(strip_tags($clientsSays->content), 0, 210) }}</p>
                                             <div class="d-flex pt-4">
                                                 {{-- <div>
                                                     <img class="avatar"
@@ -450,7 +450,7 @@
                                     <div class="swiper-slide">
                                         <div class="testimonial-card p-4">
                                             <b>About :- {{ @$writer->Menu->title }} Writer</b>
-                                            <p>{{ substr(strip_tags($writer->content), 210) }}</p>
+                                            <p>{{ substr(strip_tags($writer->content), 0, 210) }}</p>
                                             <div class="d-flex pt-4">
                                                 {{-- <div class="div-avatar">
                                                     <img class="avatar"
