@@ -49,13 +49,15 @@
                     {{-- <p class="py-3 para-light"> --}}
                     {!! @$subscribeus->content !!}
                     {{-- </p> --}}
-                    <div class="d-flex align-items-center">
-                        <div class="input-group mb-3">
-                            <input type="text" class="form-control p-2" placeholder="Enter Email"
-                                aria-label="Recipient's email">
-                            <button class="btn-secondary text-light"><i class="fas fa-envelope fa-lg"></i></button>
+                    <form action="{{ route('subscribe-mail') }}">
+                        <div class="d-flex align-items-center">
+                            <div class="input-group mb-3">
+                                <input type="email" name="email" required class="form-control p-2" placeholder="Enter Email"
+                                    aria-label="Recipient's email">
+                                <button class="btn-secondary text-light"><i class="fas fa-envelope fa-lg"></i></button>
+                            </div>
                         </div>
-                    </div>
+                    </form>
 
                 </div> <!-- end of col -->
             </div> <!-- end of row -->

@@ -13,6 +13,7 @@ use Illuminate\Http\Request;
 use App\Models\ContentCategory;
 use App\Notifications\OrderPlaced;
 use App\Http\Controllers\Controller;
+use App\Notifications\Subscribe;
 use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Facades\Notification;
 
@@ -78,7 +79,7 @@ class WebSiteController extends Controller
     public function about(Request $request)
     {
         $data = $this->common();    
-        $menu = Menu::whereSlug('about')->first();
+        $menu = Menu::whereSlug('about-us')->first();
         if ($menu) {
             $data['post'] = ContentPage::whereMenuId($menu->id)->first();
             return view('website.pages.about', $data);
@@ -89,7 +90,7 @@ class WebSiteController extends Controller
     public function contact(Request $request)
     {
         $data = $this->common();
-        $menu = Menu::whereSlug('contact')->first();
+        $menu = Menu::whereSlug('contact-us')->first();
         if ($menu) {
             $data['post'] = ContentPage::whereMenuId($menu->id)->first();
             $data['sendyourquery'] = Homepage::wherePage('sendyourquery')->with('subHomepages')->get();
@@ -263,5 +264,15 @@ class WebSiteController extends Controller
 
         Notification::route('mail', $request->email)->notify(new OrderPlaced($request));
         return redirect()->back()->withSuccess('Thank You !! we will get back to you.');
+    }
+
+    public function subscribeMail(Request $request)
+    {
+        $this->validate($request, [
+            'email'     =>   'required|email',
+        ]);
+
+        Notification::route('mail', $request->email)->notify(new Subscribe($request));
+        return redirect()->back()->withSuccess('Thank You !! For Subscribing.');
     }
 }

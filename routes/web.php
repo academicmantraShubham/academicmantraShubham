@@ -31,8 +31,8 @@ Auth::routes(['register' => false]);
 
 Route::get('/', [WebSiteController::class, 'index'])->name('home');
 Route::get('/services', [WebSiteController::class, 'services'])->name('services');
-Route::get('/about', [WebSiteController::class, 'about'])->name('about');
-Route::get('/contact', [WebSiteController::class, 'contact'])->name('contact');
+Route::get('/about-us', [WebSiteController::class, 'about'])->name('about');
+Route::get('/contact-us', [WebSiteController::class, 'contact'])->name('contact');
 Route::get('/price', [WebSiteController::class, 'price'])->name('price');
 // Route::get('/privacy-policy', [WebSiteController::class, 'privacyPolicy'])->name('privacy-policy');
 // Route::get('/terms-and-condition', [WebSiteController::class, 'terms'])->name('terms-condition');
@@ -44,6 +44,7 @@ Route::post('/place-order', [WebSiteController::class, 'placeOrder'])->name('pla
 Route::get('/experts', [WebSiteController::class, 'experts'])->name('experts');
 Route::get('/locations', [WebSiteController::class, 'locations'])->name('locations');
 Route::get('/reviews', [WebSiteController::class, 'reviews'])->name('reviews');
+Route::post('/subscribe-mail', [WebSiteController::class, 'subscribeMail'])->name('subscribe-mail');
 
 Route::get('/home', function () {
     if (session('status')) {
