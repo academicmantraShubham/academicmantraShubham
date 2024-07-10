@@ -214,7 +214,7 @@
         <div class="container text-light py-5" data-aos="fade-right">
             <div class="row">
                 <div class="col-md-6">
-                    <h1 class="headline">{{ strip_tags(@$thesisNdissertation->title) }}</h1>
+                    <h1 class="headline" style="font-size:46px">{{ strip_tags(@$thesisNdissertation->title) }}</h1>
                     <p class="para py-3">{!! @$thesisNdissertation->content !!}</p>
                 </div>
                 <div class="col-md-6">
