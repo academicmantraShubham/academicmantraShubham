@@ -45,6 +45,7 @@ Route::get('/experts', [WebSiteController::class, 'experts'])->name('experts');
 Route::get('/locations', [WebSiteController::class, 'locations'])->name('locations');
 Route::get('/reviews', [WebSiteController::class, 'reviews'])->name('reviews');
 Route::post('/subscribe-mail', [WebSiteController::class, 'subscribeMail'])->name('subscribe-mail');
+Route::post('/enquiry-form', [WebSiteController::class, 'enquiryForm'])->name('enquiry-form');
 
 Route::get('/home', function () {
     if (session('status')) {

@@ -275,4 +275,18 @@ class WebSiteController extends Controller
         Notification::route('mail', $request->email)->notify(new Subscribe($request));
         return redirect()->back()->withSuccess('Thank You !! For Subscribing.');
     }
+
+    public function enquiryForm(Request $request)
+    {
+        $this->validate($request, [
+            'name'      =>   'required',
+            'email'     =>   'required|email',
+            'deadline'  =>   'required',
+            'topic'     =>   'required',
+            'word_count' =>  'required',
+        ]);
+
+        Notification::route('mail', $request->email)->notify(new OrderPlaced($request));
+        return redirect()->back()->withSuccess('Thank You !! For Subscribing.');
+    }
 }

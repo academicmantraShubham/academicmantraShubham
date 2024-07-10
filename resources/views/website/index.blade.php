@@ -222,18 +222,19 @@
                         <h2>Get Instant Help From Experts</h2>
 
                         <!-- FORMULAIRE -->
-                        <form class="form">
-                            <input type="text" placeholder="Name" class="email" required>
-                            <input type="email" placeholder="Email Adress" class="email" required>
-                            <input type="number" placeholder="Enter word count" class="email" required>
-                            <input type="text" class="email" placeholder="Choose Deadline" onfocus="(this.type='date')"
-                                name="deadline" min="<?php echo date('Y-m-d'); ?>" required />
-                            <input type="text" placeholder="Enter Topic" class="email" required>
+                        <form class="form" action="{{ route('enquiry-form') }}" method="POST">
+                            @csrf
+                            <input type="text" placeholder="Name" class="email" name="name" required>
+                            <input type="email" placeholder="Email Adress" class="email" name="email" required>
+                            <input type="number" placeholder="Enter word count" class="email" name="word_count" required>
+                            <input type="text" class="email" placeholder="Choose Deadline" name="deadline"
+                                onfocus="(this.type='date')" name="deadline" min="<?php echo date('Y-m-d'); ?>" required />
+                            <input type="text" placeholder="Enter Topic" class="email" name="topic" required>
 
+                            <!-- BOUTTON LOGIN -->
+                            <button type="submit" class="login_btn">Enquire Now</button>
                         </form>
 
-                        <!-- BOUTTON LOGIN -->
-                        <button type="submit" class="login_btn">Enquire Now</button>
                     </div>
                 </div>
             </div>
@@ -494,7 +495,7 @@
                             <!-- end of swiper-wrapper -->
                             <!-- Add Arrows -->
                             <!-- <div class="swiper-button-next"></div>
-                                                              <div class="swiper-button-prev"></div> -->
+                                                                  <div class="swiper-button-prev"></div> -->
                             <!-- end of add arrows -->
                         </div>
                         <!-- end of swiper-container -->
@@ -550,30 +551,29 @@
             </div>
             <div class="row gy-4 py-2" data-aos="zoom-in">
                 @foreach ($expectus->subHomepages->take(10) as $key => $subHomepage)
-                @if($key == 0)
-                <div class="col-lg-12">
-                    <!-- <a href="">  -->
-                    <div class="card bg-transparent">
-                        <h3 class="py-2 text-success">{{ strip_tags($subHomepage->title) }}</h3>
-                        <div class="para-light">
-                            {!! $subHomepage->content !!}
+                    @if ($key == 0)
+                        <div class="col-lg-12">
+                            <!-- <a href="">  -->
+                            <div class="card bg-transparent">
+                                <h3 class="py-2 text-success">{{ strip_tags($subHomepage->title) }}</h3>
+                                <div class="para-light">
+                                    {!! $subHomepage->content !!}
+                                </div>
+                            </div>
+                            <!-- </a> -->
                         </div>
-                    </div>
-                    <!-- </a> -->
-                </div>
-                @else
-                <div class="col-lg-4">
-                    <!-- <a href="">  -->
-                    <div class="card bg-transparent">
-                        <h3 class="py-2 text-success">{{ strip_tags($subHomepage->title) }}</h3>
-                        <div class="para-light">
-                            {!! $subHomepage->content !!}
+                    @else
+                        <div class="col-lg-4">
+                            <!-- <a href="">  -->
+                            <div class="card bg-transparent">
+                                <h3 class="py-2 text-success">{{ strip_tags($subHomepage->title) }}</h3>
+                                <div class="para-light">
+                                    {!! $subHomepage->content !!}
+                                </div>
+                            </div>
+                            <!-- </a> -->
                         </div>
-                    </div>
-                    <!-- </a> -->
-                </div>
-                @endif
-
+                    @endif
                 @endforeach
             </div> <!-- end of row -->
         </div> <!-- end of container -->
