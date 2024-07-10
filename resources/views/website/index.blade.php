@@ -111,6 +111,99 @@
                 column-count: 1;
             }
         }
+
+
+        /* new form */
+
+        .new-card {
+            width: auto;
+            height: auto;
+            background-color: white;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+            border-radius: 20px;
+        }
+
+        .card h2 {
+            margin-bottom: 10px;
+        }
+
+        .card a.fp {
+            width: 100%;
+            display: flex;
+            color: #5881D0;
+        }
+
+        .login_register {
+            display: flex;
+            width: 100%;
+            border: 1px solid rgba(221, 221, 221, 1);
+            border-radius: 15px;
+            margin: 20px 0;
+        }
+
+        .login_register a {
+            font-size: 1em;
+            padding: 10px 55px;
+            border: none;
+            width: 50%;
+        }
+
+        .login_register a.login {
+            border-radius: 15px;
+            background-color: transparent;
+            color: black;
+        }
+
+        .login_register a.register {
+            border-radius: 15px;
+            background: linear-gradient(90deg, #003A74, #006AD5);
+            color: white;
+        }
+
+        .form {
+            display: flex;
+            flex-direction: column;
+            width: 100%;
+        }
+
+        .form input {
+            padding: 10px;
+            border-radius: 5px;
+            border: 1px solid #DDDDDD;
+            color: #A0A6A3;
+            font-family: "Roboto Mono", sans-serif;
+            box-shadow: 1px 5px 9px rgba(211, 211, 211, .7);
+        }
+
+        .form input.email {
+            margin-bottom: 15px;
+        }
+
+        .form input.pass {
+            margin-bottom: 15px;
+        }
+
+        .form input.comfirm_pass {
+            margin-bottom: 5px;
+        }
+
+        .login_btn {
+            font-size: 20px;
+            color: white;
+            border-radius: 15px;
+            border: none;
+            background-color: #003A74;
+            width: 100%;
+            padding: 10px;
+            margin-top: 15px;
+            margin-bottom: 15px;
+            background: linear-gradient(-90deg, #003A74, #006AD5);
+            box-shadow: 1px 5px 9px rgba(211, 211, 211, .9);
+        }
     </style>
 @endpush
 
@@ -124,7 +217,21 @@
                     <p class="para py-3">{!! @$thesisNdissertation->content !!}</p>
                 </div>
                 <div class="col-md-6">
+                    <div class="new-card">
+                        <h2>Get Instant Help From Experts</h2>
 
+                        <!-- FORMULAIRE -->
+                        <form class="form">
+                            <input type="text" placeholder="Name" class="email" required>
+                            <input type="email" placeholder="Email Adress" class="email" required>
+                            <input type="number" placeholder="Enter word count" class="email" required>
+                            <input type="text" class="email" placeholder="Choose Deadline" onfocus="(this.type='date')"
+                                name="deadline" min="<?php echo date('Y-m-d'); ?>" required />
+                        </form>
+
+                        <!-- BOUTTON LOGIN -->
+                        <button type="submit" class="login_btn">Enquire Now</button>
+                    </div>
                 </div>
             </div>
             <div class="row text-light">
@@ -369,7 +476,8 @@
                                                     </p>
                                                     <p class="mt-2">
                                                         Completed Projects:
-                                                        <span class="badge rounded-pill bg-primary"> {{ rand(10,100) }}</span>
+                                                        <span class="badge rounded-pill bg-primary">
+                                                            {{ rand(10, 100) }}</span>
                                                     </p>
                                                 </div>
 
@@ -383,7 +491,7 @@
                             <!-- end of swiper-wrapper -->
                             <!-- Add Arrows -->
                             <!-- <div class="swiper-button-next"></div>
-                                                  <div class="swiper-button-prev"></div> -->
+                                                              <div class="swiper-button-prev"></div> -->
                             <!-- end of add arrows -->
                         </div>
                         <!-- end of swiper-container -->
