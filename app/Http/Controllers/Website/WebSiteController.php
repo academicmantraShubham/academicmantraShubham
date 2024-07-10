@@ -91,6 +91,7 @@ class WebSiteController extends Controller
     {
         $data = $this->common();
         $menu = Menu::whereSlug('contact-us')->first();
+        dd($menu);
         if ($menu) {
             $data['post'] = ContentPage::whereMenuId($menu->id)->first();
             $data['sendyourquery'] = Homepage::wherePage('sendyourquery')->with('subHomepages')->get();
