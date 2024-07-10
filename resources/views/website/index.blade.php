@@ -127,12 +127,12 @@
             border-radius: 20px;
         }
 
-        .card h2 {
+        .new-card h2 {
             margin-bottom: 10px;
             color: black;
         }
 
-        .card a.fp {
+        .new-card a.fp {
             width: 100%;
             display: flex;
             color: #5881D0;
