@@ -256,6 +256,11 @@
                 <!-- end of col -->
             </div>
             <!-- end of row -->
+            <div class="row text-light">
+                <div class="py-3 text-center">
+                    <a class="btn" href="{{ route('reviews') }}">View All</a>
+                </div>
+            </div>
         </div>
         <!-- end of container -->
     </div>
@@ -343,8 +348,8 @@
                                                         alt="{{ strip_tags($writer->title) }} Expert">
                                                 </div> --}}
                                                 <div class="ms-3 pt-2">
+                                                    {!! $writer->title !!}
                                                     <div class="row text-center hire-div">
-                                                        {!! $writer->title !!}
                                                         <a href="{{ route('order') }}" class="btn m-2">
                                                             Hire Me
                                                         </a>
