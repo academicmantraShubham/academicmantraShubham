@@ -93,8 +93,8 @@ class WebSiteController extends Controller
         $menu = Menu::whereSlug('contact-us')->first();
         if ($menu) {
             $data['post'] = ContentPage::whereMenuId($menu->id)->first();
-            $data['sendyourquery'] = Homepage::wherePage('sendyourquery')->with('subHomepages')->get();
-            view('website.pages.contact', $data);
+            $data['sendyourquery'] = Homepage::wherePage('sendyourquery')->get();
+            return view('website.pages.contact', $data);
         }
         abort(404, "page not found");
     }
