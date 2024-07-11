@@ -269,6 +269,7 @@ class WebSiteController extends Controller
 
     public function subscribeMail(Request $request)
     {
+        dd($request->all());
         $this->validate($request, [
             'g-recaptcha-response' => 'required|captcha',
             'email'     =>   'required|email',
@@ -280,7 +281,7 @@ class WebSiteController extends Controller
 
     public function enquiryForm(Request $request)
     {
-        dd($request->all());
+        // dd($request->all());
         $this->validate($request, [
             'g-recaptcha-response' => 'required|captcha',
             'name'      =>   'required',
