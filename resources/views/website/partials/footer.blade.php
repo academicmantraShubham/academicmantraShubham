@@ -51,12 +51,14 @@
                     {{-- </p> --}}
                     <form action="{{ route('subscribe-mail') }}" method="POST">
                         @csrf
-                        @captchaHTML
+                        {{-- @captchaHTML --}}
+                        @captcha
                         <div class="d-flex align-items-center">
                             <div class="input-group mb-3">
-                                <input type="email" name="email" required class="form-control p-2" placeholder="Enter Email"
-                                    aria-label="Recipient's email">
-                                <button class="btn-secondary text-light" type="submit"><i class="fas fa-envelope fa-lg"></i></button>
+                                <input type="email" name="email" required class="form-control p-2"
+                                    placeholder="Enter Email" aria-label="Recipient's email">
+                                <button class="btn-secondary text-light" type="submit"><i
+                                        class="fas fa-envelope fa-lg"></i></button>
                             </div>
                         </div>
                     </form>
