@@ -18,14 +18,18 @@
     <link rel="icon" type="image/png" sizes="32x32" href="{{ asset('favicons/favicon-32x32.png') }}">
     <link rel="icon" type="image/png" sizes="16x16" href="{{ asset('favicons/favicon-16x16.png') }}">
     <link rel="manifest" href="{{ asset('favicons/site.webmanifest') }}">
-
+    <style>
+        .grecaptcha-badge{
+            display: none !important;
+        }
+    </style>
     @include('website.layouts.css')
 </head>
 
 <body>
     @include('website.partials.header')
     @include('website.partials.pop-up')
-    @captchaHTML
+    {{-- @captchaHTML --}}
     <main id="main">
         @yield('content')
     </main>
