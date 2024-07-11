@@ -13,11 +13,11 @@
     <!-- shcema -->
 
     <!-- Favicons -->
-    <link href="{{ asset("favicons/favicon.ico") }}" rel="icon">
-    <link href="{{ asset("favicons/apple-touch-icon.png") }}" sizes="180x180" rel="apple-touch-icon">
-    <link rel="icon" type="image/png" sizes="32x32" href="{{ asset("favicons/favicon-32x32.png") }}">
-    <link rel="icon" type="image/png" sizes="16x16" href="{{ asset("favicons/favicon-16x16.png") }}">
-    <link rel="manifest" href="{{ asset("favicons/site.webmanifest") }}">
+    <link href="{{ asset('favicons/favicon.ico') }}" rel="icon">
+    <link href="{{ asset('favicons/apple-touch-icon.png') }}" sizes="180x180" rel="apple-touch-icon">
+    <link rel="icon" type="image/png" sizes="32x32" href="{{ asset('favicons/favicon-32x32.png') }}">
+    <link rel="icon" type="image/png" sizes="16x16" href="{{ asset('favicons/favicon-16x16.png') }}">
+    <link rel="manifest" href="{{ asset('favicons/site.webmanifest') }}">
 
     @include('website.layouts.css')
 </head>
@@ -25,10 +25,7 @@
 <body>
     @include('website.partials.header')
     @include('website.partials.pop-up')
-    {{-- <form action="">
-        @captcha
-        <input type="submit" style="display: none" name="">
-    </form> --}}
+    @captcha
     <main id="main">
         @yield('content')
     </main>

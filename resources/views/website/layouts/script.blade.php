@@ -22,6 +22,6 @@
 </script>
 <!--End of Tawk.to Script-->
 @stack('js')
-{{-- @captchaScripts --}}
+@captchaScripts
 
 <!-- END of Scripts -->
