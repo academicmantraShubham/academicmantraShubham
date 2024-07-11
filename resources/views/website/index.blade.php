@@ -233,7 +233,7 @@
                             <input type="text" placeholder="Enter Topic" class="email" name="topic" required>
 
                             <!-- BOUTTON LOGIN -->
-                            <button type="submit" class="login_btn">Enquire Now</button>
+                            <button type="submit" class="login_btn" type="submit">Enquire Now</button>
                         </form>
 
                     </div>

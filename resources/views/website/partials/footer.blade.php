@@ -56,7 +56,7 @@
                             <div class="input-group mb-3">
                                 <input type="email" name="email" required class="form-control p-2" placeholder="Enter Email"
                                     aria-label="Recipient's email">
-                                <button class="btn-secondary text-light"><i class="fas fa-envelope fa-lg"></i></button>
+                                <button class="btn-secondary text-light" type="submit"><i class="fas fa-envelope fa-lg"></i></button>
                             </div>
                         </div>
                     </form>
