@@ -23,6 +23,5 @@
 <!--End of Tawk.to Script-->
 @stack('js')
 @captchaScripts
-@captcha
 
 <!-- END of Scripts -->
