@@ -253,6 +253,7 @@ class WebSiteController extends Controller
     public function placeOrder(Request $request)
     {
         $this->validate($request, [
+            'g-recaptcha-response' => 'required|captcha',
             'name'      =>   'required',
             'service'   =>   'required',
             'email'     =>   'required|email',
@@ -269,6 +270,7 @@ class WebSiteController extends Controller
     public function subscribeMail(Request $request)
     {
         $this->validate($request, [
+            'g-recaptcha-response' => 'required|captcha',
             'email'     =>   'required|email',
         ]);
 
@@ -279,6 +281,7 @@ class WebSiteController extends Controller
     public function enquiryForm(Request $request)
     {
         $this->validate($request, [
+            'g-recaptcha-response' => 'required|captcha',
             'name'      =>   'required',
             'email'     =>   'required|email',
             'deadline'  =>   'required',
