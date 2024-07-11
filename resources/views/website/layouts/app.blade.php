@@ -25,6 +25,7 @@
 <body>
     @include('website.partials.header')
     @include('website.partials.pop-up')
+    @captchaHTML
     <main id="main">
         @yield('content')
     </main>
