@@ -280,6 +280,7 @@ class WebSiteController extends Controller
 
     public function enquiryForm(Request $request)
     {
+        dd($request->all());
         $this->validate($request, [
             'g-recaptcha-response' => 'required|captcha',
             'name'      =>   'required',
