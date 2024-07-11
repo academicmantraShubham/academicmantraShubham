@@ -21,7 +21,7 @@
     })();
 </script>
 <!--End of Tawk.to Script-->
-@captchaScripts
 @stack('js')
+@captchaScripts
 
 <!-- END of Scripts -->
