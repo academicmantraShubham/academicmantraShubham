@@ -235,7 +235,7 @@
                                     @endphp
 
                                     @if (session()->has('code') && $coupon)
-                                        <!--@coupon Start-->
+                                        <!--coupon Start-->
                                         <div class="coupon mb-2">
 
                                             <div class="coupon-head">
@@ -259,9 +259,9 @@
                                                 <a href="{{ route('order') }}?code=remove"> remove code</a>
                                             </div>
                                         </div>
-                                        <!--@coupon End-->
+                                        <!--coupon End-->
                                     @endif
-                                    <!--@captcha-->
+                                    <!--captcha-->
                                     <div class="text-center">
                                         <button class="btn form-control-submit-button" type="submit">Order Now</button>
                                     </div>
