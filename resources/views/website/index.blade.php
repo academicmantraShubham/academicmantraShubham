@@ -44,11 +44,11 @@
 
 @push('css')
     <link href="{{ asset('website/css/swiper.css') }}" rel="stylesheet">
-    {{-- <style>
+    <style>
         .grecaptcha-badge{
             display: none !important;
         }
-    </style> --}}
+    </style>
     <style>
         .bottom h2 {
             color: #05ada3;
