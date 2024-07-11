@@ -51,7 +51,7 @@
                     {{-- </p> --}}
                     <form action="{{ route('subscribe-mail') }}" method="POST">
                         @csrf
-                        @captchaHTML
+                        {{-- @captchaHTML --}}
                         {{-- @captcha --}}
                         <div class="d-flex align-items-center">
                             <div class="input-group mb-3">
