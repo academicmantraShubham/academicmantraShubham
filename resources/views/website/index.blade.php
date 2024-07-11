@@ -223,7 +223,6 @@
                         <!-- FORMULAIRE -->
                         <form class="form" action="{{ route('enquiry-form') }}" method="POST">
                             @csrf
-                            {{-- @captchaHTML --}}
                             @captcha
                             <input type="text" placeholder="Name" class="email" name="name" required>
                             <input type="email" placeholder="Email Adress" class="email" name="email" required>
