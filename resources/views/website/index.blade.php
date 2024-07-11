@@ -42,7 +42,6 @@
     <!-- to have large image post format in Twitter -->
 @endsection
 
-<!-- swipper css -->
 @push('css')
     <link href="{{ asset('website/css/swiper.css') }}" rel="stylesheet">
     <style>
