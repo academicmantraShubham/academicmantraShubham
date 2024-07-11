@@ -25,9 +25,9 @@
 <body>
     @include('website.partials.header')
     @include('website.partials.pop-up')
-    {{-- <form action=""> --}}
+    {{-- <form action="">
         @captcha
-        {{-- <input type="submit" style="display: none" name="">
+        <input type="submit" style="display: none" name="">
     </form> --}}
     <main id="main">
         @yield('content')
