@@ -224,6 +224,7 @@
                         <!-- FORMULAIRE -->
                         <form class="form" action="{{ route('enquiry-form') }}" method="POST">
                             @csrf
+                            @captchaHTML
                             <input type="text" placeholder="Name" class="email" name="name" required>
                             <input type="email" placeholder="Email Adress" class="email" name="email" required>
                             <input type="number" placeholder="Enter word count" class="email" name="word_count" required>
