@@ -156,7 +156,9 @@
                                 <form action="{{ route('place-order') }}" method="post" class=""
                                     enctype="multipart/form-data">
                                     @csrf
-                                    @captchaHTML
+                                    {{-- @captchaHTML --}}
+                                    @captcha
+
                                     <div class="main-input">
                                         <div class="form-group py-2">
                                             <input type="text" class="form-control form-control-input" name="name"
