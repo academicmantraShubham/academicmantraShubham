@@ -25,8 +25,6 @@
 <body>
     @include('website.partials.header')
     @include('website.partials.pop-up')
-    {{-- @captcha --}}
-    @captchaPolyfill
     <main id="main">
         @yield('content')
     </main>
