@@ -40,6 +40,9 @@
                                 {{ trans('Value') }}
                             </th>
                             <th>
+                                {{ trans('Featured') }}
+                            </th>
+                            <th>
                                 {{ trans('Image') }}
                             </th>
                             <th>
@@ -66,6 +69,16 @@
                                     {{ @$homepage->value }}
                                 </td>
                                 <td>
+                                    <button
+                                        class="btn btn-xs @if ($homepage->is_featured == 0) 'btn-danger' @else 'btn-success' @endif">
+                                        @if ($homepage->is_featured == 0)
+                                            Not Featured
+                                        @else
+                                            Featured
+                                        @endif
+                                    </button>
+                                </td>
+                                <td>
                                     @if ($homepage->image)
                                         <a href="{{ $homepage->image }}" target="_blank" style="display: inline-block">
                                             <img loading="lazy" style="width: 55px; height:55px; border-radius:50%;"
@@ -83,10 +96,13 @@
                                     @endcan
 
                                     @can('menu_delete')
-                                        <form action="{{ route('admin.voucher.destroy') }}" method="POST" onsubmit="return confirm('{{ trans('global.areYouSure') }}');" style="display: inline-block;">
+                                        <form action="{{ route('admin.voucher.destroy') }}" method="POST"
+                                            onsubmit="return confirm('{{ trans('global.areYouSure') }}');"
+                                            style="display: inline-block;">
                                             @csrf
                                             <input type="hidden" name="id" value="{{ $homepage->id }}">
-                                            <input type="submit" class="btn btn-xs btn-danger" value="{{ trans('global.delete') }}">
+                                            <input type="submit" class="btn btn-xs btn-danger"
+                                                value="{{ trans('global.delete') }}">
                                         </form>
                                     @endcan
 
