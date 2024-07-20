@@ -11,6 +11,8 @@
         max-width: 60%;
         height: auto;
         display: block;
+        margin-right: 5px;
+        border-radius: 5px;
     }
 
     #pop-up .modal {
