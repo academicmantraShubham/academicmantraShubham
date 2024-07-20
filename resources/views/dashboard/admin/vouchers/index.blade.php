@@ -185,10 +185,10 @@
                     <!-- Modal -->
                     <div class="modal fade" id="add_page" tabindex="-1" role="dialog"
                         aria-labelledby="exampleModalLabel" aria-hidden="true">
-                        <div class="modal-dialog" role="document" style="max-width:60%">
+                        <div class="modal-dialog" role="document" >
                             <div class="modal-content">
                                 <div class="modal-header">
-                                    <h5 class="modal-title" id="exampleModalLabel">&emsp;Add Review</h5>
+                                    <h5 class="modal-title" id="exampleModalLabel">&emsp;Add Voucher</h5>
                                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                         <span aria-hidden="true">&times;</span>
                                     </button>
@@ -202,13 +202,13 @@
                                         <div class="row">
                                             <div class="form-group col-12">
                                                 <label for="title">Name</label>
-                                                <textarea class="form-control ckeditor" type="text" id="title" name="title"
+                                                <textarea class="form-control " type="text" id="title" name="title"
                                                     placeholder="Enter something...." rows="2">{{ old('title') }}</textarea>
                                             </div>
 
                                             <div class="form-group col-12">
                                                 <label for="blog">Title & Description</label>
-                                                <textarea class="form-control ckeditor" type="text" id="content" name="content"
+                                                <textarea class="form-control" type="text" id="content" name="content"
                                                     placeholder="Enter something...." rows="5">{{ old('content') }}</textarea>
                                             </div>
 
