@@ -202,14 +202,15 @@
                                         <div class="row">
                                             <div class="form-group col-12">
                                                 <label for="title">Name</label>
-                                                <textarea class="form-control " type="text" id="title" name="title"
-                                                    placeholder="Enter something...." rows="2">{{ old('title') }}</textarea>
+                                               
+                                                    <input class="form-control" type="text" id="title" name="title" placeholder="Enter something...."
+                                                        rows="2" value="{{ old('title') }}">
                                             </div>
 
                                             <div class="form-group col-12">
-                                                <label for="blog">Title & Description</label>
-                                                <textarea class="form-control" type="text" id="content" name="content"
-                                                    placeholder="Enter something...." rows="5">{{ old('content') }}</textarea>
+                                                <label for="blog">Description</label>
+                                                <textarea class="form-control" type="text" id="content" name="description"
+                                                    placeholder="Enter something...." rows="5">{{ old('description') }}</textarea>
                                             </div>
 
                                             <div class="form-group col-12 mt-2">
