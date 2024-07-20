@@ -158,7 +158,7 @@
                                                     </div>
                                                     <div class="form-group col-12 mt-2">
                                                         <label for="title">Select Featured</label>
-                                                        <select class="form-control" name="type" required>
+                                                        <select class="form-control" name="is_featured" required>
                                                             <option disabled value="">Select Featured</option>
                                                             <option value="0"
                                                                 {{ $homepage->is_featured == 0 ? 'selected' : '' }}>No
@@ -171,7 +171,7 @@
 
                                                     <div class="form-group col-12 mt-2">
                                                         <label for="title">Select Status</label>
-                                                        <select class="form-control" name="type" required>
+                                                        <select class="form-control" name="status" required>
                                                             <option disabled value="">Select Status</option>
                                                             <option value="0"
                                                                 {{ $homepage->status == 0 ? 'selected' : '' }}>Disabled
@@ -255,7 +255,7 @@
                                             </div>
                                             <div class="form-group col-12 mt-2">
                                                 <label for="title">Select Featured</label>
-                                                <select class="form-control" name="type" required>
+                                                <select class="form-control" name="is_featured" required>
                                                     <option disabled value="">Select Featured</option>
                                                     <option value="0"
                                                         {{ old('is_featured') == 0 ? 'selected' : '' }}>No</option>
@@ -266,7 +266,7 @@
 
                                             <div class="form-group col-12 mt-2">
                                                 <label for="title">Select Status</label>
-                                                <select class="form-control" name="type" required>
+                                                <select class="form-control" name="status" required>
                                                     <option disabled value="">Select Status</option>
                                                     <option value="0" {{ old('status') == 0 ? 'selected' : '' }}>
                                                         Disabled</option>
