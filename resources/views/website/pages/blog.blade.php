@@ -103,7 +103,7 @@
                         </ul>
                     </div> --}}
 
-                    <div class="row products_row justify-content-center mt-4">
+                    <div class="row products_row justify-content-center my-4">
                         {{ $blogs->links('website.partials.pagination') }}
                     </div>
                 </div>
