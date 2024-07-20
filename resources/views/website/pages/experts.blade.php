@@ -13,25 +13,17 @@
 @endpush
 
 @section('content')
-    @include('website.partials.banner')
 
-    <!-- Header -->
-    <header class="ex-header">
+    <!-- ======= Breadcrumbs ======= -->
+    <section id="breadcrumbs" class="breadcrumbs">
         <div class="container">
-            <div class="row">
-                <div class="col-xl-10 offset-xl-1">
-                    <div class="breadcrum">
-                        <div class="container">
-                            <p><a href="/">Home</a> &nbsp; / &nbsp;Experts</p>
-                        </div>
-                    </div>
-                </div> <!-- end of col -->
-            </div> <!-- end of row -->
-        </div> <!-- end of container -->
-    </header> <!-- end of ex-header -->
-    <!-- end of header -->
-
-
+            <ol class="breadcrumb">
+                <li><a href="/">Home</a></li>
+                <li>Experts</li>
+            </ol>
+        </div>
+    </section>
+    <!-- End Breadcrumbs -->
 
     <!-- writers -->
     <section class="plans d-flex align-items-center py-5" id="plans">
@@ -100,13 +92,14 @@
                                     <div class="swiper-slide">
                                         <div class="testimonial-card p-4">
                                             <b>About Writer</b>
-                                            <p>{!! $writer->content !!}</p>
+                                            <p>{{ substr(strip_tags($writer->content), 0, 210) }}</p>
+
                                             <div class="d-flex pt-4">
-                                                <div class="div-avatar">
+                                                {{-- <div class="div-avatar">
                                                     <img class="avatar"
                                                         src="{{ $writer->image ?? '/images/homepage/1660655334.jpg' }}"
                                                         alt="{{ strip_tags($writer->title) }} Expert">
-                                                </div>
+                                                </div> --}}
                                                 <div class="ms-3 pt-2">
                                                     {!! $writer->title !!}
                                                     <div class="row text-center">
@@ -126,6 +119,11 @@
                                                         Expertise:
                                                         <span class="badge rounded-pill bg-primary"> Essay writing</span>
                                                         <span class="badge rounded-pill bg-primary"> Essay writing</span>
+                                                    </p>
+                                                    <p class="mt-2">
+                                                        Completed Projects:
+                                                        <span class="badge rounded-pill bg-primary">
+                                                            {{ rand(10, 100) }}</span>
                                                     </p>
                                                 </div>
                                             </div>
