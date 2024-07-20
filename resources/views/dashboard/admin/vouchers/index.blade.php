@@ -254,7 +254,7 @@
                                                 <select class="form-control" name="type" required>
                                                     <option disabled value="">Select Status</option>
                                                     <option  value="0" {{ old('status')  == 0 ? 'selected' : '' }}>Disabled</option>
-                                                    <option  value="1" {{ old('status')  == 1 ? 'selected' : '' }}>Active</option>
+                                                    <option  selected value="1" {{ old('status')  == 1 ? 'selected' : '' }}>Active</option>
                                                 </select>
                                             </div>
                                         </div>
