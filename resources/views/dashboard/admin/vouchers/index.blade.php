@@ -122,7 +122,7 @@
                                                     <div class="form-group col-12">
                                                         <label for="blog">Title & Description</label>
                                                         <textarea class="form-control" type="text" id="content" name="description" placeholder="Enter something...."
-                                                            rows="10">{{ old('description', $homepage->description) }}</textarea>
+                                                            rows="5">{{ old('description', $homepage->description) }}</textarea>
                                                     </div>
 
                                                     <div class="form-group col-12 mt-2">
@@ -209,7 +209,7 @@
                                             <div class="form-group col-12">
                                                 <label for="blog">Title & Description</label>
                                                 <textarea class="form-control ckeditor" type="text" id="content" name="content"
-                                                    placeholder="Enter something...." rows="10">{{ old('content') }}</textarea>
+                                                    placeholder="Enter something...." rows="5">{{ old('content') }}</textarea>
                                             </div>
 
                                             <div class="form-group col-12 mt-2">
