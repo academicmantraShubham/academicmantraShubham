@@ -83,13 +83,10 @@
                                     @endcan
 
                                     @can('menu_delete')
-                                        <form action="{{ route('admin.voucher.destroy', $homepage->id) }}" method="POST"
-                                            onsubmit="return confirm('{{ trans('global.areYouSure') }}');"
-                                            style="display: inline-block;">
-                                            <input type="hidden" name="_method" value="DELETE">
-                                            <input type="hidden" name="_token" value="{{ csrf_token() }}">
-                                            <input type="submit" class="btn btn-xs btn-danger"
-                                                value="{{ trans('global.delete') }}">
+                                        <form action="{{ route('admin.voucher.destroy') }}" method="POST" onsubmit="return confirm('{{ trans('global.areYouSure') }}');" style="display: inline-block;">
+                                            @csrf
+                                            <input type="hidden" name="id" value="{{ $homepage->id }}">
+                                            <input type="submit" class="btn btn-xs btn-danger" value="{{ trans('global.delete') }}">
                                         </form>
                                     @endcan
 
@@ -107,11 +104,11 @@
                                             </button>
                                         </div>
                                         <div class="modal-body">
-                                            <form method="POST"
-                                                action="{{ route('admin.voucher.update', $homepage->id) }}"
+                                            <form method="POST" action="{{ route('admin.voucher.update') }}"
                                                 enctype="multipart/form-data">
                                                 @csrf
                                                 <input type="hidden" name="last_url" value="{{ URL::current() }}">
+                                                <input type="hidden" name="id" value="{{ $homepage->id }}">
                                                 <div class="row">
                                                     <div class="form-group col-12">
                                                         <label for="title">Title</label>
@@ -143,7 +140,9 @@
                                                 <div class="row">
                                                     <div class="form-group col-12 mt-2">
                                                         <label for="title">Image</label>
-                                                        <input class="form-control" type="file"     accept="image/png, image/webp, image/jpeg, image/jpg" name="img">
+                                                        <input class="form-control" type="file"
+                                                            accept="image/png, image/webp, image/jpeg, image/jpg"
+                                                            name="img">
                                                     </div>
 
                                                     <div class="form-group col-12 mt-2">
@@ -239,7 +238,9 @@
                                         <div class="row">
                                             <div class="form-group col-12 mt-2">
                                                 <label for="title">Image</label>
-                                                <input class="form-control" type="file" accept="image/png, image/webp, image/jpeg, image/jpg" name="img" required>
+                                                <input class="form-control" type="file"
+                                                    accept="image/png, image/webp, image/jpeg, image/jpg" name="img"
+                                                    required>
                                             </div>
 
                                             <div class="form-group col-12 mt-2">

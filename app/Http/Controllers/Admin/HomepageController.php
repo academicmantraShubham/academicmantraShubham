@@ -150,6 +150,15 @@ class HomepageController extends Controller
         return  redirect()->back()->with('message', 'Error: Item Not Found');
     }
 
+    public function updatePosition(Request $request)
+    {
+        foreach ($request->order as $order) {
+            Homepage::whereId($order['id'])->update(['section_position' => $order['section_position']]);
+        }
+        
+        return response()->json(['data' => $request->order, 'message' => 'updated position', 'status' => 'success'], 200);
+    }
+
     public function subIndex($id)
     {
         $Homepage = Homepage::whereId($id)->first();
@@ -193,6 +202,9 @@ class HomepageController extends Controller
         return view('dashboard.admin.samples.index', compact('samples', 'menus'));
     }
 
+    /**
+     * view voucher list
+     */
     public function vouchers()
     {
         $vouchers = Voucher::get();
@@ -227,12 +239,49 @@ class HomepageController extends Controller
         return redirect()->back()->with('message', 'Voucher Added');
     }
 
-    public function updatePosition(Request $request)
+    /**
+     * Update the specified resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
+
+    public function updateVoucher(Request $request)
     {
-        foreach ($request->order as $order) {
-            Homepage::whereId($order['id'])->update(['section_position' => $order['section_position']]);
+        $request->validate([
+            'title' => 'required',
+            'description' => 'required',
+            'code' => 'required',
+            'type' => 'required',
+        ]);
+
+        if ($request->hasFile('img')) {
+            $image = $request->file('img');
+            $img = time() . '.' . $image->getClientOriginalExtension();
+            $path = public_path('images/voucher/');
+            $image->move($path, $img);
+            $request->merge(['image' => '/images/voucher/'.$img]);
         }
         
-        return response()->json(['data' => $request->order, 'message' => 'updated position', 'status' => 'success'], 200);
+        $homepage = Voucher::whereId($request->id)->update($request->except(['_token', 'img', '_method', 'last_url']));
+
+        return redirect()->back()->with('message', 'Voucher Data Updated');
+    }
+
+
+    /**
+     * Remove the specified resource from storage.
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
+
+    public function deleteVoucher(Request $request)
+    {
+        $find =  Voucher::find($request->id);
+        if($find){
+            $find->delete();
+            return  redirect()->back()->with('message', 'Voucher Data Deleted');
+        }
+        return  redirect()->back()->with('message', 'Error: Item Not Found');
     }
 }
