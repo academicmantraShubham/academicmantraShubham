@@ -125,6 +125,14 @@
                                                             rows="10">{{ old('description', $homepage->description) }}</textarea>
                                                     </div>
 
+                                                    <div class="form-group col-12 mt-2">
+                                                        <label for="title">Select Type</label>
+                                                        <select class="form-control" name="type" required>
+                                                            <option disabled value="">Select Type</option>
+                                                            <option  value="0" {{ $voucher->type == 0 ? 'selected' : '' }}>Percentage</option>
+                                                            <option  value="1" {{ $voucher->type == 1 ? 'selected' : '' }}>Off</option>
+                                                        </select>
+                                                    </div>
                                                 </div>
 
 
@@ -135,19 +143,36 @@
                                                     </div>
 
                                                     <div class="form-group col-12 mt-2">
-                                                        <label for="title">Alt</label>
-                                                        <input class="form-control" type="text" name="alt"
-                                                            value="{{ old('alt', $homepage->alt) }}">
+                                                        <label for="title">Code</label>
+                                                        <input class="form-control" type="text" name="code"
+                                                            value="{{ old('code', $homepage->code) }}">
                                                     </div>
                                                     <div class="form-group col-12 mt-2">
-                                                        <label for="title">Ratings</label>
-                                                        <input class="form-control" type="number" min="0"
-                                                            max="5" step="0.1" name="bg_alt"
-                                                            value="{{ old('bg_alt', $homepage->bg_alt) }}" required>
+                                                        <label for="title">Value</label>
+                                                        <input class="form-control" type="number" min="1"
+                                                            max="100" name="value"
+                                                            value="{{ old('value', $homepage->value) }}" required>
+                                                    </div>
+                                                    <div class="form-group col-12 mt-2">
+                                                        <label for="title">Select Featured</label>
+                                                        <select class="form-control" name="type" required>
+                                                            <option disabled value="">Select Featured</option>
+                                                            <option  value="0" {{ $voucher->is_featured == 0 ? 'selected' : '' }}>No</option>
+                                                            <option  value="1" {{ $voucher->is_featured == 1 ? 'selected' : '' }}>Yes</option>
+                                                        </select>
+                                                    </div>
+
+                                                    <div class="form-group col-12 mt-2">
+                                                        <label for="title">Select Status</label>
+                                                        <select class="form-control" name="type" required>
+                                                            <option disabled value="">Select Status</option>
+                                                            <option  value="0" {{ $voucher->status == 0 ? 'selected' : '' }}>Disabled</option>
+                                                            <option  value="1" {{ $voucher->status == 1 ? 'selected' : '' }}>Active</option>
+                                                        </select>
                                                     </div>
                                                 </div>
                                                 <button type="submit"
-                                                    class="btn btn-success btn-rounded btn-fw">Submit</button>
+                                                    class="btn btn-success btn-rounded btn-fw">Updated</button>
                                             </form>
                                         </div>
                                     </div>
@@ -204,15 +229,32 @@
                                             </div>
 
                                             <div class="form-group col-12 mt-2">
-                                                <label for="title">Alt</label>
-                                                <input class="form-control" type="text" name="alt"
-                                                    value="{{ old('alt') }}">
+                                                <label for="title">Code</label>
+                                                <input class="form-control" type="text" name="code"
+                                                    value="{{ old('code') }}">
+                                            </div>
+                                            <div class="form-group col-12 mt-2">
+                                                <label for="title">Value</label>
+                                                <input class="form-control" type="number" min="1"
+                                                    max="100" name="value"
+                                                    value="{{ old('value') }}" required>
+                                            </div>
+                                            <div class="form-group col-12 mt-2">
+                                                <label for="title">Select Featured</label>
+                                                <select class="form-control" name="type" required>
+                                                    <option disabled value="">Select Featured</option>
+                                                    <option  value="0" {{ old('is_featured') == 0 ? 'selected' : '' }}>No</option>
+                                                    <option  value="1" {{ old('is_featured')  == 1 ? 'selected' : '' }}>Yes</option>
+                                                </select>
                                             </div>
 
                                             <div class="form-group col-12 mt-2">
-                                                <label for="title">Ratings</label>
-                                                <input class="form-control" type="number" min="0" max="5"
-                                                    step="0.1" name="bg_alt" value="{{ old('bg_alt') }}" required>
+                                                <label for="title">Select Status</label>
+                                                <select class="form-control" name="type" required>
+                                                    <option disabled value="">Select Status</option>
+                                                    <option  value="0" {{ old('status')  == 0 ? 'selected' : '' }}>Disabled</option>
+                                                    <option  value="1" {{ old('status')  == 1 ? 'selected' : '' }}>Active</option>
+                                                </select>
                                             </div>
                                         </div>
                                         <button type="submit" class="btn btn-success btn-rounded btn-fw">Submit</button>
