@@ -26,7 +26,7 @@
         }
 
         .p1 a.is-active {
-            background-color: #ff4e84;
+            background-color: #0ee951;
             border-radius: 100%;
             color: #fff;
         }
