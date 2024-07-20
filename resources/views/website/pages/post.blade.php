@@ -250,13 +250,13 @@
                                     <div class="swiper-slide">
                                         <div class="testimonial-card p-4">
                                             <b>About {{ @$writer->Menu->title }} Writer</b>
-                                            <p>{!! $writer->content !!}</p>
+                                            <p>{{ substr(strip_tags($writer->content), 0, 210) }}</p>
                                             <div class="d-flex pt-4">
-                                                <div class="div-avatar">
+                                                {{-- <div class="div-avatar">
                                                     <img class="avatar" loading="lazy"
                                                         src="{{ $writer->image ?? '/images/homepage/1660655334.jpg' }}"
                                                         alt="{{ strip_tags($writer->title) }} Expert">
-                                                </div>
+                                                </div> --}}
                                                 <div class="ms-3 pt-2">
                                                     {!! $writer->title !!}
                                                     <div class="row text-center">
@@ -277,6 +277,11 @@
                                                         <span class="badge rounded-pill bg-primary">
                                                             {{ @$writer->Menu->title }}</span>
                                                         <!--<span class="badge rounded-pill bg-primary"> Essay writing</span>-->
+                                                    </p>
+                                                    <p class="mt-2">
+                                                        Completed Projects:
+                                                        <span class="badge rounded-pill bg-primary">
+                                                            {{ rand(10, 100) }}</span>
                                                     </p>
                                                 </div>
                                             </div>

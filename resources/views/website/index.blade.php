@@ -350,6 +350,11 @@
                                                 </div> --}}
                                                 <div class="ms-3 pt-2">
                                                     {!! $clientsSays->title !!}
+                                                    <b> Rating - </b>
+
+                                                    @for ($i = rand(1, 3); $i <= 5; $i++)
+                                                        <i class="fa fa-star text-warning" aria-hidden="true"></i>
+                                                    @endfor
                                                 </div>
                                             </div>
                                         </div>

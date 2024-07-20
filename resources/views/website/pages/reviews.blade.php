@@ -116,13 +116,13 @@
                                                 $menu = \App\Models\Menu::whereParentId(3)->inRandomOrder()->first();
                                             @endphp
                                             <p><b>Service - </b> {{ $menu->title }}</p>
-                                            <p>{!! $review->content !!}</p>
+                                            <p>{{ substr(strip_tags($review->content), 0, 210) }}</p>
                                             <div class="d-flex pt-4">
-                                                <div>
+                                                {{-- <div>
                                                     <img class="avatar"
                                                         src="{{ $review->image ?? '/images/homepage/1640713712.jpg' }}"
                                                         alt="testimonial">
-                                                </div>
+                                                </div> --}}
                                                 <div class="ms-3 pt-2">
                                                     {!! $review->title !!}
                                                     <b> Rating - </b>

@@ -56,13 +56,13 @@
          </ul>
          <span class="nav-item social-icons">
             <span class="fa-stack">
-               <a href="https://www.facebook.com/bestessaywritingservicesau">
+               <a href="https://www.facebook.com/getessayservice">
                   <i class="fas fa-circle fa-stack-2x"></i>
                   <i class="fab fa-facebook-f fa-stack-1x"></i> 
                </a>
             </span>
             <span class="fa-stack">
-               <a href="https://www.instagram.com/best_essaywritingservices/">
+               <a href="https://www.instagram.com/getessayservice/">
                   <i class="fas fa-circle fa-stack-2x"></i>
                   <i class="fab fa-instagram fa-stack-1x"></i>
                </a>
