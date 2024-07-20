@@ -73,7 +73,7 @@
                 <i class="c-sidebar-nav-icon fas fa-fw fa fa-gift">
 
                 </i>
-                {{ trans('Reviews') }}
+                {{ trans('Vouchers') }}
             </a>
         </li>
         
