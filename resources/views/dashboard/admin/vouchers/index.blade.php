@@ -115,8 +115,9 @@
                                                 <div class="row">
                                                     <div class="form-group col-12">
                                                         <label for="title">Title</label>
-                                                        <input class="form-control" type="text" id="title" name="title" placeholder="Enter something...."
-                                                        rows="2" value="{{ old('title', $homepage->title) }}">
+                                                        <input class="form-control" type="text" id="title"
+                                                            name="title" placeholder="Enter something...." rows="2"
+                                                            value="{{ old('title', $homepage->title) }}">
                                                     </div>
 
                                                     <div class="form-group col-12">
@@ -129,8 +130,11 @@
                                                         <label for="title">Select Type</label>
                                                         <select class="form-control" name="type" required>
                                                             <option disabled value="">Select Type</option>
-                                                            <option  value="0" {{ $homepage->type == 0 ? 'selected' : '' }}>Percentage</option>
-                                                            <option  value="1" {{ $homepage->type == 1 ? 'selected' : '' }}>Off</option>
+                                                            <option value="0"
+                                                                {{ $homepage->type == 0 ? 'selected' : '' }}>Percentage
+                                                            </option>
+                                                            <option value="1"
+                                                                {{ $homepage->type == 1 ? 'selected' : '' }}>Off</option>
                                                         </select>
                                                     </div>
                                                 </div>
@@ -157,8 +161,12 @@
                                                         <label for="title">Select Featured</label>
                                                         <select class="form-control" name="type" required>
                                                             <option disabled value="">Select Featured</option>
-                                                            <option  value="0" {{ $homepage->is_featured == 0 ? 'selected' : '' }}>No</option>
-                                                            <option  value="1" {{ $homepage->is_featured == 1 ? 'selected' : '' }}>Yes</option>
+                                                            <option value="0"
+                                                                {{ $homepage->is_featured == 0 ? 'selected' : '' }}>No
+                                                            </option>
+                                                            <option value="1"
+                                                                {{ $homepage->is_featured == 1 ? 'selected' : '' }}>Yes
+                                                            </option>
                                                         </select>
                                                     </div>
 
@@ -166,8 +174,12 @@
                                                         <label for="title">Select Status</label>
                                                         <select class="form-control" name="type" required>
                                                             <option disabled value="">Select Status</option>
-                                                            <option  value="0" {{ $homepage->status == 0 ? 'selected' : '' }}>Disabled</option>
-                                                            <option  value="1" {{ $homepage->status == 1 ? 'selected' : '' }}>Active</option>
+                                                            <option value="0"
+                                                                {{ $homepage->status == 0 ? 'selected' : '' }}>Disabled
+                                                            </option>
+                                                            <option value="1"
+                                                                {{ $homepage->status == 1 ? 'selected' : '' }}>Active
+                                                            </option>
                                                         </select>
                                                     </div>
                                                 </div>
@@ -185,7 +197,7 @@
                     <!-- Modal -->
                     <div class="modal fade" id="add_page" tabindex="-1" role="dialog"
                         aria-labelledby="exampleModalLabel" aria-hidden="true">
-                        <div class="modal-dialog" role="document" >
+                        <div class="modal-dialog" role="document">
                             <div class="modal-content">
                                 <div class="modal-header">
                                     <h5 class="modal-title" id="exampleModalLabel">&emsp;Add Voucher</h5>
@@ -202,23 +214,24 @@
                                         <div class="row">
                                             <div class="form-group col-12">
                                                 <label for="title">Name</label>
-                                               
-                                                    <input class="form-control" type="text" id="title" name="title" placeholder="Enter something...."
-                                                        rows="2" value="{{ old('title') }}">
+
+                                                <input class="form-control" type="text" id="title" name="title"
+                                                    placeholder="Enter something...." rows="2"
+                                                    value="{{ old('title') }}">
                                             </div>
 
                                             <div class="form-group col-12">
                                                 <label for="blog">Description</label>
-                                                <textarea class="form-control" type="text" id="content" name="description"
-                                                    placeholder="Enter something...." rows="5">{{ old('description') }}</textarea>
+                                                <textarea class="form-control" type="text" id="content" name="description" placeholder="Enter something...."
+                                                    rows="5">{{ old('description') }}</textarea>
                                             </div>
 
                                             <div class="form-group col-12 mt-2">
                                                 <label for="title">Select Type</label>
                                                 <select class="form-control" name="type" required>
                                                     <option disabled selected value="">Select Type</option>
-                                                    <option  value="0">Percentage</option>
-                                                    <option  value="1">Off</option>
+                                                    <option value="0">Percentage</option>
+                                                    <option value="1">Off</option>
                                                 </select>
                                             </div>
                                         </div>
@@ -236,16 +249,17 @@
                                             </div>
                                             <div class="form-group col-12 mt-2">
                                                 <label for="title">Value</label>
-                                                <input class="form-control" type="number" min="1"
-                                                    max="100" name="value"
-                                                    value="{{ old('value') }}" required>
+                                                <input class="form-control" type="number" min="1" max="100"
+                                                    name="value" value="{{ old('value') }}" required>
                                             </div>
                                             <div class="form-group col-12 mt-2">
                                                 <label for="title">Select Featured</label>
                                                 <select class="form-control" name="type" required>
                                                     <option disabled value="">Select Featured</option>
-                                                    <option  value="0" {{ old('is_featured') == 0 ? 'selected' : '' }}>No</option>
-                                                    <option  value="1" {{ old('is_featured')  == 1 ? 'selected' : '' }}>Yes</option>
+                                                    <option value="0"
+                                                        {{ old('is_featured') == 0 ? 'selected' : '' }}>No</option>
+                                                    <option value="1"
+                                                        {{ old('is_featured') == 1 ? 'selected' : '' }}>Yes</option>
                                                 </select>
                                             </div>
 
@@ -253,8 +267,10 @@
                                                 <label for="title">Select Status</label>
                                                 <select class="form-control" name="type" required>
                                                     <option disabled value="">Select Status</option>
-                                                    <option  value="0" {{ old('status')  == 0 ? 'selected' : '' }}>Disabled</option>
-                                                    <option  selected value="1" {{ old('status')  == 1 ? 'selected' : '' }}>Active</option>
+                                                    <option value="0" {{ old('status') == 0 ? 'selected' : '' }}>
+                                                        Disabled</option>
+                                                    <option selected value="1"
+                                                        {{ old('status') == 1 ? 'selected' : '' }}>Active</option>
                                                 </select>
                                             </div>
                                         </div>

@@ -199,6 +199,34 @@ class HomepageController extends Controller
         return view('dashboard.admin.vouchers.index', compact('vouchers'));
     }
     
+    /**
+     * Store a newly created resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
+    public function addVoucher(Request $request)
+    {
+        $request->validate([
+            'title' => 'required',
+            'description' => 'required',
+            'code' => 'required',
+            'type' => 'required',
+            'img' => 'required',
+        ]);
+
+        if ($request->hasFile('img')) {
+            $image = $request->file('img');
+            $img = time() . '.' . $image->getClientOriginalExtension();
+            $path = public_path('images/voucher/');
+            $image->move($path, $img);
+            $request->merge(['image' => '/images/voucher/'.$img]);
+        }
+        
+        Voucher::create($request->all());
+        return redirect()->back()->with('message', 'Voucher Added');
+    }
+
     public function updatePosition(Request $request)
     {
         foreach ($request->order as $order) {
