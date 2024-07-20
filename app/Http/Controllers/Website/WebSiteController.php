@@ -13,6 +13,7 @@ use Illuminate\Http\Request;
 use App\Models\ContentCategory;
 use App\Notifications\OrderPlaced;
 use App\Http\Controllers\Controller;
+use App\Models\Voucher;
 use App\Notifications\Subscribe;
 use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Facades\Notification;
@@ -45,6 +46,10 @@ class WebSiteController extends Controller
         $data['footerdata'] = Homepage::wherePage('footer data')->first();
         $data['pages'] = Cache::remember('pages', 60, function () {
             return Menu::orderBy('position', 'ASC')->whereParentId(0)->whereIsPage(1)->get(['id', 'title', 'slug', 'content']);
+        });
+
+        $data['voucher'] = Cache::remember('voucher', 60, function () {
+            return Voucher::whereStatus(1)->whereIsFeatured(1)->first();
         });
         return $data;
     }
@@ -188,8 +193,11 @@ class WebSiteController extends Controller
         abort(404, "page not found");
     }
 
-    public function order()
+    public function order(Request $request)
     {
+        if($request->code){
+            session()->put('code', $request->code);
+        }
         $data = $this->common();
         $data['whyChooseUs'] = Homepage::wherePage('why-choose-us')->inRandomOrder()->limit(4)->get();
         $data['services'] = Menu::whereIn('id', [3, 181])->withCount('subMenus')->get();

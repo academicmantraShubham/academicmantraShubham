@@ -106,17 +106,20 @@
     }
 </style>
 
-@if (!Session::has('popup'))
+@if (!Session::has('popup') && $voucher)
     <div id="pop-up">
         <div class="modal" id="modal">
             <div class='modal__container'>
-                <img class="modal__img" loading="lazy" src="{{ asset('website/assets/images/pop-up-book.webp') }}"
+                <img class="modal__img" loading="lazy" src="{{ $voucher->image ? asset($voucher->image) : asset('website/assets/images/pop-up-book.webp') }}"
                     alt="best essay writing offer">
                 <div class="modal__content">
-                    <h4 class="modal__title">SPONSOR MY EDUCATION <span>START-UP CONTEST</span></h4>
-                    <p class="modal__paragraph">This contest is geared towards discovering and funding innovative ideas.
+                    {{-- <h4 class="modal__title">SPONSOR MY EDUCATION <span>START-UP CONTEST</span></h4> --}}
+                    <h4 class="modal__title">{{ $voucher->title }}</h4>
+                    <p class="modal__paragraph">{{ $voucher->description }}
                     </p>
-                    <button class="modal__button">Click here to participate</button>
+                    <a href="/get-your-essay?code={{$voucher->code}}">
+                        <button class="modal__button">Click here to participate</button>
+                    </a>
                 </div>
                 <i id="close" class="fas fa-times"></i>
             </div>
