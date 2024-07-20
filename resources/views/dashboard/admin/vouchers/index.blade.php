@@ -169,11 +169,10 @@
                                     </button>
                                 </div>
                                 <div class="modal-body">
-                                    <form method="POST" action="{{ route('admin.homepage.store') }}"
+                                    <form method="POST" action="{{ route('admin.voucher.add') }}"
                                         enctype="multipart/form-data">
                                         @csrf
                                         <input type="hidden" name="last_url" value="{{ URL::current() }}">
-                                        <input type="hidden" name="page" value="{{ old('page', 'reviews') }}">
 
                                         <div class="row">
                                             <div class="form-group col-12">
@@ -189,31 +188,11 @@
                                             </div>
 
                                             <div class="form-group col-12 mt-2">
-                                                <label for="title">Select Service or Country</label>
-                                                <select class="form-control" name="parent_id" required>
-                                                    <option disabled selected value="">Select Options</option>
-                                                    @foreach ($menus as $menu)
-                                                        @foreach ($menu->subMenus as $subMenu)
-                                                            @if (count($subMenu->subMenus) > 0)
-                                                                <optgroup label="{{ $subMenu->title }}">
-                                                                    @foreach ($subMenu->subMenus as $child)
-                                                                        @if($child->subMenus->count() > 0)
-                                                                        <optgroup label="&nbsp;&nbsp;&nbsp;&nbsp;{{ $child->title }}">
-                                                                            @foreach ($child->subMenus as $childSub)
-                                                                                <option value="{{ $childSub->id }}"> {{ $childSub->title }} </option>
-                                                                            @endforeach
-                                                                        </optgroup>
-                                                                        @else
-                                                                            <option value="{{ $child->id }}"> {{ $child->title }} </option>
-                                                                        @endif
-                                                                    @endforeach
-                                                                </optgroup>
-                                                            @else
-                                                                <option value="{{ $subMenu->id }}">{{ $subMenu->title }}
-                                                                </option>
-                                                            @endif
-                                                        @endforeach
-                                                    @endforeach
+                                                <label for="title">Select Type</label>
+                                                <select class="form-control" name="type" required>
+                                                    <option disabled selected value="">Select Type</option>
+                                                    <option  value="0">Percentage</option>
+                                                    <option  value="1">Off</option>
                                                 </select>
                                             </div>
                                         </div>
