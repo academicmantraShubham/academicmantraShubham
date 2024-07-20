@@ -129,8 +129,8 @@
                                                         <label for="title">Select Type</label>
                                                         <select class="form-control" name="type" required>
                                                             <option disabled value="">Select Type</option>
-                                                            <option  value="0" {{ $voucher->type == 0 ? 'selected' : '' }}>Percentage</option>
-                                                            <option  value="1" {{ $voucher->type == 1 ? 'selected' : '' }}>Off</option>
+                                                            <option  value="0" {{ $homepage->type == 0 ? 'selected' : '' }}>Percentage</option>
+                                                            <option  value="1" {{ $homepage->type == 1 ? 'selected' : '' }}>Off</option>
                                                         </select>
                                                     </div>
                                                 </div>
@@ -157,8 +157,8 @@
                                                         <label for="title">Select Featured</label>
                                                         <select class="form-control" name="type" required>
                                                             <option disabled value="">Select Featured</option>
-                                                            <option  value="0" {{ $voucher->is_featured == 0 ? 'selected' : '' }}>No</option>
-                                                            <option  value="1" {{ $voucher->is_featured == 1 ? 'selected' : '' }}>Yes</option>
+                                                            <option  value="0" {{ $homepage->is_featured == 0 ? 'selected' : '' }}>No</option>
+                                                            <option  value="1" {{ $homepage->is_featured == 1 ? 'selected' : '' }}>Yes</option>
                                                         </select>
                                                     </div>
 
@@ -166,8 +166,8 @@
                                                         <label for="title">Select Status</label>
                                                         <select class="form-control" name="type" required>
                                                             <option disabled value="">Select Status</option>
-                                                            <option  value="0" {{ $voucher->status == 0 ? 'selected' : '' }}>Disabled</option>
-                                                            <option  value="1" {{ $voucher->status == 1 ? 'selected' : '' }}>Active</option>
+                                                            <option  value="0" {{ $homepage->status == 0 ? 'selected' : '' }}>Disabled</option>
+                                                            <option  value="1" {{ $homepage->status == 1 ? 'selected' : '' }}>Active</option>
                                                         </select>
                                                     </div>
                                                 </div>
