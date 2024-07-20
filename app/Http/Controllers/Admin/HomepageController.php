@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Homepage;
 use App\Models\Menu;
+use App\Models\Voucher;
 use Validator;
 use Illuminate\Support\Str;
 
@@ -190,6 +191,12 @@ class HomepageController extends Controller
         $samples = Homepage::wherePage('samples')->with('Menu')->paginate(10);
         $menus = Menu::whereIn('id', [3,9,181])->withCount('subMenus')->get();
         return view('dashboard.admin.samples.index', compact('samples', 'menus'));
+    }
+
+    public function vouchers()
+    {
+        $vouchers = Voucher::get();
+        return view('dashboard.admin.vouchers.index', compact('vouchers'));
     }
     
     public function updatePosition(Request $request)

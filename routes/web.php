@@ -81,6 +81,11 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.', 'middleware' => ['auth']], 
     // Route::get('samples', [HomepageController::class, 'samples'])->name('samples');
     Route::get('reviews', [HomepageController::class, 'samples'])->name('samples');
 
+    Route::get('vouchers', [HomepageController::class, 'vouchers'])->name('vouchers');
+    Route::post('update-voucher', [HomepageController::class, 'updateVoucher'])->name('voucher.update');
+    Route::post('add-voucher', [HomepageController::class, 'addVoucher'])->name('voucher.add');
+    Route::post('delete-voucher', [HomepageController::class, 'deleteVoucher'])->name('voucher.destroy');
+
     // Menus
     Route::delete('menu/destroy', [MenuController::class, 'massDestroy'])->name('menu.massDestroy');
     Route::resource('menu', MenuController::class);

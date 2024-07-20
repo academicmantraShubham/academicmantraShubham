@@ -67,6 +67,15 @@
                 {{ trans('Reviews') }}
             </a>
         </li>
+
+        <li class="c-sidebar-nav-item">
+            <a href="{{ route("admin.vouchers") }}" class="c-sidebar-nav-link">
+                <i class="c-sidebar-nav-icon fas fa-fw fa fa-gift">
+
+                </i>
+                {{ trans('Reviews') }}
+            </a>
+        </li>
         
         @can('user_management_access')
             <li class="c-sidebar-nav-dropdown {{ request()->is("admin/permissions*") ? "c-show" : "" }} {{ request()->is("admin/roles*") ? "c-show" : "" }} {{ request()->is("admin/users*") ? "c-show" : "" }}">
