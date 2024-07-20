@@ -70,7 +70,7 @@
                                 </td>
                                 <td>
                                     <button
-                                        class="btn btn-xs @if ($homepage->is_featured == 0) 'btn-danger' @else 'btn-success' @endif">
+                                        class="btn btn-xs @if ($homepage->is_featured == 0) btn-danger @else btn-success @endif">
                                         @if ($homepage->is_featured == 0)
                                             Not Featured
                                         @else
