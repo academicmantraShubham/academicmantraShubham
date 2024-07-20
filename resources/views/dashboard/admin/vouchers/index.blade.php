@@ -143,7 +143,7 @@
                                                 <div class="row">
                                                     <div class="form-group col-12 mt-2">
                                                         <label for="title">Image</label>
-                                                        <input class="form-control" type="file" name="img">
+                                                        <input class="form-control" type="file"     accept="image/png, image/webp, image/jpeg, image/jpg" name="img">
                                                     </div>
 
                                                     <div class="form-group col-12 mt-2">
@@ -239,7 +239,7 @@
                                         <div class="row">
                                             <div class="form-group col-12 mt-2">
                                                 <label for="title">Image</label>
-                                                <input class="form-control" type="file" name="img" required>
+                                                <input class="form-control" type="file" accept="image/png, image/webp, image/jpeg, image/jpg" name="img" required>
                                             </div>
 
                                             <div class="form-group col-12 mt-2">
