@@ -56,19 +56,19 @@
                                 <td>
 
                                 </td>
-                                <td>
+                                <td class="text-center">
                                     {{ ++$key ?? '' }}
                                 </td>
-                                <td>
+                                <td class="text-center">
                                     {{ strip_tags($homepage->title) ?? '' }}
                                 </td>
-                                <td>
+                                <td class="text-center">
                                     {!! substr(strip_tags($homepage->description), 0, 25) !!}...
                                 </td>
-                                <td>
+                                <td class="text-center">
                                     {{ @$homepage->value }}
                                 </td>
-                                <td>
+                                <td class="text-center">
                                     <button
                                         class="btn btn-xs @if ($homepage->is_featured == 0) btn-danger @else btn-success @endif">
                                         @if ($homepage->is_featured == 0)
@@ -78,7 +78,7 @@
                                         @endif
                                     </button>
                                 </td>
-                                <td>
+                                <td class="text-center">
                                     @if ($homepage->image)
                                         <a href="{{ $homepage->image }}" target="_blank" style="display: inline-block">
                                             <img loading="lazy" style="width: 55px; height:55px; border-radius:50%;"
@@ -86,7 +86,7 @@
                                         </a>
                                     @endif
                                 </td>
-                                <td>
+                                <td class="text-center">
 
                                     @can('menu_edit')
                                         <a class="btn btn-xs btn-info" style="color: white" data-toggle="modal"
