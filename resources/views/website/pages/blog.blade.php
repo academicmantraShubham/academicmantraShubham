@@ -96,10 +96,15 @@
                     </section>
                     <!-- end of about -->
                     <!-- End blog entry -->
-                    <div class="blog-pagination mt-2 mb-2">
+
+                    {{-- <div class="blog-pagination mt-2 mb-2">
                         <ul class="justify-content-center">
                             {!! $blogs->links('pagination::bootstrap-4') !!}
                         </ul>
+                    </div> --}}
+
+                    <div class="row products_row justify-content-center mt-4">
+                        {{ $blogs->links('website.partials.pagination') }}
                     </div>
                 </div>
             </div>
