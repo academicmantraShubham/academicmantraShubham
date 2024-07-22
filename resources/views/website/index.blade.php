@@ -260,14 +260,14 @@
 
                     <div class="py-2 text-center div-h-text"> {!! @$review->title !!}</div>
 
-                    @foreach ($review->subHomepages as $key => $site)
-                        <div class="row justify-content-center">
-                            <div class="col-md-4">
-                                <img src="{{ $site->image }}" alt="{{strip_tags($site->content)}}">
+                    <div class="row justify-content-center">
+                        @foreach ($review->subHomepages as $key => $site)
+                            <div class="col-sm-4">
+                                <img src="{{ $site->image }}" alt="{{ strip_tags($site->content) }}">
                                 <p>{{ $site->alt }}</p>
                             </div>
-                        </div>
-                    @endforeach
+                        @endforeach
+                    </div>
 
                 </div>
             </div>
@@ -525,7 +525,7 @@
                             <!-- end of swiper-wrapper -->
                             <!-- Add Arrows -->
                             <!-- <div class="swiper-button-next"></div>
-                                                                      <div class="swiper-button-prev"></div> -->
+                                                                          <div class="swiper-button-prev"></div> -->
                             <!-- end of add arrows -->
                         </div>
                         <!-- end of swiper-container -->
