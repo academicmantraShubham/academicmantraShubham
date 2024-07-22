@@ -209,6 +209,27 @@
             background: linear-gradient(-90deg, #0ee951, #0dcaf0);
             box-shadow: 1px 5px 9px rgba(211, 211, 211, .9);
         }
+
+        .review-card-sites {
+            background: linear-gradient(181deg, var(--white) 21.67%, var(--white) 51.26%, rgba(225, 235, 245, 0) 91.24%);
+            -webkit-backdrop-filter: blur(4.10205px);
+            backdrop-filter: blur(4.10205px);
+            border-radius: 6.2245px;
+            display: flex;
+            justify-content: space-evenly;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .review-card-sites img{
+            width: 200px;
+        }
+
+        .review-card-sites span{
+            font-size: 24px;
+            line-height: 60px;
+            font-weight: 600;
+        }
     </style>
 @endpush
 
@@ -263,8 +284,10 @@
                     <div class="row justify-content-center">
                         @foreach ($review->subHomepages as $key => $site)
                             <div class="col-sm-4">
-                                <img src="{{ $site->image }}" alt="{{ strip_tags($site->content) }}">
-                                <p>{{ $site->alt }}</p>
+                                <div class="review-card-sites">
+                                    <img src="{{ $site->image }}" alt="{{ strip_tags($site->content) }}">
+                                    <span>{{ $site->alt }}</span>
+                                </div>
                             </div>
                         @endforeach
                     </div>
@@ -525,7 +548,7 @@
                             <!-- end of swiper-wrapper -->
                             <!-- Add Arrows -->
                             <!-- <div class="swiper-button-next"></div>
-                                                                          <div class="swiper-button-prev"></div> -->
+                                                                              <div class="swiper-button-prev"></div> -->
                             <!-- end of add arrows -->
                         </div>
                         <!-- end of swiper-container -->
