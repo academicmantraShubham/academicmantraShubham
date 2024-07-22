@@ -229,6 +229,7 @@
             font-size: 24px;
             line-height: 60px;
             font-weight: 600;
+            color: black;
         }
     </style>
 @endpush
