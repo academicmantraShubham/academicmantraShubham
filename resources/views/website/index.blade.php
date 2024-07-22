@@ -211,7 +211,8 @@
         }
 
         .review-card-sites {
-            background: linear-gradient(181deg, var(--white) 21.67%, var(--white) 51.26%, rgba(225, 235, 245, 0) 91.24%);
+            padding: 10px;
+            background: linear-gradient(165deg, var(--white) 21.67%, var(--white) 51.26%, rgba(225, 235, 245, 0) 91.24%);
             -webkit-backdrop-filter: blur(4.10205px);
             backdrop-filter: blur(4.10205px);
             border-radius: 6.2245px;
