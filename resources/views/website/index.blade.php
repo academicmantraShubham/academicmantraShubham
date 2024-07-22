@@ -285,7 +285,7 @@
 
                     <div class="row justify-content-center">
                         @foreach ($review->subHomepages as $key => $site)
-                            <div class="col-sm-4">
+                            <div class="col-sm-4 pt-2">
                                 <div class="review-card-sites">
                                     <img src="{{ $site->image }}" alt="{{ strip_tags($site->content) }}">
                                     <span>{{ $site->alt }}</span>
