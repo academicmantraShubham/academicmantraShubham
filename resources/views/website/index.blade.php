@@ -277,7 +277,7 @@
     <!-- end of home -->
     @if ($review)
         <!-- Reviews -->
-        <section style="background-color: #3570a3;" class="services d-flex align-items-center py-5" id="services">
+        <section style="background-color: #3570a3;" class="services d-flex align-items-center pb-5" id="services">
             <div class="container text-light">
                 <div class="text-center pb-4">
 
