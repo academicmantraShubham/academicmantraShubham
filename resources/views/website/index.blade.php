@@ -45,7 +45,7 @@
 @push('css')
     <link href="{{ asset('website/css/swiper.css') }}" rel="stylesheet">
     <style>
-        .grecaptcha-badge{
+        .grecaptcha-badge {
             display: none !important;
         }
     </style>
@@ -252,8 +252,28 @@
         <!-- end of container -->
     </section>
     <!-- end of home -->
+    @if ($review)
+        <!-- Reviews -->
+        <section style="background-color: #3570a3;" class="services d-flex align-items-center py-5" id="services">
+            <div class="container text-light">
+                <div class="text-center pb-4">
 
+                    <div class="py-2 text-center div-h-text"> {!! @$review->title !!}</div>
 
+                    @foreach ($review->subHomepages as $key => $site)
+                        <div class="row justify-content-center">
+                            <div class="col-md-4">
+                                <img src="{{ $site->image }}" alt="{{strip_tags($site->content)}}">
+                                <p>{{ $site->alt }}</p>
+                            </div>
+                        </div>
+                    @endforeach
+
+                </div>
+            </div>
+        </section>
+        <!-- End Reviews -->
+    @endif
     <!-- $explorePossibilities -->
     <section class="work d-flex align-items-center py-5">
         <div class="container-fluid text-light">
@@ -505,7 +525,7 @@
                             <!-- end of swiper-wrapper -->
                             <!-- Add Arrows -->
                             <!-- <div class="swiper-button-next"></div>
-                                                                  <div class="swiper-button-prev"></div> -->
+                                                                      <div class="swiper-button-prev"></div> -->
                             <!-- end of add arrows -->
                         </div>
                         <!-- end of swiper-container -->

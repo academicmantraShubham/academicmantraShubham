@@ -62,6 +62,7 @@ class WebSiteController extends Controller
         $data['thesisNdissertation'] = Homepage::wherePage('thesisNdissertation')->first();
         $data['bestthesis'] = Homepage::wherePage('best thesis')->first();
         $data['expectus'] = Homepage::wherePage('expect from us')->with('subHomepages')->first();
+        $data['review'] = Homepage::wherePage('review')->with('subHomepages')->first();
         $data['whatYouneed'] = Homepage::wherePage('whatYouneed')->with('subHomepages')->first();
         $data['writers'] = Homepage::wherePage('writers')->with('Menu')->inRandomOrder()->limit(6)->get();
         // dd( $data['writers'] );
