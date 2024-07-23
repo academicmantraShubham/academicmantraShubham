@@ -69,7 +69,7 @@
                                             {{ trans('Content') }}
                                         </a>
                                     @endcan
-                                    
+
                                     @can('menu_delete')
                                         <form action="{{ route('admin.menu.destroy', $menu->id) }}" method="POST"
                                             onsubmit="return confirm('{{ trans('global.areYouSure') }}');"
@@ -200,6 +200,7 @@
                 var $this = $(this);
                 $this.on("click", function() {
                     $("menu_id").val($(this).data('id'))
+                    $('#add_content').modal('toggle');
                 });
             });
         })

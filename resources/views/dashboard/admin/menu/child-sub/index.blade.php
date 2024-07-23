@@ -206,6 +206,7 @@
                 var $this = $(this);
                 $this.on("click", function() {
                     $("menu_id").val($(this).data('id'))
+                    $('#add_content').modal('toggle');
                 });
             });
         })
