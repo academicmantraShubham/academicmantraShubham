@@ -7,6 +7,7 @@ use App\Models\Menu;
 use App\Models\ContentPage;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Models\ContentSection;
 use Illuminate\Support\Facades\Gate;
 use Symfony\Component\HttpFoundation\Response;
 class MenuController extends Controller
@@ -191,5 +192,29 @@ class MenuController extends Controller
         abort_if(Gate::denies('menu_edit'), Response::HTTP_FORBIDDEN, '403 Forbidden');
         $menu = Menu::whereId($id)->first();
         return view('dashboard.admin.menu.child-sub.edit', compact('menu'));
+    }
+
+    public function addContent(Request $request)
+    {
+        $request->validate([
+            'content' => 'required',
+            'title' => 'required',
+            'menu_id' => 'required',
+        ]);
+
+        $contentSection = ContentSection::create($request->all());
+
+        if ($contentSection) {
+
+            if ($request->input('img', false)) {
+                $contentSection->addMedia(storage_path('tmp/uploads/' . basename($request->input('img'))))->toMediaCollection('featured_image');
+            }
+        }
+
+        if ($request->last_url) {
+            return  redirect()->to($request->last_url)->with('message','Menu Content Created');
+        }
+
+        return redirect()->route('admin.menu.index')->with('message', 'Menu Content Created');
     }
 }
