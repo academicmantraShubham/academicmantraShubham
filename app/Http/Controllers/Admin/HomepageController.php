@@ -193,7 +193,7 @@ class HomepageController extends Controller
     {
         $whyChooseUs = Homepage::wherePage('why-choose-us')->paginate(10);
         $menus = Menu::whereIn('id', [3,9,181])->withCount('subMenus')->get();
-        return view('dashboard.admin.why-choose-us.index', compact('whyChooseUs'));
+        return view('dashboard.admin.why-choose-us.index', compact('whyChooseUs', 'menus'));
     }
     
     public function samples()
