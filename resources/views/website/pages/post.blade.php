@@ -355,7 +355,7 @@
         <!-- End Top Colleges Section -->
     @endif
 
-    @if (count($whatYouneed) > 0)
+    @if ($whatYouneed)
         <!-- Information -->
         <section class="information">
             <div class="container-fluid">
