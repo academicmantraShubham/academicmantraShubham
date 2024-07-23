@@ -491,7 +491,7 @@
     <!-- end of $bestoffers -->
 
     <!--why choose us-->
-    <section class="w3l-about1 plans" id="about">
+    <section class="w3l-about1 bottom" id="about">
         <div id="cwp23-block" class="py-5">
             <div class="container py-lg-5">
                 <div class="row cwp23-content">
