@@ -103,7 +103,7 @@
                                             enctype="multipart/form-data">
                                             @csrf
                                             <input type="hidden" name="last_url" value="{{ URL::current() }}">
-                                            <input type="hidden" name="menu_id"
+                                            <input type="hidden" name="menu_id" id="menu_id"
                                                 value="">
 
                                             <div class="row">
