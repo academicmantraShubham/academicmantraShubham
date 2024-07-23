@@ -268,7 +268,7 @@
             </div>
             <div class="row text-light">
                 <div class="py-3 text-center">
-                    <a class="btn" href="{{ route('order') }}">Order Now</a>
+                    <a class="btn" href="{{ route('order') }}" aria-label="Order Now">Order Now</a>
                 </div>
             </div>
         </div>
