@@ -84,7 +84,7 @@ class WebSiteController extends Controller
 
     public function about(Request $request)
     {
-        $data = $this->common();    
+        $data = $this->common();
         $menu = Menu::whereSlug('about-us')->first();
         if ($menu) {
             $data['post'] = ContentPage::whereMenuId($menu->id)->first();
@@ -176,7 +176,7 @@ class WebSiteController extends Controller
         $data['countries'] = Menu::whereParentId(9)->get();
         $menu = Menu::whereSlug($slug)->first();
 
-        if($menu && $menu->is_page == 1){
+        if ($menu && $menu->is_page == 1) {
             $data['post'] = ContentPage::whereMenuId($menu->id)->first();
             return view('website.pages.pages', $data);
         }
@@ -187,8 +187,10 @@ class WebSiteController extends Controller
             $files = Storage::allFiles('public/banners');
             $rand = Arr::random($files, 1);
             $data['banner'] =  str_replace("public", "storage", $rand[0]);
+            $data['whatYouneed'] = Homepage::wherePage('whatYouneed')->with('subHomepages')->first();
             $data['writers'] = Homepage::wherePage('writers')->inRandomOrder()->with(['Menu'])->limit(6)->get();
             $data['whyChooseUs'] = Homepage::wherePage('why-choose-us')->inRandomOrder()->limit(4)->get();
+            $data['bestoffers'] = Homepage::wherePage('best offers')->with('subHomepages')->first();
             return view('website.pages.post', $data);
         }
         abort(404, "page not found");
@@ -196,7 +198,7 @@ class WebSiteController extends Controller
 
     public function order(Request $request)
     {
-        if($request->code){
+        if ($request->code) {
             session()->put('code', $request->code);
         }
         $data = $this->common();

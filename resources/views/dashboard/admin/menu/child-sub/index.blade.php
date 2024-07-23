@@ -66,7 +66,8 @@
                                     @endcan
 
                                     @can('menu_edit')
-                                        <a class="btn btn-xs btn-warning addContent" data-id="{{ $menu->id }}" data-target="#add_content">
+                                        <a class="btn btn-xs btn-warning addContent" data-id="{{ $menu->id }}"
+                                            data-target="#add_content">
                                             {{ trans('Content') }}
                                         </a>
                                     @endcan
@@ -103,8 +104,7 @@
                                             enctype="multipart/form-data">
                                             @csrf
                                             <input type="hidden" name="last_url" value="{{ URL::current() }}">
-                                            <input type="hidden" name="menu_id" id="menu_id"
-                                                value="">
+                                            <input type="hidden" name="menu_id" id="menu_id" value="">
 
                                             <div class="row">
                                                 <div class="form-group col-12">

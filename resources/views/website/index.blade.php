@@ -550,7 +550,7 @@
                             <!-- end of swiper-wrapper -->
                             <!-- Add Arrows -->
                             <!-- <div class="swiper-button-next"></div>
-                                                                              <div class="swiper-button-prev"></div> -->
+                            <div class="swiper-button-prev"></div> -->
                             <!-- end of add arrows -->
                         </div>
                         <!-- end of swiper-container -->
@@ -561,6 +561,12 @@
                 <!-- end of col -->
             </div>
             <!-- end of row -->
+
+            <div class="row text-light">
+                <div class="py-3 text-center">
+                    <a class="btn" href="{{ route('experts') }}">View All</a>
+                </div>
+            </div>
         </div> <!-- end of container -->
     </section>
     <!-- end of writers -->

@@ -355,6 +355,38 @@
         <!-- End Top Colleges Section -->
     @endif
 
+    @if (count($whatYouneed) > 0)
+        <!-- Information -->
+        <section class="information">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="text-center w-lg-75 m-auto pb-4">
+                        <div class="py-2 text-center div-h-text">
+                            <h2> Get Our Essay Help In Just 3 Steps</h2>
+                        </div>
+                    </div>
+                </div>
+                <div class="row text-light">
+                    @foreach ($whatYouneed->subHomepages as $key => $whatYouneed)
+                        <div class="col-lg-4 text-center p-5" data-aos="zoom-in">
+                            {!! $whatYouneed->alt !!}
+                            <h3 class="py-3 h2 text-center">{!! strip_tags($whatYouneed->title) !!}</h3>
+                            <p class="para-light">{!! strip_tags($whatYouneed->content) !!}</p>
+                        </div>
+                    @endforeach
+                </div>
+
+                <div class="row text-light">
+                    <div class="py-3 text-center">
+                        <a class="btn" href="{{ route('order') }}">Order Now</a>
+                    </div>
+                </div>
+            </div>
+            <!-- end of container -->
+        </section>
+        <!-- end of information -->
+    @endif
+
     @if (count($post->faqs) > 0)
         <!-- FAQS -->
         <section class="bottom d-flex align-items-center text-light py-5">
@@ -429,6 +461,34 @@
         </section>
         <!-- End FAQs -->
     @endif
+
+    <!-- $bestoffers -->
+    @if ($bestoffers)
+        <section class="plans d-flex align-items-center py-5" id="plans">
+            <div class="container text-light">
+                <div class="text-center pb-4">
+                    <div class="py-2 text-center div-h-text">{!! @$bestoffers->title !!}</div>
+                    <p class="para-light">{!! @$bestoffers->content !!}</p>
+                </div>
+                <div class="row gy-4" data-aos="zoom-in">
+                    @foreach ($bestoffers->subHomepages as $key => $item)
+                        <div class="col-lg-4 @if (++$key % 2 == 0) featured @endif">
+                            <div class="card bg-transparent px-4">
+                                {!! @$item->title !!}
+                                {!! @$item->content !!}
+                                <!-- <h4 class="py-3">$24/Month</h4> -->
+                                <div class="my-3">
+                                    <a class="btn" href="{{ route('order') }}?code={{ $item->alt }}">View
+                                        Plans</a>
+                                </div>
+                            </div>
+                        </div>
+                    @endforeach
+                </div> <!-- end of row -->
+            </div> <!-- end of container -->
+        </section>
+    @endif
+    <!-- end of $bestoffers -->
 
     <!--why choose us-->
     <section class="w3l-about1 plans" id="about">
