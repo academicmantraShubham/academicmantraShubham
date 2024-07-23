@@ -11,7 +11,7 @@
     @endcan
     <div class="card">
         <div class="card-header">
-            Child{{ trans('cruds.menu.title') }} {{ trans('global.list') }}
+            Child {{ trans('cruds.menu.title') }} {{ trans('global.list') }}
         </div>
 
         <div class="card-body">
@@ -64,6 +64,12 @@
                                         </a>
                                     @endcan
 
+                                    @can('menu_edit')
+                                        <a class="btn btn-xs btn-warning addContent" data-id="{{ $menu->id }}" data-target="#add_content">
+                                            {{ trans('Content') }}
+                                        </a>
+                                    @endcan
+                                    
                                     @can('menu_delete')
                                         <form action="{{ route('admin.menu.destroy', $menu->id) }}" method="POST"
                                             onsubmit="return confirm('{{ trans('global.areYouSure') }}');"
@@ -80,6 +86,51 @@
                             </tr>
                         @endforeach
                     </tbody>
+
+                    <!-- Modal -->
+                    <div class="modal fade" id="add_content" tabindex="-1" role="dialog"
+                        aria-labelledby="exampleModalLabel" aria-hidden="true">
+                        <div class="modal-dialog" role="document" style="max-width:60%">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="exampleModalLabel">&emsp;Add Content Section</h5>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+                                <div class="modal-body">
+                                    <form method="POST" action="{{ route('admin.menu.child-sub.add-content') }}"
+                                        enctype="multipart/form-data">
+                                        @csrf
+                                        <input type="hidden" name="last_url" value="{{ URL::current() }}">
+                                        <input type="hidden" name="menu_id" value="">
+
+                                        <div class="row">
+                                            <div class="form-group col-12">
+                                                <label for="title">Title</label>
+                                                <textarea class="form-control ckeditor" type="text" id="title" name="title" placeholder="Enter something...."
+                                                    rows="2">{{ old('title') }}</textarea>
+                                            </div>
+
+                                            <div class="form-group col-12">
+                                                <label for="blog">Description</label>
+                                                <textarea class="form-control ckeditor" type="text" id="content" name="content" placeholder="Enter something...."
+                                                    rows="10">{{ old('content') }}</textarea>
+                                            </div>
+
+                                            <div class="form-group col-12 mt-2">
+                                                <label for="title">Image</label>
+                                                <input class="form-control" type="file"
+                                                    accept="image/png, image/webp, image/jpeg, image/jpg" name="img">
+                                            </div>
+
+                                        </div>
+                                        <button type="submit" class="btn btn-success btn-rounded btn-fw">Submit</button>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </table>
             </div>
         </div>
@@ -145,6 +196,12 @@
                     .columns.adjust();
             });
 
+            $('.addContent').each(function() {
+                var $this = $(this);
+                $this.on("click", function() {
+                    $("menu_id").val($(this).data('id'))
+                });
+            });
         })
     </script>
 @endsection
