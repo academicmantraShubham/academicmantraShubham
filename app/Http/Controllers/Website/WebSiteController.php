@@ -184,6 +184,7 @@ class WebSiteController extends Controller
         if ($menu && $menu->content == 1) {
             $data['cities'] = Menu::whereParentId($menu->parent_id)->with('post')->get();
             $data['post'] = ContentPage::whereMenuId($menu->id)->with(['writers.Menu', 'faqs'])->first();
+            $data['review'] = Homepage::wherePage('review')->with('subHomepages')->first();
             $files = Storage::allFiles('public/banners');
             $rand = Arr::random($files, 1);
             $data['banner'] =  str_replace("public", "storage", $rand[0]);

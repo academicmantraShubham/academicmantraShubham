@@ -250,7 +250,7 @@
                                     <div class="swiper-slide">
                                         <div class="testimonial-card p-4">
                                             <b>About {{ @$writer->Menu->title }} Writer</b>
-                                            <p>{{ substr(strip_tags($writer->content), 0, 210) }}</p>
+                                            <p>{{ substr(strip_tags($writer->content), 0, 210) }}...</p>
                                             <div class="d-flex pt-4">
                                                 {{-- <div class="div-avatar">
                                                     <img class="avatar" loading="lazy"
@@ -387,6 +387,31 @@
         <!-- end of information -->
     @endif
 
+    @if ($review)
+        <!-- Reviews -->
+        <section style="background-color: #3570a3;" class="services d-flex align-items-center pb-5" id="services">
+            <div class="container text-light">
+                <div class="text-center pb-4">
+
+                    <div class="py-2 text-center div-h-text"> {!! @$review->title !!}</div>
+
+                    <div class="row justify-content-center">
+                        @foreach ($review->subHomepages as $key => $site)
+                            <div class="col-sm-3 pt-2"  data-aos="fade-right">
+                                <div class="review-card-sites" data-aos="fade-explorePossibilities">
+                                    <img src="{{ $site->image }}" alt="{{ strip_tags($site->content) }}">
+                                    <span>{{ $site->alt }}</span>
+                                </div>
+                            </div>
+                        @endforeach
+                    </div>
+
+                </div>
+            </div>
+        </section>
+        <!-- End Reviews -->
+    @endif
+    
     @if (count($post->faqs) > 0)
         <!-- FAQS -->
         <section class="bottom d-flex align-items-center text-light py-5">
