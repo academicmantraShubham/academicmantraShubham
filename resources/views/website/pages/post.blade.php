@@ -14,6 +14,29 @@
         .inter-linking figure img {
             width: 100%;
         }
+
+        .review-card-sites {
+            padding: 10px;
+            background: linear-gradient(165deg, var(--white) 21.67%, var(--white) 51.26%, rgba(225, 235, 245, 0) 91.24%);
+            -webkit-backdrop-filter: blur(4.10205px);
+            backdrop-filter: blur(4.10205px);
+            border-radius: 6.2245px;
+            display: flex;
+            justify-content: space-evenly;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .review-card-sites img{
+            width: 200px;
+        }
+
+        .review-card-sites span{
+            font-size: 24px;
+            line-height: 60px;
+            font-weight: 600;
+            color: black;
+        }
     </style>
 @endpush
 
@@ -411,7 +434,7 @@
         </section>
         <!-- End Reviews -->
     @endif
-    
+
     @if (count($post->faqs) > 0)
         <!-- FAQS -->
         <section class="bottom d-flex align-items-center text-light py-5">
