@@ -14,10 +14,11 @@
         .inter-linking figure img {
             width: 100%;
         }
-
+        .grecaptcha-badge {
+            display: none !important;
+        }
          /* new form */
-
-         .new-card {
+        .new-card {
             width: auto;
             height: auto;
             background-color: white;
@@ -107,7 +108,7 @@
             background: linear-gradient(-90deg, #0ee951, #0dcaf0);
             box-shadow: 1px 5px 9px rgba(211, 211, 211, .9);
         }
-        
+
         .review-card-sites {
             padding: 10px;
             background: linear-gradient(165deg, var(--white) 21.67%, var(--white) 51.26%, rgba(225, 235, 245, 0) 91.24%);
