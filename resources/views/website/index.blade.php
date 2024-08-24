@@ -236,6 +236,7 @@
 @endpush
 
 @section('content')
+
     <!-- Home -->
     <section class="home py-5 d-flex align-items-center" id="header">
         <div class="container text-light py-5" data-aos="fade-right">

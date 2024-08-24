@@ -44,26 +44,137 @@
 
     <!-- About -->
     @if (isset($post) && !empty($post))
-        {{-- 
-        <section class="about d-flex align-items-center text-light py-5" id="excerpt" style="margin-top: 5.5rem;">
-            <div class="container">
-                <div class="row d-flex align-items-center">
-                    <div class="col-lg-7" data-aos="fade-right">
-                        {!! $post->excerpt !!}
-                    </div>
-                    <div class="col-lg-5 text-center py-4 py-sm-0" data-aos="fade-down">
-                        <img loading="lazy" class="img-fluid" title="{{ $post->title }}" style="width:150px"
-                            src="{{ $post->featured_image ? $post->featured_image->getUrl() : '/images/homepage/1646737989.svg' }}"
-                            alt="{{ $post->title }}">
-                    </div>
-                </div> 
-                <!-- end of row -->
-            </div> 
-            <!-- end of container -->
-        </section> 
-        <!-- end of about -->
-    --}}
 
+        <!-- Home -->
+        <section class="home py-5 d-flex align-items-center" id="header">
+            <div class="container text-light py-5" data-aos="fade-right">
+                <div class="row">
+                    <div class="col-md-6">
+                        <h1 class="headline" style="font-size:46px">{{ $post->title }}</h1>
+                        <p class="para py-3">{!! @$thesisNdissertation->content !!}</p>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="new-card">
+                            <h2>Get Instant Help From Experts</h2>
+    
+                            <!-- FORMULAIRE -->
+                            <form class="form" action="{{ route('enquiry-form') }}" method="POST">
+                                @csrf
+                                @captcha
+                                <input type="text" placeholder="Name" class="email" name="name" required>
+                                <input type="email" placeholder="Email Adress" class="email" name="email" required>
+                                <input type="number" placeholder="Enter word count" class="email" name="word_count" required>
+                                <input type="text" class="email" placeholder="Choose Deadline" name="deadline"
+                                    onfocus="(this.type='date')" name="deadline" min="<?php echo date('Y-m-d'); ?>" required />
+                                <input type="text" placeholder="Enter Topic" class="email" name="topic" required>
+    
+                                <!-- BOUTTON LOGIN -->
+                                <button type="submit" class="login_btn" type="submit">Enquire Now</button>
+                            </form>
+    
+                        </div>
+                    </div>
+                </div>
+                <div class="row text-light">
+                    <div class="py-3 text-center">
+                        <a class="btn" href="{{ route('order') }}" aria-label="Order Now">Order Now</a>
+                    </div>
+                </div>
+            </div>
+            <!-- end of container -->
+        </section>
+        <!-- end of home -->
+        @if ($review)
+            <!-- Reviews -->
+            <section style="background-color: #3570a3;" class="services d-flex align-items-center pb-5" id="services">
+                <div class="container text-light">
+                    <div class="text-center pb-4">
+    
+                        <div class="py-2 text-center div-h-text"> {!! @$review->title !!}</div>
+    
+                        <div class="row justify-content-center">
+                            @foreach ($review->subHomepages as $key => $site)
+                                <div class="col-sm-3 pt-2"  data-aos="fade-right">
+                                    <div class="review-card-sites" data-aos="fade-explorePossibilities">
+                                        <img src="{{ $site->image }}" alt="{{ strip_tags($site->content) }}">
+                                        <span>{{ $site->alt }}</span>
+                                    </div>
+                                </div>
+                            @endforeach
+                        </div>
+    
+                    </div>
+                </div>
+            </section>
+            <!-- End Reviews -->
+        @endif
+        <!-- $explorePossibilities -->
+        <section class="work d-flex align-items-center py-5">
+            <div class="container-fluid text-light">
+                <div class="row">
+                    <div class="col-lg-6 d-flex align-items-center" data-aos="fade-right">
+                        <img class="img-fluid" src="{!! @$explorePossibilities->image !!}" alt="{!! @$explorePossibilities->alt !!}">
+                    </div>
+                    <div class="col-lg-5 d-flex align-items-center px-4 py-3" data-aos="">
+                        <div class="row">
+                            <div class="text-center text-lg-start py-4 pt-lg-0">
+                                <div class="py-2 div-h-text">{!! @$explorePossibilities->title !!}</div>
+                                <p class="para-light">{!! @$explorePossibilities->content !!}</p>
+                            </div>
+                            <div class="container" data-aos="fade-explorePossibilities">
+                                <div class="row g-5">
+                                    <div class="col-6 text-start">
+                                        <i class="fas fa-briefcase fa-2x text-start"></i>
+                                        <div class="d-flex">
+                                            <p class="purecounter h2" data-purecounter-start="0"
+                                                data-purecounter-end="{{ strip_tags(@$explorePossibilities->subHomepages[0]->content) }}"
+                                                data-purecounter-duration="3">1</p><span>+</span>
+                                        </div>
+                                        <p>{{ strip_tags(@$explorePossibilities->subHomepages[0]->title) }}</p>
+                                    </div>
+                                    <div class="col-6">
+                                        <i class="fas fa-award fa-2x"></i>
+                                        <div class="d-flex">
+                                            <p class="purecounter h2" data-purecounter-start="0"
+                                                data-purecounter-end="{{ strip_tags(@$explorePossibilities->subHomepages[1]->content) }}"
+                                                data-purecounter-duration="3">1</p><span>+</span>
+                                        </div>
+                                        <p>{{ strip_tags(@$explorePossibilities->subHomepages[1]->title) }}</p>
+                                    </div>
+                                    <div class="col-6">
+                                        <i class="fas fa-users fa-2x"></i>
+                                        <div class="d-flex">
+                                            <p class="purecounter h2" data-purecounter-start="0"
+                                                data-purecounter-end="{{ strip_tags(@$explorePossibilities->subHomepages[2]->content) }}"
+                                                data-purecounter-duration="3">1</p><span>+</span>
+                                        </div>
+                                        <p>{{ strip_tags(@$explorePossibilities->subHomepages[2]->title) }}</p>
+                                    </div>
+                                    <div class="col-6">
+                                        <i class="fas fa-clock fa-2x"></i>
+                                        <div class="d-flex">
+                                            <p class="purecounter h2" data-purecounter-start="0"
+                                                data-purecounter-end="{{ strip_tags(@$explorePossibilities->subHomepages[3]->content) }}"
+                                                data-purecounter-duration="3">1</p><span>+</span>
+                                        </div>
+                                        <p>{{ strip_tags(@$explorePossibilities->subHomepages[3]->title) }}</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- end of container -->
+                        </div>
+                        <!-- end of row -->
+                    </div>
+                    <!-- end of col-lg-5 -->
+                </div>
+                <!-- end of row -->
+            </div>
+            <!-- end of container -->
+        </section>
+        <!-- end of $explorePossibilities -->
+
+
+        
         <!-- ======= Breadcrumbs ======= -->
         <section id="breadcrumbs" class="breadcrumbs">
             <div class="container">
@@ -83,17 +194,13 @@
         <section class="bottom d-flex align-items-center text-light py-5" id="services">
             <div class="container">
                 <div class="row d-flex align-items-start justify-content-center">
-                    <h1 class="m-2">{{ $post->title }}</h1>
+                    {{-- <h1 class="m-2">{{ $post->title }}</h1> --}}
                 </div>
                 <div class="row d-flex align-items-start inter-linking">
                     <div class="col-sm-9 mt-2" data-aos="fade-right">
                         {!! $post->page_text !!}
                     </div>
                     <div class="col-sm-3 mt-2 col-offer-img" data-aos="fade-left">
-                        {{-- <a href="{{ route('order') }}">
-                            <img loading="lazy" class="img-fluid" src="{{ $banner ?? asset('banners/post-banner.webp') }}"
-                                alt="{{ $post->title }}" width="100%">
-                        </a> --}}
 
                         <div class="border border-light rounded p-3">
                             <p class="font-weight-bold text-center" style="font-size:28px">Get The Price Quote</p>
@@ -408,31 +515,6 @@
             <!-- end of container -->
         </section>
         <!-- end of information -->
-    @endif
-
-    @if ($review)
-        <!-- Reviews -->
-        <section style="background-color: #3570a3;" class="services d-flex align-items-center pb-5" id="services">
-            <div class="container text-light">
-                <div class="text-center pb-4">
-
-                    <div class="py-2 text-center div-h-text"> {!! @$review->title !!}</div>
-
-                    <div class="row justify-content-center">
-                        @foreach ($review->subHomepages as $key => $site)
-                            <div class="col-sm-3 pt-2"  data-aos="fade-right">
-                                <div class="review-card-sites" data-aos="fade-explorePossibilities">
-                                    <img src="{{ $site->image }}" alt="{{ strip_tags($site->content) }}">
-                                    <span>{{ $site->alt }}</span>
-                                </div>
-                            </div>
-                        @endforeach
-                    </div>
-
-                </div>
-            </div>
-        </section>
-        <!-- End Reviews -->
     @endif
 
     @if (count($post->faqs) > 0)

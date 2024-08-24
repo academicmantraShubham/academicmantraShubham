@@ -5,7 +5,6 @@ namespace App\Http\Controllers\Website;
 use Arr;
 use Storage;
 use App\Models\Menu;
-use App\Models\BlogPage;
 use App\Models\Homepage;
 use App\Models\Calculator;
 use App\Models\ContentPage;
@@ -182,9 +181,11 @@ class WebSiteController extends Controller
         }
 
         if ($menu && $menu->content == 1) {
+            $data['thesisNdissertation'] = Homepage::wherePage('thesisNdissertation')->first();
+            $data['review'] = Homepage::wherePage('review')->with('subHomepages')->first();
+            $data['explorePossibilities'] = Homepage::wherePage('explorePossibilities')->first();
             $data['cities'] = Menu::whereParentId($menu->parent_id)->with('post')->get();
             $data['post'] = ContentPage::whereMenuId($menu->id)->with(['writers.Menu', 'faqs'])->first();
-            $data['review'] = Homepage::wherePage('review')->with('subHomepages')->first();
             $files = Storage::allFiles('public/banners');
             $rand = Arr::random($files, 1);
             $data['banner'] =  str_replace("public", "storage", $rand[0]);
