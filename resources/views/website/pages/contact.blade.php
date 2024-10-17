@@ -15,8 +15,8 @@
         <header class="ex-header">
             <div class="container">
                 <div class="row">
-                    <div class="col-xl-10 offset-xl-1">
-                        <h2 style="color:white">Contact</h2>
+                    <div class="col-xl-10 offset-xl-1 ">
+                        <h2 style="color:white">Contact Us</h2>
                     </div> <!-- end of col -->
                 </div> <!-- end of row -->
             </div> <!-- end of container -->
@@ -30,8 +30,8 @@
                     {!! $post->page_text !!}
 
                     <!-- <h1>We Are Best In Essay Writing</h1>
-                <p class="py-2 para-light">Lorem ipsum dolor sit amet consectetur adipisicing elit. Non sed accusantium aut dolores inventore architecto modi cupiditate eligendi corporis, illum illo culpa. Reiciendis, molestias. Illum voluptatum quisquam ad veritatis dolorem.</p>
-                <p class="py-2 para-light">Lorem ipsum dolor sit amet consectetur adipisicing elit. Non sed accusantium aut dolores inventore architecto modi cupiditate eligendi corporis, illum illo culpa. Reiciendis, molestias. Illum voluptatum quisquam ad veritatis dolorem.</p> -->
+                    <p class="py-2 para-light">Lorem ipsum dolor sit amet consectetur adipisicing elit. Non sed accusantium aut dolores inventore architecto modi cupiditate eligendi corporis, illum illo culpa. Reiciendis, molestias. Illum voluptatum quisquam ad veritatis dolorem.</p>
+                    <p class="py-2 para-light">Lorem ipsum dolor sit amet consectetur adipisicing elit. Non sed accusantium aut dolores inventore architecto modi cupiditate eligendi corporis, illum illo culpa. Reiciendis, molestias. Illum voluptatum quisquam ad veritatis dolorem.</p> -->
                 </div> <!-- end of row -->
             </div> <!-- end of container -->
         </section> <!-- end of about -->
@@ -41,29 +41,30 @@
                 <div class="row">
                     <div class="col-lg-6 d-flex justify-content-center justify-content-lg-end align-items-center px-lg-5"
                         data-aos="fade-right">
-                        <div style="width:90%">
+                        <div style="width:90%;">
                             <div class="text-center text-lg-start py-4 pt-lg-0">
                                 <h2 class="py-2">{!! @$sendyourquery[0]->title !!}</h2>
                                 <p class="para-light">{!! @$sendyourquery[0]->content !!}</p>
                             </div>
-                            <div>
+                            <div style="border:2px solid white; padding:5px;">
+                               <div class="text-center" style="padding: 10px; font-size:25px; ">Get In Touch With Us</div>
                                 <div class="row">
                                     <div class="col-lg-6">
                                         <div class="form-group py-2">
                                             <input type="text" class="form-control form-control-input"
-                                                id="exampleFormControlInput1" placeholder="Enter name">
+                                                id="exampleFormControlInput1" placeholder="Enter Name">
                                         </div>
                                     </div>
                                     <div class="col-lg-6">
                                         <div class="form-group py-2">
                                             <input type="email" class="form-control form-control-input"
-                                                id="exampleFormControlInput2" placeholder="Enter phone number">
+                                                id="exampleFormControlInput2" placeholder="Enter Phone Number">
                                         </div>
                                     </div>
                                 </div>
                                 <div class="form-group py-1">
                                     <input type="email" class="form-control form-control-input"
-                                        id="exampleFormControlInput3" placeholder="Enter email">
+                                        id="exampleFormControlInput3" placeholder="Enter Email">
                                 </div>
                                 <div class="form-group py-2">
                                     <textarea class="form-control form-control-input" id="exampleFormControlTextarea1" rows="6" placeholder="Message"></textarea>
@@ -75,7 +76,9 @@
                         </div> <!-- end of div -->
                     </div> <!-- end of col -->
                     <div class="col-lg-6 d-flex align-items-center" data-aos="fade-down">
-                        <img class="img-fluid d-none d-lg-block" src="{{ $post->featured_image ? $post->featured_image->getUrl() : '/images/homepage/1700484614.png' }}" alt="contact">
+                        <img class="img-fluid d-none d-lg-block"
+                            src="{{ $post->featured_image ? $post->featured_image->getUrl() : '/images/homepage/1700484614.png' }}"
+                            alt="contact">
                     </div> <!-- end of col -->
                 </div> <!-- end of row -->
             </div> <!-- end of container -->

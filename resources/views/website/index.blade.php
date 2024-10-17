@@ -9,6 +9,8 @@
     <meta charset="utf-8">
     <!-- shcema -->
     <meta name="csrf-token" content="{{ csrf_token() }}" />
+    <script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.umd.js"></script>
+
     <script type="application/ld+json">
         {
             "@context": "https://schema.org/",
@@ -21,6 +23,13 @@
                 "ratingCount": "2034"
             }
         }
+    </script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            Fancybox.bind("[data-fancybox='gallery']", {
+                // Optional: Customize Fancybox settings here
+            });
+        });
     </script>
 
     <!--OG Meta Tags to improve the way the post looks when you share the page on Facebook, Twitter, LinkedIn -->
@@ -44,10 +53,13 @@
 
 @push('css')
     <link href="{{ asset('website/css/swiper.css') }}" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.css" />
+
     <style>
         .grecaptcha-badge {
             display: none !important;
         }
+
         .bottom h2 {
             color: #05ada3;
             line-height: 1.1;
@@ -74,6 +86,13 @@
             max-height: 400px;
             overflow-y: scroll;
         }
+
+        .review-card-sites img {
+            width: 100%;
+            height: auto;
+            cursor: pointer;
+        }
+
 
         /* ===== Scrollbar CSS ===== */
         /* Firefox */
@@ -220,11 +239,11 @@
             flex-wrap: wrap;
         }
 
-        .review-card-sites img{
+        .review-card-sites img {
             width: 200px;
         }
 
-        .review-card-sites span{
+        .review-card-sites span {
             font-size: 24px;
             line-height: 60px;
             font-weight: 600;
@@ -284,7 +303,7 @@
 
                     <div class="row justify-content-center">
                         @foreach ($review->subHomepages as $key => $site)
-                            <div class="col-sm-3 pt-2"  data-aos="fade-right">
+                            <div class="col-sm-3 pt-2" data-aos="fade-right">
                                 <div class="review-card-sites" data-aos="fade-explorePossibilities">
                                     <img src="{{ $site->image }}" alt="{{ strip_tags($site->content) }}">
                                     <span>{{ $site->alt }}</span>
@@ -298,6 +317,32 @@
         </section>
         <!-- End Reviews -->
     @endif
+
+    @if ($sample && $sample->subHomepages->isNotEmpty())
+        <section style="background-color: #3570a3;" class="services d-flex align-items-center pb-5" id="services">
+            <div class="container text-light">
+                <div class="text-center pb-4">
+                    <div class="py-2 text-center div-h-text"> {!! $sample->title !!}</div>
+                    <div class="row justify-content-center">
+                        @foreach ($sample->subHomepages as $key => $sampleItem)
+                            <div class="col-sm-3 pt-2" data-aos="fade-right">
+                                <div class="review-card-sites" data-aos="fade-explorePossibilities">
+                                    <a href="{{ $sampleItem->image }}" data-fancybox="gallery"
+                                        data-caption="{{ strip_tags($sampleItem->content) }}">
+                                        <img src="{{ $sampleItem->image }}" alt="{{ strip_tags($sampleItem->content) }}"
+                                            class="img-fluid" />
+                                    </a>
+                                </div>
+                            </div>
+                        @endforeach
+                    </div>
+                </div>
+            </div>
+        </section>
+    @else
+        <p>No samples found.</p> <!-- Add this message for troubleshooting -->
+    @endif
+
     <!-- $explorePossibilities -->
     <section class="work d-flex align-items-center py-5">
         <div class="container-fluid text-light">
@@ -549,7 +594,7 @@
                             <!-- end of swiper-wrapper -->
                             <!-- Add Arrows -->
                             <!-- <div class="swiper-button-next"></div>
-                            <div class="swiper-button-prev"></div> -->
+                                    <div class="swiper-button-prev"></div> -->
                             <!-- end of add arrows -->
                         </div>
                         <!-- end of swiper-container -->

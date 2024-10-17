@@ -205,6 +205,32 @@
             </section>
             <!-- End Reviews -->
         @endif
+
+        @if ($sample && $sample->subHomepages->isNotEmpty())
+            <section style="background-color: #3570a3;" class="services d-flex align-items-center pb-5" id="services">
+                <div class="container text-light">
+                    <div class="text-center pb-4">
+                        <div class="py-2 text-center div-h-text"> {!! $sample->title !!}</div>
+                        <div class="row justify-content-center">
+                            @foreach ($sample->subHomepages as $key => $sampleItem)
+                                <div class="col-sm-3 pt-2" data-aos="fade-right">
+                                    <div class="review-card-sites" data-aos="fade-explorePossibilities">
+                                        <a href="{{ $sampleItem->image }}" data-fancybox="gallery"
+                                            data-caption="{{ strip_tags($sampleItem->content) }}">
+                                            <img src="{{ $sampleItem->image }}"
+                                                alt="{{ strip_tags($sampleItem->content) }}" class="img-fluid" />
+                                        </a>
+                                    </div>
+                                </div>
+                            @endforeach
+                        </div>
+                    </div>
+                </div>
+            </section>
+        @else
+            <p>No samples found.</p> <!-- Add this message for troubleshooting -->
+        @endif
+
         <!-- $explorePossibilities -->
         <section class="work d-flex align-items-center py-5">
             <div class="container-fluid text-light">
@@ -394,6 +420,65 @@
     </section>
     <!-- end of writers -->
 
+    <!-- $clientsSays -->
+    <div class="slider-1 testimonial text-light d-flex align-items-center clients-says">
+        <div class="container mb-2">
+            <div class="row">
+                <div class="text-center w-lg-75 m-auto pb-4">
+                    <div class="py-2 text-center div-h-text">{!! @$clientsSays->title !!}</div>
+                    <p class="para-light">{!! @$clientsSays->content !!}</p>
+                </div>
+            </div>
+
+            <div class="row p-2" data-aos="zoom-in">
+                <div class="col-lg-12">
+
+                    <div class="slider-container">
+                        <div class="swiper-container card-slider">
+                            <div class="swiper-wrapper">
+
+                                @foreach ($clientsSays->subHomepages as $key => $clientsSays)
+                                    <div class="swiper-slide">
+                                        <div class="testimonial-card p-4">
+                                            <p>{{ substr(strip_tags($clientsSays->content), 0, 210) }}...</p>
+                                            <div class="d-flex pt-4">
+
+                                                <div class="ms-3 pt-2">
+                                                    {!! $clientsSays->title !!}
+                                                    <b> Rating - </b>
+
+                                                    @for ($i = rand(1, 3); $i <= 5; $i++)
+                                                        <i class="fa fa-star text-warning" aria-hidden="true"></i>
+                                                    @endfor
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                @endforeach
+                            </div>
+
+                            <div class="swiper-button-next"></div>
+                            <div class="swiper-button-prev"></div>
+
+                        </div>
+                        <!-- end of swiper-container -->
+                    </div>
+                    <!-- end of slider-container -->
+                    <!-- end of card slider -->
+                </div>
+                <!-- end of col -->
+            </div>
+            <!-- end of row -->
+            <div class="row text-light">
+                <div class="py-3 text-center">
+                    <a class="btn" href="{{ route('reviews') }}">View All</a>
+                </div>
+            </div>
+        </div>
+        <!-- end of container -->
+    </div>
+    <!-- end of $clientsSays -->
+
     @if (url()->current() != 'https://getessayservice.com//au-australia' && strpos(url()->current(), 'au-') !== false)
         <!-- ======= Top Colleges ======= -->
         <section class="testimonial d-flex align-items-center text-light pb-2" id="about">
@@ -444,7 +529,7 @@
         <!-- End Top Colleges Section -->
     @endif
 
-    @if ($whatYouneed)
+    {{-- @if ($whatYouneed)
         <!-- Information -->
         <section class="information">
             <div class="container-fluid">
@@ -474,82 +559,7 @@
             <!-- end of container -->
         </section>
         <!-- end of information -->
-    @endif
-
-    @if (count($post->faqs) > 0)
-        <!-- FAQS -->
-        <section class="bottom d-flex align-items-center text-light py-5">
-            <div class="container">
-                <div class="row d-flex">
-                    <!-- Part - 1  -->
-                    <div class="col-md-12" data-aos="fade-right">
-                        <div class="container">
-                            <h3 class="m-2 text-center"> <strong>Recently Asked Question</strong></h3>
-                            {{-- <div class="accordion accordion-flush" id="accordionExample">
-                                @foreach ($post->faqs as $faq)
-                                    <div class="accordion-item">
-                                        <h2 class="accordion-header" id="heading_{{ $faq->id }}">
-                                            <button class="accordion-button {{ $loop->first ? '' : 'collapsed' }}"
-                                                type="button" data-bs-toggle="collapse"
-                                                data-bs-target="#collapse_{{ $faq->id }}" aria-expanded="true"
-                                                aria-controls="collapse_{{ $faq->id }}">
-                                                {!! $faq->title !!}
-                                            </button>
-                                        </h2>
-    
-                                        <div id="collapse_{{ $faq->id }}"
-                                            class="accordion-collapse collapse {{ $loop->first ? 'show' : '' }}"
-                                            aria-labelledby="heading_{{ $faq->id }}" data-bs-parent="#accordionExample">
-                                            <div class="accordion-body text-secondary">
-                                                {!! $faq->content !!}
-                                            </div>
-                                        </div>
-                                    </div>
-                                @endforeach
-                            </div> --}}
-
-                            <!-- accordion -->
-
-                            <div class="content content__accordion">
-                                <div class="accordion">
-                                    <div class="accordion__wrapper">
-                                        @foreach ($post->faqs as $faq)
-                                            <div class="accordion__item">
-                                                <div class="accordion__item--summary">
-                                                    <div class="accordion__item-icon">
-                                                        <i class="fas fa-fw fa-futbol"></i>
-                                                    </div>
-                                                    <div class="accordion__item-title">
-                                                        <h5>{{ strip_tags($faq->title) }}</h5>
-                                                    </div>
-                                                    <div class="accordion__item-toggler">
-                                                        <button>
-                                                            <i class="fas fa-fw fa-angle-down"></i>
-                                                        </button>
-                                                    </div>
-                                                </div>
-                                                <div class="accordion__item--detail">
-                                                    <div class="accordion__detail">
-                                                        <div class="accordion__detail-section">
-                                                            {!! $faq->content !!}
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        @endforeach
-                                    </div>
-                                </div>
-                            </div>
-
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!-- end of row -->
-            </div>
-        </section>
-        <!-- End FAQs -->
-    @endif
+    @endif --}}
 
     <!-- $bestoffers -->
     @if ($bestoffers)
@@ -605,6 +615,39 @@
         </div>
     </section>
     <!--End why choose us-->
+
+
+    @if ($whatYouneed)
+        <!-- Information -->
+        <section class="information">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="text-center w-lg-75 m-auto pb-4">
+                        <div class="py-2 text-center div-h-text">
+                            <h2> Get Our Essay Help In Just 3 Steps</h2>
+                        </div>
+                    </div>
+                </div>
+                <div class="row text-light">
+                    @foreach ($whatYouneed->subHomepages as $key => $whatYouneed)
+                        <div class="col-lg-4 text-center p-5" data-aos="zoom-in">
+                            {!! $whatYouneed->alt !!}
+                            <h3 class="py-3 h2 text-center">{!! strip_tags($whatYouneed->title) !!}</h3>
+                            <p class="para-light">{!! strip_tags($whatYouneed->content) !!}</p>
+                        </div>
+                    @endforeach
+                </div>
+
+                <div class="row text-light">
+                    <div class="py-3 text-center">
+                        <a class="btn" href="{{ route('order') }}">Order Now</a>
+                    </div>
+                </div>
+            </div>
+            <!-- end of container -->
+        </section>
+        <!-- end of information -->
+    @endif
 
     @if (isset($post) && !empty($post))
         <!-- ======= Breadcrumbs ======= -->
@@ -746,6 +789,81 @@
             </div> <!-- end of container -->
         </section>
         <!-- end of Post -->
+
+        @if (count($post->faqs) > 0)
+            <!-- FAQS -->
+            <section class="bottom d-flex align-items-center text-light py-5">
+                <div class="container">
+                    <div class="row d-flex">
+                        <!-- Part - 1  -->
+                        <div class="col-md-12" data-aos="fade-right">
+                            <div class="container">
+                                <h3 class="m-2 text-center"> <strong>Recently Asked Question</strong></h3>
+                                {{-- <div class="accordion accordion-flush" id="accordionExample">
+                                @foreach ($post->faqs as $faq)
+                                    <div class="accordion-item">
+                                        <h2 class="accordion-header" id="heading_{{ $faq->id }}">
+                                            <button class="accordion-button {{ $loop->first ? '' : 'collapsed' }}"
+                                                type="button" data-bs-toggle="collapse"
+                                                data-bs-target="#collapse_{{ $faq->id }}" aria-expanded="true"
+                                                aria-controls="collapse_{{ $faq->id }}">
+                                                {!! $faq->title !!}
+                                            </button>
+                                        </h2>
+    
+                                        <div id="collapse_{{ $faq->id }}"
+                                            class="accordion-collapse collapse {{ $loop->first ? 'show' : '' }}"
+                                            aria-labelledby="heading_{{ $faq->id }}" data-bs-parent="#accordionExample">
+                                            <div class="accordion-body text-secondary">
+                                                {!! $faq->content !!}
+                                            </div>
+                                        </div>
+                                    </div>
+                                @endforeach
+                            </div> --}}
+
+                                <!-- accordion -->
+
+                                <div class="content content__accordion">
+                                    <div class="accordion">
+                                        <div class="accordion__wrapper">
+                                            @foreach ($post->faqs as $faq)
+                                                <div class="accordion__item">
+                                                    <div class="accordion__item--summary">
+                                                        <div class="accordion__item-icon">
+                                                            <i class="fas fa-fw fa-futbol"></i>
+                                                        </div>
+                                                        <div class="accordion__item-title">
+                                                            <h5>{{ strip_tags($faq->title) }}</h5>
+                                                        </div>
+                                                        <div class="accordion__item-toggler">
+                                                            <button>
+                                                                <i class="fas fa-fw fa-angle-down"></i>
+                                                            </button>
+                                                        </div>
+                                                    </div>
+                                                    <div class="accordion__item--detail">
+                                                        <div class="accordion__detail">
+                                                            <div class="accordion__detail-section">
+                                                                {!! $faq->content !!}
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            @endforeach
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- end of row -->
+                </div>
+            </section>
+            <!-- End FAQs -->
+        @endif
     @endif
     @php
         if (strpos(url()->current(), 'au-') !== false) {

@@ -62,6 +62,7 @@ class WebSiteController extends Controller
         $data['bestthesis'] = Homepage::wherePage('best thesis')->first();
         $data['expectus'] = Homepage::wherePage('expect from us')->with('subHomepages')->first();
         $data['review'] = Homepage::wherePage('review')->with('subHomepages')->first();
+        $data['sample'] = Homepage::wherePage('sample')->with('subHomepages')->first();
         $data['whatYouneed'] = Homepage::wherePage('whatYouneed')->with('subHomepages')->first();
         $data['writers'] = Homepage::wherePage('writers')->with('Menu')->inRandomOrder()->limit(6)->get();
         // dd( $data['writers'] );
@@ -186,9 +187,17 @@ class WebSiteController extends Controller
             $data['explorePossibilities'] = Homepage::wherePage('explorePossibilities')->first();
             $data['cities'] = Menu::whereParentId($menu->parent_id)->with('post')->get();
             $data['post'] = ContentPage::whereMenuId($menu->id)->with(['writers.Menu', 'faqs'])->first();
-            $files = Storage::allFiles('public/banners');
+            $data['clientsSays'] = Homepage::wherePage('clientsSays')->with('subHomepages')->first();
+            $data['sample'] = Homepage::wherePage('sample')->with('subHomepages')->first();
+
+           $files = Storage::allFiles('public/banners');
+        if (!empty($files)) {
             $rand = Arr::random($files, 1);
-            $data['banner'] =  str_replace("public", "storage", $rand[0]);
+            $data['banner'] = str_replace("public", "storage", $rand[0]);
+        } else {
+            // Handle no banners case
+            $data['banner'] = null; // or set a default banner path
+        }
             $data['whatYouneed'] = Homepage::wherePage('whatYouneed')->with('subHomepages')->first();
             $data['writers'] = Homepage::wherePage('writers')->inRandomOrder()->with(['Menu'])->limit(6)->get();
             $data['whyChooseUs'] = Homepage::wherePage('why-choose-us')->inRandomOrder()->limit(4)->get();
