@@ -1,3 +1,3 @@
 User-agent: *
 Disallow:
-Sitemap: https://getessayservice.com//sitemap.xml
+Sitemap: https://getessayservice.com/sitemap.xml
