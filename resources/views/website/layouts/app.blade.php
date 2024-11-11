@@ -11,7 +11,7 @@
     <!-- canonical -->
     <link rel="canonical" href="{{ url()->current() }}" />
     <!-- shcema -->
-
+    @csrf
     <!-- Favicons -->
     <link href="{{ asset('favicons/favicon.ico') }}" rel="icon">
     <link href="{{ asset('favicons/apple-touch-icon.png') }}" sizes="180x180" rel="apple-touch-icon">

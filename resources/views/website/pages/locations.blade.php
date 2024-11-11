@@ -41,7 +41,7 @@
                 <div class="text-center w-lg-75 m-auto pb-4">
                     <h2 class="py-2">Cities Where We Serve</h2>
                     <p class="para-light">
-                        BEWS is a legitimate source of high-quality essays. Writing papers is part of the graduation
+                        GES is a legitimate source of high-quality essays. Writing papers is part of the graduation
                         requirements for college and university. Every student is required to complete the pending tasks
                         within the deadline. With limited time and complex instructions, many students turn to online essay
                         services that can assist in writing a term paper, thesis, or dissertation.

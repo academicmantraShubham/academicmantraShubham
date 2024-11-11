@@ -1076,7 +1076,7 @@
                     <div class="p-2"><i class="far fa-envelope fa-3x"></i></div>
                     <div class="ms-2">
                         <h6>SEND US MESSAGE</h6>
-                        <p><a href="help@bestessaywritingservices.com.au">help@bews.com.au</a></p>
+                        <p><a href="help@getessayservice.com.au">help@ges.com.au</a></p>
                     </div>
                 </div>
                 <div class="col-lg-3 d-flex align-items-center">

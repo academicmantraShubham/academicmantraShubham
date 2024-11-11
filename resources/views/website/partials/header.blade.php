@@ -6,7 +6,7 @@
       <!-- Image Logo -->
       <a class="navbar-brand logo-image" href="/"><img src="{{$logo->image}}" alt="{{$logo->alt}}"></a> 
       <!-- Text Logo - Use this if you don't have a graphic logo -->
-      <!--<a class="navbar-brand logo-text" href="/">BEWS</a>-->
+      <!--<a class="navbar-brand logo-text" href="/">GES</a>-->
       <button class="navbar-toggler p-0 border-0" type="button" id="navbarSideCollapse" aria-label="Toggle navigation">
          <span class="navbar-toggler-icon"></span>
       </button> 
@@ -83,7 +83,7 @@
    <div class="container">
       <!-- Image Logo -->
       <!-- Text Logo - Use this if you don't have a graphic logo -->
-      <!--<a class="navbar-brand logo-text" href="/">BEWS</a>-->
+      <!--<a class="navbar-brand logo-text" href="/">GES</a>-->
       <button class="navbar-toggler p-0 border-0" type="button" id="navbarSideCollapse" aria-label="Toggle navigation">
          <span class="navbar-toggler-icon"></span>
       </button> 
