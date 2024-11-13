@@ -11,7 +11,8 @@
     <!-- canonical -->
     <link rel="canonical" href="{{ url()->current() }}" />
     <!-- shcema -->
-    @csrf
+    <meta name="csrf-token" content="{{ csrf_token() }}">
+    <meta name="robots" content="index,follow" />
     <!-- Favicons -->
     <link href="{{ asset('favicons/favicon.ico') }}" rel="icon">
     <link href="{{ asset('favicons/apple-touch-icon.png') }}" sizes="180x180" rel="apple-touch-icon">
