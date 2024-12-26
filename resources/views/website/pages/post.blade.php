@@ -140,7 +140,6 @@
 
     <!-- About -->
     @if (isset($post) && !empty($post))
-
         <!-- Home -->
         <section class="home py-5 d-flex align-items-center" id="header">
             <div class="container text-light py-5" data-aos="fade-right">
@@ -295,7 +294,6 @@
             <!-- end of container -->
         </section>
         <!-- end of $explorePossibilities --> --}}
-
     @endif
 
 
@@ -859,6 +857,44 @@
             </section>
             <!-- End FAQs -->
         @endif
+
+        <!-- expectus -->
+        <section class="plans d-flex align-items-center py-5" id="services">
+            <div class="container text-light">
+                <div class="text-center pb-4">
+                    <div class="py-2 text-center div-h-text">{!! @$expectus->title !!}</div>
+                    <p class="para-light">{!! @$expectus->content !!}</p>
+                </div>
+                <div class="row gy-4 py-2" data-aos="zoom-in">
+                    @foreach ($expectus->subHomepages->take(10) as $key => $subHomepage)
+                        @if ($key == 0)
+                            <div class="col-lg-12">
+                                <!-- <a href="">  -->
+                                <div class="card bg-transparent">
+                                    <h3 class="py-2 text-success">{{ strip_tags($subHomepage->title) }}</h3>
+                                    <div class="para-light">
+                                        {!! $subHomepage->content !!}
+                                    </div>
+                                </div>
+                                <!-- </a> -->
+                            </div>
+                        @else
+                            <div class="col-lg-4">
+                                <!-- <a href="">  -->
+                                <div class="card bg-transparent">
+                                    <h3 class="py-2 text-success">{{ strip_tags($subHomepage->title) }}</h3>
+                                    <div class="para-light">
+                                        {!! $subHomepage->content !!}
+                                    </div>
+                                </div>
+                                <!-- </a> -->
+                            </div>
+                        @endif
+                    @endforeach
+                </div> <!-- end of row -->
+            </div> <!-- end of container -->
+        </section>
+        <!-- end of services -->
     @endif
 
     @php

@@ -189,6 +189,7 @@ class WebSiteController extends Controller
             $data['post'] = ContentPage::whereMenuId($menu->id)->with(['writers.Menu', 'faqs'])->first();
             $data['clientsSays'] = Homepage::wherePage('clientsSays')->with('subHomepages')->first();
             $data['sample'] = Homepage::wherePage('sample')->with('subHomepages')->first();
+            $data['expectus'] = Homepage::wherePage('expect from us')->with('subHomepages')->first();
 
             $files = Storage::allFiles('public/banners');
             if (!empty($files)) {
