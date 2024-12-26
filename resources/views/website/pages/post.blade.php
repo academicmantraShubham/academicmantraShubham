@@ -367,11 +367,6 @@
                                             <b>About {{ @$writer->Menu->title }} Writer</b>
                                             <p>{{ substr(strip_tags($writer->content), 0, 210) }}...</p>
                                             <div class="d-flex pt-4">
-                                                {{-- <div class="div-avatar">
-                                                    <img class="avatar" loading="lazy"
-                                                        src="{{ $writer->image ?? '/images/homepage/1660655334.jpg' }}"
-                                                        alt="{{ strip_tags($writer->title) }} Expert">
-                                                </div> --}}
                                                 <div class="ms-3 pt-2">
                                                     {!! $writer->title !!}
                                                     <div class="row text-center">
