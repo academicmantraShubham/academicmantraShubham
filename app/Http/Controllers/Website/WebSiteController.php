@@ -190,14 +190,14 @@ class WebSiteController extends Controller
             $data['clientsSays'] = Homepage::wherePage('clientsSays')->with('subHomepages')->first();
             $data['sample'] = Homepage::wherePage('sample')->with('subHomepages')->first();
 
-           $files = Storage::allFiles('public/banners');
-        if (!empty($files)) {
-            $rand = Arr::random($files, 1);
-            $data['banner'] = str_replace("public", "storage", $rand[0]);
-        } else {
-            // Handle no banners case
-            $data['banner'] = null; // or set a default banner path
-        }
+            $files = Storage::allFiles('public/banners');
+            if (!empty($files)) {
+                $rand = Arr::random($files, 1);
+                $data['banner'] = str_replace("public", "storage", $rand[0]);
+            } else {
+                // Handle no banners case
+                $data['banner'] = null; // or set a default banner path
+            }
             $data['whatYouneed'] = Homepage::wherePage('whatYouneed')->with('subHomepages')->first();
             $data['writers'] = Homepage::wherePage('writers')->inRandomOrder()->with(['Menu'])->limit(6)->get();
             $data['whyChooseUs'] = Homepage::wherePage('why-choose-us')->inRandomOrder()->limit(4)->get();

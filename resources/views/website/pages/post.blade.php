@@ -172,16 +172,16 @@
                         </div>
                     </div>
                 </div>
-                <div class="row text-light">
+                {{-- <div class="row text-light">
                     <div class="py-3 text-center">
                         <a class="btn" href="{{ route('order') }}" aria-label="Order Now">Order Now</a>
                     </div>
-                </div>
+                </div> --}}
             </div>
             <!-- end of container -->
         </section>
         <!-- end of home -->
-        @if ($review)
+        {{-- @if ($review)
             <!-- Reviews -->
             <section style="background-color: #3570a3;" class="services d-flex align-items-center pb-5" id="services">
                 <div class="container text-light">
@@ -204,9 +204,9 @@
                 </div>
             </section>
             <!-- End Reviews -->
-        @endif
+        @endif --}}
 
-        @if ($sample && $sample->subHomepages->isNotEmpty())
+        {{-- @if ($sample && $sample->subHomepages->isNotEmpty())
             <section style="background-color: #3570a3;" class="services d-flex align-items-center pb-5" id="services">
                 <div class="container text-light">
                     <div class="text-center pb-4">
@@ -229,9 +229,9 @@
             </section>
         @else
             <p>No samples found.</p> <!-- Add this message for troubleshooting -->
-        @endif
+        @endif --}}
 
-        <!-- $explorePossibilities -->
+        {{-- <!-- $explorePossibilities -->
         <section class="work d-flex align-items-center py-5">
             <div class="container-fluid text-light">
                 <div class="row">
@@ -294,7 +294,7 @@
             </div>
             <!-- end of container -->
         </section>
-        <!-- end of $explorePossibilities -->
+        <!-- end of $explorePossibilities --> --}}
 
     @endif
 
@@ -342,7 +342,7 @@
         <!-- End Country Section -->
     @endif
 
-    <!-- writers -->
+    {{-- <!-- writers -->
     <section class="plans d-flex align-items-center py-5" id="plans">
         <div class="container text-light">
             <div class="text-center pb-4">
@@ -477,7 +477,7 @@
         </div>
         <!-- end of container -->
     </div>
-    <!-- end of $clientsSays -->
+    <!-- end of $clientsSays --> --}}
 
     @if (url()->current() != 'https://getessayservice.com//au-australia' && strpos(url()->current(), 'au-') !== false)
         <!-- ======= Top Colleges ======= -->
@@ -561,7 +561,7 @@
         <!-- end of information -->
     @endif --}}
 
-    <!-- $bestoffers -->
+    {{-- <!-- $bestoffers -->
     @if ($bestoffers)
         <section class="plans d-flex align-items-center py-5" id="plans">
             <div class="container text-light">
@@ -587,9 +587,9 @@
             </div> <!-- end of container -->
         </section>
     @endif
-    <!-- end of $bestoffers -->
+    <!-- end of $bestoffers --> --}}
 
-    <!--why choose us-->
+    {{-- <!--why choose us-->
     <section class="w3l-about1 bottom" id="about">
         <div id="cwp23-block" class="py-5">
             <div class="container py-lg-5">
@@ -614,10 +614,10 @@
             </div>
         </div>
     </section>
-    <!--End why choose us-->
+    <!--End why choose us--> --}}
 
 
-    @if ($whatYouneed)
+    {{-- @if ($whatYouneed)
         <!-- Information -->
         <section class="information">
             <div class="container-fluid">
@@ -647,7 +647,7 @@
             <!-- end of container -->
         </section>
         <!-- end of information -->
-    @endif
+    @endif --}}
 
     @if (isset($post) && !empty($post))
         <!-- ======= Breadcrumbs ======= -->
@@ -673,7 +673,7 @@
                     {{-- <h1 class="m-2">{{ $post->title }}</h1> --}}
                 </div>
                 <div class="row d-flex align-items-start inter-linking">
-                    <div class="col-sm-9 mt-2" data-aos="fade-right" style="max-height: 480px; overflow-y: scroll;">
+                    <div class="col-sm-9 mt-2" data-aos="fade-right">
                         {!! $post->page_text !!}
                     </div>
                     <div class="col-sm-3 mt-2 col-offer-img" data-aos="fade-left">
@@ -865,6 +865,7 @@
             <!-- End FAQs -->
         @endif
     @endif
+
     @php
         if (strpos(url()->current(), 'au-') !== false) {
             $url = route('locations');
@@ -875,6 +876,7 @@
         }
 
     @endphp
+
 @endsection
 @push('js')
     <script>
