@@ -7,7 +7,7 @@
         @else
             <url>
                 <loc>{{ url($menu->slug) }}</loc>
-                <lastmod><?php echo dateFormat($post->updated_at); ?></lastmod>
+                <lastmod><?php echo dateFormat($menu->updated_at); ?></lastmod>
                 <changefreq>daily</changefreq>
                 <priority>.80</priority>
             </url>
