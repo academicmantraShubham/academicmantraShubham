@@ -34,6 +34,8 @@ Route::get('/services', [WebSiteController::class, 'services'])->name('services'
 Route::get('/about', [WebSiteController::class, 'about'])->name('about');
 Route::get('/contact-us', [WebSiteController::class, 'contact'])->name('contact');
 Route::get('/price', [WebSiteController::class, 'price'])->name('price');
+Route::get('/blog/sitemap.xml', [WebsiteController::class, 'sitemapBlog'])->name('blog.sitemap.xml');
+Route::get('/sitemap.xml',  [WebsiteController::class, 'sitemap'])->name('sitemap.xml');
 // Route::get('/privacy-policy', [WebSiteController::class, 'privacyPolicy'])->name('privacy-policy');
 // Route::get('/terms-and-condition', [WebSiteController::class, 'terms'])->name('terms-condition');
 Route::get('/blogs', [WebSiteController::class, 'blogs'])->name('blogs');

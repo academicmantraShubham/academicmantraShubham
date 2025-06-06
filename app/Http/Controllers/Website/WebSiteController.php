@@ -12,10 +12,12 @@ use Illuminate\Http\Request;
 use App\Models\ContentCategory;
 use App\Notifications\OrderPlaced;
 use App\Http\Controllers\Controller;
+use App\Models\BlogPage;
 use App\Models\Voucher;
 use App\Notifications\Subscribe;
 use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Facades\Notification;
+use PhpParser\Node\Expr\FuncCall;
 
 class WebSiteController extends Controller
 {
@@ -314,5 +316,17 @@ class WebSiteController extends Controller
 
         Notification::route('mail', $request->email)->notify(new OrderPlaced($request));
         return redirect()->back()->withSuccess('Thank You !! For Subscribing.');
+    }
+
+    public function sitemapBlog()
+    {
+        $data['posts'] = BlogPage::orderBy('id', 'DESC')->get();
+        return response()->view('website.pages.blog-sitemap', $data)->header('Content-Type', 'text/xml');
+    }
+
+    public function sitemap()
+    {
+        $data = $this->common();
+        return response()->view('website.pages.sitemap', $data)->header('Content-Type', 'text/xml');
     }
 }
