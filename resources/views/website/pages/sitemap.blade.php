@@ -4,6 +4,40 @@
 
     @foreach ($menus as $key => $menu)
         @if ($menu->subMenus->count() > 0)
+            @foreach ($menu->subMenus as $subMenu)
+                @if ($subMenu->subMenus->count() > 0)
+                    @foreach ($subMenu->subMenus as $subChlid)
+                        @if ($subChlid->subMenus->count() > 0)
+                            @foreach ($subChlid->subMenus as $subChlidSub)
+                                @if ($subChlidSub->content)
+                                    <url>
+                                        <loc>{{ url($subChlidSub->slug) }}</loc>
+                                        <lastmod><?php echo dateFormat($subChlidSub->updated_at); ?></lastmod>
+                                        <changefreq>daily</changefreq>
+                                        <priority>.80</priority>
+                                    </url>
+                                @endif
+                            @endforeach
+                        @else
+                            @if ($subChlid->content)
+                                <url>
+                                    <loc>{{ url($subChlid->slug) }}</loc>
+                                    <lastmod><?php echo dateFormat($subChlid->updated_at); ?></lastmod>
+                                    <changefreq>daily</changefreq>
+                                    <priority>.80</priority>
+                                </url>
+                            @endif
+                        @endif
+                    @endforeach
+                @else
+                    <url>
+                        <loc>{{ url($subMenu->slug) }}</loc>
+                        <lastmod><?php echo dateFormat($subMenu->updated_at); ?></lastmod>
+                        <changefreq>daily</changefreq>
+                        <priority>.80</priority>
+                    </url>
+                @endif
+            @endforeach
         @else
             <url>
                 <loc>{{ url($menu->slug) }}</loc>
