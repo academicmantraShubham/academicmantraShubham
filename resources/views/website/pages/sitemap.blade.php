@@ -2,15 +2,6 @@
     xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
     <!--  created with Free Online Sitemap Generator www.xml-sitemaps.com  -->
 
-    @foreach ($posts as $post)
-        <url>
-            <loc>https://getessayservice.com/{{ $post->slug }}</loc>
-            <lastmod><?php echo dateFormat($post->updated_at); ?></lastmod>
-            <changefreq>daily</changefreq>
-            <priority>.80</priority>
-        </url>
-    @endforeach
-
     @foreach ($menus as $key => $menu)
         @if ($menu->subMenus->count() > 0)
         @else

@@ -2,23 +2,20 @@
 
 namespace App\Http\Controllers\Website;
 
-use Arr;
-use Storage;
 use App\Models\Menu;
+use App\Models\Voucher;
 use App\Models\Homepage;
 use App\Models\Calculator;
+use Illuminate\Support\Arr;
 use App\Models\ContentPage;
 use Illuminate\Http\Request;
 use App\Models\ContentCategory;
+use App\Notifications\Subscribe;
 use App\Notifications\OrderPlaced;
 use App\Http\Controllers\Controller;
-use App\Models\BlogPage;
-use App\Models\Voucher;
-use App\Notifications\Subscribe;
 use Illuminate\Support\Facades\Cache;
+use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Notification;
-use PhpParser\Node\Expr\FuncCall;
-
 class WebSiteController extends Controller
 {
     public $website = [];
@@ -320,7 +317,7 @@ class WebSiteController extends Controller
 
     public function sitemapBlog()
     {
-        $data['posts'] = BlogPage::orderBy('id', 'DESC')->get();
+        $data['posts'] = ContentPage::orderBy('id', 'DESC')->get();
         return response()->view('website.pages.blog-sitemap', $data)->header('Content-Type', 'text/xml');
     }
 
