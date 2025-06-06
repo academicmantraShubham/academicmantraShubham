@@ -317,7 +317,7 @@ class WebSiteController extends Controller
 
     public function sitemapBlog()
     {
-        $data['posts'] = ContentPage::orderBy('id', 'DESC')->get();
+        $data['posts'] = ContentPage::whereType('blog')->orderBy('id', 'DESC')->get();
         return response()->view('website.pages.blog-sitemap', $data)->header('Content-Type', 'text/xml');
     }
 
